@@ -1,0 +1,1252 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../LLM_Structure/">
+      
+      
+        <link rel="next" href="../SFT/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>预训练阶段 - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              预训练阶段
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../agent/" class="md-tabs__link">
+        
+  
+    
+  
+  Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../llm/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vit/" class="md-tabs__link">
+        
+  
+    
+  
+  ViT
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Q与A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 数据准备
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 数据准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 数据收集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 数据清洗
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 数据格式化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 预训练目标
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 预训练目标">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 掩码语言模型 (MLM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 下一句预测 (NSP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-clm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 因果语言模型 (CLM)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 训练策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 训练策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 批量大小和学习率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 预训练时长
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 分布式训练
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 预训练技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 预训练技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 持续预训练
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 领域自适应预训练
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 评估方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 参考文献
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RLHF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RLHF阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Post-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Q与A
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 数据准备
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 数据准备">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 数据收集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 数据清洗
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 数据格式化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 预训练目标
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 预训练目标">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-mlm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 掩码语言模型 (MLM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-nsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 下一句预测 (NSP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-clm" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 因果语言模型 (CLM)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 训练策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 训练策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 批量大小和学习率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 预训练时长
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 分布式训练
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 预训练技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 预训练技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 持续预训练
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 领域自适应预训练
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 评估方法
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 参考文献
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h1 id="_1">预训练阶段<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="0-qa">0. Q与A<a class="headerlink" href="#0-qa" title="Permanent link">&para;</a></h2>
+<p>### 0.1 如何训练自己的大模型?</p>
+<p>训练自己的大模型是一个复杂且资源密集型的任务，它涉及到深度学习、大量数据处理、高性能计算等多个方面。以下是一个详细的步骤指南，帮助你开始训练自己的大模型：</p>
+<ol>
+<li>
+<p>学习深度学习基础知识</p>
+</li>
+<li>
+<p><strong>学习内容</strong>：深度学习的基础知识包括神经网络结构（如卷积神经网络CNN、循环神经网络RNN、Transformer等）、损失函数、优化算法（如SGD、Adam等）等。</p>
+</li>
+<li>
+<p><strong>学习方式</strong>：可以通过在线课程（如Coursera、Udemy上的深度学习课程）、教科书（如《深度学习》一书）和教程来学习。</p>
+</li>
+<li>
+<p>熟悉深度学习框架和编程语言</p>
+</li>
+<li>
+<p><strong>深度学习框架</strong>：熟悉并掌握至少一种深度学习框架，如TensorFlow、PyTorch等。</p>
+</li>
+<li>
+<p><strong>编程语言</strong>：熟练掌握Python等编程语言，因为它们是深度学习领域的主流语言。</p>
+</li>
+<li>
+<p>收集和处理数据集</p>
+</li>
+<li>
+<p><strong>数据收集</strong>：根据你的模型应用需求，收集大量的相关数据。这些数据可以是文本、图像、语音等多种形式。</p>
+</li>
+<li><strong>数据清洗</strong>：对数据进行清洗，去除噪音、无关信息以及个人隐私相关内容。</li>
+<li>
+<p><strong>数据标注</strong>：对于监督学习任务，需要对数据进行标注，以提供训练所需的标签。</p>
+</li>
+<li>
+<p>获取计算资源</p>
+</li>
+<li>
+<p><strong>硬件资源</strong>：大模型训练需要大量的计算资源，包括高性能的GPU或TPU。如果自己的硬件资源有限，可以考虑使用云计算平台（如AWS、Google Cloud、Azure等）或租赁专用的深度学习服务器。</p>
+</li>
+<li>
+<p><strong>软件工具</strong>：使用适合的数据处理、模型训练和评估的软件工具。</p>
+</li>
+<li>
+<p>选择和构建模型</p>
+</li>
+<li>
+<p><strong>选择预训练模型</strong>：考虑使用已有的预训练模型（如BERT、GPT等），这些模型已经在大规模数据上进行了训练，可以通过微调来适应你的特定任务。</p>
+</li>
+<li>
+<p><strong>自定义模型</strong>：如果没有合适的预训练模型，你可以根据需求自定义模型结构。</p>
+</li>
+<li>
+<p>模型训练</p>
+</li>
+<li>
+<p><strong>数据准备</strong>：将清洗和标注好的数据准备为模型训练所需的格式。</p>
+</li>
+<li><strong>配置训练参数</strong>：选择合适的超参数，如学习率、批量大小等。</li>
+<li>
+<p><strong>开始训练</strong>：使用选定的深度学习框架和计算资源开始训练模型。训练过程可能需要大量的时间和计算资源。</p>
+</li>
+<li>
+<p>模型评估和优化</p>
+</li>
+<li>
+<p><strong>性能评估</strong>：使用验证集或测试集评估模型的性能。</p>
+</li>
+<li>
+<p><strong>优化调整</strong>：根据评估结果调整模型结构、超参数或训练策略，以优化模型性能。</p>
+</li>
+<li>
+<p>模型部署和应用</p>
+</li>
+<li>
+<p><strong>模型部署</strong>：将训练好的模型部署到实际应用中。这可能需要使用容器化技术（如Docker）、模型服务框架（如TensorFlow Serving）等。</p>
+</li>
+<li>
+<p><strong>持续监控</strong>：定期监控已部署模型的性能，以确保其在生产环境中表现良好。</p>
+</li>
+<li>
+<p>持续学习和研究</p>
+</li>
+<li>
+<p><strong>跟踪最新进展</strong>：深度学习领域不断演进，保持对最新研究和技术的关注是非常重要的。可以通过阅读学术论文、关注研究者的社交媒体和参与相关研究项目来实现。</p>
+</li>
+<li>
+<p><strong>参与社区</strong>：加入深度学习社区（如GitHub、Stack Overflow、Reddit等），与其他从业者交流经验、分享成果和解决问题。</p>
+</li>
+<li>
+<p>注意事项</p>
+</li>
+<li>
+<p><strong>数据隐私和安全</strong>：在处理敏感数据时，确保遵守相关法规和伦理准则，保护用户隐私。</p>
+</li>
+<li><strong>成本控制</strong>：合理规划和管理计算资源和资金投入，以控制训练成本。</li>
+<li><strong>可解释性和透明度</strong>：对于需要可解释性的应用场景，研究模型解释性技术，以了解模型的决策过程。</li>
+</ol>
+<p>### 0.2 训练中文大模型有啥经验?</p>
+<p>训练中文大模型的经验涉及多个方面，以下是一些关键的经验和建议：</p>
+<p>一、数据准备与处理</p>
+<ol>
+<li><strong>数据质量</strong>：确保收集到的中文数据具有高质量和多样性，以覆盖不同的场景和主题。数据质量对大模型的训练效果至关重要。</li>
+<li><strong>数据预处理</strong>：</li>
+<li><strong>分词</strong>：使用成熟的中文分词工具（如jieba、pkuseg等）对文本进行分词处理，这是中文处理的基本步骤。</li>
+<li><strong>去除停用词</strong>：去除文本中的无意义词汇，以减少数据噪音。</li>
+<li><strong>词性标注</strong>：对文本中的词汇进行词性标注，有助于模型更好地理解语义。</li>
+<li><strong>拼音转换</strong>：在某些场景下，可能需要将汉字转换为拼音，以辅助模型处理发音相关的信息。</li>
+<li><strong>数据增强</strong>：考虑到中文数据集可能相对有限，可以使用数据增强技术来扩充数据集。例如，同义词替换、随机插入或删除词语、句子重组等方法都可以生成新的训练样本。</li>
+</ol>
+<p>二、模型选择与优化</p>
+<ol>
+<li><strong>预训练模型</strong>：</li>
+<li>利用已在大规模中文语料上预训练好的模型（如BERT、GPT等）作为初始模型，然后在目标任务上进行微调。这样可以利用大规模中文语料的信息，提升模型的表达能力和泛化能力。</li>
+<li>对于特定的中文任务（如中文分词、命名实体识别、情感分析等），可以使用中文特定的工具或模型来辅助训练。</li>
+<li><strong>模型设计</strong>：</li>
+<li>采用先进的神经网络结构（如Transformer）作为模型的基础架构，以提高模型的表达能力和计算效率。</li>
+<li>根据任务需求进行模型调整，如增加注意力头、使用长短时记忆网络（LSTM）等。</li>
+<li><strong>超参数调优</strong>：</li>
+<li>选择合适的优化算法和超参数对模型训练至关重要。常用的优化算法包括Adam、Adagrad、RMSProp等。</li>
+<li>通过网格搜索、随机搜索或基于优化算法的自动调参方法来寻找最佳的超参数组合。</li>
+</ol>
+<p>三、训练策略与技巧</p>
+<ol>
+<li><strong>分阶段训练</strong>：将训练过程分为多个阶段，每个阶段解决不同的问题或优化不同的目标。</li>
+<li><strong>稀疏训练</strong>：通过稀疏化技术减少模型参数的数量，降低计算成本和存储需求。</li>
+<li><strong>迁移学习</strong>：利用在相关领域或任务上已经训练好的模型，通过迁移学习技术快速适应新的任务或数据。</li>
+<li><strong>自监督学习</strong>：利用大量未标注的中文数据进行自监督学习，以提高模型的预训练效果。</li>
+</ol>
+<p>四、计算资源与部署</p>
+<ol>
+<li><strong>计算资源</strong>：</li>
+<li>训练大模型需要大量的计算资源，包括GPU、内存和存储。可以考虑使用云计算平台或分布式训练来加速训练过程。</li>
+<li>合理分配计算资源，避免性能瓶颈，确保训练过程的顺利进行。</li>
+<li><strong>模型部署</strong>：</li>
+<li>采用合适的部署方法（如TensorFlow Serving、PyTorch等），确保模型在生产环境中的稳定运行。</li>
+<li>对模型进行剪枝、量化等操作，以降低模型复杂度、提高部署效果。</li>
+</ol>
+<p>五、持续学习与改进</p>
+<ol>
+<li><strong>监控与评估</strong>：在训练过程中实时监控模型的性能指标（如准确率、召回率等），及时发现并解决问题。</li>
+<li><strong>知识蒸馏</strong>：通过知识蒸馏技术将大型模型压缩为小型模型，提高模型在实际应用中的性能。</li>
+<li><strong>持续学习</strong>：关注深度学习领域的最新研究进展和技术动态，不断学习和引入新的方法和技术来改进模型。</li>
+</ol>
+<h2 id="1">1. 简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>[解释预训练的目的和重要性]</p>
+<h2 id="2">2. 数据准备<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 数据收集<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h3 id="22">2.2 数据清洗<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h3 id="23">2.3 数据格式化<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<h2 id="3">3. 预训练目标<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-mlm">3.1 掩码语言模型 (MLM)<a class="headerlink" href="#31-mlm" title="Permanent link">&para;</a></h3>
+<h3 id="32-nsp">3.2 下一句预测 (NSP)<a class="headerlink" href="#32-nsp" title="Permanent link">&para;</a></h3>
+<h3 id="33-clm">3.3 因果语言模型 (CLM)<a class="headerlink" href="#33-clm" title="Permanent link">&para;</a></h3>
+<h2 id="4">4. 训练策略<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 批量大小和学习率<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h3 id="42">4.2 预训练时长<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h3 id="43">4.3 分布式训练<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<h2 id="5">5. 预训练技术<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 持续预训练<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<h3 id="52">5.2 领域自适应预训练<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<h2 id="6">6. 评估方法<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p>[讨论如何评估预训练模型的性能]</p>
+<h2 id="7">7. 参考文献<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>

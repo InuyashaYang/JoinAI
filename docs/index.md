@@ -1,5 +1,4 @@
-
-[![GitHub stars](https://img.shields.io/github/stars/Joining-AI/LLM_Interview_Prepare?style=social)](https://github.com/Joining-AI/LLM_Interview_Prepare)
+[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
 
 欢迎来到 AIDIY Wiki，这是一个整理和分享 LLM、StableDiffusion 和 ViT 相关面试题目和知识点的平台。
 
@@ -20,4 +19,4 @@
 
 [大模型类别](Part1/Part1-2.md)
 
-[![GitHub stars](https://img.shields.io/github/stars/Joining-AI/LLM_Interview_Prepare?style=social)](https://github.com/Joining-AI/LLM_Interview_Prepare)
+[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)

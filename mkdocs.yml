@@ -32,9 +32,17 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css
 nav:
   - Home: index.md
-  - LLM: llm.md
+  - Agent: agent.md
+  - LLM:
+    - 概述: llm.md
+    - 模型结构: LLM_Pages/LLM_Structure.md
+    - 预训练阶段: LLM_Pages/Pre-Train.md
+    - SFT阶段: LLM_Pages/SFT.md
+    - RLHF阶段: LLM_Pages/RLHF.md
+    - 后训练阶段: LLM_Pages/Post-Train.md
   - StableDiffusion: stablediffusion.md
   - ViT: vit.md
+
 
 extra:
   social:
