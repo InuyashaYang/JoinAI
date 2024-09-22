@@ -1,0 +1,1457 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../RLHF/">
+      
+      
+        <link rel="next" href="../../stablediffusion/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>后训练阶段 - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#post-training" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              后训练阶段
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../agent/" class="md-tabs__link">
+        
+  
+    
+  
+  Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../llm/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vit/" class="md-tabs__link">
+        
+  
+    
+  
+  ViT
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pre-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RLHF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RLHF阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Q与A
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Q与A">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-continue-pretrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 领域模型Continue PreTrain 数据选取?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 领域数据训练后，通用能力往往会有所下降，如何缓解模型遗忘通用能力?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-continue-pretrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.3 领域模型Continue PreTrain ，如何让模型在预训练过程中就学习到更多的知识?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型压缩
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 模型压缩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 知识蒸馏
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 模型剪枝
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 量化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 模型部署
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 模型部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 服务器端部署
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 边缘设备部署
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 云端-边缘协同
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 持续学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 持续学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 增量学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 终身学习策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 模型解释性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 模型解释性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 注意力可视化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 特征重要性分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 安全性和隐私
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 安全性和隐私">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 对抗性攻击防御
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 差分隐私
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 模型维护和更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 参考文献
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-qa" class="md-nav__link">
+    <span class="md-ellipsis">
+      0. Q与A
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="0. Q与A">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#01-continue-pretrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.1 领域模型Continue PreTrain 数据选取?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#02" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.2 领域数据训练后，通用能力往往会有所下降，如何缓解模型遗忘通用能力?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#03-continue-pretrain" class="md-nav__link">
+    <span class="md-ellipsis">
+      0.3 领域模型Continue PreTrain ，如何让模型在预训练过程中就学习到更多的知识?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型压缩
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 模型压缩">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 知识蒸馏
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 模型剪枝
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 量化
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 模型部署
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 模型部署">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 服务器端部署
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 边缘设备部署
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 云端-边缘协同
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 持续学习
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 持续学习">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 增量学习
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 终身学习策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 模型解释性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 模型解释性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 注意力可视化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 特征重要性分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 安全性和隐私
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 安全性和隐私">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 对抗性攻击防御
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 差分隐私
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 模型维护和更新
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 参考文献
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h1 id="post-training">Post-Training阶段<a class="headerlink" href="#post-training" title="Permanent link">&para;</a></h1>
+<h2 id="0-qa">0. Q与A<a class="headerlink" href="#0-qa" title="Permanent link">&para;</a></h2>
+<h3 id="01-continue-pretrain">0.1 领域模型Continue PreTrain 数据选取?<a class="headerlink" href="#01-continue-pretrain" title="Permanent link">&para;</a></h3>
+<p>领域模型Continue PreTrain（持续预训练）的数据选取是一个复杂而关键的过程，它直接影响模型在特定领域上的性能和泛化能力。以下是关于领域模型Continue PreTrain数据选取的详细分析：</p>
+<p>一、数据选取原则</p>
+<ol>
+<li><strong>领域特定性</strong>：</li>
+<li>
+<p>选择与特定领域紧密相关的数据，这些数据应包含领域特有的术语、概念和情境。</p>
+</li>
+<li>
+<p><strong>数据覆盖度</strong>：</p>
+</li>
+<li>
+<p>确保数据集覆盖了领域内的各种情况和案例，包括不同的使用场景和用户行为。</p>
+</li>
+<li>
+<p><strong>数据质量</strong>：</p>
+</li>
+<li>
+<p>选取的数据应准确、干净，避免包含错误或不完整的信息，这些都会降低模型训练的效果。</p>
+</li>
+<li>
+<p><strong>数据多样性</strong>：</p>
+</li>
+<li>
+<p>数据集应包含多样化的数据类型（如文本、图像、音频等）和不同的数据来源及风格，以丰富模型的训练环境。</p>
+</li>
+<li>
+<p><strong>数据平衡性</strong>：</p>
+</li>
+<li>
+<p>在分类任务中，确保各类别样本的数量相对均衡，以避免模型对某些类别的过度偏好。</p>
+</li>
+<li>
+<p><strong>数据代表性</strong>：</p>
+</li>
+<li>
+<p>数据集应代表目标用户群体和实际使用情况，以提高模型的泛化能力。</p>
+</li>
+<li>
+<p><strong>数据时效性</strong>：</p>
+</li>
+<li>
+<p>选择最新的数据，特别是在快速变化的领域，以确保模型能够适应当前的趋势和需求。</p>
+</li>
+<li>
+<p><strong>数据合规性</strong>：</p>
+</li>
+<li>确保数据的收集和使用符合相关的法律法规，包括隐私保护和数据安全。</li>
+</ol>
+<p>二、数据选取方法</p>
+<ol>
+<li><strong>收集目标领域数据</strong>：</li>
+<li>
+<p>从互联网、特定领域的文档、公司内部数据库等多种渠道收集与目标领域紧密相关的数据。</p>
+</li>
+<li>
+<p><strong>领域专家标注</strong>：</p>
+</li>
+<li>
+<p>如果有领域专家可用，可以请他们对领域相关的数据进行标注。标注内容可以包括分类、命名实体识别、关系抽取等任务，以提供有监督学习的训练集。</p>
+</li>
+<li>
+<p><strong>自动化标注</strong>：</p>
+</li>
+<li>
+<p>在没有领域专家或标注成本较高的情况下，可以使用预训练的模型对领域相关数据进行自动化标注，生成伪标签。虽然伪标签的准确性可能不如人工标注，但在一定程度上仍可用于模型的训练。</p>
+</li>
+<li>
+<p><strong>数据平衡</strong>：</p>
+</li>
+<li>
+<p>注意各类别数据的平衡性。如果某个类别的数据样本较少，可以考虑使用数据增强技术或对该类别进行过采样，以平衡各个类别的数据量。</p>
+</li>
+<li>
+<p><strong>数据质量控制</strong>：</p>
+</li>
+<li>
+<p>在选取数据之前，需要对数据的质量进行评估。使用准确性、一致性等质量评估指标来筛选和过滤低质量的数据。</p>
+</li>
+<li>
+<p><strong>数据预处理</strong>：</p>
+</li>
+<li>对数据进行必要的预处理，如分词、去除停用词、标准化等，以准备好输入模型进行训练。</li>
+</ol>
+<p>三、数据选取策略</p>
+<ol>
+<li><strong>持续更新</strong>：</li>
+<li>
+<p>建立机制以定期更新数据集，以适应领域的变化和发展。</p>
+</li>
+<li>
+<p><strong>反馈循环</strong>：</p>
+</li>
+<li>
+<p>建立反馈机制，根据模型在实际应用中的表现，不断调整和优化数据选取策略。</p>
+</li>
+<li>
+<p><strong>数据去偏</strong>：</p>
+</li>
+<li>
+<p>识别并减少数据集中的偏见，确保模型不会学习到歧视性或不公平的模式。</p>
+</li>
+<li>
+<p><strong>数据增强</strong>：</p>
+</li>
+<li>
+<p>通过技术手段增加数据集的多样性，如图像增强、文本数据的变体生成等，以提高模型的泛化能力。</p>
+</li>
+<li>
+<p><strong>数据集分割</strong>：</p>
+</li>
+<li>合理分割数据集为训练集、验证集和测试集，以便于模型评估和避免过拟合。</li>
+</ol>
+<h3 id="02">0.2 领域数据训练后，通用能力往往会有所下降，如何缓解模型遗忘通用能力?<a class="headerlink" href="#02" title="Permanent link">&para;</a></h3>
+<p>领域数据训练后，模型可能会在一定程度上遗忘其通用能力，这种现象被称为"灾难性遗忘"（Catastrophic Forgetting）。以下是一些缓解模型灾难性遗忘的策略：</p>
+<ol>
+<li>
+<p><strong>多任务学习</strong>：在训练过程中同时考虑多个任务，这有助于模型学习到更为通用的特征表示。</p>
+</li>
+<li>
+<p><strong>正则化技术</strong>：使用如L2正则化等技术，帮助模型在适应新数据时保持原有的知识。</p>
+</li>
+<li>
+<p><strong>课程学习</strong>：按照从易到难的顺序进行训练，先使用通用数据训练，再逐步引入领域特定数据。</p>
+</li>
+<li>
+<p><strong>弹性权重共享</strong>：通过共享预训练模型中的权重，减少对原始知识的覆盖。</p>
+</li>
+<li>
+<p><strong>记忆回放</strong>：在训练过程中周期性地重新引入一些原始的通用数据，帮助模型回顾和保持通用知识。</p>
+</li>
+<li>
+<p><strong>增量学习</strong>：采用增量学习的方法，逐步添加新的知识，而不是完全替换旧的知识。</p>
+</li>
+<li>
+<p><strong>知识蒸馏</strong>：将预训练模型的知识通过蒸馏的方式传递给新的模型，即使模型在领域数据上进行微调。</p>
+</li>
+<li>
+<p><strong>中间层冻结</strong>：在微调过程中，冻结模型的某些中间层，这些层通常包含更通用的特征。</p>
+</li>
+<li>
+<p><strong>注意力机制</strong>：通过注意力机制，模型可以更加集中于输入数据中的关键部分，减少对通用知识的遗忘。</p>
+</li>
+<li>
+<p><strong>元学习</strong>：使模型学会如何学习，即通过少量样本快速适应新任务，减少对原有知识的依赖。</p>
+</li>
+<li>
+<p><strong>数据增强</strong>：通过数据增强技术，增加领域数据的多样性，减少对特定数据集的过度拟合。</p>
+</li>
+<li>
+<p><strong>任务无关的正则化</strong>：在训练领域模型时，加入与任务无关的正则化项，以保持模型的通用性。</p>
+</li>
+<li>
+<p><strong>模型容量</strong>：增加模型的容量，使其能够存储更多的知识，减少遗忘。</p>
+</li>
+<li>
+<p><strong>经验回放</strong>：存储预训练期间的经验，并在后续训练中适当地回放这些经验。</p>
+</li>
+<li>
+<p><strong>持续学习</strong>：采用持续学习框架，确保模型在面对新任务时能够保留之前学到的知识。</p>
+</li>
+<li>
+<p><strong>跨领域迁移</strong>：在不同领域之间迁移知识，使模型在适应新领域时不会完全丢弃旧领域的知识。</p>
+</li>
+<li>
+<p><strong>评估和反馈</strong>：定期评估模型的通用能力，并根据反馈调整训练策略。</p>
+</li>
+</ol>
+<h3 id="03-continue-pretrain">0.3 领域模型Continue PreTrain ，如何让模型在预训练过程中就学习到更多的知识?<a class="headerlink" href="#03-continue-pretrain" title="Permanent link">&para;</a></h3>
+<p>在领域模型Continue PreTrain（继续预训练）过程中，让模型学习到更多的知识是一个综合性的任务，涉及多个方面的优化。以下是一些关键策略和步骤：</p>
+<ol>
+<li>
+<p>数据选择与准备</p>
+</li>
+<li>
+<p><strong>数据多样性</strong>：确保预训练数据集具有高度的多样性和质量，涵盖广泛的主题、风格和格式，以提供丰富的学习材料。这有助于模型在不同场景下都能表现出色。</p>
+</li>
+<li><strong>大规模数据集</strong>：使用大规模数据集进行训练，确保模型能够接触到更多的信息和知识。大规模数据有助于模型学习到更复杂的模式和关联。</li>
+<li><strong>领域特定数据</strong>：选择与特定领域紧密相关的数据，这些数据应包含领域特有的术语、概念和情境。这有助于模型在特定领域内表现出更高的专业性和准确性。</li>
+<li>
+<p><strong>数据质量</strong>：选取的数据应准确、干净，避免包含错误或不完整的信息。低质量的数据会降低模型训练的效果。</p>
+</li>
+<li>
+<p>模型架构与算法优化</p>
+</li>
+<li>
+<p><strong>模型架构优化</strong>：设计或优化模型架构，如使用Transformer或BERT等先进的模型结构，以提高模型的表示能力和学习能力。</p>
+</li>
+<li><strong>注意力机制</strong>：利用注意力机制帮助模型集中于输入数据中最重要的部分，提高学习效率。</li>
+<li>
+<p><strong>正则化和防止过拟合</strong>：应用正则化技术，如Dropout或权重衰减，以防止模型在训练数据上过拟合。</p>
+</li>
+<li>
+<p>学习策略与技巧</p>
+</li>
+<li>
+<p><strong>多模态学习</strong>：结合文本、图像、声音等多种模态的数据进行训练，让模型能够从不同角度学习知识。这有助于提高模型的跨模态理解和生成能力。</p>
+</li>
+<li><strong>跨领域数据融合</strong>：将不同领域的数据融合在一起进行训练，使模型能够学习到跨领域的通用模式和关联。这有助于模型在更广泛的任务上表现出色。</li>
+<li><strong>任务导向的学习</strong>：设计任务导向的学习方案，如语言模型进行问答、摘要、翻译等任务。这有助于模型在特定任务上表现出更高的性能和准确性。</li>
+<li>
+<p><strong>自监督学习</strong>：利用自监督学习方法，如预测文本中缺失的单词或句子，来提高模型对语言结构的理解。自监督学习可以在没有标注数据的情况下让模型学习到有用的特征。</p>
+</li>
+<li>
+<p>增量与持续学习</p>
+</li>
+<li>
+<p><strong>增量预训练</strong>：在已有的预训练模型基础上，使用领域数据进行增量预训练。这有助于模型在保持通用能力的同时，学习到更多的领域知识。</p>
+</li>
+<li>
+<p><strong>持续学习</strong>：实施持续学习策略，使模型能够随着时间的推移不断吸收新知识。这有助于模型保持与时俱进的能力，适应不断变化的领域需求。</p>
+</li>
+<li>
+<p>特定技术与方法</p>
+</li>
+<li>
+<p><strong>知识注入</strong>：将结构化知识（如知识图谱）注入到模型中，以增强模型对特定事实的记忆和推理能力。</p>
+</li>
+<li><strong>模型蒸馏</strong>：通过模型蒸馏技术，将大型模型的知识迁移到小型模型。这有助于在资源受限的情况下，仍然能够获得高性能的模型。</li>
+<li>
+<p><strong>强化学习</strong>：利用强化学习让模型根据反馈信号自我调整，以更好地学习任务。这有助于提高模型的自我优化能力。</p>
+</li>
+<li>
+<p>数据增强与迁移学习</p>
+</li>
+<li>
+<p><strong>数据增强</strong>：通过数据增强技术，如图像旋转、文本同义词替换等，增加数据集的多样性。这有助于模型学习到更多的变体和模式。</p>
+</li>
+<li><strong>迁移学习</strong>：利用迁移学习，将在一个任务上学到的知识应用到其他相关任务上。这有助于模型在不同任务之间共享知识，提高整体性能。</li>
+</ol>
+<h2 id="1">1. 简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>[解释Post-Training的概念和目的]</p>
+<h2 id="2">2. 模型压缩<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 知识蒸馏<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<h3 id="22">2.2 模型剪枝<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<h3 id="23">2.3 量化<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<h2 id="3">3. 模型部署<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 服务器端部署<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h3 id="32">3.2 边缘设备部署<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h3 id="33-">3.3 云端-边缘协同<a class="headerlink" href="#33-" title="Permanent link">&para;</a></h3>
+<h2 id="4">4. 持续学习<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 增量学习<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h3 id="42">4.2 终身学习策略<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h2 id="5">5. 模型解释性<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 注意力可视化<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<h3 id="52">5.2 特征重要性分析<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<h2 id="6">6. 安全性和隐私<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 对抗性攻击防御<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<h3 id="62">6.2 差分隐私<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<h2 id="7">7. 模型维护和更新<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>[讨论如何保持模型的性能并适应新的数据和任务]</p>
+<h2 id="8">8. 参考文献<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>

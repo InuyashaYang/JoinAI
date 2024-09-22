@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../SFT/">
+      
+      
+        <link rel="next" href="../Post-Train/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Part1 1 - AIDIY Wiki</title>
+        <title>RLHF阶段 - AIDIY Wiki</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#rlhf-reinforcement-learning-from-human-feedback" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part1 1
+              RLHF阶段
             
           </span>
         </div>
@@ -195,10 +199,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../llm/" class="md-tabs__link">
           
   
@@ -321,25 +327,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -350,7 +361,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             LLM
@@ -385,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/LLM_Structure/" class="md-nav__link">
+      <a href="../LLM_Structure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -406,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Pre-Train/" class="md-nav__link">
+      <a href="../Pre-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -427,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/SFT/" class="md-nav__link">
+      <a href="../SFT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -445,10 +456,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../LLM_Pages/RLHF/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RLHF阶段
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -457,6 +488,212 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. RLHF的主要组成部分
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. RLHF的主要组成部分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 奖励模型 (Reward Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-policy-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 策略优化 (Policy Optimization)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 人类反馈收集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 人类反馈收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 反馈类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 数据收集方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 数据质量控制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 奖励模型训练
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 奖励模型训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 模型架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 训练目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 评估方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 策略优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 策略优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 近端策略优化 (PPO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-rlrlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 其他RL算法在RLHF中的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. RLHF的挑战和解决方案
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. RLHF的伦理考虑
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 参考文献
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -469,7 +706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Post-Train/" class="md-nav__link">
+      <a href="../Post-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -547,6 +784,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -555,9 +794,186 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      什么是大模型：
+      1. 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. RLHF的主要组成部分
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. RLHF的主要组成部分">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-reward-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 奖励模型 (Reward Model)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-policy-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 策略优化 (Policy Optimization)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 人类反馈收集
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 人类反馈收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 反馈类型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 数据收集方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 数据质量控制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 奖励模型训练
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 奖励模型训练">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 模型架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 训练目标
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 评估方法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 策略优化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 策略优化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 近端策略优化 (PPO)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-rlrlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 其他RL算法在RLHF中的应用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. RLHF的挑战和解决方案
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-rlhf" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. RLHF的伦理考虑
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 参考文献
     </span>
   </a>
   
@@ -578,23 +994,30 @@
                   
 
 
-  <h1>Part1 1</h1>
-
-<p><a href="https://github.com/Joining-AI/LLM_Interview_Prepare"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Joining-AI/LLM_Interview_Prepare?style=social" /></a></p>
-<h2 id="_1">什么是大模型：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>"大模型"（Large Model）在人工智能和机器学习领域通常指的是参数数量非常庞大的深度学习模型。这些模型通常具备以下几个特点：</p>
-<ol>
-<li><strong>参数数量庞大</strong>：大模型拥有数十亿甚至数万亿的参数。</li>
-<li><strong>数据量巨大</strong>：为了训练大模型，需要海量的数据。</li>
-<li><strong>计算资源需求高</strong>：训练和部署大模型需要非常强大的计算资源。</li>
-<li><strong>强大的泛化能力</strong>：大模型通常具备很强的泛化能力，能够在各种任务上表现出色。</li>
-<li><strong>自监督学习</strong>：很多大模型采用自监督学习方法，从大量未标注数据中学习特征。</li>
-<li><strong>涌现能力</strong>：涌现（英语：emergence）或称创发、突现、呈展、演生，是一种现象，为许多小实体相互作用后产生了大实体，而这个大实体展现了组成它的小实体所不具有的特性。引申到模型层面，涌现能力指的是当模型的训练数据突破一定规模，模型突然涌现出之前小模型所没有的、意料之外的、能够综合分析和解决更深层次问题的复杂能力和特性，展现出类似人类的思维和智能。涌现能力也是大模型最显著的特点之一。</li>
-<li><strong>应用广泛</strong>：大模型在实际应用中有广泛的应用场景。</li>
-</ol>
-<p>一般来讲，大模型所直接指代的是自然语言处理的模型，但严格意义上来讲，其正确的名称应为大语言模型，其代表包括：OpenAI 的 GPT 系列、Google 的 BERT、Transformer 模型、DeepMind 的 AlphaFold 等。
-考虑以上定义，一般的参数量较大的模型也可一般归类为“大模型”，一般标准为10B。以这样的衡量标准，包括Stable Diffusion在内的模型（例如，Sd v3 的最大模型参数量已经达到8B规模）已经摸到了所谓“大模型”的门槛，因而也可以被归为此类。</p>
-<p><a href="../../">返回</a></p>
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h1 id="rlhf-reinforcement-learning-from-human-feedback">RLHF (Reinforcement Learning from Human Feedback) 阶段<a class="headerlink" href="#rlhf-reinforcement-learning-from-human-feedback" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>[解释RLHF的概念和在大语言模型优化中的重要性]</p>
+<h2 id="2-rlhf">2. RLHF的主要组成部分<a class="headerlink" href="#2-rlhf" title="Permanent link">&para;</a></h2>
+<h3 id="21-reward-model">2.1 奖励模型 (Reward Model)<a class="headerlink" href="#21-reward-model" title="Permanent link">&para;</a></h3>
+<h3 id="22-policy-optimization">2.2 策略优化 (Policy Optimization)<a class="headerlink" href="#22-policy-optimization" title="Permanent link">&para;</a></h3>
+<h2 id="3">3. 人类反馈收集<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 反馈类型<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<h3 id="32">3.2 数据收集方法<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<h3 id="33">3.3 数据质量控制<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<h2 id="4">4. 奖励模型训练<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 模型架构<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<h3 id="42">4.2 训练目标<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<h3 id="43">4.3 评估方法<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<h2 id="5">5. 策略优化<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51-ppo">5.1 近端策略优化 (PPO)<a class="headerlink" href="#51-ppo" title="Permanent link">&para;</a></h3>
+<h3 id="52-rlrlhf">5.2 其他RL算法在RLHF中的应用<a class="headerlink" href="#52-rlrlhf" title="Permanent link">&para;</a></h3>
+<h2 id="6-rlhf">6. RLHF的挑战和解决方案<a class="headerlink" href="#6-rlhf" title="Permanent link">&para;</a></h2>
+<p>[讨论实施RLHF时可能遇到的问题及其解决方法]</p>
+<h2 id="7-rlhf">7. RLHF的伦理考虑<a class="headerlink" href="#7-rlhf" title="Permanent link">&para;</a></h2>
+<p>[探讨使用人类反馈进行强化学习的伦理问题]</p>
+<h2 id="8">8. 参考文献<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 
 
 
