@@ -1,0 +1,1867 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.36">
+    
+    
+      
+        <title>LLM Questions - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.06209087.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LLM Questions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../agent/" class="md-tabs__link">
+        
+  
+    
+  
+  Agent
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../llm/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../vit/" class="md-tabs__link">
+        
+  
+    
+  
+  ViT
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../llm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_Structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    模型结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pre-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RLHF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RLHF阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Post-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ViT
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 大模型 综述
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 大模型 综述">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 目前主流的开源模型体系有哪些?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-prefix-lm-causal-lm" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 prefix LM 和 causal LM 区别是什么?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3 涌现能力是啥原因?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 大模型 进阶
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 大模型 进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-llama" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 llama 输入句子长度理论上可以无限长吗?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 什么是 LLMs 复读机问题?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 为什么会出现 LLMs 复读机问题?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 如何缓解 LLMs 复读机问题?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-bertllamachatglm" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 什么情况用Bert模型，什么情况用LLaMA、ChatGLM类大模型，咋选?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 各个专业领域是否需要各自的大模型来服务?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 如何让大模型处理更长的文本?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 预训练和微调哪个阶段注入知识的?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9 想让模型学习某个领域或行业的知识，是应该预训练还是应该微调?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#210" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10 多轮对话任务如何微调模型?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#211-sft" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11 预训练和SFT操作有什么不同?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-oom" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12 样本量规模增大，训练出现OOM错误?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#peft" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 参数高效微调(PEFT) 面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 推理面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 评测面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 强化学习面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 软硬件配置面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      大模型 训练集面
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Token及模型参数准备篇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alibi-attention-with-linear-biases" class="md-nav__link">
+    <span class="md-ellipsis">
+      ALiBi (Attention with Linear Biases)篇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLMs 位置编码篇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      长度外推问题篇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#llms-tokenizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      LLMs Tokenizer 篇
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#layer-normalization" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layer Normalization 篇
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>LLM Questions</h1>
+
+<h2 id="1">1 大模型 综述<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 目前主流的开源模型体系有哪些?<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>目前主流的开源模型体系主要基于Transformer架构，这一架构在自然语言处理（NLP）领域取得了显著成果，并被广泛应用于各种任务和应用中。以下是当前主流的开源模型体系概述：</p>
+<ol>
+<li><strong>GPT（Generative Pre-trained Transformer）系列</strong>：</li>
+<li>由OpenAI发布，包括GPT、GPT-2、GPT-3等模型。</li>
+<li>通过在大规模无标签文本上进行预训练，然后在特定任务上进行微调，具有很强的生成能力和语言理解能力。</li>
+<li>
+<p>GPT系列模型在文本生成、问答系统、对话系统等领域表现出色。</p>
+</li>
+<li>
+<p><strong>BERT（Bidirectional Encoder Representations from Transformers）系列</strong>：</p>
+</li>
+<li>由Google发布，是一种基于Transformer架构的双向预训练语言模型。</li>
+<li>通过在大规模无标签文本上进行预训练，然后在下游任务上进行微调，具有强大的语言理解能力和表征能力。</li>
+<li>
+<p>BERT系列模型在文本分类、命名实体识别、问答系统等多个NLP任务中取得了显著效果。</p>
+</li>
+<li>
+<p><strong>XLNet</strong>：</p>
+</li>
+<li>由卡内基梅隆大学（CMU）和Google Brain发布，是一种基于Transformer架构的自回归预训练语言模型。</li>
+<li>通过自回归方式预训练，可以建模全局依赖关系，具有更好的语言建模能力和生成能力。</li>
+<li>
+<p>XLNet在多项NLP任务中展现了强大的性能。</p>
+</li>
+<li>
+<p><strong>RoBERTa</strong>：</p>
+</li>
+<li>由Facebook发布，是在BERT基础上改进的预训练语言模型。</li>
+<li>
+<p>通过使用更大规模的数据和更长的训练时间，RoBERTa在多个NLP基准测试上取得了更好的性能。</p>
+</li>
+<li>
+<p><strong>T5（Text-to-Text Transfer Transformer）</strong>：</p>
+</li>
+<li>由Google发布，是一种基于Transformer架构的多任务预训练语言模型。</li>
+<li>通过在大规模数据集上进行预训练，T5可用于多种自然语言处理任务，如文本分类、机器翻译、问答等。</li>
+<li>
+<p>T5模型展示了强大的多任务处理能力。</p>
+</li>
+<li>
+<p><strong>ChatGLM系列</strong>：</p>
+</li>
+<li>由清华大学发布，如ChatGLM-6B是一个开源的、支持中英双语问答的对话语言模型。</li>
+<li>
+<p>基于General Language Model（GLM）架构，具有强大的对话和生成能力。</p>
+</li>
+<li>
+<p><strong>MOSS</strong>：</p>
+</li>
+<li>一个支持中英双语和多种插件的开源对话语言模型，具有160亿参数。</li>
+<li>
+<p>MOSS展示了在复杂对话任务中的高效性能。</p>
+</li>
+<li>
+<p><strong>CPM-BEE</strong>：</p>
+</li>
+<li>完全开源且允许商用的百亿参数中英文基座模型。</li>
+<li>
+<p>采用Transformer自回归架构，使用万亿级高质量语料进行预训练。</p>
+</li>
+<li>
+<p><strong>FlagOpen（飞智）</strong>：</p>
+</li>
+<li>由智源研究院发布的大模型技术开源体系，包括大模型算法、模型、数据、工具、评测等重要组成部分。</li>
+<li>FlagOpen为研究者提供了丰富的资源和工具，以推动大模型技术的发展。</li>
+</ol>
+<h3 id="12-prefix-lm-causal-lm">1.2 prefix LM 和 causal LM 区别是什么?<a class="headerlink" href="#12-prefix-lm-causal-lm" title="Permanent link">&para;</a></h3>
+<p>Prefix LM（前缀语言模型）和Causal LM（因果语言模型）是两种不同类型的语言模型，它们在生成文本的方式、训练目标以及应用场景上存在一些关键区别。</p>
+<ol>
+<li>
+<p>生成文本的方式</p>
+</li>
+<li>
+<p><strong>Prefix LM</strong>：前缀语言模型是一种生成模型，它在生成每个词时都可以考虑之前的上下文信息。在生成时，前缀语言模型会根据给定的前缀（即部分文本序列）预测下一个可能的词。这种模型能够利用完整的上下文信息来生成文本，有助于生成更加准确和连贯的内容。解码器（Decoder）可以访问整个输入序列（包括前缀和之前生成的输出），从而更好地理解上下文。</p>
+</li>
+<li>
+<p><strong>Causal LM</strong>：因果语言模型是一种自回归模型，它在生成文本时只能依赖于之前已经生成的文本，而不能利用未来信息。这种模型使用一种掩码（masking），确保在生成每个词时，只能考虑它之前（包括当前）的词，而不能“看”到未来的词。由于其自回归的特性，Causal LM在生成文本时可以逐步构建上下文，适用于长文本生成和需要逐步推理的场景。</p>
+</li>
+<li>
+<p>训练目标</p>
+</li>
+<li>
+<p><strong>Prefix LM</strong>：在训练时，前缀语言模型可能会使用到整个序列的信息来预测下一个词，这种训练方式使得模型能够更全面地理解上下文。</p>
+</li>
+<li>
+<p><strong>Causal LM</strong>：在训练时，因果语言模型的目标是预测下一个词的概率，给定之前的所有词作为上下文。这种训练方式使得模型在生成文本时能够逐步累积信息，形成连贯的文本。</p>
+</li>
+<li>
+<p>应用场景</p>
+</li>
+<li>
+<p><strong>Prefix LM</strong>：由于Prefix LM能够利用完整的上下文信息来生成文本，因此它更适合于需要基于已有文本继续生成文本的任务，例如文本补全、续写故事等。</p>
+</li>
+<li>
+<p><strong>Causal LM</strong>：由于其自回归的特性，Causal LM广泛用于需要生成新文本的任务，例如文本摘要、聊天机器人、语言生成等。在这些任务中，模型需要逐步构建文本，并且每一步的生成都依赖于前一步的结果。</p>
+</li>
+<li>
+<p>解码方式</p>
+</li>
+<li>
+<p><strong>Prefix LM</strong>：可以采用非自回归解码，即并行生成所有词，这有助于提高生成速度。</p>
+</li>
+<li><strong>Causal LM</strong>：则采用自回归解码，即一个词接一个词地生成，这种方式虽然速度较慢，但能够逐步构建上下文，生成更加连贯的文本。</li>
+</ol>
+<h3 id="13">1.3 涌现能力是啥原因?<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p>以下是一些促成大模型涌现能力的关键因素：</p>
+<ol>
+<li>
+<p><strong>模型规模</strong>：大模型拥有大量的参数，这使得它们能够捕捉和学习数据中的复杂模式和细微差别。</p>
+</li>
+<li>
+<p><strong>数据多样性和量级</strong>：大模型通常在大规模和多样化的数据集上进行训练，这为它们提供了丰富的信息来学习语言的各种方面。</p>
+</li>
+<li>
+<p><strong>注意力机制</strong>：Transformer架构中的注意力机制，特别是多头注意力，使得模型能够同时关注输入序列中的多个部分，这有助于理解上下文和执行复杂的语言任务。</p>
+</li>
+<li>
+<p><strong>深度学习</strong>：大模型的深度（即层数）允许它们学习更高层次的抽象表示，这有助于处理语言的复杂性。</p>
+</li>
+<li>
+<p><strong>预训练任务的设计</strong>：大模型通常使用语言建模作为预训练任务，这迫使模型学习如何生成连贯和有意义的文本。</p>
+</li>
+<li>
+<p><strong>持续学习和微调</strong>：在预训练之后，大模型可以通过微调来适应特定的任务或领域，这一过程可能会激发或增强某些能力。</p>
+</li>
+<li>
+<p><strong>架构创新</strong>：模型架构的创新，如更好的初始化方法、优化算法、正则化技术等，也有助于提高模型的性能和涌现能力。</p>
+</li>
+<li>
+<p><strong>计算资源</strong>：大量的计算资源使得训练这些大模型成为可能，这是实现涌现能力的一个重要前提。</p>
+</li>
+</ol>
+<p>涌现能力的例子包括但不限于：</p>
+<ul>
+<li><strong>上下文学习</strong>：模型能够通过观察少量示例来学习执行特定任务，而无需针对该任务进行显式训练。</li>
+<li><strong>指令遵循</strong>：模型能够理解和遵循自然语言指令，执行相应的任务。</li>
+<li><strong>复杂的推理能力</strong>：模型能够执行多步骤的推理，解决需要逻辑思考的问题。</li>
+</ul>
+<h2 id="2">2 大模型 进阶<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-llama">2.1 llama 输入句子长度理论上可以无限长吗?<a class="headerlink" href="#21-llama" title="Permanent link">&para;</a></h3>
+<p>LLaMA（Large Language Model Meta AI）是一种大型语言模型，它的输入句子长度并不是理论上无限长的，而是受到模型设计和计算资源的限制。以下是一些影响输入长度的因素：</p>
+<ol>
+<li>
+<p><strong>上下文窗口大小</strong>：Transformer架构和LLaMA模型通常有一个固定的上下文窗口大小，例如512个token，这意味着模型在处理时只能考虑这么多的连续token。</p>
+</li>
+<li>
+<p><strong>内存限制</strong>：每个token都需要在模型中分配内存以存储其嵌入表示，因此更长的输入句子会导致更高的内存需求。</p>
+</li>
+<li>
+<p><strong>计算资源</strong>：处理更长的输入句子需要更多的计算资源，包括更多的算力和时间。</p>
+</li>
+<li>
+<p><strong>注意力机制</strong>：Transformer模型使用自注意力机制，处理长序列时，计算复杂度会随着序列长度的增加而增加，这可能导致效率问题。</p>
+</li>
+<li>
+<p><strong>优化策略</strong>：为了有效地训练和使用大型模型，可能需要采用特殊的优化策略，如层次化注意力或稀疏注意力，这些策略可能会限制模型处理的序列长度。</p>
+</li>
+<li>
+<p><strong>实现细节</strong>：具体的实现可能会采用不同的技术来处理长序列，例如滑动窗口注意力机制或生成式解码策略，这些技术可以间接地处理更长的序列，但仍然有长度限制。</p>
+</li>
+<li>
+<p><strong>数据结构</strong>：在某些情况下，模型可能使用特殊的数据结构来存储和处理长序列，但这些数据结构本身也可能有长度限制。</p>
+</li>
+<li>
+<p><strong>模型架构</strong>：LLaMA或其他大型模型的架构设计可能会考虑到效率和实用性，选择一个平衡点来确定最大输入长度。</p>
+</li>
+</ol>
+<h3 id="22-llms">2.2 什么是 LLMs 复读机问题?<a class="headerlink" href="#22-llms" title="Permanent link">&para;</a></h3>
+<p>LLMs复读机问题指的是大型语言模型（LLMs，Large Language Models）在生成文本时出现的一种现象，即模型倾向于无限地复制输入的文本或者以过度频繁的方式重复相同的句子或短语。这种现象显著降低了模型输出的多样性和创造性，给用户带来了不佳的体验，倾向于重复或过度强调输入数据中的某些模式、观点或信息，而不是提供多样化或平衡的输出。这个问题在以下几个方面表现得尤为明显：</p>
+<ol>
+<li>
+<p><strong>重复信息</strong>：模型可能会重复输入序列中的特定词汇或短语，尤其是在输入中这些词汇或短语出现的频率较高时。</p>
+</li>
+<li>
+<p><strong>强化偏见</strong>：如果训练数据包含某种偏见，模型可能会学习并放大这些偏见，导致输出内容不够中立或公正。</p>
+</li>
+<li>
+<p><strong>缺乏创新</strong>：模型可能倾向于生成与训练数据中相似的句子结构和表达方式，而不是创造新颖或独特的内容。</p>
+</li>
+<li>
+<p><strong>过度依赖上下文</strong>：在某些情况下，模型可能过度依赖于给定的上下文或提示（prompt），导致生成的文本过于贴近这些上下文，缺乏独立性。</p>
+</li>
+<li>
+<p><strong>风格一致性</strong>：模型可能在生成文本时过于模仿训练数据中的风格，而不是展现出多样化的表达风格。</p>
+</li>
+<li>
+<p><strong>信息回声</strong>：在多轮对话或长文本生成中，模型可能会重复之前生成的内容，形成一种信息上的“回声”效应。</p>
+</li>
+</ol>
+<h3 id="23-llms">2.3 为什么会出现 LLMs 复读机问题?<a class="headerlink" href="#23-llms" title="Permanent link">&para;</a></h3>
+<p>具体来说，LLMs复读机问题可以归因于以下几个方面：</p>
+<ol>
+<li>数据偏差</li>
+</ol>
+<p>大型语言模型通常是通过预训练阶段使用大规模无标签数据进行训练的。如果训练数据中存在大量的重复文本或者某些特定的句子或短语出现频率较高，模型在生成文本时可能会倾向于复制这些常见的模式。这种数据偏差是导致复读机问题的一个重要原因。</p>
+<ol>
+<li>训练目标的限制</li>
+</ol>
+<p>LLMs的训练通常是基于自监督学习的方法，通过预测下一个词或掩盖词来学习语言模型。这样的训练目标可能使得模型更倾向于生成与输入相似的文本，从而增加了复读机问题的风险。</p>
+<ol>
+<li>缺乏多样性的训练数据</li>
+</ol>
+<p>尽管LLMs可以处理大规模的数据，但如果训练数据中缺乏多样性的语言表达和语境，模型可能无法学习到足够的多样性和创造性。这同样会加剧复读机问题的出现。</p>
+<ol>
+<li>模型架构和生成策略</li>
+</ol>
+<p>除了数据和训练目标外，模型架构和生成策略也是影响复读机问题的重要因素。例如，某些生成策略可能过于保守，倾向于生成与已知文本相似的输出，从而增加了复读的可能性。</p>
+<h3 id="24-llms">2.4 如何缓解 LLMs 复读机问题?<a class="headerlink" href="#24-llms" title="Permanent link">&para;</a></h3>
+<p>解决LLMs的复读机问题通常需要采取以下措施：</p>
+<ul>
+<li><strong>多样化训练数据</strong>：确保训练数据的多样性和平衡性，避免模型学习到单一或有偏见的模式。</li>
+<li><strong>正则化技术</strong>：使用不同的正则化技术来减少模型对训练数据的过度拟合。</li>
+<li><strong>微调策略</strong>：在特定任务上微调模型，以减少复读现象并提高输出的多样性和相关性。</li>
+<li><strong>干预和过滤</strong>：在生成过程中实施干预机制，如过滤掉重复或不相关的输出。</li>
+<li><strong>评估和反馈</strong>：定期评估模型的输出质量，并根据反馈进行调整。</li>
+<li><strong>引入噪声</strong>：在生成文本时引入随机性或噪声，以增加生成文本的多样性。</li>
+<li><strong>温度参数调整</strong>：温度参数是用来控制生成文本多样性的一个参数。通过调整温度参数的值，可以控制生成文本的独创性和多样性。</li>
+<li><strong>后处理</strong>：对生成的文本进行后处理和过滤，去除重复的句子或短语，以提高生成文本的质量和多样性。</li>
+</ul>
+<p>通过这些方法，可以减少LLMs的复读机问题，提高模型生成文本的多样性和质量。</p>
+<h3 id="25-bertllamachatglm">2.5 什么情况用Bert模型，什么情况用LLaMA、ChatGLM类大模型，咋选?<a class="headerlink" href="#25-bertllamachatglm" title="Permanent link">&para;</a></h3>
+<p>选择使用BERT模型还是像LLaMA、ChatGLM这样的大型语言模型（LLMs），取决于具体的任务需求、资源可用性以及期望的性能。以下是一些指导原则，可以帮助你决定在不同情况下选择哪种模型：</p>
+<p>使用BERT模型的情况：</p>
+<ol>
+<li><strong>任务对资源要求较低</strong>：如果你需要一个计算效率较高、资源消耗较少的模型，BERT可能是一个好选择。</li>
+<li><strong>NLP基础任务</strong>：BERT擅长处理诸如文本分类、命名实体识别、问答系统等自然语言处理的基础任务。</li>
+<li><strong>微调需求</strong>：BERT在微调后能够很好地适应特定任务，如果你需要在特定数据集上进行微调，BERT是一个成熟的选择。</li>
+<li><strong>研究和教育目的</strong>：由于BERT的普及和广泛的研究基础，它适合用于教育目的和研究项目。</li>
+<li><strong>模型解释性</strong>：如果你需要模型的可解释性，BERT及其变体由于其结构相对简单，通常更容易解释。</li>
+</ol>
+<p>使用LLaMA、ChatGLM等大型模型的情况：</p>
+<ol>
+<li><strong>复杂的语言理解</strong>：对于需要深层次语言理解和生成的复杂任务，如长文本生成、创意写作、高级对话系统等，大型模型可能更加适合。</li>
+<li><strong>丰富的涌现能力</strong>：大型模型往往展现出更多的涌现能力，即在模型规模增大时出现的新能力，这些能力在小型模型中不常见。</li>
+<li><strong>无需微调</strong>：对于没有足够数据进行微调的情况，大型模型可以在不微调的情况下提供较好的性能。</li>
+<li><strong>多模态任务</strong>：如果任务涉及多种模态（如文本、图像等），大型模型可能更适合，因为它们可以处理更广泛的输入类型。</li>
+<li><strong>资源充足</strong>：如果你有充足的计算资源，大型模型可以提供更高的性能，但也需要更多的计算和存储资源。</li>
+</ol>
+<p>如何选择：</p>
+<ul>
+<li><strong>任务需求</strong>：分析你的任务需求，确定是需要一个基础的NLP模型还是需要更高级的语言理解能力。</li>
+<li><strong>资源评估</strong>：考虑你的计算资源和预算，大型模型通常需要更多的资源。</li>
+<li><strong>性能目标</strong>：确定你期望的性能水平，以及不同模型在特定任务上的表现。</li>
+<li><strong>数据可用性</strong>：评估可用于微调的数据量和质量，如果数据有限，可能需要一个能够处理少量数据的模型。</li>
+<li><strong>部署环境</strong>：考虑模型部署的环境，包括硬件限制、延迟要求等。</li>
+<li><strong>伦理和安全</strong>：评估模型可能产生的偏见和伦理问题，选择能够满足这些要求的模型。</li>
+</ul>
+<p>最后，实际选择可能还需要根据具体应用场景和实验结果来确定，有时候结合使用多个模型，或者使用一个模型作为另一个模型的补充，可能是最佳解决方案。</p>
+<h3 id="26">2.6 各个专业领域是否需要各自的大模型来服务?<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>关于各个专业领域是否需要各自的大模型来服务，这是一个复杂且多维度的问题。以下是对这一问题的详细分析：</p>
+<p>一、专业领域大模型的必要性</p>
+<ol>
+<li><strong>领域特定知识</strong>：</li>
+<li>
+<p>不同专业领域拥有各自独特的术语、概念和知识体系。一个针对特定领域训练的大模型能够更准确地理解和生成与该领域相关的文本，从而提高信息的准确性和相关性。</p>
+</li>
+<li>
+<p><strong>数据可用性</strong>：</p>
+</li>
+<li>
+<p>某些领域可能拥有大量的专业文本数据，这为训练专业领域的大模型提供了基础。利用这些数据训练出的模型能够更深入地理解该领域的细节和特征。</p>
+</li>
+<li>
+<p><strong>应用需求</strong>：</p>
+</li>
+<li>
+<p>专业领域内的具体应用需求可能需要定制化的模型来满足。例如，医疗领域的模型可能需要特别关注医学术语和诊断准确性，而法律领域的模型可能更擅长法律条文的解析和应用。</p>
+</li>
+<li>
+<p><strong>性能优化</strong>：</p>
+</li>
+<li>
+<p>专业领域的大模型可以在特定任务上进行优化，以更好地满足该领域的特定需求。这种优化可以提高模型的效率和准确性。</p>
+</li>
+<li>
+<p><strong>合规性和伦理</strong>：</p>
+</li>
+<li>
+<p>某些领域如医疗、金融等，对模型的合规性、隐私保护和伦理要求较高。特定设计的模型可以更好地满足这些要求，确保数据的安全和合规使用。</p>
+</li>
+<li>
+<p><strong>用户接受度</strong>：</p>
+</li>
+<li>领域专家和用户可能更倾向于使用那些能够理解他们专业术语和概念的模型。这有助于提高用户满意度和信任度。</li>
+</ol>
+<p>二、通用大模型的优势</p>
+<ol>
+<li><strong>通用性</strong>：</li>
+<li>
+<p>通用大模型可以处理各种类型的查询，而不仅仅是特定领域的查询。这使得它们具有更广泛的应用范围。</p>
+</li>
+<li>
+<p><strong>处理未知或罕见查询</strong>：</p>
+</li>
+<li>
+<p>由于通用大模型接受了大量和多样的训练数据，它们可能在处理未知或罕见查询时表现得更好。这种能力对于跨领域的任务尤为重要。</p>
+</li>
+<li>
+<p><strong>维护和更新</strong>：</p>
+</li>
+<li>通用大模型可能更容易维护和更新。因为它们不需要针对每个领域进行特定的训练和优化，所以更新和维护的成本相对较低。</li>
+</ol>
+<p>三、综合考量</p>
+<ul>
+<li>对于那些拥有大量专业数据、高度专业化需求、以及对准确性和合规性要求极高的领域，开发和使用各自的大模型可能是有益的。这些模型能够针对特定领域进行深度优化，提供更高质量的服务。</li>
+<li>对于数据较少或需求不是特别专业化的领域，可能可以通过使用通用模型并通过迁移学习等技术来适应特定需求。这样可以减少开发和维护成本，同时利用通用模型的强大能力。</li>
+</ul>
+<h3 id="27">2.7 如何让大模型处理更长的文本?<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>处理更长文本的能力对于大型语言模型（LLMs）来说是一个重要的考量，因为许多应用场景，如文档摘要、长篇内容生成或分析等，都需要理解和生成较长的文本序列。以下是一些方法和策略，可以帮助大模型处理更长的文本：</p>
+<ol>
+<li>
+<p><strong>增加上下文窗口</strong>：扩大模型的上下文窗口大小，允许模型一次性处理更多的输入。这通常需要模型架构和硬件支持更大的序列长度。</p>
+</li>
+<li>
+<p><strong>滑动窗口技术</strong>：使用滑动窗口方法处理文本，即每次只处理文本的一部分，然后逐步移动窗口来处理整个文本。</p>
+</li>
+<li>
+<p><strong>层次化注意力机制</strong>：采用层次化或分层的注意力机制，允许模型在不同层次上处理信息，从而更有效地处理长文本。</p>
+</li>
+<li>
+<p><strong>稀疏注意力模式</strong>：使用稀疏注意力模式，如局部感知或相对位置编码，减少计算量，使模型能够处理更长的序列。</p>
+</li>
+<li>
+<p><strong>缓存和记忆网络</strong>：利用缓存或记忆网络存储和检索长文本中的关键信息，帮助模型在生成时保持连贯性。</p>
+</li>
+<li>
+<p><strong>分块处理</strong>：将长文本分割成小块，分别处理每个块，然后合并结果。这种方法需要确保块与块之间的边界平滑过渡。</p>
+</li>
+<li>
+<p><strong>迭代细化</strong>：通过迭代过程逐步构建输出，每次迭代都在之前的基础上进行细化，直到达到所需的文本长度。</p>
+</li>
+<li>
+<p><strong>条件生成</strong>：在生成文本时，使用条件生成技术，如给定特定的提示或约束条件，指导模型生成特定长度的文本。</p>
+</li>
+<li>
+<p><strong>多阶段处理</strong>：将文本处理任务分解为多个阶段，每个阶段处理文本的一部分，最终将各阶段的结果整合起来。</p>
+</li>
+<li>
+<p><strong>模型并行和数据并行</strong>：采用模型并行和数据并行技术，将模型的不同部分或数据的不同片段分布到多个计算设备上，以处理更长的文本。</p>
+</li>
+<li>
+<p><strong>优化算法</strong>：使用高效的优化算法和学习率调度策略，帮助模型在训练和微调过程中更好地学习长文本的特征。</p>
+</li>
+<li>
+<p><strong>长短期记忆</strong>：利用长短期记忆（LSTM）或门控循环单元（GRU）等循环神经网络结构，帮助模型记住长文本中的关键信息。</p>
+</li>
+<li>
+<p><strong>知识蒸馏</strong>：通过知识蒸馏技术，将大型模型的知识迁移到更小的模型中，使小模型能够处理长文本并保持性能。</p>
+</li>
+<li>
+<p><strong>预训练和微调</strong>：在大量长文本数据上进行预训练，然后在特定任务上进行微调，以提高模型处理长文本的能力。</p>
+</li>
+</ol>
+<h3 id="28">2.8 预训练和微调哪个阶段注入知识的?<a class="headerlink" href="#28" title="Permanent link">&para;</a></h3>
+<p>在机器学习和深度学习中，预训练和微调是两个不同的阶段，它们都可以用于向模型注入知识，但方式和目的不同：</p>
+<ol>
+<li><strong>预训练阶段</strong>：</li>
+<li>目的：在大规模的数据集上训练模型，使其学习到通用的语言表示或特征。</li>
+<li>注入知识：这个阶段模型学习到的是广泛的知识，包括词汇、语法、句子结构、常见概念等。</li>
+<li>
+<p>方法：通常使用无监督或自监督学习任务，如掩码语言模型（MLM）、下一句预测（NSP）等。</p>
+</li>
+<li>
+<p><strong>微调阶段</strong>：</p>
+</li>
+<li>目的：在特定领域的数据上进一步训练模型，使其适应特定的任务或应用场景。</li>
+<li>注入知识：这个阶段模型学习到的是与特定任务或领域相关的专业知识。</li>
+<li>方法：通常使用监督学习，将预训练模型作为起点，然后在有限的标注数据上进行微调。</li>
+</ol>
+<p>预训练阶段注入知识的方式：
+- <strong>自监督学习</strong>：通过预测遮蔽（masked）的单词或短语，模型学习语言的内在结构。
+- <strong>大规模数据集</strong>：使用大量的文本数据，覆盖广泛的主题和风格，使模型能够学习到丰富的语言特征。</p>
+<p>微调阶段注入知识的方式：
+- <strong>领域特定数据</strong>：使用特定领域的文本数据，如法律文件、医疗记录等，使模型学习到专业术语和概念。
+- <strong>任务特定数据</strong>：针对特定任务（如情感分析、文本分类等）进行训练，使模型能够执行特定任务。
+- <strong>少量样本学习</strong>：在数据较少的情况下，通过微调使模型快速适应新任务。</p>
+<p>两者的结合：
+- 在实际应用中，预训练和微调通常是连续的过程。预训练提供了一个强大的基础模型，然后通过微调将这个模型适应到特定的任务或领域。
+- 预训练阶段可以看作是模型的“基础教育”，而微调阶段则是“专业培训”。</p>
+<p>特殊情况：
+- 在某些情况下，如果特定领域的数据非常充足，也可以考虑在预训练阶段就使用这些领域特定的数据，从而在预训练过程中就注入特定知识。</p>
+<p>总的来说，预训练和微调都是向模型注入知识的重要阶段，但它们关注的知识和应用场景不同。预训练侧重于通用知识的学习，而微调侧重于特定任务或领域的专业知识的适应。</p>
+<h3 id="29">2.9 想让模型学习某个领域或行业的知识，是应该预训练还是应该微调?<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<p>在机器学习和人工智能领域，预训练和微调是两种常见的模型训练方法，它们各有优势和适用场景：</p>
+<ol>
+<li><strong>预训练（Pre-training）</strong>：</li>
+<li>预训练通常指的是在一个大型的数据集上训练模型，以便学习通用的语言或模式。</li>
+<li>这种方法适用于没有特定领域数据集或者数据集较小的情况。</li>
+<li>
+<p>预训练模型可以在广泛的任务上表现良好，因为它学习了语言的通用结构和语义信息。</p>
+</li>
+<li>
+<p><strong>微调（Fine-tuning）</strong>：</p>
+</li>
+<li>微调是在预训练模型的基础上，针对特定领域或任务进行进一步训练的过程。</li>
+<li>这种方法适用于有足够特定领域数据的情况。</li>
+<li>微调可以帮助模型更好地适应特定任务或领域，提高在该领域的性能。</li>
+</ol>
+<p>如果想让大模型学习某个特定领域或行业的知识，通常的做法是：</p>
+<ul>
+<li>首先进行**预训练**，以获得一个在语言理解、模式识别等方面表现良好的基础模型。</li>
+<li>然后，根据可用的特定领域数据量，选择是否进行**微调**。如果有足够的领域特定数据，微调可以帮助模型更好地理解和适应该领域的特定需求。</li>
+</ul>
+<p>在实际操作中，微调通常需要较少的计算资源和时间，因为它是在预训练模型的基础上进行的。此外，微调可以针对不同的任务或领域进行多次，从而使得同一个预训练模型能够适应多种不同的应用场景。</p>
+<h3 id="210">2.10 多轮对话任务如何微调模型?<a class="headerlink" href="#210" title="Permanent link">&para;</a></h3>
+<p>多轮对话任务的模型微调是一个复杂但重要的过程，旨在提高模型在连续对话中的理解、生成和响应能力。以下是微调模型以适应多轮对话任务的一般步骤和考虑因素：</p>
+<ol>
+<li>数据准备</li>
+</ol>
+<p><strong>收集或生成数据集</strong>：
+- 数据应包含多轮对话的完整历史记录，涵盖不同的主题、风格和长度。
+- 确保数据集的多样性和代表性，以提高模型的泛化能力。</p>
+<p><strong>数据清洗和格式化</strong>：
+- 对数据进行清洗，去除噪声和无关信息。
+- 将对话数据格式化为模型可以理解的输入形式，如序列对（prompt-response）格式。</p>
+<ol>
+<li>模型选择</li>
+</ol>
+<p><strong>选择合适的预训练模型</strong>：
+- 选择一个经过广泛验证的预训练语言模型作为基础，如GPT、BERT、XLNet等。
+- 根据任务的具体需求选择不同大小和版本的模型。</p>
+<ol>
+<li>任务特定层</li>
+</ol>
+<p><strong>添加任务特定层</strong>：
+- 在预训练模型的基础上添加处理对话历史、上下文理解和生成回答等任务相关的层。
+- 这些层可能包括注意力机制、记忆网络、对话状态跟踪器等。</p>
+<ol>
+<li>微调过程</li>
+</ol>
+<p><strong>定义损失函数</strong>：
+- 选择适合对话生成任务的损失函数，如交叉熵损失。
+- 考虑使用BLEU、ROUGE等评估指标来辅助优化。</p>
+<p><strong>优化算法和参数</strong>：
+- 使用常见的优化算法（如SGD、Adam）来优化模型参数。
+- 仔细调整学习率、批次大小、训练轮数等超参数。</p>
+<p><strong>数据增强和对抗训练</strong>：
+- 应用数据增强技术来增加训练数据的多样性和丰富性。
+- 引入对抗训练来提高模型的鲁棒性和泛化能力。</p>
+<ol>
+<li>评估和调优</li>
+</ol>
+<p><strong>评估模型性能</strong>：
+- 使用验证集或开发集对微调后的模型进行评估。
+- 计算并比较不同模型在多轮对话任务上的准确率、召回率、F1分数等指标。</p>
+<p><strong>调优和迭代</strong>：
+- 根据评估结果调整模型结构、参数或训练策略。
+- 进行多次迭代以逐步提高模型性能。</p>
+<ol>
+<li>推理和部署</li>
+</ol>
+<p><strong>部署模型</strong>：
+- 将微调后的模型部署到实际应用场景中。
+- 确保模型能够在实时或接近实时的环境中高效运行。</p>
+<p><strong>监控和反馈</strong>：
+- 监控模型在实际应用中的表现，收集用户反馈。
+- 根据反馈对模型进行持续优化和改进。</p>
+<p>注意事项</p>
+<ul>
+<li>在微调过程中，需要特别关注对话的上下文理解、连贯性以及个性化回应的能力。</li>
+<li>确保模型能够处理和记忆长距离的对话历史信息。</li>
+<li>使用具有记忆能力的模型架构（如基于Transformer的模型）来捕捉长距离依赖关系。</li>
+</ul>
+<h3 id="211-sft">2.11 预训练和SFT操作有什么不同?<a class="headerlink" href="#211-sft" title="Permanent link">&para;</a></h3>
+<p>预训练（Pre-training）和监督式微调（Supervised Fine-Tuning，简称SFT）是深度学习中两种不同的训练阶段，它们在目标、方法和应用上有所区别：</p>
+<ol>
+<li><strong>目标</strong>：</li>
+<li><strong>预训练</strong>：目的是在大规模的数据集上训练模型，使其能够学习到通用的语言表示和模式。这个阶段通常不针对特定的任务。</li>
+<li>
+<p><strong>SFT</strong>：目的是在预训练的基础上，针对特定的任务或领域进行进一步的训练，以提高模型在该任务上的性能。</p>
+</li>
+<li>
+<p><strong>数据集</strong>：</p>
+</li>
+<li><strong>预训练</strong>：使用的数据集通常是大规模的、多样化的，可能包括维基百科、书籍、网页等。</li>
+<li>
+<p><strong>SFT</strong>：使用的数据集是针对特定任务的，可能包括问答对、对话记录或特定领域的文本。</p>
+</li>
+<li>
+<p><strong>训练方式</strong>：</p>
+</li>
+<li><strong>预训练</strong>：模型在没有明确任务指导的情况下进行训练，例如通过预测下一个词或句子的掩码语言模型（Masked Language Model, MLM）任务。</li>
+<li>
+<p><strong>SFT</strong>：模型在有明确任务指导的情况下进行训练，例如通过监督学习来优化特定任务的输出。</p>
+</li>
+<li>
+<p><strong>任务类型</strong>：</p>
+</li>
+<li><strong>预训练</strong>：不涉及特定任务的训练，而是学习语言的通用特性。</li>
+<li>
+<p><strong>SFT</strong>：涉及特定任务的训练，如文本分类、情感分析、问答系统等。</p>
+</li>
+<li>
+<p><strong>模型参数</strong>：</p>
+</li>
+<li><strong>预训练</strong>：在预训练阶段，模型的大部分参数都会更新。</li>
+<li>
+<p><strong>SFT</strong>：在微调阶段，通常只有部分参数会更新，尤其是与任务相关的顶层或特定层的参数。</p>
+</li>
+<li>
+<p><strong>训练时间</strong>：</p>
+</li>
+<li><strong>预训练</strong>：由于需要处理大量的数据和学习通用的语言表示，预训练通常需要较长的时间。</li>
+<li>
+<p><strong>SFT</strong>：微调通常在预训练模型的基础上进行，所需时间相对较短。</p>
+</li>
+<li>
+<p><strong>资源需求</strong>：</p>
+</li>
+<li><strong>预训练</strong>：需要大量的计算资源，如GPU或TPU，以及大量的数据存储空间。</li>
+<li>
+<p><strong>SFT</strong>：资源需求相对较低，但仍然需要足够的计算能力来处理特定任务的数据。</p>
+</li>
+<li>
+<p><strong>泛化能力</strong>：</p>
+</li>
+<li><strong>预训练</strong>：模型在预训练后具有较好的泛化能力，能够处理多种语言相关任务。</li>
+<li><strong>SFT</strong>：模型在微调后可能在特定任务上表现更好，但泛化能力可能受限于训练数据的多样性。</li>
+</ol>
+<p>总结来说，预训练是为了构建一个具有通用语言理解能力的模型，而SFT是为了使这个模型在特定任务上达到最佳性能。两者通常结合使用，以实现在特定应用场景中的最优表现。</p>
+<h3 id="212-oom">2.12 样本量规模增大，训练出现OOM错误?<a class="headerlink" href="#212-oom" title="Permanent link">&para;</a></h3>
+<p>当样本量规模增大时，训练过程中出现OOM（Out Of Memory，内存溢出）错误是一个常见的问题。OOM错误通常发生在训练大型模型或处理大量数据时，因为系统资源（特别是内存）无法满足当前训练任务的需求。以下是一些可能导致OOM错误的原因以及相应的解决方案：</p>
+<p>一、OOM错误的原因</p>
+<ol>
+<li><strong>模型复杂度过高</strong>：随着样本量的增加，模型可能需要更多的参数来捕捉数据中的复杂关系，这会导致模型占用更多的内存。</li>
+<li><strong>批量大小（Batch Size）过大</strong>：批量大小直接影响每次迭代中需要处理的数据量，过大的批量会显著增加内存消耗。</li>
+<li><strong>数据加载方式</strong>：如果数据加载方式不当，如一次性将所有数据加载到内存中，而不是分批加载，也会导致内存溢出。</li>
+<li><strong>内存泄漏</strong>：程序中可能存在内存泄漏的问题，即已分配的内存未得到及时释放，随着训练的进行，内存消耗逐渐增加，最终导致OOM。</li>
+<li><strong>系统资源限制</strong>：训练环境本身的资源限制，如物理内存不足、操作系统限制等，也可能导致OOM错误。</li>
+</ol>
+<p>二、解决方案</p>
+<ol>
+<li><strong>优化模型结构</strong>：</li>
+<li>尝试简化模型结构，减少模型参数数量。</li>
+<li>
+<p>使用更高效的模型架构，如卷积神经网络（CNN）、循环神经网络（RNN）的变种等。</p>
+</li>
+<li>
+<p><strong>调整批量大小</strong>：</p>
+</li>
+<li>减小批量大小，以减少每次迭代中需要处理的数据量。</li>
+<li>
+<p>可以通过梯度累积（Gradient Accumulation）技术来模拟较大的批量效果，同时保持较小的实际批量大小。</p>
+</li>
+<li>
+<p><strong>优化数据加载方式</strong>：</p>
+</li>
+<li>采用流式处理或生成器（Generator）的方式来加载数据，以实现数据的分批加载和实时处理。</li>
+<li>
+<p>使用数据增强技术来扩展数据集，同时保持内存占用在可控范围内。</p>
+</li>
+<li>
+<p><strong>检查和修复内存泄漏</strong>：</p>
+</li>
+<li>使用内存分析工具（如VisualVM、JProfiler等）来检查内存使用情况，找出内存泄漏的源头。</li>
+<li>
+<p>修正代码中的内存泄漏问题，确保已分配的内存得到及时释放。</p>
+</li>
+<li>
+<p><strong>升级硬件资源</strong>：</p>
+</li>
+<li>如果条件允许，可以考虑升级服务器的硬件配置，如增加物理内存、使用更快的CPU等。</li>
+<li>
+<p>使用分布式训练技术，将训练任务分配到多个节点上并行处理，以分散内存压力。</p>
+</li>
+<li>
+<p><strong>调整JVM参数</strong>：</p>
+</li>
+<li>如果是Java程序，可以通过调整JVM参数（如-Xmx、-Xms等）来优化内存分配和使用。</li>
+<li>
+<p>确保JVM有足够的堆内存空间来处理训练任务。</p>
+</li>
+<li>
+<p><strong>使用更高效的库和框架</strong>：</p>
+</li>
+<li>选择经过优化的深度学习库和框架（如TensorFlow、PyTorch等），这些库和框架通常提供了更高效的内存管理和优化算法。</li>
+</ol>
+<h2 id="peft">大模型 参数高效微调(PEFT) 面<a class="headerlink" href="#peft" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>LoRA篇</strong></p>
+</li>
+<li>
+<p>什么是 LoRA?</p>
+</li>
+<li>
+<p>LoRA 的思路是什么?</p>
+</li>
+<li>
+<p>LoRA 的特点是什么?</p>
+</li>
+<li>
+<p><strong>QLoRA篇</strong></p>
+</li>
+<li>
+<p>QLoRA 的思路是怎么样的?</p>
+</li>
+<li>
+<p>QLoRA 的特点是什么?</p>
+</li>
+<li>
+<p><strong>AdaLoRA篇</strong></p>
+</li>
+<li>
+<p>AdaLoRA 的思路是怎么样的?</p>
+</li>
+<li>
+<p>LoRA权重是否可以合入原模型?</p>
+</li>
+<li>
+<p>ChatGLM-6B LoRA后的权重多大?</p>
+</li>
+<li>
+<p>LoRA 微调优点是什么?</p>
+</li>
+<li>
+<p>LoRA微调方法为啥能加速训练?</p>
+</li>
+<li>
+<p>如何在已有LoRA模型上继续训练?</p>
+</li>
+<li>
+<p><strong>提示学习（Prompting）</strong></p>
+</li>
+<li>
+<p>为什么需要 P-tuning?</p>
+</li>
+<li>
+<p>P-tuning 思路是什么?</p>
+</li>
+<li>
+<p>P-tuning 优点是什么?</p>
+</li>
+<li>
+<p>P-tuning 缺点是什么?</p>
+</li>
+<li>
+<p>为什么需要 指示微调（Prompt-tuning）?</p>
+</li>
+<li>
+<p>指示微调（Prompt-tuning）思路是什么?</p>
+</li>
+<li>
+<p>指示微调（Prompt-tuning）优点是什么?</p>
+</li>
+<li>
+<p>指示微调（Prompt-tuning）缺点是什么?</p>
+</li>
+<li>
+<p>指示微调（Prompt-tuning）与 Prefix-tuning 区别 是什么?</p>
+</li>
+<li>
+<p>指示微调（Prompt-tuning）与 fine-tuning 区别 是什么?</p>
+</li>
+<li>
+<p>提示学习（Prompting）有哪些方法，能不能稍微介绍一下它们?</p>
+</li>
+<li>
+<p><strong>前缀微调（Prefix-tuning）篇</strong></p>
+</li>
+<li>
+<p>为什么需要 前缀微调（Prefix-tuning）?</p>
+</li>
+<li>
+<p>前缀微调（Prefix-tuning）思路是什么?</p>
+</li>
+<li>
+<p>前缀微调（Prefix-tuning）的优点是什么?</p>
+</li>
+<li>
+<p>前缀微调（Prefix-tuning）的缺点是什么?</p>
+</li>
+<li>
+<p><strong>适配器微调（Adapter-tuning）篇</strong></p>
+</li>
+<li>
+<p>为什么 需要 适配器微调（Adapter-tuning）?</p>
+</li>
+<li>
+<p>适配器微调（Adapter-tuning）思路?</p>
+</li>
+<li>
+<p>适配器微调（Adapter-tuning）特点是什么?</p>
+</li>
+<li>
+<p>AdapterFusion 思路 是什么?</p>
+</li>
+<li>
+<p>AdapterDrop 思路 是什么?</p>
+</li>
+<li>
+<p>AdapterDrop 特点 是什么?</p>
+</li>
+<li>
+<p>MAM Adapter 思路 是什么?</p>
+</li>
+<li>
+<p>MAM Adapter 特点 是什么?</p>
+</li>
+</ul>
+<h2 id="_1">大模型 推理面<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>为什么大模型推理时显存涨的那么多还一直占着?</p>
+</li>
+<li>
+<p>大模型在gpu和cpu上推理速度如何?</p>
+</li>
+<li>
+<p>推理速度上，int8和fp16比起来怎么样?</p>
+</li>
+<li>
+<p>大模型有推理能力吗?</p>
+</li>
+<li>
+<p>大模型生成时的参数怎么设置?</p>
+</li>
+<li>
+<p>有哪些省内存的大语言模型训练/微调/推理方法?</p>
+</li>
+<li>
+<p>如何让大模型输出合规化</p>
+</li>
+<li>
+<p>应用模式变更</p>
+</li>
+</ul>
+<h2 id="_2">大模型 评测面<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>大模型怎么评测?</p>
+</li>
+<li>
+<p>大模型的honest原则是如何实现的?</p>
+</li>
+<li>
+<p>模型如何判断回答的知识是训练过的已知的知识，怎么训练这种能力?</p>
+</li>
+</ul>
+<h2 id="_3">大模型 强化学习面<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>奖励模型需要和基础模型一致吗?</p>
+</li>
+<li>
+<p>RLHF 在实践过程中存在哪些不足?</p>
+</li>
+<li>
+<p>如何解决 人工产生的偏好数据集成本较高，很难量产问题?</p>
+</li>
+<li>
+<p>如何解决三个阶段的训练（SFT-&gt;RM-&gt;PPO）过程较长，更新迭代较慢问题?</p>
+</li>
+<li>
+<p>如何解决 PPO 的训练过程同时存在4个模型（2训练，2推理），对计算资源的要求较高问题?</p>
+</li>
+</ul>
+<h2 id="_4">大模型 软硬件配置面<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>介绍一下 FFN 块 计算公式?</p>
+</li>
+<li>
+<p>介绍一下 GeLU 计算公式?</p>
+</li>
+<li>
+<p>介绍一下 Swish 计算公式?</p>
+</li>
+<li>
+<p>介绍一下 使用 GLU 线性门控单元的 FFN 块 计算公式?</p>
+</li>
+<li>
+<p>介绍一下 使用 GeLU 的 GLU 块 计算公式?</p>
+</li>
+<li>
+<p>介绍一下 使用 Swish 的 GLU 块 计算公式?</p>
+</li>
+<li>
+<p>各LLMs 都使用哪种激活函数?</p>
+</li>
+</ul>
+<h2 id="_5">大模型 训练集面<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>SFT（有监督微调）的数据集格式?</p>
+</li>
+<li>
+<p>RM（奖励模型）的数据格式?</p>
+</li>
+<li>
+<p>PPO（强化学习）的数据格式?</p>
+</li>
+<li>
+<p>找数据集哪里找?</p>
+</li>
+<li>
+<p>微调需要多少条数据?</p>
+</li>
+<li>
+<p>有哪些大模型的训练集?</p>
+</li>
+<li>
+<p>进行领域大模型预训练应用哪些数据集比较好?</p>
+</li>
+<li>
+<p>如何给LLM注入领域知识?</p>
+</li>
+<li>
+<p>如果想要快速体验各种模型，该怎么办?</p>
+</li>
+</ul>
+<h2 id="token">Token及模型参数准备篇<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>预训练数据 Token 重复 是否影响 模型性能?</p>
+</li>
+<li>
+<p>SFT需要训练Token数?</p>
+</li>
+</ul>
+<h2 id="alibi-attention-with-linear-biases">ALiBi (Attention with Linear Biases)篇<a class="headerlink" href="#alibi-attention-with-linear-biases" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>ALiBi (Attention with Linear Biases) 思路是什么?</p>
+</li>
+<li>
+<p>ALiBi (Attention with Linear Biases) 的偏置矩阵是什么?有什么作用?</p>
+</li>
+<li>
+<p>ALiBi (Attention with Linear Biases) 有什么优点?</p>
+</li>
+<li>
+<p>ALiBi (Attention with Linear Biases) 被哪些 LLMs 应用?</p>
+</li>
+</ul>
+<h2 id="llms">LLMs 位置编码篇<a class="headerlink" href="#llms" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>什么是位置编码?</p>
+</li>
+<li>
+<p>什么是绝对位置编码?</p>
+</li>
+<li>
+<p>什么是相对位置编码?</p>
+</li>
+<li>
+<p><strong>旋转位置编码 RoPE篇</strong></p>
+</li>
+<li>
+<p>旋转位置编码 RoPE 思路是什么?</p>
+</li>
+<li>
+<p>推导一下 旋转位置编码 RoPE ?</p>
+</li>
+<li>
+<p>旋转位置编码 RoPE 有什么优点?</p>
+</li>
+<li>
+<p>旋转位置编码 RoPE 被哪些 LLMs 应用?</p>
+</li>
+</ul>
+<h2 id="_6">长度外推问题篇<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>什么是 长度外推问题?</p>
+</li>
+<li>
+<p>长度外推问题 的 解决方法 有哪些?</p>
+</li>
+</ul>
+<h2 id="llms-tokenizer">LLMs Tokenizer 篇<a class="headerlink" href="#llms-tokenizer" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Byte-Pair Encoding(BPE)篇</strong></p>
+</li>
+<li>
+<p>Byte-Pair Encoding(BPE) 如何构建词典?</p>
+</li>
+<li>
+<p><strong>WordPiece 篇</strong></p>
+</li>
+<li>
+<p>WordPiece 与 BPE 异同点是什么?</p>
+</li>
+<li>
+<p><strong>SentencePiece 篇</strong></p>
+</li>
+<li>
+<p>简单介绍一下 SentencePiece 思路?</p>
+</li>
+<li>
+<p><strong>对比篇</strong></p>
+</li>
+<li>
+<p>举例介绍一下 不同 大模型LLMs 的分词方式?</p>
+</li>
+<li>
+<p>介绍一下 不同 大模型LLMs 的分词方式 的区别?</p>
+</li>
+</ul>
+<h2 id="layer-normalization">Layer Normalization 篇<a class="headerlink" href="#layer-normalization" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Layer Norm 篇</strong></p>
+</li>
+<li>
+<p>Layer Norm 的计算公式写一下?</p>
+</li>
+<li>
+<p><strong>RMS Norm 篇 （均方根 Norm）</strong></p>
+</li>
+<li>
+<p>RMS Norm 的计算公式写一下?</p>
+</li>
+<li>
+<p>RMS Norm 相比于 Layer Norm 有什么特点?</p>
+</li>
+<li>
+<p><strong>Deep Norm 篇</strong></p>
+</li>
+<li>
+<p>Deep Norm 有什么优点?</p>
+</li>
+<li>
+<p>Deep Norm 思路?</p>
+</li>
+<li>
+<p>写一下 Deep Norm 代码实现?</p>
+</li>
+<li>
+<p><strong>Layer normalization-方法篇</strong></p>
+</li>
+<li>
+<p><strong>Layer normalization-位置篇</strong></p>
+</li>
+<li>
+<p>LN 在 LLMs 中的不同位置 有什么区别么?如果有，能介绍一下区别么?</p>
+</li>
+<li>
+<p><strong>Layer normalization 对比篇</strong></p>
+</li>
+<li>
+<p>LLMs 各模型分别用了 哪种 Layer normalization?</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>
