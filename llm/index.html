@@ -717,21 +717,21 @@
 </tr>
 <tr>
 <td>残差连接 + 层归一化</td>
-<td>多头注意力输出 + I</td>
-<td>1. 残差连接: 将多头注意力的输出与原始输入相加<br>2. 层归一化: 对结果进行归一化处理<br>3. 数学表达: LN(x) = γ ⊙ (x - μ) / (σ + ε) + β<br>   其中 μ 是均值，σ 是标准差，γ 和 β 是可学习的参数</td>
-<td>∈ ℝ^(L×d_model)</td>
+<td>多头注意力输出 + <span class="arithmatex">\(I\)</span></td>
+<td>1. 残差连接: 将多头注意力的输出与原始输入相加<br>2. 层归一化: 对结果进行归一化处理<br>3. 数学表达: <span class="arithmatex">\(LN(x) = \gamma \odot (x - \mu) / (\sigma + \varepsilon) + \beta\)</span><br>   其中 <span class="arithmatex">\(\mu\)</span> 是均值，<span class="arithmatex">\(\sigma\)</span> 是标准差，<span class="arithmatex">\(\gamma\)</span> 和 <span class="arithmatex">\(\beta\)</span> 是可学习的参数</td>
+<td><span class="arithmatex">\(\in \mathbb{R}^{L \times d_{model}}\)</span></td>
 </tr>
 <tr>
 <td>前馈神经网络 (FFN)</td>
 <td>上一层输出</td>
-<td>1. 第一层线性变换: xW_1 + b_1<br>2. ReLU激活函数: max(0, ·)<br>3. 第二层线性变换: (·)W_2 + b_2<br>4. W_1 ∈ ℝ^(d_model×d_ff), W_2 ∈ ℝ^(d_ff×d_model)<br>5. d_ff 通常大于 d_model，例如 d_ff = 4 * d_model<br>6. FFN(x) = max(0, xW_1 + b_1)W_2 + b_2</td>
-<td>∈ ℝ^(L×d_model)</td>
+<td>1. 第一层线性变换: <span class="arithmatex">\(xW_1 + b_1\)</span><br>2. ReLU激活函数: <span class="arithmatex">\(\max(0, \cdot)\)</span><br>3. 第二层线性变换: <span class="arithmatex">\((\cdot)W_2 + b_2\)</span><br>4. <span class="arithmatex">\(W_1 \in \mathbb{R}^{d_{model} \times d_{ff}}, W_2 \in \mathbb{R}^{d_{ff} \times d_{model}}\)</span><br>5. <span class="arithmatex">\(d_{ff}\)</span> 通常大于 <span class="arithmatex">\(d_{model}\)</span>，例如 <span class="arithmatex">\(d_{ff} = 4 \times d_{model}\)</span><br>6. <span class="arithmatex">\(FFN(x) = \max(0, xW_1 + b_1)W_2 + b_2\)</span></td>
+<td><span class="arithmatex">\(\in \mathbb{R}^{L \times d_{model}}\)</span></td>
 </tr>
 <tr>
 <td>残差连接 + 层归一化</td>
 <td>FFN输出 + 上一层输入</td>
-<td>1. 残差连接: 将FFN的输出与其输入相加<br>2. 层归一化: 对结果进行归一化处理<br>3. 数学表达: LN(x) = γ ⊙ (x - μ) / (σ + ε) + β<br>   其中 μ 是均值，σ 是标准差，γ 和 β 是可学习的参数<br>4. 这一步有助于稳定深度网络的训练过程</td>
-<td>∈ ℝ^(L×d_model)</td>
+<td>1. 残差连接: 将FFN的输出与其输入相加<br>2. 层归一化: 对结果进行归一化处理<br>3. 数学表达: <span class="arithmatex">\(LN(x) = \gamma \odot (x - \mu) / (\sigma + \varepsilon) + \beta\)</span><br>   其中 <span class="arithmatex">\(\mu\)</span> 是均值，<span class="arithmatex">\(\sigma\)</span> 是标准差，<span class="arithmatex">\(\gamma\)</span> 和 <span class="arithmatex">\(\beta\)</span> 是可学习的参数<br>4. 这一步有助于稳定深度网络的训练过程</td>
+<td><span class="arithmatex">\(\in \mathbb{R}^{L \times d_{model}}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -818,7 +818,7 @@ C = A ⊙ B = [15 26]
 <tr>
 <td>掩码多头自注意力</td>
 <td><span class="arithmatex">\(I\)</span></td>
-<td>1. <span class="arithmatex">\(Q = IW_Q, K = IW_K, V = IW_V\)</span> <br> 2. <span class="arithmatex">\(A = \text{softmax}(\frac{QK^T}{\sqrt{d_k}} + M)\)</span> <br> 3. <span class="arithmatex">\(Z = AV\)</span> <br> 4. 拼接多头: <span class="arithmatex">\(Z_{concat} = [Z_1; Z_2; ...; Z_h]\)</span> <br> 5. <span class="arithmatex">\(\text{MaskedMultiHead} = Z_{concat}W_O\)</span> <br><br> 其中 <span class="arithmatex">\(M\)</span> 是掩码矩阵，用于防止关注未来位置</td>
+<td>1. <span class="arithmatex">\(Q = IW_Q, K = IW_K, V = IW_V\)</span> <br> 2. <span class="arithmatex">\(A = \text{softmax}(\frac{QK^T}{\sqrt{d_k}} \odot M)\)</span> <br> 3. <span class="arithmatex">\(Z = AV\)</span> <br> 4. 拼接多头: <span class="arithmatex">\(Z_{concat} = [Z_1; Z_2; ...; Z_h]\)</span> <br> 5. <span class="arithmatex">\(\text{MaskedMultiHead} = Z_{concat}W_O\)</span> <br><br> 其中 <span class="arithmatex">\(M\)</span> 是掩码矩阵，用于防止关注未来位置</td>
 <td><span class="arithmatex">\(\text{MaskedMultiHead}(Q,K,V) \in \mathbb{R}^{T \times d_{model}}\)</span></td>
 </tr>
 <tr>
