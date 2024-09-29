@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../LLM_Structure/">
+        <link rel="prev" href="../Math_Architecture/">
       
       
         <link rel="next" href="../SFT/">
@@ -205,7 +205,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../llm/" class="md-tabs__link">
+        <a href="../Math_Architecture/" class="md-tabs__link">
           
   
   LLM
@@ -375,32 +375,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../llm/" class="md-nav__link">
+      <a href="../Math_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    概述
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../LLM_Structure/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    模型结构
+    Transformer数学架构
   </span>
   
 
@@ -426,17 +405,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    预训练阶段
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -446,220 +414,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#0-qa" class="md-nav__link">
-    <span class="md-ellipsis">
-      0. Q与A
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 简介
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 数据准备
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 数据准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 数据收集
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 数据清洗
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 数据格式化
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 预训练目标
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 预训练目标">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-mlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 掩码语言模型 (MLM)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-nsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 下一句预测 (NSP)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-clm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 因果语言模型 (CLM)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 训练策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 训练策略">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 批量大小和学习率
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 预训练时长
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 分布式训练
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 预训练技术
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 预训练技术">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 持续预训练
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 领域自适应预训练
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 评估方法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 参考文献
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -796,209 +550,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#0-qa" class="md-nav__link">
-    <span class="md-ellipsis">
-      0. Q与A
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 简介
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 数据准备
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. 数据准备">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 数据收集
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 数据清洗
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 数据格式化
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 预训练目标
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 预训练目标">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31-mlm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 掩码语言模型 (MLM)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32-nsp" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 下一句预测 (NSP)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-clm" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 因果语言模型 (CLM)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 训练策略
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 训练策略">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 批量大小和学习率
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 预训练时长
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 分布式训练
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 预训练技术
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 预训练技术">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 持续预训练
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 领域自适应预训练
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 评估方法
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. 参考文献
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1014,168 +565,120 @@
 
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 <h1 id="_1">预训练阶段<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="0-qa">0. Q与A<a class="headerlink" href="#0-qa" title="Permanent link">&para;</a></h2>
-<p>### 0.1 如何训练自己的大模型?</p>
-<p>训练自己的大模型是一个复杂且资源密集型的任务，它涉及到深度学习、大量数据处理、高性能计算等多个方面。以下是一个详细的步骤指南，帮助你开始训练自己的大模型：</p>
+<h1 id="transformer-teacher-forcing">Transformer 模型训练逻辑 (Teacher Forcing 视角)<a class="headerlink" href="#transformer-teacher-forcing" title="Permanent link">&para;</a></h1>
+<h2 id="_2">准备阶段<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>输入准备</strong></li>
+<li>源序列: <span class="arithmatex">\(X = [x_1, x_2, ..., x_n]\)</span></li>
+<li>目标序列: <span class="arithmatex">\(Y = [y_1, y_2, ..., y_m]\)</span></li>
+<li>
+<p>添加特殊标记: </p>
+<ul>
+<li>源序列: <span class="arithmatex">\(X' = [&lt;START&gt;, x_1, x_2, ..., x_n, &lt;END&gt;]\)</span></li>
+<li>目标序列: <span class="arithmatex">\(Y' = [&lt;START&gt;, y_1, y_2, ..., y_m, &lt;END&gt;]\)</span></li>
+</ul>
+</li>
+<li>
+<p><strong>训练数据构造</strong></p>
+</li>
+<li>解码器输入: <span class="arithmatex">\(Y_{in} = [&lt;START&gt;, y_1, y_2, ..., y_m]\)</span></li>
+<li>解码器目标: <span class="arithmatex">\(Y_{out} = [y_1, y_2, ..., y_m, &lt;END&gt;]\)</span></li>
+</ol>
+<h2 id="_3">前向传播<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">编码器处理<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>Encoder_Output = Encoder(X&#39;)
+</code></pre></div>
+<h3 id="_5">解码器处理<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>for t in range(1, m+1):
+    Decoder_Input = Y_{in}[:t]  # [&lt;START&gt;, y_1, ..., y_{t-1}]
+    Decoder_Output = Decoder(Decoder_Input, Encoder_Output)
+    Prediction[t] = Linear(Decoder_Output[-1])  # 只使用最后一个时间步的输出
+</code></pre></div>
+<h2 id="_6">损失计算<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Loss = 0
+for t in range(1, m+1):
+    Loss += CrossEntropyLoss(Prediction[t], Y_{out}[t])
+</code></pre></div>
+<h2 id="_7">反向传播和参数更新<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Loss.backward()
+Optimizer.step()
+</code></pre></div>
+<h2 id="_8">关键点说明<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>并行计算</strong></li>
+<li>
+<p>尽管上述逻辑是按时间步描述的，Transformer 实际上可以并行处理整个序列。</p>
+</li>
+<li>
+<p><strong>掩码自注意力</strong></p>
+</li>
+<li>
+<p>在解码器中，使用掩码确保位置 t 只能注意到 1 到 t-1 的位置。</p>
+</li>
+<li>
+<p><strong>Teacher Forcing</strong></p>
+</li>
+<li>
+<p>在训练时，解码器始终使用正确的前缀 (<span class="arithmatex">\(Y_{in}[:t]\)</span>) 来预测下一个词，而不是使用自己的预测。</p>
+</li>
+<li>
+<p><strong>预测和目标错位</strong></p>
+</li>
+<li>
+<p>预测 <span class="arithmatex">\(Prediction[t]\)</span> 对应的目标是 <span class="arithmatex">\(Y_{out}[t]\)</span>，即下一个词。</p>
+</li>
+<li>
+<p><strong>损失计算</strong></p>
+</li>
+<li>
+<p>对每个时间步的预测单独计算损失，然后累加。</p>
+</li>
+<li>
+<p><strong>梯度累积</strong></p>
+</li>
+<li>反向传播时，梯度会通过所有时间步累积，允许模型学习长期依赖。</li>
+</ol>
+<h1 id="_9">交叉熵损失计算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<p>对于时间步 <span class="arithmatex">\(t\)</span>，我们计算 <code>CrossEntropyLoss(Prediction[t], Y_{out}[t])</code> 如下：</p>
+<h2 id="_10">输入<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li><span class="arithmatex">\(Prediction[t] \in \mathbb{R}^{\text{vocab\_size}}\)</span>：模型在时间步 <span class="arithmatex">\(t\)</span> 的输出（logits）</li>
+<li><span class="arithmatex">\(Y_{out}[t] \in \{1, 2, ..., \text{vocab\_size}\}\)</span>：时间步 <span class="arithmatex">\(t\)</span> 的真实标签（一个整数，表示正确单词的索引）</li>
+</ul>
+<h2 id="_11">步骤<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>应用 Softmax 函数</strong></li>
+</ol>
+<p>将 logits 转换为概率分布：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(P[t] = \text{softmax}(Prediction[t])\)</span>\)</span></p>
+<p>其中，对于每个类别 <span class="arithmatex">\(i\)</span>：</p>
+<p><span class="arithmatex">\(<span class="arithmatex">\(P[t]_i = \frac{\exp(Prediction[t]_i)}{\sum_{j=1}^{\text{vocab\_size}} \exp(Prediction[t]_j)}\)</span>\)</span></p>
+<ol>
+<li><strong>计算交叉熵</strong></li>
+</ol>
+<p><span class="arithmatex">\(<span class="arithmatex">\(\text{CrossEntropyLoss}(Prediction[t], Y_{out}[t]) = -\log(P[t]_{Y_{out}[t]})\)</span>\)</span></p>
+<p>这里，<span class="arithmatex">\(P[t]_{Y_{out}[t]}\)</span> 是正确类别的预测概率。</p>
+<h2 id="_12">数值稳定性考虑<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>在实际实现中，为了数值稳定性，通常会结合 softmax 和对数操作：</p>
+<div class="arithmatex">\[\text{CrossEntropyLoss}(Prediction[t], Y_{out}[t]) = -Prediction[t]_{Y_{out}[t]} + \log\left(\sum_{j=1}^{\text{vocab\_size}} \exp(Prediction[t]_j)\right)\]</div>
+<h2 id="_13">示例<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>假设：
+- <span class="arithmatex">\(\text{vocab\_size} = 5\)</span>
+- <span class="arithmatex">\(Prediction[t] = [2.0, 1.0, 0.1, 3.0, -1.0]\)</span>
+- <span class="arithmatex">\(Y_{out}[t] = 4\)</span> （正确答案是第4个单词）</p>
+<p>计算过程：</p>
 <ol>
 <li>
-<p>学习深度学习基础知识</p>
+<p>应用 softmax：
+   <span class="arithmatex">\(<span class="arithmatex">\(P[t] \approx [0.244, 0.090, 0.037, 0.665, 0.012]\)</span>\)</span></p>
 </li>
 <li>
-<p><strong>学习内容</strong>：深度学习的基础知识包括神经网络结构（如卷积神经网络CNN、循环神经网络RNN、Transformer等）、损失函数、优化算法（如SGD、Adam等）等。</p>
+<p>计算损失：
+   <span class="arithmatex">\(<span class="arithmatex">\(\text{CrossEntropyLoss} = -\log(0.665) \approx 0.408\)</span>\)</span></p>
 </li>
-<li>
-<p><strong>学习方式</strong>：可以通过在线课程（如Coursera、Udemy上的深度学习课程）、教科书（如《深度学习》一书）和教程来学习。</p>
-</li>
-<li>
-<p>熟悉深度学习框架和编程语言</p>
-</li>
-<li>
-<p><strong>深度学习框架</strong>：熟悉并掌握至少一种深度学习框架，如TensorFlow、PyTorch等。</p>
-</li>
-<li>
-<p><strong>编程语言</strong>：熟练掌握Python等编程语言，因为它们是深度学习领域的主流语言。</p>
-</li>
-<li>
-<p>收集和处理数据集</p>
-</li>
-<li>
-<p><strong>数据收集</strong>：根据你的模型应用需求，收集大量的相关数据。这些数据可以是文本、图像、语音等多种形式。</p>
-</li>
-<li><strong>数据清洗</strong>：对数据进行清洗，去除噪音、无关信息以及个人隐私相关内容。</li>
-<li>
-<p><strong>数据标注</strong>：对于监督学习任务，需要对数据进行标注，以提供训练所需的标签。</p>
-</li>
-<li>
-<p>获取计算资源</p>
-</li>
-<li>
-<p><strong>硬件资源</strong>：大模型训练需要大量的计算资源，包括高性能的GPU或TPU。如果自己的硬件资源有限，可以考虑使用云计算平台（如AWS、Google Cloud、Azure等）或租赁专用的深度学习服务器。</p>
-</li>
-<li>
-<p><strong>软件工具</strong>：使用适合的数据处理、模型训练和评估的软件工具。</p>
-</li>
-<li>
-<p>选择和构建模型</p>
-</li>
-<li>
-<p><strong>选择预训练模型</strong>：考虑使用已有的预训练模型（如BERT、GPT等），这些模型已经在大规模数据上进行了训练，可以通过微调来适应你的特定任务。</p>
-</li>
-<li>
-<p><strong>自定义模型</strong>：如果没有合适的预训练模型，你可以根据需求自定义模型结构。</p>
-</li>
-<li>
-<p>模型训练</p>
-</li>
-<li>
-<p><strong>数据准备</strong>：将清洗和标注好的数据准备为模型训练所需的格式。</p>
-</li>
-<li><strong>配置训练参数</strong>：选择合适的超参数，如学习率、批量大小等。</li>
-<li>
-<p><strong>开始训练</strong>：使用选定的深度学习框架和计算资源开始训练模型。训练过程可能需要大量的时间和计算资源。</p>
-</li>
-<li>
-<p>模型评估和优化</p>
-</li>
-<li>
-<p><strong>性能评估</strong>：使用验证集或测试集评估模型的性能。</p>
-</li>
-<li>
-<p><strong>优化调整</strong>：根据评估结果调整模型结构、超参数或训练策略，以优化模型性能。</p>
-</li>
-<li>
-<p>模型部署和应用</p>
-</li>
-<li>
-<p><strong>模型部署</strong>：将训练好的模型部署到实际应用中。这可能需要使用容器化技术（如Docker）、模型服务框架（如TensorFlow Serving）等。</p>
-</li>
-<li>
-<p><strong>持续监控</strong>：定期监控已部署模型的性能，以确保其在生产环境中表现良好。</p>
-</li>
-<li>
-<p>持续学习和研究</p>
-</li>
-<li>
-<p><strong>跟踪最新进展</strong>：深度学习领域不断演进，保持对最新研究和技术的关注是非常重要的。可以通过阅读学术论文、关注研究者的社交媒体和参与相关研究项目来实现。</p>
-</li>
-<li>
-<p><strong>参与社区</strong>：加入深度学习社区（如GitHub、Stack Overflow、Reddit等），与其他从业者交流经验、分享成果和解决问题。</p>
-</li>
-<li>
-<p>注意事项</p>
-</li>
-<li>
-<p><strong>数据隐私和安全</strong>：在处理敏感数据时，确保遵守相关法规和伦理准则，保护用户隐私。</p>
-</li>
-<li><strong>成本控制</strong>：合理规划和管理计算资源和资金投入，以控制训练成本。</li>
-<li><strong>可解释性和透明度</strong>：对于需要可解释性的应用场景，研究模型解释性技术，以了解模型的决策过程。</li>
 </ol>
-<p>### 0.2 训练中文大模型有啥经验?</p>
-<p>训练中文大模型的经验涉及多个方面，以下是一些关键的经验和建议：</p>
-<p>一、数据准备与处理</p>
-<ol>
-<li><strong>数据质量</strong>：确保收集到的中文数据具有高质量和多样性，以覆盖不同的场景和主题。数据质量对大模型的训练效果至关重要。</li>
-<li><strong>数据预处理</strong>：</li>
-<li><strong>分词</strong>：使用成熟的中文分词工具（如jieba、pkuseg等）对文本进行分词处理，这是中文处理的基本步骤。</li>
-<li><strong>去除停用词</strong>：去除文本中的无意义词汇，以减少数据噪音。</li>
-<li><strong>词性标注</strong>：对文本中的词汇进行词性标注，有助于模型更好地理解语义。</li>
-<li><strong>拼音转换</strong>：在某些场景下，可能需要将汉字转换为拼音，以辅助模型处理发音相关的信息。</li>
-<li><strong>数据增强</strong>：考虑到中文数据集可能相对有限，可以使用数据增强技术来扩充数据集。例如，同义词替换、随机插入或删除词语、句子重组等方法都可以生成新的训练样本。</li>
-</ol>
-<p>二、模型选择与优化</p>
-<ol>
-<li><strong>预训练模型</strong>：</li>
-<li>利用已在大规模中文语料上预训练好的模型（如BERT、GPT等）作为初始模型，然后在目标任务上进行微调。这样可以利用大规模中文语料的信息，提升模型的表达能力和泛化能力。</li>
-<li>对于特定的中文任务（如中文分词、命名实体识别、情感分析等），可以使用中文特定的工具或模型来辅助训练。</li>
-<li><strong>模型设计</strong>：</li>
-<li>采用先进的神经网络结构（如Transformer）作为模型的基础架构，以提高模型的表达能力和计算效率。</li>
-<li>根据任务需求进行模型调整，如增加注意力头、使用长短时记忆网络（LSTM）等。</li>
-<li><strong>超参数调优</strong>：</li>
-<li>选择合适的优化算法和超参数对模型训练至关重要。常用的优化算法包括Adam、Adagrad、RMSProp等。</li>
-<li>通过网格搜索、随机搜索或基于优化算法的自动调参方法来寻找最佳的超参数组合。</li>
-</ol>
-<p>三、训练策略与技巧</p>
-<ol>
-<li><strong>分阶段训练</strong>：将训练过程分为多个阶段，每个阶段解决不同的问题或优化不同的目标。</li>
-<li><strong>稀疏训练</strong>：通过稀疏化技术减少模型参数的数量，降低计算成本和存储需求。</li>
-<li><strong>迁移学习</strong>：利用在相关领域或任务上已经训练好的模型，通过迁移学习技术快速适应新的任务或数据。</li>
-<li><strong>自监督学习</strong>：利用大量未标注的中文数据进行自监督学习，以提高模型的预训练效果。</li>
-</ol>
-<p>四、计算资源与部署</p>
-<ol>
-<li><strong>计算资源</strong>：</li>
-<li>训练大模型需要大量的计算资源，包括GPU、内存和存储。可以考虑使用云计算平台或分布式训练来加速训练过程。</li>
-<li>合理分配计算资源，避免性能瓶颈，确保训练过程的顺利进行。</li>
-<li><strong>模型部署</strong>：</li>
-<li>采用合适的部署方法（如TensorFlow Serving、PyTorch等），确保模型在生产环境中的稳定运行。</li>
-<li>对模型进行剪枝、量化等操作，以降低模型复杂度、提高部署效果。</li>
-</ol>
-<p>五、持续学习与改进</p>
-<ol>
-<li><strong>监控与评估</strong>：在训练过程中实时监控模型的性能指标（如准确率、召回率等），及时发现并解决问题。</li>
-<li><strong>知识蒸馏</strong>：通过知识蒸馏技术将大型模型压缩为小型模型，提高模型在实际应用中的性能。</li>
-<li><strong>持续学习</strong>：关注深度学习领域的最新研究进展和技术动态，不断学习和引入新的方法和技术来改进模型。</li>
-</ol>
-<h2 id="1">1. 简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>[解释预训练的目的和重要性]</p>
-<h2 id="2">2. 数据准备<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 数据收集<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<h3 id="22">2.2 数据清洗<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<h3 id="23">2.3 数据格式化<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
-<h2 id="3">3. 预训练目标<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31-mlm">3.1 掩码语言模型 (MLM)<a class="headerlink" href="#31-mlm" title="Permanent link">&para;</a></h3>
-<h3 id="32-nsp">3.2 下一句预测 (NSP)<a class="headerlink" href="#32-nsp" title="Permanent link">&para;</a></h3>
-<h3 id="33-clm">3.3 因果语言模型 (CLM)<a class="headerlink" href="#33-clm" title="Permanent link">&para;</a></h3>
-<h2 id="4">4. 训练策略<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="41">4.1 批量大小和学习率<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<h3 id="42">4.2 预训练时长<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<h3 id="43">4.3 分布式训练<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
-<h2 id="5">5. 预训练技术<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51">5.1 持续预训练<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
-<h3 id="52">5.2 领域自适应预训练<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
-<h2 id="6">6. 评估方法<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<p>[讨论如何评估预训练模型的性能]</p>
-<h2 id="7">7. 参考文献<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<p>这个损失值反映了模型预测的准确程度。损失越小，表示模型的预测越接近真实标签。</p>
+<p>在实际训练中，我们会对所有时间步的损失求和或求平均，得到整个序列的总体损失，然后用这个总体损失来更新模型参数。</p>
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 
 

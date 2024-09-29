@@ -87,12 +87,19 @@ C = A ⊙ B = [15 26]
 | Softmax(最后一层decoder) | 线性层输出 | $\text{softmax}(x)_i = \frac{\exp(x_i)}{\sum_j \exp(x_j)}$ <br> 对每个时间步的输出进行softmax操作 | $\in \mathbb{R}^{T \times \text{vocab\_size}}$ |
 
 注意：
+
 1. $T$ 是目标序列的长度
+
 2. $L$ 是源序列的长度
+
 3. $d_{model}$ 是模型的隐藏维度
+
 4. 多头注意力中，$d_k = d_{model} / \text{num\_heads}$
+
 5. 层归一化 (LN) 公式：$\text{LN}(x) = \gamma \odot \frac{x - \mu}{\sigma + \epsilon} + \beta$
+
 6. 解码器中的掩码多头自注意力使用了掩码矩阵 $M$，以防止关注未来位置
+
 7. 交叉注意力层使用编码器的输出 $E$ 作为 Key 和 Value
 
 # Transformer中的数据流动
@@ -167,10 +174,15 @@ C = A ⊙ B = [15 26]
 | | $b_{out}$ | $\mathbb{R}^{\text{vocab\_size}}$ | 输出偏置 |
 
 注意：
+
 - $h$ 是注意力头的数量
+
 - $d_k$ 和 $d_v$ 通常等于 $d_{model} / h$
+
 - $d_{ff}$ 是前馈网络的内部维度，通常大于 $d_{model}$
+
 - 除了输入嵌入和最终输出层，其他参数在每个解码器层中都会重复出现
+
 - 如果解码器有多层（例如标准 Transformer 中的 6 层），这些参数会在每层中重复
 
 # 一些问题
