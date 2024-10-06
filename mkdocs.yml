@@ -35,6 +35,7 @@ nav:
   - Agent: agent.md
   - LLM:
     - Transformer数学架构: LLM_Pages/Math_Architecture.md
+    - 位置编码: LLM_Pages/Position_Embedding.md
     - 预训练阶段: LLM_Pages/Pre-Train.md
     - SFT阶段: LLM_Pages/SFT.md
     - RLHF阶段: LLM_Pages/RLHF.md
