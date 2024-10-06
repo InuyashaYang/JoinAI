@@ -639,6 +639,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#3-adapter-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Adapter-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Adapter 结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encoder-decoder-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Encoder 和 Decoder 加入 Adapter 后的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 参数比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 训练和推理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -909,6 +960,57 @@
   <a href="#27" class="md-nav__link">
     <span class="md-ellipsis">
       2.7 数学直觉
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-adapter-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Adapter-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Adapter 结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encoder-decoder-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Encoder 和 Decoder 加入 Adapter 后的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 参数比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 训练和推理
     </span>
   </a>
   
@@ -1266,6 +1368,157 @@
 - 大型预训练模型的权重更新通常位于低维子空间
 - 低秩矩阵可有效捕获这种低维结构</p>
 <p>这种方法在保持模型性能的同时，大大减少了需要训练和存储的参数数量。</p>
+<h2 id="3-adapter-tuning">3. Adapter-Tuning<a class="headerlink" href="#3-adapter-tuning" title="Permanent link">&para;</a></h2>
+<p>Adapter-Tuning 可以视为在 Transformer 中添加特殊的 MLP 层，以实现参数高效的微调。</p>
+<h3 id="31-adapter">3.1 Adapter 结构<a class="headerlink" href="#31-adapter" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+<th>数学表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>原始层输出</td>
+<td><span class="arithmatex">\(x \in \mathbb{R}^d\)</span></td>
+</tr>
+<tr>
+<td>下投影</td>
+<td>降维操作</td>
+<td><span class="arithmatex">\(W_{\text{down}} \in \mathbb{R}^{r \times d}\)</span></td>
+</tr>
+<tr>
+<td>激活函数</td>
+<td>非线性变换</td>
+<td><span class="arithmatex">\(\text{ReLU}\)</span></td>
+</tr>
+<tr>
+<td>上投影</td>
+<td>升维操作</td>
+<td><span class="arithmatex">\(W_{\text{up}} \in \mathbb{R}^{d \times r}\)</span></td>
+</tr>
+<tr>
+<td>残差连接</td>
+<td>添加原始输入</td>
+<td><span class="arithmatex">\(+x\)</span></td>
+</tr>
+<tr>
+<td>输出</td>
+<td>Adapter 输出</td>
+<td><span class="arithmatex">\(\text{Adapter}(x) = x + W_{\text{up}}(\text{ReLU}(W_{\text{down}}x))\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>注：<span class="arithmatex">\(d\)</span> 为模型隐藏状态维度，<span class="arithmatex">\(r\)</span> 为 Adapter 瓶颈维度（通常 <span class="arithmatex">\(r \ll d\)</span>）。</p>
+<h3 id="32-encoder-decoder-adapter">3.2 Encoder 和 Decoder 加入 Adapter 后的结构<a class="headerlink" href="#32-encoder-decoder-adapter" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Encoder 层</th>
+<th>Decoder 层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>输入</td>
+</tr>
+<tr>
+<td>自注意力</td>
+<td>自注意力 (带掩码)</td>
+</tr>
+<tr>
+<td>残差连接 + 层归一化</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>Adapter 1</td>
+<td>Adapter 1</td>
+</tr>
+<tr>
+<td>-</td>
+<td>交叉注意力</td>
+</tr>
+<tr>
+<td>-</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Adapter 2</td>
+</tr>
+<tr>
+<td>前馈网络</td>
+<td>前馈网络</td>
+</tr>
+<tr>
+<td>残差连接 + 层归一化</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>Adapter 2</td>
+<td>Adapter 3</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>输出</td>
+</tr>
+</tbody>
+</table>
+<p>注意事项：
+1. Encoder 中有 2 个 Adapter，Decoder 中有 3 个 Adapter。
+2. Decoder 比 Encoder 多了交叉注意力层及其对应的 Adapter。
+3. 每个 Adapter 的结构相同，但参数不同。
+4. 原始 Transformer 参数在微调时保持冻结，只更新 Adapter 参数。</p>
+<h3 id="33">3.3 参数比较<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Transformer</th>
+<th>Adapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参数量</td>
+<td><span class="arithmatex">\(O(d^2)\)</span></td>
+<td><span class="arithmatex">\(O(2dr)\)</span></td>
+</tr>
+<tr>
+<td>训练状态</td>
+<td>冻结</td>
+<td>可训练</td>
+</tr>
+<tr>
+<td>任务特异性</td>
+<td>通用</td>
+<td>任务特定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34">3.4 训练和推理<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>训练</td>
+<td>1. 冻结预训练 Transformer 参数<br>2. 初始化 Adapter 参数<br>3. 仅更新 Adapter 参数</td>
+</tr>
+<tr>
+<td>推理</td>
+<td>1. 选择任务特定 Adapter<br>2. 在 Transformer 计算流程中插入 Adapter</td>
+</tr>
+</tbody>
+</table>
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 
 
