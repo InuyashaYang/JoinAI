@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../Pre-Train/">
+        <link rel="prev" href="../Math_Architecture/">
       
       
-        <link rel="next" href="../RLHF/">
+        <link rel="next" href="../Pre-Train/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>SFT阶段 - AIDIY Wiki</title>
+        <title>位置编码 - AIDIY Wiki</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sft-supervised-fine-tuning" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SFT阶段
+              位置编码
             
           </span>
         </div>
@@ -393,10 +393,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Position_Embedding/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -405,6 +425,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 位置编码的要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 位置编码的要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 位置向量之间的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 位置向量之间的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 位置编码方法比较
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 位置编码方法比较">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sinusoidal-position-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 绝对位置编码（Sinusoidal Position Encoding）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 绝对位置编码（Sinusoidal Position Encoding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rope-rotary-position-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 RoPE (Rotary Position Embedding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RoPE (Rotary Position Embedding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-alibi-attention-with-linear-biases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 ALiBi (Attention with Linear Biases)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 ALiBi (Attention with Linear Biases)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 注意力计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 关键特性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 比较分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 位置编码方法在大型语言模型中的应用
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -435,30 +655,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    SFT阶段
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../SFT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -467,182 +667,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-p-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. \(P^*\)-Tuning
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. \(P^*\)-Tuning">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prefix-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Prefix-Tuning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1-encoder-decoder-encoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Encoder-Decoder 模型 - Encoder 部分
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-encoder-decoder-decoder" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Encoder-Decoder 模型 - Decoder 部分
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-autoregressive" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. AutoRegressive 模型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-prompt-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. Prompt Tuning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-p-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. P-Tuning
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      比较和总结
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-lora-low-rank-adaptation" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. LoRA (Low-Rank Adaptation)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. LoRA (Low-Rank Adaptation)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 基本原理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 数学表示
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 参数效率
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4 训练过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.5 应用范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.6 优势
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#27" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7 数学直觉
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -764,73 +788,166 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-p-tuning" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. \(P^*\)-Tuning
+      1. 位置编码的要求
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. \(P^*\)-Tuning">
+    <nav class="md-nav" aria-label="1. 位置编码的要求">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-prefix-tuning" class="md-nav__link">
+  <a href="#11" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Prefix-Tuning
+      1.1 位置向量之间的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 位置向量之间的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 位置编码方法比较
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 位置编码方法比较">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sinusoidal-position-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 绝对位置编码（Sinusoidal Position Encoding）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 绝对位置编码（Sinusoidal Position Encoding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 定义
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#1-encoder-decoder-encoder" class="md-nav__link">
+  <a href="#212" class="md-nav__link">
     <span class="md-ellipsis">
-      1. Encoder-Decoder 模型 - Encoder 部分
+      2.1.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rope-rotary-position-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 RoPE (Rotary Position Embedding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RoPE (Rotary Position Embedding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 定义
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-encoder-decoder-decoder" class="md-nav__link">
+  <a href="#222" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Encoder-Decoder 模型 - Decoder 部分
+      2.2.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-alibi-attention-with-linear-biases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 ALiBi (Attention with Linear Biases)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 ALiBi (Attention with Linear Biases)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 定义
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-autoregressive" class="md-nav__link">
+  <a href="#232" class="md-nav__link">
     <span class="md-ellipsis">
-      3. AutoRegressive 模型
+      2.3.2 注意力计算
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-prompt-tuning" class="md-nav__link">
+  <a href="#233" class="md-nav__link">
     <span class="md-ellipsis">
-      2. Prompt Tuning
+      2.3.3 关键特性
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#3-p-tuning" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. P-Tuning
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#24" class="md-nav__link">
     <span class="md-ellipsis">
-      比较和总结
+      2.4 比较分析
     </span>
   </a>
   
@@ -842,80 +959,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-lora-low-rank-adaptation" class="md-nav__link">
+  <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      2. LoRA (Low-Rank Adaptation)
+      3. 位置编码方法在大型语言模型中的应用
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="2. LoRA (Low-Rank Adaptation)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 基本原理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 数学表示
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#23" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.3 参数效率
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.4 训练过程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#25" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.5 应用范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#26" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.6 优势
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#27" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.7 数学直觉
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -935,338 +983,373 @@
 
 
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
-<h1 id="sft-supervised-fine-tuning">SFT (Supervised Fine-Tuning) 的数学基础<a class="headerlink" href="#sft-supervised-fine-tuning" title="Permanent link">&para;</a></h1>
-<h2 id="1-p-tuning">1. <span class="arithmatex">\(P^*\)</span>-Tuning<a class="headerlink" href="#1-p-tuning" title="Permanent link">&para;</a></h2>
-<p>P 系列微调包括三种主要方法：Prefix-Tuning、Prompt Tuning 和 P-Tuning。这些方法都旨在通过添加或优化输入序列的一部分来适应特定任务，同时保持预训练模型的大部分参数不变。</p>
-<h3 id="1-prefix-tuning">1. Prefix-Tuning<a class="headerlink" href="#1-prefix-tuning" title="Permanent link">&para;</a></h3>
-<p><strong>基本原理：</strong> Prefix-Tuning 在每一层添加可学习的前缀，并确保 Q、K、V 矩阵维度一致。</p>
-<p>假设我们有以下参数：
-- <span class="arithmatex">\(d\)</span>: 模型的隐藏状态维度
-- <span class="arithmatex">\(n\)</span>: 输入序列长度
-- <span class="arithmatex">\(m\)</span>: 前缀长度
-- <span class="arithmatex">\(h\)</span>: MLP 中间层维度</p>
-<h3 id="1-encoder-decoder-encoder">1. Encoder-Decoder 模型 - Encoder 部分<a class="headerlink" href="#1-encoder-decoder-encoder" title="Permanent link">&para;</a></h3>
+<h1 id="_1">位置编码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 位置编码的要求<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>位置编码在序列模型中扮演着至关重要的角色。一个理想的位置编码应满足以下要求：</p>
 <table>
 <thead>
 <tr>
-<th>步骤</th>
+<th>性质</th>
 <th>描述</th>
-<th>数学表达式和维度</th>
+<th>意义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>输入扩展</td>
-<td>添加前缀到输入</td>
-<td><span class="arithmatex">\(X_e \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input},e} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(X'_e = [P_{\text{input},e}; X_e] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+<td>唯一性</td>
+<td>每个位置输出一个唯一的编码</td>
+<td>使模型能够区分和定位序列中的每个元素</td>
 </tr>
 <tr>
-<td>Q 计算</td>
-<td>计算查询矩阵</td>
-<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q_e = X'_eW_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+<td>外推性</td>
+<td>具备良好的外推能力，可处理未见过的位置</td>
+<td>允许模型处理变长序列和超出训练范围的位置</td>
 </tr>
 <tr>
-<td>K, V 前缀</td>
-<td>生成并应用 K, V 前缀</td>
-<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_{K,e}, P_{V,e} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K_e = [P_{K,e}; X_eW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V_e = [P_{V,e}; X_eW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+<td>相对位置表示</td>
+<td>两位置之间的差异性只和其相对位置k有关</td>
+<td>使模型能学习位置无关的模式和关系</td>
 </tr>
 <tr>
-<td>MLP 生成</td>
-<td>使用 MLP 生成 K, V 前缀</td>
-<td><span class="arithmatex">\(P_{\text{low},e} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_{1,e} \in \mathbb{R}^{h \times (d/2)}, b_{1,e} \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_{2,e} \in \mathbb{R}^{2d \times h}, b_{2,e} \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_{K,e}; P_{V,e}] = W_{2,e} \cdot \text{ReLU}(W_{1,e} P_{\text{low},e} + b_{1,e}) + b_{2,e}\)</span></td>
+<td>距离相关性</td>
+<td>相对位置k差越大，两位置之关联越弱</td>
+<td>反映了语言的局部性原理，近距离词通常关系更密切</td>
 </tr>
 </tbody>
 </table>
-<h3 id="2-encoder-decoder-decoder">2. Encoder-Decoder 模型 - Decoder 部分<a class="headerlink" href="#2-encoder-decoder-decoder" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>描述</th>
-<th>数学表达式和维度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>输入扩展</td>
-<td>添加前缀到输入</td>
-<td><span class="arithmatex">\(Y_d \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input},d} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(Y'_d = [P_{\text{input},d}; Y_d] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>Q 计算</td>
-<td>计算查询矩阵</td>
-<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q_d = Y'_dW_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>K, V 前缀</td>
-<td>生成并应用 K, V 前缀</td>
-<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_{K,d}, P_{V,d} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K_d = [P_{K,d}; Y_dW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V_d = [P_{V,d}; Y_dW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>MLP 生成</td>
-<td>使用 MLP 生成 K, V 前缀</td>
-<td><span class="arithmatex">\(P_{\text{low},d} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_{1,d} \in \mathbb{R}^{h \times (d/2)}, b_{1,d} \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_{2,d} \in \mathbb{R}^{2d \times h}, b_{2,d} \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_{K,d}; P_{V,d}] = W_{2,d} \cdot \text{ReLU}(W_{1,d} P_{\text{low},d} + b_{1,d}) + b_{2,d}\)</span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-autoregressive">3. AutoRegressive 模型<a class="headerlink" href="#3-autoregressive" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>描述</th>
-<th>数学表达式和维度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>输入扩展</td>
-<td>添加前缀到输入</td>
-<td><span class="arithmatex">\(X \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input}} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(X' = [P_{\text{input}}; X] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>Q 计算</td>
-<td>计算查询矩阵</td>
-<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q = X'W_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>K, V 前缀</td>
-<td>生成并应用 K, V 前缀</td>
-<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_K, P_V \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K = [P_K; XW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V = [P_V; XW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
-</tr>
-<tr>
-<td>MLP 生成</td>
-<td>使用 MLP 生成 K, V 前缀</td>
-<td><span class="arithmatex">\(P_{\text{low}} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_1 \in \mathbb{R}^{h \times (d/2)}, b_1 \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_2 \in \mathbb{R}^{2d \times h}, b_2 \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_K; P_V] = W_2 \cdot \text{ReLU}(W_1 P_{\text{low}} + b_1) + b_2\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>注意事项：</p>
-<ol>
-<li>
-<p>所有模型类型中，<span class="arithmatex">\(Q\)</span>、<span class="arithmatex">\(K\)</span>、<span class="arithmatex">\(V\)</span> 的最终维度都是 <span class="arithmatex">\(\mathbb{R}^{(m+n) \times d}\)</span>，确保了注意力机制的兼容性。</p>
-</li>
-<li>
-<p><span class="arithmatex">\(P_{\text{input}}\)</span> (或 <span class="arithmatex">\(P_{\text{input},e}\)</span>, <span class="arithmatex">\(P_{\text{input},d}\)</span>) 是直接训练的参数，不通过 MLP 生成。</p>
-</li>
-<li>
-<p>MLP 的输出 <span class="arithmatex">\([P_K; P_V]\)</span> (或 <span class="arithmatex">\([P_{K,e}; P_{V,e}]\)</span>, <span class="arithmatex">\([P_{K,d}; P_{V,d}]\)</span>) 的维度是 <span class="arithmatex">\(\mathbb{R}^{m \times 2d}\)</span>，然后被分割成两个 <span class="arithmatex">\(\mathbb{R}^{m \times d}\)</span> 的矩阵用于 K 和 V。</p>
-</li>
-<li>
-<p>在 Encoder-Decoder 模型中，编码器和解码器可以有不同的前缀和 MLP 参数。</p>
-</li>
-<li>
-<p>这些操作在每一层都会重复应用，但通常使用相同的 MLP 权重。</p>
-</li>
-<li>
-<p><span class="arithmatex">\(P_{\text{low}}\)</span> (或 <span class="arithmatex">\(P_{\text{low},e}\)</span>, <span class="arithmatex">\(P_{\text{low},d}\)</span>) 是低维可训练参数，用于生成 K 和 V 的前缀。</p>
-</li>
-</ol>
-<h3 id="2-prompt-tuning">2. Prompt Tuning<a class="headerlink" href="#2-prompt-tuning" title="Permanent link">&para;</a></h3>
-<p><strong>基本原理：</strong> Prompt Tuning 直接学习连续的软提示，无需 MLP 降维。</p>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>描述</th>
-<th>数学表达式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数学表示</td>
-<td>软提示</td>
-<td><span class="arithmatex">\(P = [p_1, p_2, ..., p_m] \in \mathbb{R}^{m \times d}\)</span></td>
-</tr>
-<tr>
-<td>输入处理</td>
-<td>拼接操作</td>
-<td><span class="arithmatex">\(X' = [P; X] = [p_1, ..., p_m, x_1, ..., x_n]\)</span></td>
-</tr>
-<tr>
-<td>训练过程</td>
-<td>前向传播</td>
-<td>将 <span class="arithmatex">\(X'\)</span> 输入模型</td>
-</tr>
-<tr>
-<td></td>
-<td>反向传播</td>
-<td>仅计算 <span class="arithmatex">\(\frac{\partial L}{\partial P}\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>参数更新</td>
-<td>只更新 <span class="arithmatex">\(P\)</span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="3-p-tuning">3. P-Tuning<a class="headerlink" href="#3-p-tuning" title="Permanent link">&para;</a></h3>
-<p><strong>基本原理：</strong> P-Tuning 使用 LSTM 和 MLP 动态生成提示。</p>
-<table>
-<thead>
-<tr>
-<th>步骤</th>
-<th>描述</th>
-<th>数学表达式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数学表示</td>
-<td>可学习嵌入</td>
-<td><span class="arithmatex">\(E = [e_1, e_2, ..., e_m] \in \mathbb{R}^{m \times d}\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>LSTM</td>
-<td><span class="arithmatex">\(LSTM: \mathbb{R}^{m \times d} \rightarrow \mathbb{R}^{m \times h}\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>MLP</td>
-<td><span class="arithmatex">\(MLP: \mathbb{R}^{h} \rightarrow \mathbb{R}^{d}\)</span></td>
-</tr>
-<tr>
-<td>提示生成过程</td>
-<td>LSTM 处理</td>
-<td><span class="arithmatex">\(H = LSTM(E)\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>MLP 映射</td>
-<td><span class="arithmatex">\(P_i = MLP(H_i)\)</span>, <span class="arithmatex">\(i \in [1, m]\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>最终提示</td>
-<td><span class="arithmatex">\(P = [P_1, P_2, ..., P_m] \in \mathbb{R}^{m \times d}\)</span></td>
-</tr>
-<tr>
-<td>训练过程</td>
-<td>反向传播</td>
-<td>计算 <span class="arithmatex">\(\frac{\partial L}{\partial E}, \frac{\partial L}{\partial \theta_{LSTM}}, \frac{\partial L}{\partial \theta_{MLP}}\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td>参数更新</td>
-<td>更新 <span class="arithmatex">\(E\)</span>, LSTM 参数, MLP 参数</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_1">比较和总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>提示生成</th>
-<th>参数效率</th>
-<th>复杂度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Prefix-Tuning</td>
-<td>MLP</td>
-<td>高</td>
-<td>中</td>
-</tr>
-<tr>
-<td>Prompt Tuning</td>
-<td>直接优化</td>
-<td>最高</td>
-<td>低</td>
-</tr>
-<tr>
-<td>P-Tuning</td>
-<td>LSTM + MLP</td>
-<td>中</td>
-<td>高</td>
-</tr>
-</tbody>
-</table>
-<p>这三种方法都属于 P 系列微调，它们通过不同方式生成和优化输入序列的一部分来适应特定任务，同时保持模型主体不变，从而实现高效的监督微调。</p>
-<h2 id="2-lora-low-rank-adaptation">2. LoRA (Low-Rank Adaptation)<a class="headerlink" href="#2-lora-low-rank-adaptation" title="Permanent link">&para;</a></h2>
-<h3 id="21">2.1 基本原理<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p>LoRA 是一种参数高效的微调方法，核心思想是使用低秩矩阵来近似权重更新。</p>
-<h3 id="22">2.2 数学表示<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
-<p>假设预训练模型的权重矩阵为 <span class="arithmatex">\(W \in \mathbb{R}^{d \times k}\)</span>，LoRA 的更新可表示为：</p>
-<p><span class="arithmatex">\(W' = W + \alpha BA\)</span></p>
+<h3 id="11">1.1 位置向量之间的运算<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>我们定义 <span class="arithmatex">\(f(i, j)\)</span> 为位置 <span class="arithmatex">\(i\)</span> 和位置 <span class="arithmatex">\(j\)</span> 之间的注意力交互函数：</p>
+<p><span class="arithmatex">\(f(i, j) = ((x_i + p_i)W_q)^T ((x_j + p_j)W_k)\)</span></p>
 <p>其中：
-- <span class="arithmatex">\(B \in \mathbb{R}^{d \times r}\)</span>
-- <span class="arithmatex">\(A \in \mathbb{R}^{r \times k}\)</span>
-- <span class="arithmatex">\(r \ll \min(d, k)\)</span> 是一个小的秩
-- <span class="arithmatex">\(\alpha\)</span> 是可调节的缩放参数</p>
-<h3 id="23">2.3 参数效率<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+- <span class="arithmatex">\(x_i\)</span>, <span class="arithmatex">\(x_j\)</span> 是词向量
+- <span class="arithmatex">\(p_i\)</span>, <span class="arithmatex">\(p_j\)</span> 是位置编码
+- <span class="arithmatex">\(W_q\)</span>, <span class="arithmatex">\(W_k\)</span> 是权重矩阵</p>
+<p>展开 <span class="arithmatex">\(f(i, j)\)</span>：</p>
+<p><span class="arithmatex">\(f(i, j) = (x_i W_q + p_i W_q)^T (x_j W_k + p_j W_k)\)</span></p>
+<p><span class="arithmatex">\(\quad\;\; = (x_i W_q)^T (x_j W_k) + (x_i W_q)^T (p_j W_k) + (p_i W_q)^T (x_j W_k) + (p_i W_q)^T (p_j W_k)\)</span></p>
+<p><span class="arithmatex">\(\quad\;\; = x_i^T W_q^T W_k x_j + x_i^T W_q^T W_k p_j + p_i^T W_q^T W_k x_j + p_i^T W_q^T W_k p_j\)</span></p>
+<h4 id="_2">解释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>完全展开后的 <span class="arithmatex">\(f(i, j)\)</span> 包含四个项：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">项</th>
+<th style="text-align: center;">数学表达式</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_i^T W_q^T W_k x_j\)</span></td>
+<td style="text-align: center;">纯词向量交互</td>
+<td style="text-align: left;">捕捉位置 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 的词向量之间的语义关系</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_i^T W_q^T W_k p_j\)</span></td>
+<td style="text-align: center;">词向量-位置编码交互</td>
+<td style="text-align: left;">允许模型考虑位置 <span class="arithmatex">\(i\)</span> 的词与位置 <span class="arithmatex">\(j\)</span> 的相对位置关系</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="arithmatex">\(p_i^T W_q^T W_k x_j\)</span></td>
+<td style="text-align: center;">位置编码-词向量交互</td>
+<td style="text-align: left;">考虑位置 <span class="arithmatex">\(i\)</span> 相对于位置 <span class="arithmatex">\(j\)</span> 的词的影响</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><span class="arithmatex">\(p_i^T W_q^T W_k p_j\)</span></td>
+<td style="text-align: center;">纯位置编码交互</td>
+<td style="text-align: left;">捕捉两个位置之间的纯粹相对位置关系</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2. 位置编码方法比较<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-sinusoidal-position-encoding">2.1 绝对位置编码（Sinusoidal Position Encoding）<a class="headerlink" href="#21-sinusoidal-position-encoding" title="Permanent link">&para;</a></h3>
+<h4 id="211">2.1.1 定义<a class="headerlink" href="#211" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(pos\)</span></td>
+<td>位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td>维度索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d_{model}\)</span></td>
+<td>模型维度</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>编码类型</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>偶数维度</td>
+<td><span class="arithmatex">\(PE_{(pos,2i)} = \sin(pos / 10000^{2i/d_{model}})\)</span></td>
+</tr>
+<tr>
+<td>奇数维度</td>
+<td><span class="arithmatex">\(PE_{(pos,2i+1)} = \cos(pos / 10000^{2i/d_{model}})\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="212">2.1.2 相对位置表示<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<p>对于每对 <span class="arithmatex">\((2i, 2i+1)\)</span> 维度：</p>
+<p><span class="arithmatex">\(\begin{bmatrix} 
+PE_{(pos+k, 2i)} \\
+PE_{(pos+k, 2i+1)}
+\end{bmatrix} = 
+\begin{bmatrix} 
+\cos(k\omega_i) &amp; -\sin(k\omega_i) \\
+\sin(k\omega_i) &amp; \cos(k\omega_i)
+\end{bmatrix}
+\begin{bmatrix} 
+PE_{(pos, 2i)} \\
+PE_{(pos, 2i+1)}
+\end{bmatrix}\)</span></p>
+<p>其中 <span class="arithmatex">\(\omega_i = 1/10000^{2i/d_{model}}\)</span></p>
+<h3 id="22-rope-rotary-position-embedding">2.2 RoPE (Rotary Position Embedding)<a class="headerlink" href="#22-rope-rotary-position-embedding" title="Permanent link">&para;</a></h3>
+<h4 id="221">2.2.1 定义<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(m\)</span></td>
+<td>位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td>维度索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d\)</span></td>
+<td>模型维度</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta_i\)</span></td>
+<td><span class="arithmatex">\(10000^{-2i/d}\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>向量</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathbf{q}_m\)</span></td>
+<td><span class="arithmatex">\([q_0, q_1, ..., q_{d-1}]\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{k}_m\)</span></td>
+<td><span class="arithmatex">\([k_0, k_1, ..., k_{d-1}]\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>RoPE 操作：</p>
+<p><span class="arithmatex">\(R_{\Theta,m}(\mathbf{q}_m)_i = [q_i \cos(m\theta_i) - q_{i+1} \sin(m\theta_i), q_i \sin(m\theta_i) + q_{i+1} \cos(m\theta_i)]\)</span></p>
+<h4 id="222">2.2.2 相对位置表示<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\langle R_{\Theta,m}(\mathbf{q}), R_{\Theta,n}(\mathbf{k}) \rangle = f(\mathbf{q}, \mathbf{k}, n-m)\)</span></p>
+<h3 id="23-alibi-attention-with-linear-biases">2.3 ALiBi (Attention with Linear Biases)<a class="headerlink" href="#23-alibi-attention-with-linear-biases" title="Permanent link">&para;</a></h3>
+<p>ALiBi 通过在注意力分数中添加线性偏置来编码位置信息，实际上替换了传统注意力计算中的位置编码相关项。</p>
+<h4 id="231">2.3.1 定义<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(q\)</span></td>
+<td>查询向量</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k\)</span></td>
+<td>键向量</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i, j\)</span></td>
+<td>查询和键的位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m\)</span></td>
+<td>预定义斜率</td>
+</tr>
+</tbody>
+</table>
+<h4 id="232">2.3.2 注意力计算<a class="headerlink" href="#232" title="Permanent link">&para;</a></h4>
+<p>ALiBi 修改了传统的注意力计算方式。对比传统方法和 ALiBi：</p>
 <table>
 <thead>
 <tr>
 <th>方法</th>
-<th>参数数量</th>
+<th>注意力分数计算</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>原始权重矩阵</td>
-<td><span class="arithmatex">\(dk\)</span></td>
+<td>传统方法</td>
+<td><span class="arithmatex">\(a(q, k) = (x_i W_q)^T (x_j W_k) + (x_i W_q)^T (p_j W_k) + (p_i W_q)^T (x_j W_k) + (p_i W_q)^T (p_j W_k)\)</span></td>
 </tr>
 <tr>
-<td>LoRA</td>
-<td><span class="arithmatex">\(r(d+k)\)</span></td>
+<td>ALiBi</td>
+<td>$ a(q, k) = q^T k - m ×\text{abs}(i-j) $</td>
 </tr>
 </tbody>
 </table>
-<p>通常 <span class="arithmatex">\(r(d+k) \ll dk\)</span>，大幅减少了参数量。</p>
-<h3 id="24">2.4 训练过程<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p>其中，ALiBi 的 <span class="arithmatex">\(q^T k\)</span> 对应传统方法中的 <span class="arithmatex">\(x_i^T W_q^T W_k x_j\)</span>（纯词向量交互），而 <span class="arithmatex">\(- m|i-j|\)</span> 项替代了传统方法中的其他三项（词向量-位置编码交互、位置编码-词向量交互和纯位置编码交互）。</p>
+<h4 id="233">2.3.3 关键特性<a class="headerlink" href="#233" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>简化计算</strong>：ALiBi 通过一个简单的线性项替代了复杂的位置编码交互。</li>
+<li><strong>直接编码相对位置</strong>：<span class="arithmatex">\(|i-j|\)</span> 项直接表示了查询和键之间的相对距离。</li>
+<li><strong>消除显式位置编码</strong>：不再需要为输入序列添加单独的位置编码。</li>
+</ol>
+<p>这种方法有效地将位置信息整合到注意力机制中，同时简化了计算过程。通过替换传统注意力计算中的位置编码相关项，ALiBi 提供了一种更直接、更高效的方式来处理序列中的位置信息。</p>
+<h3 id="24">2.4 比较分析<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>步骤</th>
-<th>描述</th>
-<th>数学表达式</th>
+<th>方法</th>
+<th>优点</th>
+<th>缺点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1. 前向传播</td>
-<td>计算输出</td>
-<td><span class="arithmatex">\(y = (W + \alpha BA)x\)</span></td>
+<td>Sinusoidal</td>
+<td>可以处理任意长度序列；具有良好的数学性质</td>
+<td>可能难以捕捉非常长的依赖关系</td>
 </tr>
 <tr>
-<td>2. 反向传播</td>
-<td>计算梯度</td>
-<td><span class="arithmatex">\(\frac{\partial L}{\partial A} = \alpha \frac{\partial L}{\partial y} x^T B^T\)</span></td>
+<td>RoPE</td>
+<td>自然地表示相对位置；计算效率高</td>
+<td>实现相对复杂</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td><span class="arithmatex">\(\frac{\partial L}{\partial B} = \alpha \frac{\partial L}{\partial y} x^T A^T\)</span></td>
-</tr>
-<tr>
-<td>3. 参数更新</td>
-<td>更新 A 和 B</td>
-<td><span class="arithmatex">\(A \leftarrow A - \eta \frac{\partial L}{\partial A}\)</span></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><span class="arithmatex">\(B \leftarrow B - \eta \frac{\partial L}{\partial B}\)</span></td>
+<td>ALiBi</td>
+<td>简单有效；易于实现和理解</td>
+<td>可能不适合某些需要复杂位置关系的任务</td>
 </tr>
 </tbody>
 </table>
-<h3 id="25">2.5 应用范围<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
-<p>LoRA 通常应用于模型的多个层，特别是注意力层的查询和值矩阵。</p>
-<h3 id="26">2.6 优势<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
-<ol>
-<li>参数效率：显著减少训练参数数量</li>
-<li>灵活性：易于切换不同任务适应</li>
-<li>性能：接近全参数微调的效果</li>
-</ol>
-<h3 id="27">2.7 数学直觉<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
-<p>LoRA 基于以下假设：
-- 大型预训练模型的权重更新通常位于低维子空间
-- 低秩矩阵可有效捕获这种低维结构</p>
-<p>这种方法在保持模型性能的同时，大大减少了需要训练和存储的参数数量。</p>
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h2 id="3">3. 位置编码方法在大型语言模型中的应用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>位置编码方法</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-2</td>
+<td>学习的绝对位置嵌入</td>
+<td>每个位置都有一个可学习的嵌入向量</td>
+</tr>
+<tr>
+<td>GPT-3</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 GPT-2 类似，但扩展到更长的序列</td>
+</tr>
+<tr>
+<td>BERT</td>
+<td>学习的绝对位置嵌入</td>
+<td>类似于 GPT-2，但用于双向注意力</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>相对位置编码</td>
+<td>使用相对位置偏置而不是绝对位置</td>
+</tr>
+<tr>
+<td>XLNet</td>
+<td>相对位置编码</td>
+<td>使用双向相对位置编码</td>
+</tr>
+<tr>
+<td>ALBERT</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 BERT 类似</td>
+</tr>
+<tr>
+<td>RoBERTa</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 BERT 类似，但移除了位置嵌入的可学习性</td>
+</tr>
+<tr>
+<td>DeBERTa</td>
+<td>相对位置编码</td>
+<td>使用解耦的注意力机制</td>
+</tr>
+<tr>
+<td>PaLM</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>使用旋转位置编码</td>
+</tr>
+<tr>
+<td>LLaMA</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>使用旋转位置编码</td>
+</tr>
+<tr>
+<td>BLOOM</td>
+<td>ALiBi (Attention with Linear Biases)</td>
+<td>使用线性偏置注意力</td>
+</tr>
+<tr>
+<td>ERNIE 3.0</td>
+<td>相对位置编码</td>
+<td>使用相对位置表示</td>
+</tr>
+<tr>
+<td>Falcon</td>
+<td>ALiBi (Attention with Linear Biases)</td>
+<td>使用线性偏置注意力</td>
+</tr>
+<tr>
+<td>Vicuna</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>基于 LLaMA，使用旋转位置编码</td>
+</tr>
+<tr>
+<td>Alpaca</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>基于 LLaMA，使用旋转位置编码</td>
+</tr>
+<tr>
+<td>BART</td>
+<td>学习的绝对位置嵌入</td>
+<td>类似于 BERT，用于序列到序列任务</td>
+</tr>
+</tbody>
+</table>
 
 
 
