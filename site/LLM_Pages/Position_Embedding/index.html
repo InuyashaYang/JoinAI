@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../SFT/">
+        <link rel="prev" href="../Math_Architecture/">
       
       
-        <link rel="next" href="../Post-Train/">
+        <link rel="next" href="../Pre-Train/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>RLHF阶段 - AIDIY Wiki</title>
+        <title>位置编码 - AIDIY Wiki</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rlhf-reinforcement-learning-from-human-feedback" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RLHF阶段
+              位置编码
             
           </span>
         </div>
@@ -393,10 +393,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../Position_Embedding/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -405,6 +425,206 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 位置编码的要求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 位置编码的要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 位置向量之间的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 位置向量之间的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 位置编码方法比较
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 位置编码方法比较">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-sinusoidal-position-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 绝对位置编码（Sinusoidal Position Encoding）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 绝对位置编码（Sinusoidal Position Encoding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rope-rotary-position-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 RoPE (Rotary Position Embedding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RoPE (Rotary Position Embedding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-alibi-attention-with-linear-biases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 ALiBi (Attention with Linear Biases)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 ALiBi (Attention with Linear Biases)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 注意力计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 关键特性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 比较分析
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 位置编码方法在大型语言模型中的应用
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -456,30 +676,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    RLHF阶段
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../RLHF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -488,212 +688,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 简介
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. RLHF的主要组成部分
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. RLHF的主要组成部分">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#21-reward-model" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.1 奖励模型 (Reward Model)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#22-policy-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.2 策略优化 (Policy Optimization)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 人类反馈收集
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 人类反馈收集">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 反馈类型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 数据收集方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 数据质量控制
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 奖励模型训练
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 奖励模型训练">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 模型架构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 训练目标
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 评估方法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 策略优化
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 策略优化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-ppo" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 近端策略优化 (PPO)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-rlrlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 其他RL算法在RLHF中的应用
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. RLHF的挑战和解决方案
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. RLHF的伦理考虑
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. 参考文献
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -796,35 +790,164 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 简介
+      1. 位置编码的要求
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. 位置编码的要求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 位置向量之间的运算
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 位置向量之间的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-rlhf" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. RLHF的主要组成部分
+      2. 位置编码方法比较
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. RLHF的主要组成部分">
+    <nav class="md-nav" aria-label="2. 位置编码方法比较">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-reward-model" class="md-nav__link">
+  <a href="#21-sinusoidal-position-encoding" class="md-nav__link">
     <span class="md-ellipsis">
-      2.1 奖励模型 (Reward Model)
+      2.1 绝对位置编码（Sinusoidal Position Encoding）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 绝对位置编码（Sinusoidal Position Encoding）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1 定义
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-policy-optimization" class="md-nav__link">
+  <a href="#212" class="md-nav__link">
     <span class="md-ellipsis">
-      2.2 策略优化 (Policy Optimization)
+      2.1.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-rope-rotary-position-embedding" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 RoPE (Rotary Position Embedding)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 RoPE (Rotary Position Embedding)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2 相对位置表示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-alibi-attention-with-linear-biases" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 ALiBi (Attention with Linear Biases)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 ALiBi (Attention with Linear Biases)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1 定义
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.2 注意力计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3 关键特性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 比较分析
     </span>
   </a>
   
@@ -838,142 +961,7 @@
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 人类反馈收集
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. 人类反馈收集">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#31" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.1 反馈类型
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.2 数据收集方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.3 数据质量控制
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 奖励模型训练
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4. 奖励模型训练">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#41" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.1 模型架构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#42" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.2 训练目标
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#43" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.3 评估方法
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 策略优化
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="5. 策略优化">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#51-ppo" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.1 近端策略优化 (PPO)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#52-rlrlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      5.2 其他RL算法在RLHF中的应用
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. RLHF的挑战和解决方案
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-rlhf" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. RLHF的伦理考虑
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. 参考文献
+      3. 位置编码方法在大型语言模型中的应用
     </span>
   </a>
   
@@ -995,29 +983,373 @@
 
 
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
-<h1 id="rlhf-reinforcement-learning-from-human-feedback">RLHF (Reinforcement Learning from Human Feedback) 阶段<a class="headerlink" href="#rlhf-reinforcement-learning-from-human-feedback" title="Permanent link">&para;</a></h1>
-<h2 id="1">1. 简介<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>[解释RLHF的概念和在大语言模型优化中的重要性]</p>
-<h2 id="2-rlhf">2. RLHF的主要组成部分<a class="headerlink" href="#2-rlhf" title="Permanent link">&para;</a></h2>
-<h3 id="21-reward-model">2.1 奖励模型 (Reward Model)<a class="headerlink" href="#21-reward-model" title="Permanent link">&para;</a></h3>
-<h3 id="22-policy-optimization">2.2 策略优化 (Policy Optimization)<a class="headerlink" href="#22-policy-optimization" title="Permanent link">&para;</a></h3>
-<h2 id="3">3. 人类反馈收集<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<h3 id="31">3.1 反馈类型<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
-<h3 id="32">3.2 数据收集方法<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
-<h3 id="33">3.3 数据质量控制<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
-<h2 id="4">4. 奖励模型训练<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<h3 id="41">4.1 模型架构<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
-<h3 id="42">4.2 训练目标<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
-<h3 id="43">4.3 评估方法<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
-<h2 id="5">5. 策略优化<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
-<h3 id="51-ppo">5.1 近端策略优化 (PPO)<a class="headerlink" href="#51-ppo" title="Permanent link">&para;</a></h3>
-<h3 id="52-rlrlhf">5.2 其他RL算法在RLHF中的应用<a class="headerlink" href="#52-rlrlhf" title="Permanent link">&para;</a></h3>
-<h2 id="6-rlhf">6. RLHF的挑战和解决方案<a class="headerlink" href="#6-rlhf" title="Permanent link">&para;</a></h2>
-<p>[讨论实施RLHF时可能遇到的问题及其解决方法]</p>
-<h2 id="7-rlhf">7. RLHF的伦理考虑<a class="headerlink" href="#7-rlhf" title="Permanent link">&para;</a></h2>
-<p>[探讨使用人类反馈进行强化学习的伦理问题]</p>
-<h2 id="8">8. 参考文献<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h1 id="_1">位置编码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 位置编码的要求<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>位置编码在序列模型中扮演着至关重要的角色。一个理想的位置编码应满足以下要求：</p>
+<table>
+<thead>
+<tr>
+<th>性质</th>
+<th>描述</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>唯一性</td>
+<td>每个位置输出一个唯一的编码</td>
+<td>使模型能够区分和定位序列中的每个元素</td>
+</tr>
+<tr>
+<td>外推性</td>
+<td>具备良好的外推能力，可处理未见过的位置</td>
+<td>允许模型处理变长序列和超出训练范围的位置</td>
+</tr>
+<tr>
+<td>相对位置表示</td>
+<td>两位置之间的差异性只和其相对位置k有关</td>
+<td>使模型能学习位置无关的模式和关系</td>
+</tr>
+<tr>
+<td>距离相关性</td>
+<td>相对位置k差越大，两位置之关联越弱</td>
+<td>反映了语言的局部性原理，近距离词通常关系更密切</td>
+</tr>
+</tbody>
+</table>
+<h3 id="11">1.1 位置向量之间的运算<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>我们定义 <span class="arithmatex">\(f(i, j)\)</span> 为位置 <span class="arithmatex">\(i\)</span> 和位置 <span class="arithmatex">\(j\)</span> 之间的注意力交互函数：</p>
+<p><span class="arithmatex">\(f(i, j) = ((x_i + p_i)W_q)^T ((x_j + p_j)W_k)\)</span></p>
+<p>其中：
+- <span class="arithmatex">\(x_i\)</span>, <span class="arithmatex">\(x_j\)</span> 是词向量
+- <span class="arithmatex">\(p_i\)</span>, <span class="arithmatex">\(p_j\)</span> 是位置编码
+- <span class="arithmatex">\(W_q\)</span>, <span class="arithmatex">\(W_k\)</span> 是权重矩阵</p>
+<p>展开 <span class="arithmatex">\(f(i, j)\)</span>：</p>
+<p><span class="arithmatex">\(f(i, j) = (x_i W_q + p_i W_q)^T (x_j W_k + p_j W_k)\)</span></p>
+<p><span class="arithmatex">\(\quad\;\; = (x_i W_q)^T (x_j W_k) + (x_i W_q)^T (p_j W_k) + (p_i W_q)^T (x_j W_k) + (p_i W_q)^T (p_j W_k)\)</span></p>
+<p><span class="arithmatex">\(\quad\;\; = x_i^T W_q^T W_k x_j + x_i^T W_q^T W_k p_j + p_i^T W_q^T W_k x_j + p_i^T W_q^T W_k p_j\)</span></p>
+<h4 id="_2">解释<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>完全展开后的 <span class="arithmatex">\(f(i, j)\)</span> 包含四个项：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">项</th>
+<th style="text-align: center;">数学表达式</th>
+<th style="text-align: center;">名称</th>
+<th style="text-align: left;">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_i^T W_q^T W_k x_j\)</span></td>
+<td style="text-align: center;">纯词向量交互</td>
+<td style="text-align: left;">捕捉位置 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 的词向量之间的语义关系</td>
+</tr>
+<tr>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"><span class="arithmatex">\(x_i^T W_q^T W_k p_j\)</span></td>
+<td style="text-align: center;">词向量-位置编码交互</td>
+<td style="text-align: left;">允许模型考虑位置 <span class="arithmatex">\(i\)</span> 的词与位置 <span class="arithmatex">\(j\)</span> 的相对位置关系</td>
+</tr>
+<tr>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"><span class="arithmatex">\(p_i^T W_q^T W_k x_j\)</span></td>
+<td style="text-align: center;">位置编码-词向量交互</td>
+<td style="text-align: left;">考虑位置 <span class="arithmatex">\(i\)</span> 相对于位置 <span class="arithmatex">\(j\)</span> 的词的影响</td>
+</tr>
+<tr>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"><span class="arithmatex">\(p_i^T W_q^T W_k p_j\)</span></td>
+<td style="text-align: center;">纯位置编码交互</td>
+<td style="text-align: left;">捕捉两个位置之间的纯粹相对位置关系</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2. 位置编码方法比较<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-sinusoidal-position-encoding">2.1 绝对位置编码（Sinusoidal Position Encoding）<a class="headerlink" href="#21-sinusoidal-position-encoding" title="Permanent link">&para;</a></h3>
+<h4 id="211">2.1.1 定义<a class="headerlink" href="#211" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(pos\)</span></td>
+<td>位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td>维度索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d_{model}\)</span></td>
+<td>模型维度</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>编码类型</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>偶数维度</td>
+<td><span class="arithmatex">\(PE_{(pos,2i)} = \sin(pos / 10000^{2i/d_{model}})\)</span></td>
+</tr>
+<tr>
+<td>奇数维度</td>
+<td><span class="arithmatex">\(PE_{(pos,2i+1)} = \cos(pos / 10000^{2i/d_{model}})\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="212">2.1.2 相对位置表示<a class="headerlink" href="#212" title="Permanent link">&para;</a></h4>
+<p>对于每对 <span class="arithmatex">\((2i, 2i+1)\)</span> 维度：</p>
+<p><span class="arithmatex">\(\begin{bmatrix} 
+PE_{(pos+k, 2i)} \\
+PE_{(pos+k, 2i+1)}
+\end{bmatrix} = 
+\begin{bmatrix} 
+\cos(k\omega_i) &amp; -\sin(k\omega_i) \\
+\sin(k\omega_i) &amp; \cos(k\omega_i)
+\end{bmatrix}
+\begin{bmatrix} 
+PE_{(pos, 2i)} \\
+PE_{(pos, 2i+1)}
+\end{bmatrix}\)</span></p>
+<p>其中 <span class="arithmatex">\(\omega_i = 1/10000^{2i/d_{model}}\)</span></p>
+<h3 id="22-rope-rotary-position-embedding">2.2 RoPE (Rotary Position Embedding)<a class="headerlink" href="#22-rope-rotary-position-embedding" title="Permanent link">&para;</a></h3>
+<h4 id="221">2.2.1 定义<a class="headerlink" href="#221" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(m\)</span></td>
+<td>位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i\)</span></td>
+<td>维度索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(d\)</span></td>
+<td>模型维度</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta_i\)</span></td>
+<td><span class="arithmatex">\(10000^{-2i/d}\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>向量</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mathbf{q}_m\)</span></td>
+<td><span class="arithmatex">\([q_0, q_1, ..., q_{d-1}]\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mathbf{k}_m\)</span></td>
+<td><span class="arithmatex">\([k_0, k_1, ..., k_{d-1}]\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>RoPE 操作：</p>
+<p><span class="arithmatex">\(R_{\Theta,m}(\mathbf{q}_m)_i = [q_i \cos(m\theta_i) - q_{i+1} \sin(m\theta_i), q_i \sin(m\theta_i) + q_{i+1} \cos(m\theta_i)]\)</span></p>
+<h4 id="222">2.2.2 相对位置表示<a class="headerlink" href="#222" title="Permanent link">&para;</a></h4>
+<p><span class="arithmatex">\(\langle R_{\Theta,m}(\mathbf{q}), R_{\Theta,n}(\mathbf{k}) \rangle = f(\mathbf{q}, \mathbf{k}, n-m)\)</span></p>
+<h3 id="23-alibi-attention-with-linear-biases">2.3 ALiBi (Attention with Linear Biases)<a class="headerlink" href="#23-alibi-attention-with-linear-biases" title="Permanent link">&para;</a></h3>
+<p>ALiBi 通过在注意力分数中添加线性偏置来编码位置信息，实际上替换了传统注意力计算中的位置编码相关项。</p>
+<h4 id="231">2.3.1 定义<a class="headerlink" href="#231" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(q\)</span></td>
+<td>查询向量</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(k\)</span></td>
+<td>键向量</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(i, j\)</span></td>
+<td>查询和键的位置索引</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(m\)</span></td>
+<td>预定义斜率</td>
+</tr>
+</tbody>
+</table>
+<h4 id="232">2.3.2 注意力计算<a class="headerlink" href="#232" title="Permanent link">&para;</a></h4>
+<p>ALiBi 修改了传统的注意力计算方式。对比传统方法和 ALiBi：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>注意力分数计算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>传统方法</td>
+<td><span class="arithmatex">\(a(q, k) = (x_i W_q)^T (x_j W_k) + (x_i W_q)^T (p_j W_k) + (p_i W_q)^T (x_j W_k) + (p_i W_q)^T (p_j W_k)\)</span></td>
+</tr>
+<tr>
+<td>ALiBi</td>
+<td>$ a(q, k) = q^T k - m ×\text{abs}(i-j) $</td>
+</tr>
+</tbody>
+</table>
+<p>其中，ALiBi 的 <span class="arithmatex">\(q^T k\)</span> 对应传统方法中的 <span class="arithmatex">\(x_i^T W_q^T W_k x_j\)</span>（纯词向量交互），而 <span class="arithmatex">\(- m|i-j|\)</span> 项替代了传统方法中的其他三项（词向量-位置编码交互、位置编码-词向量交互和纯位置编码交互）。</p>
+<h4 id="233">2.3.3 关键特性<a class="headerlink" href="#233" title="Permanent link">&para;</a></h4>
+<ol>
+<li><strong>简化计算</strong>：ALiBi 通过一个简单的线性项替代了复杂的位置编码交互。</li>
+<li><strong>直接编码相对位置</strong>：<span class="arithmatex">\(|i-j|\)</span> 项直接表示了查询和键之间的相对距离。</li>
+<li><strong>消除显式位置编码</strong>：不再需要为输入序列添加单独的位置编码。</li>
+</ol>
+<p>这种方法有效地将位置信息整合到注意力机制中，同时简化了计算过程。通过替换传统注意力计算中的位置编码相关项，ALiBi 提供了一种更直接、更高效的方式来处理序列中的位置信息。</p>
+<h3 id="24">2.4 比较分析<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sinusoidal</td>
+<td>可以处理任意长度序列；具有良好的数学性质</td>
+<td>可能难以捕捉非常长的依赖关系</td>
+</tr>
+<tr>
+<td>RoPE</td>
+<td>自然地表示相对位置；计算效率高</td>
+<td>实现相对复杂</td>
+</tr>
+<tr>
+<td>ALiBi</td>
+<td>简单有效；易于实现和理解</td>
+<td>可能不适合某些需要复杂位置关系的任务</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3">3. 位置编码方法在大型语言模型中的应用<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>位置编码方法</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-2</td>
+<td>学习的绝对位置嵌入</td>
+<td>每个位置都有一个可学习的嵌入向量</td>
+</tr>
+<tr>
+<td>GPT-3</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 GPT-2 类似，但扩展到更长的序列</td>
+</tr>
+<tr>
+<td>BERT</td>
+<td>学习的绝对位置嵌入</td>
+<td>类似于 GPT-2，但用于双向注意力</td>
+</tr>
+<tr>
+<td>T5</td>
+<td>相对位置编码</td>
+<td>使用相对位置偏置而不是绝对位置</td>
+</tr>
+<tr>
+<td>XLNet</td>
+<td>相对位置编码</td>
+<td>使用双向相对位置编码</td>
+</tr>
+<tr>
+<td>ALBERT</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 BERT 类似</td>
+</tr>
+<tr>
+<td>RoBERTa</td>
+<td>学习的绝对位置嵌入</td>
+<td>与 BERT 类似，但移除了位置嵌入的可学习性</td>
+</tr>
+<tr>
+<td>DeBERTa</td>
+<td>相对位置编码</td>
+<td>使用解耦的注意力机制</td>
+</tr>
+<tr>
+<td>PaLM</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>使用旋转位置编码</td>
+</tr>
+<tr>
+<td>LLaMA</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>使用旋转位置编码</td>
+</tr>
+<tr>
+<td>BLOOM</td>
+<td>ALiBi (Attention with Linear Biases)</td>
+<td>使用线性偏置注意力</td>
+</tr>
+<tr>
+<td>ERNIE 3.0</td>
+<td>相对位置编码</td>
+<td>使用相对位置表示</td>
+</tr>
+<tr>
+<td>Falcon</td>
+<td>ALiBi (Attention with Linear Biases)</td>
+<td>使用线性偏置注意力</td>
+</tr>
+<tr>
+<td>Vicuna</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>基于 LLaMA，使用旋转位置编码</td>
+</tr>
+<tr>
+<td>Alpaca</td>
+<td>RoPE (Rotary Position Embedding)</td>
+<td>基于 LLaMA，使用旋转位置编码</td>
+</tr>
+<tr>
+<td>BART</td>
+<td>学习的绝对位置嵌入</td>
+<td>类似于 BERT，用于序列到序列任务</td>
+</tr>
+</tbody>
+</table>
 
 
 

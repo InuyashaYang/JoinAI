@@ -396,6 +396,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../Position_Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Pre-Train/" class="md-nav__link">
         
   
@@ -426,6 +447,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -435,6 +467,232 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-p-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. \(P^*\)-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. \(P^*\)-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prefix-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prefix-Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-encoder-decoder-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Encoder-Decoder 模型 - Encoder 部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-encoder-decoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Encoder-Decoder 模型 - Decoder 部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-autoregressive" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. AutoRegressive 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prompt-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Prompt Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-p-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. P-Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比较和总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lora-low-rank-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. LoRA (Low-Rank Adaptation)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LoRA (Low-Rank Adaptation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 基本原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 数学表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 参数效率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 训练过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 应用范围
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 数学直觉
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-adapter-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Adapter-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Adapter 结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encoder-decoder-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Encoder 和 Decoder 加入 Adapter 后的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 参数比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 训练和推理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -550,6 +808,221 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-p-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. \(P^*\)-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. \(P^*\)-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prefix-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Prefix-Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-encoder-decoder-encoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Encoder-Decoder 模型 - Encoder 部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-encoder-decoder-decoder" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Encoder-Decoder 模型 - Decoder 部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-autoregressive" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. AutoRegressive 模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-prompt-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Prompt Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-p-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. P-Tuning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      比较和总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lora-low-rank-adaptation" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. LoRA (Low-Rank Adaptation)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. LoRA (Low-Rank Adaptation)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 基本原理
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 数学表示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 参数效率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 训练过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 应用范围
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 优势
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 数学直觉
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-adapter-tuning" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Adapter-Tuning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Adapter-Tuning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Adapter 结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-encoder-decoder-adapter" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Encoder 和 Decoder 加入 Adapter 后的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 参数比较
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 训练和推理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -565,6 +1038,487 @@
 
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 <h1 id="sft-supervised-fine-tuning">SFT (Supervised Fine-Tuning) 的数学基础<a class="headerlink" href="#sft-supervised-fine-tuning" title="Permanent link">&para;</a></h1>
+<h2 id="1-p-tuning">1. <span class="arithmatex">\(P^*\)</span>-Tuning<a class="headerlink" href="#1-p-tuning" title="Permanent link">&para;</a></h2>
+<p>P 系列微调包括三种主要方法：Prefix-Tuning、Prompt Tuning 和 P-Tuning。这些方法都旨在通过添加或优化输入序列的一部分来适应特定任务，同时保持预训练模型的大部分参数不变。</p>
+<h3 id="1-prefix-tuning">1. Prefix-Tuning<a class="headerlink" href="#1-prefix-tuning" title="Permanent link">&para;</a></h3>
+<p><strong>基本原理：</strong> Prefix-Tuning 在每一层添加可学习的前缀，并确保 Q、K、V 矩阵维度一致。</p>
+<p>假设我们有以下参数：
+- <span class="arithmatex">\(d\)</span>: 模型的隐藏状态维度
+- <span class="arithmatex">\(n\)</span>: 输入序列长度
+- <span class="arithmatex">\(m\)</span>: 前缀长度
+- <span class="arithmatex">\(h\)</span>: MLP 中间层维度</p>
+<h3 id="1-encoder-decoder-encoder">1. Encoder-Decoder 模型 - Encoder 部分<a class="headerlink" href="#1-encoder-decoder-encoder" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式和维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入扩展</td>
+<td>添加前缀到输入</td>
+<td><span class="arithmatex">\(X_e \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input},e} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(X'_e = [P_{\text{input},e}; X_e] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>Q 计算</td>
+<td>计算查询矩阵</td>
+<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q_e = X'_eW_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>K, V 前缀</td>
+<td>生成并应用 K, V 前缀</td>
+<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_{K,e}, P_{V,e} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K_e = [P_{K,e}; X_eW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V_e = [P_{V,e}; X_eW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>MLP 生成</td>
+<td>使用 MLP 生成 K, V 前缀</td>
+<td><span class="arithmatex">\(P_{\text{low},e} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_{1,e} \in \mathbb{R}^{h \times (d/2)}, b_{1,e} \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_{2,e} \in \mathbb{R}^{2d \times h}, b_{2,e} \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_{K,e}; P_{V,e}] = W_{2,e} \cdot \text{ReLU}(W_{1,e} P_{\text{low},e} + b_{1,e}) + b_{2,e}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-encoder-decoder-decoder">2. Encoder-Decoder 模型 - Decoder 部分<a class="headerlink" href="#2-encoder-decoder-decoder" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式和维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入扩展</td>
+<td>添加前缀到输入</td>
+<td><span class="arithmatex">\(Y_d \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input},d} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(Y'_d = [P_{\text{input},d}; Y_d] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>Q 计算</td>
+<td>计算查询矩阵</td>
+<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q_d = Y'_dW_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>K, V 前缀</td>
+<td>生成并应用 K, V 前缀</td>
+<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_{K,d}, P_{V,d} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K_d = [P_{K,d}; Y_dW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V_d = [P_{V,d}; Y_dW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>MLP 生成</td>
+<td>使用 MLP 生成 K, V 前缀</td>
+<td><span class="arithmatex">\(P_{\text{low},d} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_{1,d} \in \mathbb{R}^{h \times (d/2)}, b_{1,d} \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_{2,d} \in \mathbb{R}^{2d \times h}, b_{2,d} \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_{K,d}; P_{V,d}] = W_{2,d} \cdot \text{ReLU}(W_{1,d} P_{\text{low},d} + b_{1,d}) + b_{2,d}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-autoregressive">3. AutoRegressive 模型<a class="headerlink" href="#3-autoregressive" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式和维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入扩展</td>
+<td>添加前缀到输入</td>
+<td><span class="arithmatex">\(X \in \mathbb{R}^{n \times d}\)</span> <br> <span class="arithmatex">\(P_{\text{input}} \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(X' = [P_{\text{input}}; X] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>Q 计算</td>
+<td>计算查询矩阵</td>
+<td><span class="arithmatex">\(W_Q \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(Q = X'W_Q \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>K, V 前缀</td>
+<td>生成并应用 K, V 前缀</td>
+<td><span class="arithmatex">\(W_K, W_V \in \mathbb{R}^{d \times d}\)</span> <br> <span class="arithmatex">\(P_K, P_V \in \mathbb{R}^{m \times d}\)</span> <br> <span class="arithmatex">\(K = [P_K; XW_K] \in \mathbb{R}^{(m+n) \times d}\)</span> <br> <span class="arithmatex">\(V = [P_V; XW_V] \in \mathbb{R}^{(m+n) \times d}\)</span></td>
+</tr>
+<tr>
+<td>MLP 生成</td>
+<td>使用 MLP 生成 K, V 前缀</td>
+<td><span class="arithmatex">\(P_{\text{low}} \in \mathbb{R}^{m \times (d/2)}\)</span> <br> <span class="arithmatex">\(W_1 \in \mathbb{R}^{h \times (d/2)}, b_1 \in \mathbb{R}^h\)</span> <br> <span class="arithmatex">\(W_2 \in \mathbb{R}^{2d \times h}, b_2 \in \mathbb{R}^{2d}\)</span> <br> <span class="arithmatex">\([P_K; P_V] = W_2 \cdot \text{ReLU}(W_1 P_{\text{low}} + b_1) + b_2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>注意事项：</p>
+<ol>
+<li>
+<p>所有模型类型中，<span class="arithmatex">\(Q\)</span>、<span class="arithmatex">\(K\)</span>、<span class="arithmatex">\(V\)</span> 的最终维度都是 <span class="arithmatex">\(\mathbb{R}^{(m+n) \times d}\)</span>，确保了注意力机制的兼容性。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(P_{\text{input}}\)</span> (或 <span class="arithmatex">\(P_{\text{input},e}\)</span>, <span class="arithmatex">\(P_{\text{input},d}\)</span>) 是直接训练的参数，不通过 MLP 生成。</p>
+</li>
+<li>
+<p>MLP 的输出 <span class="arithmatex">\([P_K; P_V]\)</span> (或 <span class="arithmatex">\([P_{K,e}; P_{V,e}]\)</span>, <span class="arithmatex">\([P_{K,d}; P_{V,d}]\)</span>) 的维度是 <span class="arithmatex">\(\mathbb{R}^{m \times 2d}\)</span>，然后被分割成两个 <span class="arithmatex">\(\mathbb{R}^{m \times d}\)</span> 的矩阵用于 K 和 V。</p>
+</li>
+<li>
+<p>在 Encoder-Decoder 模型中，编码器和解码器可以有不同的前缀和 MLP 参数。</p>
+</li>
+<li>
+<p>这些操作在每一层都会重复应用，但通常使用相同的 MLP 权重。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(P_{\text{low}}\)</span> (或 <span class="arithmatex">\(P_{\text{low},e}\)</span>, <span class="arithmatex">\(P_{\text{low},d}\)</span>) 是低维可训练参数，用于生成 K 和 V 的前缀。</p>
+</li>
+</ol>
+<h3 id="2-prompt-tuning">2. Prompt Tuning<a class="headerlink" href="#2-prompt-tuning" title="Permanent link">&para;</a></h3>
+<p><strong>基本原理：</strong> Prompt Tuning 直接学习连续的软提示，无需 MLP 降维。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数学表示</td>
+<td>软提示</td>
+<td><span class="arithmatex">\(P = [p_1, p_2, ..., p_m] \in \mathbb{R}^{m \times d}\)</span></td>
+</tr>
+<tr>
+<td>输入处理</td>
+<td>拼接操作</td>
+<td><span class="arithmatex">\(X' = [P; X] = [p_1, ..., p_m, x_1, ..., x_n]\)</span></td>
+</tr>
+<tr>
+<td>训练过程</td>
+<td>前向传播</td>
+<td>将 <span class="arithmatex">\(X'\)</span> 输入模型</td>
+</tr>
+<tr>
+<td></td>
+<td>反向传播</td>
+<td>仅计算 <span class="arithmatex">\(\frac{\partial L}{\partial P}\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>参数更新</td>
+<td>只更新 <span class="arithmatex">\(P\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-p-tuning">3. P-Tuning<a class="headerlink" href="#3-p-tuning" title="Permanent link">&para;</a></h3>
+<p><strong>基本原理：</strong> P-Tuning 使用 LSTM 和 MLP 动态生成提示。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数学表示</td>
+<td>可学习嵌入</td>
+<td><span class="arithmatex">\(E = [e_1, e_2, ..., e_m] \in \mathbb{R}^{m \times d}\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>LSTM</td>
+<td><span class="arithmatex">\(LSTM: \mathbb{R}^{m \times d} \rightarrow \mathbb{R}^{m \times h}\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>MLP</td>
+<td><span class="arithmatex">\(MLP: \mathbb{R}^{h} \rightarrow \mathbb{R}^{d}\)</span></td>
+</tr>
+<tr>
+<td>提示生成过程</td>
+<td>LSTM 处理</td>
+<td><span class="arithmatex">\(H = LSTM(E)\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>MLP 映射</td>
+<td><span class="arithmatex">\(P_i = MLP(H_i)\)</span>, <span class="arithmatex">\(i \in [1, m]\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>最终提示</td>
+<td><span class="arithmatex">\(P = [P_1, P_2, ..., P_m] \in \mathbb{R}^{m \times d}\)</span></td>
+</tr>
+<tr>
+<td>训练过程</td>
+<td>反向传播</td>
+<td>计算 <span class="arithmatex">\(\frac{\partial L}{\partial E}, \frac{\partial L}{\partial \theta_{LSTM}}, \frac{\partial L}{\partial \theta_{MLP}}\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td>参数更新</td>
+<td>更新 <span class="arithmatex">\(E\)</span>, LSTM 参数, MLP 参数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_1">比较和总结<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>提示生成</th>
+<th>参数效率</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefix-Tuning</td>
+<td>MLP</td>
+<td>高</td>
+<td>中</td>
+</tr>
+<tr>
+<td>Prompt Tuning</td>
+<td>直接优化</td>
+<td>最高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>P-Tuning</td>
+<td>LSTM + MLP</td>
+<td>中</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<p>这三种方法都属于 P 系列微调，它们通过不同方式生成和优化输入序列的一部分来适应特定任务，同时保持模型主体不变，从而实现高效的监督微调。</p>
+<h2 id="2-lora-low-rank-adaptation">2. LoRA (Low-Rank Adaptation)<a class="headerlink" href="#2-lora-low-rank-adaptation" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 基本原理<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<p>LoRA 是一种参数高效的微调方法，核心思想是使用低秩矩阵来近似权重更新。</p>
+<h3 id="22">2.2 数学表示<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>假设预训练模型的权重矩阵为 <span class="arithmatex">\(W \in \mathbb{R}^{d \times k}\)</span>，LoRA 的更新可表示为：</p>
+<p><span class="arithmatex">\(W' = W + \alpha BA\)</span></p>
+<p>其中：
+- <span class="arithmatex">\(B \in \mathbb{R}^{d \times r}\)</span>
+- <span class="arithmatex">\(A \in \mathbb{R}^{r \times k}\)</span>
+- <span class="arithmatex">\(r \ll \min(d, k)\)</span> 是一个小的秩
+- <span class="arithmatex">\(\alpha\)</span> 是可调节的缩放参数</p>
+<h3 id="23">2.3 参数效率<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>参数数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>原始权重矩阵</td>
+<td><span class="arithmatex">\(dk\)</span></td>
+</tr>
+<tr>
+<td>LoRA</td>
+<td><span class="arithmatex">\(r(d+k)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>通常 <span class="arithmatex">\(r(d+k) \ll dk\)</span>，大幅减少了参数量。</p>
+<h3 id="24">2.4 训练过程<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>描述</th>
+<th>数学表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. 前向传播</td>
+<td>计算输出</td>
+<td><span class="arithmatex">\(y = (W + \alpha BA)x\)</span></td>
+</tr>
+<tr>
+<td>2. 反向传播</td>
+<td>计算梯度</td>
+<td><span class="arithmatex">\(\frac{\partial L}{\partial A} = \alpha \frac{\partial L}{\partial y} x^T B^T\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><span class="arithmatex">\(\frac{\partial L}{\partial B} = \alpha \frac{\partial L}{\partial y} x^T A^T\)</span></td>
+</tr>
+<tr>
+<td>3. 参数更新</td>
+<td>更新 A 和 B</td>
+<td><span class="arithmatex">\(A \leftarrow A - \eta \frac{\partial L}{\partial A}\)</span></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><span class="arithmatex">\(B \leftarrow B - \eta \frac{\partial L}{\partial B}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="25">2.5 应用范围<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>LoRA 通常应用于模型的多个层，特别是注意力层的查询和值矩阵。</p>
+<h3 id="26">2.6 优势<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<ol>
+<li>参数效率：显著减少训练参数数量</li>
+<li>灵活性：易于切换不同任务适应</li>
+<li>性能：接近全参数微调的效果</li>
+</ol>
+<h3 id="27">2.7 数学直觉<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p>LoRA 基于以下假设：
+- 大型预训练模型的权重更新通常位于低维子空间
+- 低秩矩阵可有效捕获这种低维结构</p>
+<p>这种方法在保持模型性能的同时，大大减少了需要训练和存储的参数数量。</p>
+<h2 id="3-adapter-tuning">3. Adapter-Tuning<a class="headerlink" href="#3-adapter-tuning" title="Permanent link">&para;</a></h2>
+<p>Adapter-Tuning 可以视为在 Transformer 中添加特殊的 MLP 层，以实现参数高效的微调。</p>
+<h3 id="31-adapter">3.1 Adapter 结构<a class="headerlink" href="#31-adapter" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+<th>数学表达式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>原始层输出</td>
+<td><span class="arithmatex">\(x \in \mathbb{R}^d\)</span></td>
+</tr>
+<tr>
+<td>下投影</td>
+<td>降维操作</td>
+<td><span class="arithmatex">\(W_{\text{down}} \in \mathbb{R}^{r \times d}\)</span></td>
+</tr>
+<tr>
+<td>激活函数</td>
+<td>非线性变换</td>
+<td><span class="arithmatex">\(\text{ReLU}\)</span></td>
+</tr>
+<tr>
+<td>上投影</td>
+<td>升维操作</td>
+<td><span class="arithmatex">\(W_{\text{up}} \in \mathbb{R}^{d \times r}\)</span></td>
+</tr>
+<tr>
+<td>残差连接</td>
+<td>添加原始输入</td>
+<td><span class="arithmatex">\(+x\)</span></td>
+</tr>
+<tr>
+<td>输出</td>
+<td>Adapter 输出</td>
+<td><span class="arithmatex">\(\text{Adapter}(x) = x + W_{\text{up}}(\text{ReLU}(W_{\text{down}}x))\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>注：<span class="arithmatex">\(d\)</span> 为模型隐藏状态维度，<span class="arithmatex">\(r\)</span> 为 Adapter 瓶颈维度（通常 <span class="arithmatex">\(r \ll d\)</span>）。</p>
+<h3 id="32-encoder-decoder-adapter">3.2 Encoder 和 Decoder 加入 Adapter 后的结构<a class="headerlink" href="#32-encoder-decoder-adapter" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Encoder 层</th>
+<th>Decoder 层</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入</td>
+<td>输入</td>
+</tr>
+<tr>
+<td>自注意力</td>
+<td>自注意力 (带掩码)</td>
+</tr>
+<tr>
+<td>残差连接 + 层归一化</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>Adapter 1</td>
+<td>Adapter 1</td>
+</tr>
+<tr>
+<td>-</td>
+<td>交叉注意力</td>
+</tr>
+<tr>
+<td>-</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Adapter 2</td>
+</tr>
+<tr>
+<td>前馈网络</td>
+<td>前馈网络</td>
+</tr>
+<tr>
+<td>残差连接 + 层归一化</td>
+<td>残差连接 + 层归一化</td>
+</tr>
+<tr>
+<td>Adapter 2</td>
+<td>Adapter 3</td>
+</tr>
+<tr>
+<td>输出</td>
+<td>输出</td>
+</tr>
+</tbody>
+</table>
+<p>注意事项：
+1. Encoder 中有 2 个 Adapter，Decoder 中有 3 个 Adapter。
+2. Decoder 比 Encoder 多了交叉注意力层及其对应的 Adapter。
+3. 每个 Adapter 的结构相同，但参数不同。
+4. 原始 Transformer 参数在微调时保持冻结，只更新 Adapter 参数。</p>
+<h3 id="33">3.3 参数比较<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Transformer</th>
+<th>Adapter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参数量</td>
+<td><span class="arithmatex">\(O(d^2)\)</span></td>
+<td><span class="arithmatex">\(O(2dr)\)</span></td>
+</tr>
+<tr>
+<td>训练状态</td>
+<td>冻结</td>
+<td>可训练</td>
+</tr>
+<tr>
+<td>任务特异性</td>
+<td>通用</td>
+<td>任务特定</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34">3.4 训练和推理<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>训练</td>
+<td>1. 冻结预训练 Transformer 参数<br>2. 初始化 Adapter 参数<br>3. 仅更新 Adapter 参数</td>
+</tr>
+<tr>
+<td>推理</td>
+<td>1. 选择任务特定 Adapter<br>2. 在 Transformer 计算流程中插入 Adapter</td>
+</tr>
+</tbody>
+</table>
 <p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
 
 

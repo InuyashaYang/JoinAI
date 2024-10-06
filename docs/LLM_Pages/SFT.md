@@ -153,7 +153,61 @@ LoRA 基于以下假设：
 
 这种方法在保持模型性能的同时，大大减少了需要训练和存储的参数数量。
 
+## 3. Adapter-Tuning
 
+Adapter-Tuning 可以视为在 Transformer 中添加特殊的 MLP 层，以实现参数高效的微调。
+
+### 3.1 Adapter 结构
+
+| 组件 | 描述 | 数学表达式 |
+|------|------|------------|
+| 输入 | 原始层输出 | $x \in \mathbb{R}^d$ |
+| 下投影 | 降维操作 | $W_{\text{down}} \in \mathbb{R}^{r \times d}$ |
+| 激活函数 | 非线性变换 | $\text{ReLU}$ |
+| 上投影 | 升维操作 | $W_{\text{up}} \in \mathbb{R}^{d \times r}$ |
+| 残差连接 | 添加原始输入 | $+x$ |
+| 输出 | Adapter 输出 | $\text{Adapter}(x) = x + W_{\text{up}}(\text{ReLU}(W_{\text{down}}x))$ |
+
+注：$d$ 为模型隐藏状态维度，$r$ 为 Adapter 瓶颈维度（通常 $r \ll d$）。
+
+### 3.2 Encoder 和 Decoder 加入 Adapter 后的结构
+
+| Encoder 层                   | Decoder 层                   |
+|------------------------------|------------------------------|
+| 输入                         | 输入                         |
+| 自注意力                     | 自注意力 (带掩码)            |
+| 残差连接 + 层归一化          | 残差连接 + 层归一化          |
+| Adapter 1                    | Adapter 1                    |
+| -                            | 交叉注意力                   |
+| -                            | 残差连接 + 层归一化          |
+| -                            | Adapter 2                    |
+| 前馈网络                     | 前馈网络                     |
+| 残差连接 + 层归一化          | 残差连接 + 层归一化          |
+| Adapter 2                    | Adapter 3                    |
+| 输出                         | 输出                         |
+
+注意事项：
+1. Encoder 中有 2 个 Adapter，Decoder 中有 3 个 Adapter。
+2. Decoder 比 Encoder 多了交叉注意力层及其对应的 Adapter。
+3. 每个 Adapter 的结构相同，但参数不同。
+4. 原始 Transformer 参数在微调时保持冻结，只更新 Adapter 参数。
+
+
+
+### 3.3 参数比较
+
+| 项目 | Transformer | Adapter |
+|------|-------------|---------|
+| 参数量 | $O(d^2)$ | $O(2dr)$ |
+| 训练状态 | 冻结 | 可训练 |
+| 任务特异性 | 通用 | 任务特定 |
+
+### 3.4 训练和推理
+
+| 阶段 | 操作 |
+|------|------|
+| 训练 | 1. 冻结预训练 Transformer 参数<br>2. 初始化 Adapter 参数<br>3. 仅更新 Adapter 参数 |
+| 推理 | 1. 选择任务特定 Adapter<br>2. 在 Transformer 计算流程中插入 Adapter |
 
 
 
