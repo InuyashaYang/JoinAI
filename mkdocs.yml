@@ -32,14 +32,19 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css
 nav:
   - Home: index.md
+  - 数学基础: Mathematical_Foundation\Matrix_Calculation.md
   - Machine Learning:
     - 机器学习基础: ML_Pages/ML_Basics.md
+    - CNN: ML_Pages/CNN.md
+    - MLP: ML_Pages/MLP.md
+    - RNN: ML_Pages/RNN.md
   - LLM:
     - Transformer数学架构: LLM_Pages/Math_Architecture.md
     - 位置编码: LLM_Pages/Position_Embedding.md
     - 预训练阶段: LLM_Pages/Pre-Train.md
     - SFT阶段: LLM_Pages/SFT.md
     - 后训练阶段: LLM_Pages/Post-Train.md
+  - 工程调用: Engineering_Pages/LlamaFactory.md
   - RL:
     - 强化学习: RL_Pages/RL.md
   - LLM_RLHF阶段: RLHF_Pages/RLHF.md
