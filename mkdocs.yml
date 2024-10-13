@@ -34,7 +34,6 @@ nav:
   - Home: index.md
   - 数学基础: Mathematical_Foundation\Matrix_Calculation.md
   - Machine Learning:
-    - 机器学习基础: ML_Pages/ML_Basics.md
     - CNN: ML_Pages/CNN.md
     - MLP: ML_Pages/MLP.md
     - RNN: ML_Pages/RNN.md
