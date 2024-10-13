@@ -32,16 +32,21 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css
 nav:
   - Home: index.md
-  - Agent: agent.md
+  - Machine Learning:
+    - 机器学习基础: ML_Pages/ML_Basics.md
   - LLM:
     - Transformer数学架构: LLM_Pages/Math_Architecture.md
     - 位置编码: LLM_Pages/Position_Embedding.md
     - 预训练阶段: LLM_Pages/Pre-Train.md
     - SFT阶段: LLM_Pages/SFT.md
-    - RLHF阶段: LLM_Pages/RLHF.md
     - 后训练阶段: LLM_Pages/Post-Train.md
-  - StableDiffusion: stablediffusion.md
+  - RL:
+    - 强化学习: RL_Pages/RL.md
+  - LLM_RLHF阶段: RLHF_Pages/RLHF.md
   - ViT: vit.md
+  - StableDiffusion: stablediffusion.md
+  - Agent: agent.md
+
 
 
 extra:

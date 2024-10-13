@@ -210,5 +210,69 @@ Adapter-Tuning 可以视为在 Transformer 中添加特殊的 MLP 层，以实�
 | 推理 | 1. 选择任务特定 Adapter<br>2. 在 Transformer 计算流程中插入 Adapter |
 
 
+## 4. BitFit (Bias-terms Fine-tuning)
+
+BitFit 是一种参数高效的微调方法，专注于只调整预训练语言模型中的偏置参数。这种方法旨在通过最小化可训练参数的数量来实现快速和高效的模型适应。
+
+### 4.1 核心思想
+
+- 仅微调模型中现有的偏置参数
+- 保持所有权重矩阵固定
+- 极大地减少可训练参数数量（通常<1%的总参数）
+
+### 4.2 BitFit 在不同模型结构中的应用
+
+| 组件 | 偏置参数 | 维度 | 适用模型 |
+|------|----------|------|----------|
+| 自注意力输出 | $b_O$ | $\mathbb{R}^d$ | 所有 |
+| 层归一化 | $\beta$ | $\mathbb{R}^d$ | 所有 |
+| 前馈网络第一层 | $b_1$ | $\mathbb{R}^{4d}$ | 所有 |
+| 前馈网络第二层 | $b_2$ | $\mathbb{R}^d$ | 所有 |
+| 交叉注意力输出 | $b_{O_{\text{cross}}}$ | $\mathbb{R}^d$ | 仅 Decoder |
+| 分类头 | $b_{\text{cls}}$ | $\mathbb{R}^{|\text{vocab}|}$ | 仅 BERT 类 |
+
+
+### 4.3 BitFit 的优势
+
+1. **极高的参数效率**：只调整少量偏置参数，大幅减少可训练参数数量
+2. **实现简单**：易于在现有模型上实施，无需复杂的架构修改
+3. **训练速度快**：由于可训练参数少，训练过程更快
+4. **存储效率高**：每个任务只需保存少量参数，便于部署多个任务特定模型
+
+### 4.4 BitFit 的局限性
+
+1. **表达能力有限**：仅调整偏置可能不足以适应复杂任务
+2. **性能上限**：在某些任务上可能无法达到全参数微调的性能水平
+3. **任务适应性**：不是所有任务都适合仅通过调整偏置来完成
+4. **大规模实用性受限**：
+   - 对于需要深度语义理解的复杂任务效果可能不佳
+   - 在大规模语言模型（如 GPT-3）上的效果尚未得到充分验证
+   - 可能不适用于需要模型学习新知识或大幅改变其行为的场景
+
+
+## 5. Diff-Tuning 在 Transformer 中的应用
+
+| 组件 | 子组件 | 参数 | Diff-Tuning 应用 |
+|------|--------|------|-------------------|
+| 词嵌入层 | 词嵌入 | $W_e \in \mathbb{R}^{\text{vocab} \times d}$ | $W_e + \Delta W_e$ |
+| | 位置编码 | $PE \in \mathbb{R}^{\text{max\_len} \times d}$ | 通常固定，不参与微调 |
+| 自注意力层 | 查询/键/值 | $W_Q, W_K, W_V \in \mathbb{R}^{d \times d}$ | $W_Q + \Delta W_Q$ |
+| | | | $W_K + \Delta W_K$ |
+| | | | $W_V + \Delta W_V$ |
+| | 输出投影 | $W_O \in \mathbb{R}^{d \times d}$ | $W_O + \Delta W_O$ |
+| | | $b_O \in \mathbb{R}^d$ | $b_O + \Delta b_O$ |
+| 前馈网络层 | 第一层 | $W_1 \in \mathbb{R}^{d \times 4d}$ | $W_1 + \Delta W_1$ |
+| | | $b_1 \in \mathbb{R}^{4d}$ | $b_1 + \Delta b_1$ |
+| | 第二层 | $W_2 \in \mathbb{R}^{4d \times d}$ | $W_2 + \Delta W_2$ |
+| | | $b_2 \in \mathbb{R}^d$ | $b_2 + \Delta b_2$ |
+| 层归一化 | 缩放和偏移 | $\gamma \in \mathbb{R}^d$ | $\gamma + \Delta \gamma$ |
+| | | $\beta \in \mathbb{R}^d$ | $\beta + \Delta \beta$ |
+
+注意事项：
+1. $d$ 是模型的隐藏状态维度
+2. 所有的 $\Delta$ 参数都受到约束：$\|\Delta\| \leq \epsilon$，其中 $\epsilon$ 是一个小常数
+3. 优化目标：$\min_{\Delta} \mathcal{L}(\theta_{\text{pre-trained}} + \Delta) + \lambda \|\Delta\|$
+4. $\lambda$ 是正则化系数，控制参数变化的幅度
+
 
 [![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
