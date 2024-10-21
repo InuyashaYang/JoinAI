@@ -43,7 +43,9 @@ nav:
     - 预训练阶段: LLM_Pages/Pre-Train.md
     - SFT阶段: LLM_Pages/SFT.md
     - 后训练阶段: LLM_Pages/Post-Train.md
-  - 工程调用: Engineering_Pages/LlamaFactory.md
+  - 工程实践: 
+    - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
+    - vllm部署模型: Engineering_Pages/VLLM.md
   - RL:
     - 强化学习: RL_Pages/RL.md
   - LLM_RLHF阶段: RLHF_Pages/RLHF.md
