@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../LlamaFactory/">
+      
+      
+        <link rel="next" href="../../RL_Pages/RL/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Part0 0 - AIDIY Wiki</title>
+        <title>vllm部署模型 - AIDIY Wiki</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ai" class="md-skip">
+        <a href="#vllmdeepseek-prover" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Part0 0
+              vllm部署模型
             
           </span>
         </div>
@@ -231,11 +235,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LlamaFactory/" class="md-tabs__link">
           
   
   工程实践
@@ -671,25 +677,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -700,7 +711,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             工程实践
@@ -714,7 +725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
+      <a href="../LlamaFactory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,10 +743,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Engineering_Pages/VLLM/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    vllm部署模型
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -744,6 +775,152 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-pytorch" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Pytorch环境安装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Pytorch环境安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 下载代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 修改requirements.txt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型下载
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-huggingface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Huggingface环境设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 模型推理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 模型推理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 模型输入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 模型输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 多卡并行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 服务器资源监测
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 服务器资源监测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 CPU使用情况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 GPU使用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -931,11 +1108,128 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#1-pytorch" class="md-nav__link">
     <span class="md-ellipsis">
-      创业孵化器
+      1. Pytorch环境安装
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="1. Pytorch环境安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1 下载代码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-requirementstxt" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2 修改requirements.txt
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 模型下载
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-huggingface" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Huggingface环境设置
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 模型推理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 模型推理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 模型输入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 模型输出
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 多卡并行
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 服务器资源监测
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 服务器资源监测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 CPU使用情况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-gpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 GPU使用情况
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -954,12 +1248,117 @@
                   
 
 
-<p><a href="https://github.com/Joining-AI/LLM_Interview_Prepare"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Joining-AI/LLM_Interview_Prepare?style=social" /></a></p>
-<h1 id="ai">AI面试与职业机会<a class="headerlink" href="#ai" title="Permanent link">&para;</a></h1>
-<p>特别鸣谢 <strong><a href="https://apply.miracleplus.com/?s=PRteam">奇绩创坛</a></strong></p>
-<h2 id="_1">创业孵化器<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><a href="https://apply.miracleplus.com/?s=PRteam">奇绩创坛申请</a></p>
-<p><a href="../../">返回</a></p>
+<h1 id="vllmdeepseek-prover">使用vllm部署deepseek-prover教程<a class="headerlink" href="#vllmdeepseek-prover" title="Permanent link">&para;</a></h1>
+<h2 id="1-pytorch">1. Pytorch环境安装<a class="headerlink" href="#1-pytorch" title="Permanent link">&para;</a></h2>
+<h3 id="11">1.1 下载代码<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<p>从GitHub下载代码：</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>git@github.com:deepseek-ai/DeepSeek-Prover-V1.5.git
+</code></pre></div>
+<p>如果服务器无法从GitHub下载，可以使用：</p>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span><span class="s1">&#39;https://github.com/deepseek-ai/DeepSeek-Prover-V1.5/archive/refs/heads/main.zip&#39;</span>
+unzip<span class="w"> </span><span class="s1">&#39;main.zip&#39;</span>
+</code></pre></div>
+<h3 id="12-requirementstxt">1.2 修改requirements.txt<a class="headerlink" href="#12-requirementstxt" title="Permanent link">&para;</a></h3>
+<p>修改<code>requirements.txt</code>内容如下：</p>
+<div class="highlight"><pre><span></span><code>torch==2.2.1
+pytz==2022.1
+easydict==1.13
+transformers==4.40.1
+numpy==1.26.4
+pandas==1.4.3
+tabulate==0.9.0
+termcolor==2.4.0
+accelerate==0.33.0
+flash_attn==2.6.3
+vllm
+</code></pre></div>
+<p>注意：
+- flash_attn 不能在 python&gt;3.12上安装
+- vllm 不指定版本</p>
+<h2 id="2">2. 模型下载<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span><span class="s1">&#39;https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh&#39;</span>
+bash<span class="w"> </span>script.deb.sh<span class="w"> </span>
+apt-get<span class="w"> </span>install<span class="w"> </span>git-lfs<span class="w"> </span>
+git<span class="w"> </span>lfs<span class="w"> </span>install
+
+git<span class="w"> </span>clone<span class="w"> </span>https://www.modelscope.cn/deepseek-ai/DeepSeek-Prover-V1.5-RL.git
+</code></pre></div>
+<h2 id="3-huggingface">3. Huggingface环境设置<a class="headerlink" href="#3-huggingface" title="Permanent link">&para;</a></h2>
+<p>为解决国内访问huggingface的问题，设置镜像网站：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">HF_ENDPOINT</span><span class="o">=</span>https://hf-mirror.com
+</code></pre></div>
+<p>永久生效方法：</p>
+<div class="highlight"><pre><span></span><code>vim<span class="w"> </span>~/.bashrc
+<span class="c1"># 在文件末尾添加：</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">HF_ENDPOINT</span><span class="o">=</span>https://hf-mirror.com
+<span class="c1"># 使更改立即生效：</span>
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<h2 id="4">4. 模型推理<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 模型输入<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<p>使用mini-batch处理：</p>
+<div class="highlight"><pre><span></span><code><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">num_batches</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">num_batches</span><span class="p">)):</span>
+    <span class="n">batch_keys</span> <span class="o">=</span> <span class="n">keys</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">:(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">]</span>
+    <span class="n">model_inputs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">batch_keys</span><span class="p">:</span>
+        <span class="c1"># 处理输入数据</span>
+        <span class="c1"># ...</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">model_inputs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+
+    <span class="n">model_outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+        <span class="n">model_inputs</span><span class="p">,</span>
+        <span class="n">sampling_params</span><span class="p">,</span>
+        <span class="n">use_tqdm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div>
+<h3 id="42">4.2 模型输出<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batch_keys</span><span class="p">):</span>
+    <span class="c1"># 处理模型输出</span>
+    <span class="c1"># ...</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="c1"># 更新字典数据</span>
+        <span class="c1"># ...</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># 创建新字典</span>
+        <span class="c1"># ...</span>
+
+    <span class="n">new_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp</span>
+</code></pre></div>
+<h2 id="5">5. 多卡并行<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>使用LLM包加载模型，支持数据并行和张量并行：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;CUDA_VISIBLE_DEVICES&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1,2,3,4,5,6,7&quot;</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">LLM</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span>
+    <span class="n">max_num_batched_tokens</span><span class="o">=</span><span class="mi">8192</span><span class="p">,</span>
+    <span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">trust_remote_code</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">tensor_parallel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>  <span class="c1"># 张量并行大小</span>
+    <span class="n">pipeline_parallel_size</span><span class="o">=</span><span class="mi">1</span>  <span class="c1"># 流水线并行大小</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="6">6. 服务器资源监测<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61-cpu">6.1 CPU使用情况<a class="headerlink" href="#61-cpu" title="Permanent link">&para;</a></h3>
+<p>使用<code>htop</code>命令：</p>
+<div class="highlight"><pre><span></span><code>htop
+</code></pre></div>
+<h3 id="62-gpu">6.2 GPU使用情况<a class="headerlink" href="#62-gpu" title="Permanent link">&para;</a></h3>
+<p>使用<code>nvtop</code>命令：</p>
+<div class="highlight"><pre><span></span><code>nvtop
+</code></pre></div>
 
 
 
