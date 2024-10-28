@@ -46,6 +46,7 @@ nav:
   - 工程实践: 
     - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
     - vllm部署模型: Engineering_Pages/VLLM.md
+    - 全量微调: Engineering_Pages/Full_SFT_LlamaFactory.md
   - RL:
     - 强化学习: RL_Pages/RL.md
   - LLM_RLHF阶段: RLHF_Pages/RLHF.md
