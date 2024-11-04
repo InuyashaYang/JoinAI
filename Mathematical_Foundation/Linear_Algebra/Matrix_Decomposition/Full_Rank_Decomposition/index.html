@@ -1,0 +1,1495 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>矩阵的满秩分解详解 - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              矩阵的满秩分解详解
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-tabs__link">
+          
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../ML_Pages/CNN/" class="md-tabs__link">
+          
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../LLM_Pages/Math_Architecture/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
+          
+  
+  工程实践
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../RL_Pages/RL/" class="md-tabs__link">
+          
+  
+  RL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../RLHF_Pages/RLHF/" class="md-tabs__link">
+        
+  
+    
+  
+  LLM_RLHF阶段
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵满秩分解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Matrix_Calculation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵求导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Manifold/Manifold_hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    流形假设
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ML_Pages/CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ML_Pages/MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ML_Pages/RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ML_Pages/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LLM_Pages/Math_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer数学架构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LLM_Pages/Position_Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LLM_Pages/Pre-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LLM_Pages/SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LLM_Pages/Post-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LlamaFactory入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Engineering_Pages/VLLM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vllm部署模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Engineering_Pages/Full_SFT_LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    全量微调
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            RL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RL_Pages/RL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RL基础概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RL_Pages/Monte_Carlos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RLHF_Pages/RLHF/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM_RLHF阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法一：基本步骤法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="方法一：基本步骤法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 理论基础
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 算法步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 详细示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 详细示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 确定秩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 选取基底
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 求解系数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      方法二：高斯消元法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="方法二：高斯消元法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 理论基础
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 算法步骤
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 详细示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 详细示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 高斯消元过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 提取基底
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 构造系数矩阵
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qr" class="md-nav__link">
+    <span class="md-ellipsis">
+      QR分解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#svd" class="md-nav__link">
+    <span class="md-ellipsis">
+      SVD分解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      高斯消元分解
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">矩阵的满秩分解详解<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h3 id="_2">基本概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>给定矩阵 <span class="arithmatex">\(A \in \mathbb{R}^{m \times n}\)</span>，其秩为 <span class="arithmatex">\(r\)</span>，满秩分解是将 <span class="arithmatex">\(A\)</span> 表示为：</p>
+<p><span class="arithmatex">\(A = LR\)</span></p>
+<p>其中：
+- <span class="arithmatex">\(L \in \mathbb{R}^{m \times r}\)</span> 为基底矩阵，由 <span class="arithmatex">\(r\)</span> 个线性无关的列向量组成
+- <span class="arithmatex">\(R \in \mathbb{R}^{r \times n}\)</span> 为系数矩阵，表示原矩阵各列在基底上的线性组合系数</p>
+<h3 id="_3">方法一：基本步骤法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h4 id="1">1. 理论基础<a class="headerlink" href="#1" title="Permanent link">&para;</a></h4>
+<p>基本步骤法基于以下定理：
+- 任意矩阵的列空间可由其线性无关列向量张成
+- 矩阵的任意列都可以表示为这些基底向量的线性组合</p>
+<h4 id="2">2. 算法步骤<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<p>1) <strong>确定矩阵秩</strong>
+   - 通过初等变换将矩阵化为行阶梯形
+   - 非零行的数量即为矩阵的秩 <span class="arithmatex">\(r\)</span></p>
+<p>2) <strong>选取基底列向量</strong>
+   - 从矩阵 <span class="arithmatex">\(A\)</span> 中选择 <span class="arithmatex">\(r\)</span> 个线性无关的列向量
+   - 构成基底矩阵 <span class="arithmatex">\(L \in \mathbb{R}^{m \times r}\)</span></p>
+<p>3) <strong>求解系数矩阵</strong>
+   - 对每列 <span class="arithmatex">\(A_j\)</span> 求解方程组：<span class="arithmatex">\(A_j = Lx\)</span>
+   - 将解向量 <span class="arithmatex">\(x\)</span> 作为矩阵 <span class="arithmatex">\(R\)</span> 的第 <span class="arithmatex">\(j\)</span> 列</p>
+<h4 id="3">3. 详细示例<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>考虑矩阵：
+<span class="arithmatex">\(A = \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix}\)</span></p>
+<h5 id="31">3.1 确定秩<a class="headerlink" href="#31" title="Permanent link">&para;</a></h5>
+<p>通过行阶梯形变换：
+<span class="arithmatex">\(\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix} \rightarrow 
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+0 &amp; -3 &amp; -6 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}\)</span></p>
+<p>得知 <span class="arithmatex">\(rank(A) = 2\)</span></p>
+<h5 id="32">3.2 选取基底<a class="headerlink" href="#32" title="Permanent link">&para;</a></h5>
+<p>选择第一、二列作为基底：
+<span class="arithmatex">\(L = \begin{pmatrix}
+1 &amp; 2 \\
+4 &amp; 5 \\
+7 &amp; 8
+\end{pmatrix}\)</span></p>
+<h5 id="33">3.3 求解系数<a class="headerlink" href="#33" title="Permanent link">&para;</a></h5>
+<p>对第三列求解方程组：
+<span class="arithmatex">\(\begin{pmatrix} 3 \\ 6 \\ 9 \end{pmatrix} = x_1\begin{pmatrix} 1 \\ 4 \\ 7 \end{pmatrix} + x_2\begin{pmatrix} 2 \\ 5 \\ 8 \end{pmatrix}\)</span></p>
+<p>写成增广矩阵：
+<span class="arithmatex">\(\begin{pmatrix}
+1 &amp; 2 &amp; | &amp; 3 \\
+4 &amp; 5 &amp; | &amp; 6 \\
+7 &amp; 8 &amp; | &amp; 9
+\end{pmatrix}\)</span></p>
+<p>通过高斯消元解得：<span class="arithmatex">\(x_1 = -1\)</span>, <span class="arithmatex">\(x_2 = 2\)</span></p>
+<p>同理求解其他列，最终得到：
+<span class="arithmatex">\(R = \begin{pmatrix}
+1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 2
+\end{pmatrix}\)</span></p>
+<h3 id="_4">方法二：高斯消元法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="1_1">1. 理论基础<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>高斯消元法基于以下性质：
+- 初等行变换不改变矩阵的列空间
+- 行阶梯形中主元列的原始列向量线性无关</p>
+<h4 id="2_1">2. 算法步骤<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h4>
+<p>1) <strong>矩阵化简</strong>
+   - 对矩阵 <span class="arithmatex">\(A\)</span> 进行行阶梯形变换
+   - 记录主元位置的列号 <span class="arithmatex">\(i_1,\ldots,i_r\)</span></p>
+<p>2) <strong>构造基底矩阵</strong>
+   - <span class="arithmatex">\(L = [A_{i_1},\ldots,A_{i_r}]\)</span>
+   - 其中 <span class="arithmatex">\(A_{i_k}\)</span> 为原矩阵的第 <span class="arithmatex">\(i_k\)</span> 列</p>
+<p>3) <strong>构造系数矩阵</strong>
+   - 利用化简后的矩阵形式
+   - 提取线性组合关系构造 <span class="arithmatex">\(R\)</span></p>
+<h4 id="3_1">3. 详细示例<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h4>
+<p>考虑同样的矩阵：
+<span class="arithmatex">\(A = \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix}\)</span></p>
+<h5 id="31_1">3.1 高斯消元过程<a class="headerlink" href="#31_1" title="Permanent link">&para;</a></h5>
+<p>第一步：
+<span class="arithmatex">\(\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix} \rightarrow 
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+0 &amp; -3 &amp; -6 \\
+0 &amp; -6 &amp; -12
+\end{pmatrix}\)</span></p>
+<p>第二步：
+<span class="arithmatex">\(\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+0 &amp; -3 &amp; -6 \\
+0 &amp; -6 &amp; -12
+\end{pmatrix} \rightarrow 
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+0 &amp; -3 &amp; -6 \\
+0 &amp; 0 &amp; 0
+\end{pmatrix}\)</span></p>
+<h5 id="32_1">3.2 提取基底<a class="headerlink" href="#32_1" title="Permanent link">&para;</a></h5>
+<p>主元在第1、2列，因此：
+<span class="arithmatex">\(L = \begin{pmatrix}
+1 &amp; 2 \\
+4 &amp; 5 \\
+7 &amp; 8
+\end{pmatrix}\)</span></p>
+<h5 id="33_1">3.3 构造系数矩阵<a class="headerlink" href="#33_1" title="Permanent link">&para;</a></h5>
+<p>从行阶梯形读取关系：
+<span class="arithmatex">\(R = \begin{pmatrix}
+1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 2
+\end{pmatrix}\)</span></p>
+<p>验证：
+<span class="arithmatex">\(LR = \begin{pmatrix}
+1 &amp; 2 \\
+4 &amp; 5 \\
+7 &amp; 8
+\end{pmatrix}
+\begin{pmatrix}
+1 &amp; 0 &amp; -1 \\
+0 &amp; 1 &amp; 2
+\end{pmatrix}
+= \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{pmatrix}\)</span></p>
+<h3 id="qr">QR分解<a class="headerlink" href="#qr" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rank_factorization_qr</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1"># QR分解</span>
+    <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># 确定数值秩</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-10</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">R</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">)</span>
+
+    <span class="c1"># 构造满秩分解</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r</span><span class="p">]</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[:</span><span class="n">r</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span>
+</code></pre></div>
+<h3 id="svd">SVD分解<a class="headerlink" href="#svd" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rank_factorization_svd</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1"># SVD分解</span>
+    <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">Vh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="c1"># 确定数值秩</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-10</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">S</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">)</span>
+
+    <span class="c1"># 构造满秩分解</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">r</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">r</span><span class="p">]))</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="p">[:</span><span class="n">r</span><span class="p">]))</span> <span class="o">@</span> <span class="n">Vh</span><span class="p">[:</span><span class="n">r</span><span class="p">,</span> <span class="p">:]</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span>
+</code></pre></div>
+<h3 id="_5">高斯消元分解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">rank_factorization_gaussian</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="c1"># 确保A是浮点数类型</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mf">1e-10</span>
+
+    <span class="c1"># 转换为行阶梯形</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">pivots</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">rank</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="c1"># 找主元</span>
+        <span class="n">max_idx</span> <span class="o">=</span> <span class="n">rank</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">rank</span><span class="p">:,</span> <span class="n">j</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">max_idx</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="c1"># 交换行</span>
+            <span class="k">if</span> <span class="n">max_idx</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">:</span>
+                <span class="n">U</span><span class="p">[</span><span class="n">rank</span><span class="p">],</span> <span class="n">U</span><span class="p">[</span><span class="n">max_idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">max_idx</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">U</span><span class="p">[</span><span class="n">rank</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+            <span class="c1"># 消元</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rank</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+                <span class="n">factor</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">U</span><span class="p">[</span><span class="n">rank</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+                <span class="n">U</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">U</span><span class="p">[</span><span class="n">rank</span><span class="p">]</span>
+
+            <span class="n">pivots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+            <span class="n">rank</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># 构造分解</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span> <span class="n">pivots</span><span class="p">]</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">L</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span>
+</code></pre></div>
+<p>从计算机的实际开销来看，在处理3x3维矩阵时，这三种方法的执行速度是差不多的</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>

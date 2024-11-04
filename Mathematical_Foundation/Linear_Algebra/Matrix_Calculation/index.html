@@ -9,22 +9,22 @@
       
       
       
-        <link rel="prev" href="../CNN/">
+        <link rel="prev" href="../../..">
       
       
-        <link rel="next" href="../RNN/">
+        <link rel="next" href="../../Manifold/Manifold_hypothesis/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
     
     
       
-        <title>MLP - AIDIY Wiki</title>
+        <title>矩阵求导 - AIDIY Wiki</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
       
       
 
@@ -45,7 +45,7 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mlp" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+    <a href="../../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MLP
+              矩阵求导
             
           </span>
         </div>
@@ -167,7 +167,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -182,11 +182,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../Mathematical_Foundation/Linear_Algebra/Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-tabs__link">
           
   
   数学基础
@@ -200,13 +202,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CNN/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../ML_Pages/CNN/" class="md-tabs__link">
           
   
   Machine Learning
@@ -224,7 +224,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../LLM_Pages/Math_Architecture/" class="md-tabs__link">
+        <a href="../../../LLM_Pages/Math_Architecture/" class="md-tabs__link">
           
   
   LLM
@@ -242,7 +242,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
+        <a href="../../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
           
   
   工程实践
@@ -260,7 +260,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../RL_Pages/RL/" class="md-tabs__link">
+        <a href="../../../RL_Pages/RL/" class="md-tabs__link">
           
   
   RL
@@ -276,7 +276,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../RLHF_Pages/RLHF/" class="md-tabs__link">
+      <a href="../../../RLHF_Pages/RLHF/" class="md-tabs__link">
         
   
     
@@ -293,7 +293,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../stablediffusion/" class="md-tabs__link">
+      <a href="../../../stablediffusion/" class="md-tabs__link">
         
   
     
@@ -327,7 +327,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+    <a href="../../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -345,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -354,116 +354,6 @@
   
 
       </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  <span class="md-ellipsis">
-    数学基础
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            数学基础
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Mathematical_Foundation/Linear_Algebra/Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    矩阵满秩分解
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Mathematical_Foundation/Linear_Algebra/Matrix_Calculation/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    矩阵求导
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../Mathematical_Foundation/Manifold/Manifold_hypothesis/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    流形假设
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -492,24 +382,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
-    Machine Learning
+    数学基础
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
-            Machine Learning
+            数学基础
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -520,11 +410,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../CNN/" class="md-nav__link">
+      <a href="../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    CNN
+    矩阵满秩分解
   </span>
   
 
@@ -552,7 +442,7 @@
           
   
   <span class="md-ellipsis">
-    MLP
+    矩阵求导
   </span>
   
 
@@ -563,7 +453,7 @@
         
   
   <span class="md-ellipsis">
-    MLP
+    矩阵求导
   </span>
   
 
@@ -583,19 +473,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mlp" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      多层感知器 (MLP)
+      矩阵求导
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="多层感知器 (MLP)">
+    <nav class="md-nav" aria-label="矩阵求导">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 数学表示
+      1. 基本定义
     </span>
   </a>
   
@@ -604,7 +494,7 @@
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 网络结构
+      2. 导数布局
     </span>
   </a>
   
@@ -613,7 +503,7 @@
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 关键特性
+      3. 一般公式
     </span>
   </a>
   
@@ -622,7 +512,7 @@
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 复杂度
+      4. 链式法则
     </span>
   </a>
   
@@ -631,16 +521,7 @@
           <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      5. 核心组件作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 优缺点
+      5. 常见神经网络操作的导数
     </span>
   </a>
   
@@ -667,7 +548,117 @@
   
   
     <li class="md-nav__item">
-      <a href="../RNN/" class="md-nav__link">
+      <a href="../../Manifold/Manifold_hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    流形假设
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/RNN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VAE/" class="md-nav__link">
+      <a href="../../../ML_Pages/VAE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,7 +747,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Math_Architecture/" class="md-nav__link">
+      <a href="../../../LLM_Pages/Math_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -777,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Position_Embedding/" class="md-nav__link">
+      <a href="../../../LLM_Pages/Position_Embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -798,7 +789,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Pre-Train/" class="md-nav__link">
+      <a href="../../../LLM_Pages/Pre-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -819,7 +810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/SFT/" class="md-nav__link">
+      <a href="../../../LLM_Pages/SFT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -840,7 +831,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Post-Train/" class="md-nav__link">
+      <a href="../../../LLM_Pages/Post-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -908,7 +899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
+      <a href="../../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -929,7 +920,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Engineering_Pages/VLLM/" class="md-nav__link">
+      <a href="../../../Engineering_Pages/VLLM/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -950,7 +941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Engineering_Pages/Full_SFT_LlamaFactory/" class="md-nav__link">
+      <a href="../../../Engineering_Pages/Full_SFT_LlamaFactory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RL_Pages/RL/" class="md-nav__link">
+      <a href="../../../RL_Pages/RL/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1039,7 +1030,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RL_Pages/Monte_Carlos/" class="md-nav__link">
+      <a href="../../../RL_Pages/Monte_Carlos/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1067,7 +1058,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RLHF_Pages/RLHF/" class="md-nav__link">
+      <a href="../../../RLHF_Pages/RLHF/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1087,7 +1078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stablediffusion/" class="md-nav__link">
+      <a href="../../../stablediffusion/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1125,19 +1116,19 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mlp" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      多层感知器 (MLP)
+      矩阵求导
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="多层感知器 (MLP)">
+    <nav class="md-nav" aria-label="矩阵求导">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 数学表示
+      1. 基本定义
     </span>
   </a>
   
@@ -1146,7 +1137,7 @@
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 网络结构
+      2. 导数布局
     </span>
   </a>
   
@@ -1155,7 +1146,7 @@
           <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 关键特性
+      3. 一般公式
     </span>
   </a>
   
@@ -1164,7 +1155,7 @@
           <li class="md-nav__item">
   <a href="#4" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 复杂度
+      4. 链式法则
     </span>
   </a>
   
@@ -1173,16 +1164,7 @@
           <li class="md-nav__item">
   <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      5. 核心组件作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 优缺点
+      5. 常见神经网络操作的导数
     </span>
   </a>
   
@@ -1208,105 +1190,160 @@
                   
 
 
-  <h1>MLP</h1>
+  <h1>矩阵求导</h1>
 
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
-<h2 id="mlp">多层感知器 (MLP)<a class="headerlink" href="#mlp" title="Permanent link">&para;</a></h2>
-<p>核心结构：<strong>隐藏层 → 偏置 → 激活 → 重复</strong></p>
-<h3 id="1">1. 数学表示<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>对第 <span class="arithmatex">\(l\)</span> 层：<span class="arithmatex">\(\mathbf{h}_l = \sigma(\mathbf{W}_l\mathbf{h}_{l-1} + \mathbf{b}_l)\)</span></p>
-<ul>
-<li><span class="arithmatex">\(\mathbf{h}_l\)</span>: 输出</li>
-<li><span class="arithmatex">\(\mathbf{W}_l\)</span>: 权重</li>
-<li><span class="arithmatex">\(\mathbf{b}_l\)</span>: 偏置</li>
-<li><span class="arithmatex">\(\sigma(\cdot)\)</span>: 激活函数</li>
-</ul>
-<h3 id="2">2. 网络结构<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h2 id="_1">矩阵求导<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1">1. 基本定义<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>层</th>
+<th>类型</th>
+<th>定义</th>
+<th>维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标量对矩阵</td>
+<td><span class="arithmatex">\(\frac{\partial f}{\partial \mathbf{X}} = \left[\frac{\partial f}{\partial X_{ij}}\right]\)</span></td>
+<td><span class="arithmatex">\(f: \mathbb{R}^{m \times n} \to \mathbb{R}\)</span><br><span class="arithmatex">\(\frac{\partial f}{\partial \mathbf{X}} \in \mathbb{R}^{m \times n}\)</span></td>
+</tr>
+<tr>
+<td>矩阵对矩阵</td>
+<td><span class="arithmatex">\(\frac{\partial \mathbf{F}}{\partial \mathbf{X}} = \left[\frac{\partial F_{ij}}{\partial X_{kl}}\right]\)</span></td>
+<td><span class="arithmatex">\(\mathbf{F}: \mathbb{R}^{m \times n} \to \mathbb{R}^{p \times q}\)</span><br><span class="arithmatex">\(\frac{\partial \mathbf{F}}{\partial \mathbf{X}} \in \mathbb{R}^{pq \times mn}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>索引排列说明：</p>
+<ol>
+<li>分子布局 (Numerator layout):</li>
+<li>排列顺序：<span class="arithmatex">\((i,j)\)</span> 先变化（行），<span class="arithmatex">\((k,l)\)</span> 后变化（列）</li>
+<li>
+<p>矩阵形式：
+     <span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}
+     \frac{\partial F_{11}}{\partial X_{11}} &amp; \frac{\partial F_{11}}{\partial X_{12}} &amp; \cdots &amp; \frac{\partial F_{11}}{\partial X_{mn}} \\
+     \frac{\partial F_{12}}{\partial X_{11}} &amp; \frac{\partial F_{12}}{\partial X_{12}} &amp; \cdots &amp; \frac{\partial F_{12}}{\partial X_{mn}} \\
+     \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+     \frac{\partial F_{pq}}{\partial X_{11}} &amp; \frac{\partial F_{pq}}{\partial X_{12}} &amp; \cdots &amp; \frac{\partial F_{pq}}{\partial X_{mn}}
+     \end{bmatrix}\)</span>\)</span></p>
+</li>
+<li>
+<p>分母布局 (Denominator layout):</p>
+</li>
+<li>排列顺序：<span class="arithmatex">\((k,l)\)</span> 先变化（行），<span class="arithmatex">\((i,j)\)</span> 后变化（列）</li>
+<li>
+<p>矩阵形式：
+     <span class="arithmatex">\(<span class="arithmatex">\(\begin{bmatrix}
+     \frac{\partial F_{11}}{\partial X_{11}} &amp; \frac{\partial F_{12}}{\partial X_{11}} &amp; \cdots &amp; \frac{\partial F_{pq}}{\partial X_{11}} \\
+     \frac{\partial F_{11}}{\partial X_{12}} &amp; \frac{\partial F_{12}}{\partial X_{12}} &amp; \cdots &amp; \frac{\partial F_{pq}}{\partial X_{12}} \\
+     \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+     \frac{\partial F_{11}}{\partial X_{mn}} &amp; \frac{\partial F_{12}}{\partial X_{mn}} &amp; \cdots &amp; \frac{\partial F_{pq}}{\partial X_{mn}}
+     \end{bmatrix}\)</span>\)</span></p>
+</li>
+<li>
+<p>分子布局：每一行对应 <span class="arithmatex">\(\mathbf{F}\)</span> 的一个元素，每一列对应 <span class="arithmatex">\(\mathbf{X}\)</span> 的一个元素。</p>
+</li>
+<li>
+<p>分母布局：每一行对应 <span class="arithmatex">\(\mathbf{X}\)</span> 的一个元素，每一列对应 <span class="arithmatex">\(\mathbf{F}\)</span> 的一个元素。</p>
+</li>
+<li>
+<p>混合布局：</p>
+</li>
+<li>有时也使用 <span class="arithmatex">\(\mathbb{R}^{p \times q \times m \times n}\)</span> 的四维张量表示，避免展平的歧义</li>
+</ol>
+<h3 id="2">2. 导数布局<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>布局</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分子布局</td>
+<td><span class="arithmatex">\(\left[\frac{\partial \mathbf{F}}{\partial \mathbf{X}}\right]_{ij,kl} = \frac{\partial F_{ij}}{\partial X_{kl}}\)</span></td>
+</tr>
+<tr>
+<td>分母布局</td>
+<td><span class="arithmatex">\(\left[\frac{\partial \mathbf{F}}{\partial \mathbf{X}}\right]_{kl,ij} = \frac{\partial F_{ij}}{\partial X_{kl}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="3">3. 一般公式<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>函数类型</th>
 <th>公式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>输入</td>
-<td><span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{d_0}\)</span></td>
+<td>线性函数</td>
+<td><span class="arithmatex">\(\frac{\partial (\mathbf{AX})}{\partial \mathbf{X}} = \mathbf{A}^T\)</span><br><span class="arithmatex">\(\frac{\partial (\mathbf{XA})}{\partial \mathbf{X}} = \mathbf{A}\)</span></td>
 </tr>
 <tr>
-<td>隐藏</td>
-<td><span class="arithmatex">\(\mathbf{h}_l = \sigma(\mathbf{W}_l\mathbf{h}_{l-1} + \mathbf{b}_l)\)</span>, <span class="arithmatex">\(l = 1,\ldots,L-1\)</span></td>
+<td>二次型</td>
+<td><span class="arithmatex">\(\frac{\partial (\mathbf{X}^T\mathbf{AX})}{\partial \mathbf{X}} = \mathbf{AX} + \mathbf{A}^T\mathbf{X}\)</span></td>
 </tr>
 <tr>
-<td>输出</td>
-<td><span class="arithmatex">\(\mathbf{y} = \mathbf{W}_L\mathbf{h}_{L-1} + \mathbf{b}_L\)</span></td>
+<td>迹</td>
+<td><span class="arithmatex">\(\frac{\partial \text{tr}(\mathbf{AX})}{\partial \mathbf{X}} = \mathbf{A}^T\)</span><br><span class="arithmatex">\(\frac{\partial \text{tr}(\mathbf{XAX}^T)}{\partial \mathbf{X}} = \mathbf{X}(\mathbf{A} + \mathbf{A}^T)\)</span></td>
+</tr>
+<tr>
+<td>行列式</td>
+<td><span class="arithmatex">\(\frac{\partial \det(\mathbf{X})}{\partial \mathbf{X}} = \det(\mathbf{X})(\mathbf{X}^{-1})^T\)</span></td>
+</tr>
+<tr>
+<td>逆矩阵</td>
+<td><span class="arithmatex">\(\frac{\partial \mathbf{X}^{-1}}{\partial \mathbf{X}} = -(\mathbf{X}^{-1})^T \otimes \mathbf{X}^{-1}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>实际上，我们可以把他看作一组函数复合：<span class="arithmatex">\(f(\mathbf{x}) = f_L \circ f_{L-1} \circ \cdots \circ f_1(\mathbf{x})\)</span></p>
-<p>其中 <span class="arithmatex">\(f_l(\mathbf{x}) = \sigma(\mathbf{W}_l\mathbf{x} + \mathbf{b}_l)\)</span></p>
-<h3 id="3">3. 关键特性<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>深度：多层结构</li>
-<li>非线性：激活函数引入</li>
-<li>全连接：层间全连接</li>
-</ul>
-<h3 id="4">4. 复杂度<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>时间（前向传播）：<span class="arithmatex">\(O(\sum_{l=1}^L d_l d_{l-1})\)</span></li>
-<li>空间：<span class="arithmatex">\(O(\sum_{l=1}^L d_l d_{l-1})\)</span></li>
-</ul>
-<h3 id="5">5. 核心组件作用<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<h3 id="4">4. 链式法则<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>组件</th>
-<th>作用</th>
-<th>说明</th>
+<th>情况</th>
+<th>公式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>隐藏层</td>
-<td>特征提取</td>
-<td>逐层学习，实现复杂模式识别</td>
+<td>标量情况</td>
+<td><span class="arithmatex">\(\frac{\partial f}{\partial \mathbf{X}} = \text{tr}\left(\frac{\partial f}{\partial \mathbf{Y}}^T \frac{\partial \mathbf{Y}}{\partial \mathbf{X}}\right)\)</span></td>
 </tr>
 <tr>
-<td>激活函数</td>
-<td>1. 引入非线性<br>2. 防止梯度消失</td>
-<td>1. 使网络能学习非线性关系<br>2. 如 ReLU，保持梯度流动</td>
-</tr>
-<tr>
-<td>偏置</td>
-<td>调整阈值</td>
-<td>增加模型灵活性和适应性</td>
+<td>矩阵情况</td>
+<td><span class="arithmatex">\(\frac{\partial \mathbf{F}}{\partial \mathbf{X}} = \frac{\partial \mathbf{F}}{\partial \mathbf{Y}} \frac{\partial \mathbf{Y}}{\partial \mathbf{X}}\)</span></td>
 </tr>
 </tbody>
 </table>
-<h3 id="6">6. 优缺点<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h3 id="5">5. 常见神经网络操作的导数<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>优点</th>
-<th>缺点</th>
+<th>操作</th>
+<th>导数</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>结构简单</td>
-<td>高维数据效率低</td>
+<td>线性层<br><span class="arithmatex">\(\mathbf{Y} = \mathbf{WX} + \mathbf{b}\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{W}} = \frac{\partial L}{\partial \mathbf{Y}} \mathbf{X}^T\)</span><br><span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{X}} = \mathbf{W}^T \frac{\partial L}{\partial \mathbf{Y}}\)</span><br><span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{b}} = \sum_{i} \frac{\partial L}{\partial \mathbf{Y}_i}\)</span></td>
 </tr>
 <tr>
-<td>非线性学习</td>
-<td>易过拟合</td>
-</tr>
-<tr>
-<td>通用性强</td>
-<td>难捕捉序列/空间依赖</td>
+<td>激活函数<br><span class="arithmatex">\(\mathbf{Y} = \sigma(\mathbf{X})\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{X}} = \frac{\partial L}{\partial \mathbf{Y}} \odot \sigma'(\mathbf{X})\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>注：
+- <span class="arithmatex">\(\otimes\)</span> 表示Kronecker积
+- <span class="arithmatex">\(\odot\)</span> 表示Hadamard（元素wise）乘积
+- 在激活函数中，<span class="arithmatex">\(\sigma'(\mathbf{X})\)</span> 表示激活函数的导数</p>
 
 
 
@@ -1368,14 +1405,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
-        <script src="../../javascripts/mathjax_config.js"></script>
+        <script src="../../../javascripts/mathjax_config.js"></script>
       
     
   </body>
