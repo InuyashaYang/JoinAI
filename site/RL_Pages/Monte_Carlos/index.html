@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../CNN/">
+        <link rel="prev" href="../RL/">
       
       
-        <link rel="next" href="../RNN/">
+        <link rel="next" href="../../RLHF_Pages/RLHF/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>MLP - AIDIY Wiki</title>
+        <title>蒙特卡洛树搜索 - AIDIY Wiki</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mlp" class="md-skip">
+        <a href="#mcts" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MLP
+              蒙特卡洛树搜索
             
           </span>
         </div>
@@ -200,13 +200,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../CNN/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../ML_Pages/CNN/" class="md-tabs__link">
           
   
   Machine Learning
@@ -256,11 +254,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../RL_Pages/RL/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../RL/" class="md-tabs__link">
           
   
   RL
@@ -472,30 +472,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -506,7 +501,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Machine Learning
@@ -520,7 +515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../CNN/" class="md-nav__link">
+      <a href="../../ML_Pages/CNN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -538,28 +533,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    MLP
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/MLP/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -568,93 +545,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mlp" class="md-nav__link">
-    <span class="md-ellipsis">
-      多层感知器 (MLP)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="多层感知器 (MLP)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. 数学表示
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. 网络结构
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. 关键特性
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. 复杂度
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 核心组件作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 优缺点
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -667,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../RNN/" class="md-nav__link">
+      <a href="../../ML_Pages/RNN/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -688,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../VAE/" class="md-nav__link">
+      <a href="../../ML_Pages/VAE/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -975,25 +865,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1004,7 +899,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             RL
@@ -1018,7 +913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RL_Pages/RL/" class="md-nav__link">
+      <a href="../RL/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1036,10 +931,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../RL_Pages/Monte_Carlos/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -1048,6 +963,122 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 基本结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 节点表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ucb1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. UCB1公式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mcts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. MCTS四个主要步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. MCTS四个主要步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      a) 选择(Selection)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-expansion" class="md-nav__link">
+    <span class="md-ellipsis">
+      b) 扩展(Expansion)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      c) 模拟(Simulation)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-backpropagation" class="md-nav__link">
+    <span class="md-ellipsis">
+      d) 反向传播(Backpropagation)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 最优动作选择
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 收敛性
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1117,6 +1148,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1125,64 +1158,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mlp" class="md-nav__link">
+  <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      多层感知器 (MLP)
+      1. 基本结构
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="多层感知器 (MLP)">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 节点表示
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-ucb1" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. UCB1公式
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-mcts" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. MCTS四个主要步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. MCTS四个主要步骤">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#a-selection" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 数学表示
+      a) 选择(Selection)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#b-expansion" class="md-nav__link">
     <span class="md-ellipsis">
-      2. 网络结构
+      b) 扩展(Expansion)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
+  <a href="#c-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      3. 关键特性
+      c) 模拟(Simulation)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#d-backpropagation" class="md-nav__link">
     <span class="md-ellipsis">
-      4. 复杂度
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. 核心组件作用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. 优缺点
+      d) 反向传播(Backpropagation)
     </span>
   </a>
   
@@ -1190,6 +1232,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 最优动作选择
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 收敛性
+    </span>
+  </a>
   
 </li>
       
@@ -1208,105 +1268,80 @@
                   
 
 
-  <h1>MLP</h1>
-
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
-<h2 id="mlp">多层感知器 (MLP)<a class="headerlink" href="#mlp" title="Permanent link">&para;</a></h2>
-<p>核心结构：<strong>隐藏层 → 偏置 → 激活 → 重复</strong></p>
-<h3 id="1">1. 数学表示<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
-<p>对第 <span class="arithmatex">\(l\)</span> 层：<span class="arithmatex">\(\mathbf{h}_l = \sigma(\mathbf{W}_l\mathbf{h}_{l-1} + \mathbf{b}_l)\)</span></p>
-<ul>
-<li><span class="arithmatex">\(\mathbf{h}_l\)</span>: 输出</li>
-<li><span class="arithmatex">\(\mathbf{W}_l\)</span>: 权重</li>
-<li><span class="arithmatex">\(\mathbf{b}_l\)</span>: 偏置</li>
-<li><span class="arithmatex">\(\sigma(\cdot)\)</span>: 激活函数</li>
-</ul>
-<h3 id="2">2. 网络结构<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h1 id="mcts">蒙特卡洛树搜索(MCTS)数学原理<a class="headerlink" href="#mcts" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 基本结构<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>层</th>
+<th>组件</th>
+<th>数学表示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>决策树</td>
+<td><span class="arithmatex">\(T = (V, E)\)</span></td>
+</tr>
+<tr>
+<td>节点集</td>
+<td><span class="arithmatex">\(V\)</span></td>
+</tr>
+<tr>
+<td>边集</td>
+<td><span class="arithmatex">\(E\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2. 节点表示<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p>每个节点 <span class="arithmatex">\(v \in V\)</span> 包含：</p>
+<ul>
+<li>状态 <span class="arithmatex">\(s\)</span></li>
+<li>访问次数 <span class="arithmatex">\(n(v)\)</span></li>
+<li>累积价值 <span class="arithmatex">\(Q(v)\)</span></li>
+</ul>
+<h2 id="3-ucb1">3. UCB1公式<a class="headerlink" href="#3-ucb1" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[UCB1(v) = \frac{Q(v)}{n(v)} + C\sqrt{\frac{\ln N(v)}{n(v)}}\]</div>
+<p>其中：
+- <span class="arithmatex">\(C\)</span> 是探索参数
+- <span class="arithmatex">\(N(v)\)</span> 是父节点的访问次数</p>
+<h2 id="4-mcts">4. MCTS四个主要步骤<a class="headerlink" href="#4-mcts" title="Permanent link">&para;</a></h2>
+<h3 id="a-selection">a) 选择(Selection)<a class="headerlink" href="#a-selection" title="Permanent link">&para;</a></h3>
+<hr />
+<p>从根节点开始，递归地选择子节点，直到达到叶节点：</p>
+<div class="arithmatex">\[v_{selected} = \arg\max_{v \in children(v)} UCB1(v)\]</div>
+<h3 id="b-expansion">b) 扩展(Expansion)<a class="headerlink" href="#b-expansion" title="Permanent link">&para;</a></h3>
+<hr />
+<p>如果叶节点不是终止状态，则添加一个或多个子节点。</p>
+<h3 id="c-simulation">c) 模拟(Simulation)<a class="headerlink" href="#c-simulation" title="Permanent link">&para;</a></h3>
+<hr />
+<p>从新添加的节点开始，使用随机策略进行游戏模拟直到终止状态，得到奖励 <span class="arithmatex">\(r \in \mathbb{R}\)</span>。</p>
+<h3 id="d-backpropagation">d) 反向传播(Backpropagation)<a class="headerlink" href="#d-backpropagation" title="Permanent link">&para;</a></h3>
+<hr />
+<p>更新路径上所有节点的统计信息：</p>
+<table>
+<thead>
+<tr>
+<th>更新项</th>
 <th>公式</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>输入</td>
-<td><span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^{d_0}\)</span></td>
+<td>访问次数</td>
+<td><span class="arithmatex">\(n(v) = n(v) + 1\)</span></td>
 </tr>
 <tr>
-<td>隐藏</td>
-<td><span class="arithmatex">\(\mathbf{h}_l = \sigma(\mathbf{W}_l\mathbf{h}_{l-1} + \mathbf{b}_l)\)</span>, <span class="arithmatex">\(l = 1,\ldots,L-1\)</span></td>
-</tr>
-<tr>
-<td>输出</td>
-<td><span class="arithmatex">\(\mathbf{y} = \mathbf{W}_L\mathbf{h}_{L-1} + \mathbf{b}_L\)</span></td>
+<td>累积价值</td>
+<td><span class="arithmatex">\(Q(v) = Q(v) + r\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>实际上，我们可以把他看作一组函数复合：<span class="arithmatex">\(f(\mathbf{x}) = f_L \circ f_{L-1} \circ \cdots \circ f_1(\mathbf{x})\)</span></p>
-<p>其中 <span class="arithmatex">\(f_l(\mathbf{x}) = \sigma(\mathbf{W}_l\mathbf{x} + \mathbf{b}_l)\)</span></p>
-<h3 id="3">3. 关键特性<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
-<ul>
-<li>深度：多层结构</li>
-<li>非线性：激活函数引入</li>
-<li>全连接：层间全连接</li>
-</ul>
-<h3 id="4">4. 复杂度<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
-<ul>
-<li>时间（前向传播）：<span class="arithmatex">\(O(\sum_{l=1}^L d_l d_{l-1})\)</span></li>
-<li>空间：<span class="arithmatex">\(O(\sum_{l=1}^L d_l d_{l-1})\)</span></li>
-</ul>
-<h3 id="5">5. 核心组件作用<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>组件</th>
-<th>作用</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>隐藏层</td>
-<td>特征提取</td>
-<td>逐层学习，实现复杂模式识别</td>
-</tr>
-<tr>
-<td>激活函数</td>
-<td>1. 引入非线性<br>2. 防止梯度消失</td>
-<td>1. 使网络能学习非线性关系<br>2. 如 ReLU，保持梯度流动</td>
-</tr>
-<tr>
-<td>偏置</td>
-<td>调整阈值</td>
-<td>增加模型灵活性和适应性</td>
-</tr>
-</tbody>
-</table>
-<h3 id="6">6. 优缺点<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>优点</th>
-<th>缺点</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>结构简单</td>
-<td>高维数据效率低</td>
-</tr>
-<tr>
-<td>非线性学习</td>
-<td>易过拟合</td>
-</tr>
-<tr>
-<td>通用性强</td>
-<td>难捕捉序列/空间依赖</td>
-</tr>
-</tbody>
-</table>
+<h2 id="5">5. 最优动作选择<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[a^* = \arg\max_{a \in A(s)} n(v_a)\]</div>
+<p>其中 <span class="arithmatex">\(A(s)\)</span> 是当前状态 <span class="arithmatex">\(s\)</span> 的可用动作集。</p>
+<h2 id="6">6. 收敛性<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">\[\lim_{t \to \infty} P(a_t = a^*) = 1\]</div>
+<p>其中 <span class="arithmatex">\(a_t\)</span> 是第 <span class="arithmatex">\(t\)</span> 次迭代后选择的动作。</p>
 
 
 

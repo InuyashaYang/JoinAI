@@ -33,9 +33,9 @@ extra_css:
 nav:
   - Home: index.md
   - 数学基础: 
-    - 矩阵满秩分解: Mathematical_Foundation\Linear_Algebra\Linear_Algebra\Matrix_Decomposition\Full_Rank_Decomposition.md
-    - 矩阵求导: Mathematical_Foundation\Linear_Algebra\Matrix_Calculation.md
-    - 流形假设: Mathematical_Foundation\Manifold\Manifold_hypothesis.md
+    - 矩阵满秩分解: Mathematical_Foundation/Linear_Algebra/Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition.md
+    - 矩阵求导: Mathematical_Foundation/Linear_Algebra/Matrix_Calculation.md
+    - 流形假设: Mathematical_Foundation/Manifold/Manifold_hypothesis.md
   - Machine Learning:
     - CNN: ML_Pages/CNN.md
     - MLP: ML_Pages/MLP.md
