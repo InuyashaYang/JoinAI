@@ -1,13 +1,13 @@
 [![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
 
-欢迎来到 AIDIY Wiki，这是一个整理和分享 LLM、StableDiffusion 和 ViT 相关面试题目和知识点的平台。
+欢迎来到 AIDIY Wiki，这是一个系统性整理和分享大语言模型相关知识的wiki。
 
-- **LLM**: 大型语言模型的相关知识点和面试题目。
-- **StableDiffusion**: 稳定扩散模型的相关知识点和面试题目。
-- **ViT**: 视觉变换器的相关知识点和面试题目。
+# 导读
+
+本wiki也是笔者的学习笔记，最初的知识点添加并非系统性的，仅仅是浅尝辄止，但是在随着笔者逐渐入门后，意识到各知识点之间有着比较明确的系统性关系，因此，在这里会为大家添加学习路径的指引与推荐
 
 
-## 写在前面
+## 附录
 
 [AI面试与职业机会](Part0/Part0-0.md)
 

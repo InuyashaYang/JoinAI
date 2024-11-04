@@ -32,11 +32,15 @@ extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css
 nav:
   - Home: index.md
-  - 数学基础: Mathematical_Foundation\Matrix_Calculation.md
+  - 数学基础: 
+    - 矩阵满秩分解: Mathematical_Foundation\Linear_Algebra\Linear_Algebra\Matrix_Decomposition\Full_Rank_Decomposition.md
+    - 矩阵求导: Mathematical_Foundation\Linear_Algebra\Matrix_Calculation.md
+    - 流形假设: Mathematical_Foundation\Manifold\Manifold_hypothesis.md
   - Machine Learning:
     - CNN: ML_Pages/CNN.md
     - MLP: ML_Pages/MLP.md
     - RNN: ML_Pages/RNN.md
+    - VAE: ML_Pages/VAE.md
   - LLM:
     - Transformer数学架构: LLM_Pages/Math_Architecture.md
     - 位置编码: LLM_Pages/Position_Embedding.md
@@ -48,11 +52,11 @@ nav:
     - vllm部署模型: Engineering_Pages/VLLM.md
     - 全量微调: Engineering_Pages/Full_SFT_LlamaFactory.md
   - RL:
-    - 强化学习: RL_Pages/RL.md
+    - RL基础概念: RL_Pages/RL.md
+    - 蒙特卡洛树搜索: RL_Pages/Monte_Carlos.md
   - LLM_RLHF阶段: RLHF_Pages/RLHF.md
-  - ViT: vit.md
   - StableDiffusion: stablediffusion.md
-  - Agent: agent.md
+
 
 
 

@@ -1,157 +1,135 @@
+# 在vLLM中的LLM类
 
-
-# 使用vllm部署deepseek-prover教程
-
-## 1. Pytorch环境安装
-
-### 1.1 下载代码
-
-从GitHub下载代码：
-
-```bash
-git clone --recurse-submodules git@github.com:deepseek-ai/DeepSeek-Prover-V1.5.git
-```
-
-如果服务器无法从GitHub下载，可以使用：
-
-```bash
-wget 'https://github.com/deepseek-ai/DeepSeek-Prover-V1.5/archive/refs/heads/main.zip'
-unzip 'main.zip'
-```
-
-### 1.2 修改requirements.txt
-
-修改`requirements.txt`内容如下：
-
-```
-torch==2.2.1
-pytz==2022.1
-easydict==1.13
-transformers==4.40.1
-numpy==1.26.4
-pandas==1.4.3
-tabulate==0.9.0
-termcolor==2.4.0
-accelerate==0.33.0
-flash_attn==2.6.3
-vllm
-```
-
-注意：
-- flash_attn 不能在 python>3.12上安装
-- vllm 不指定版本
-
-## 2. 模型下载
-
-```bash
-wget 'https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh'
-bash script.deb.sh 
-apt-get install git-lfs 
-git lfs install
-
-git clone https://www.modelscope.cn/deepseek-ai/DeepSeek-Prover-V1.5-RL.git
-```
-
-## 3. Huggingface环境设置
-
-为解决国内访问huggingface的问题，设置镜像网站：
-
-```bash
-export HF_ENDPOINT=https://hf-mirror.com
-```
-
-永久生效方法：
-
-```bash
-vim ~/.bashrc
-# 在文件末尾添加：
-export HF_ENDPOINT=https://hf-mirror.com
-# 使更改立即生效：
-source ~/.bashrc
-```
-
-## 4. 模型推理
-
-### 4.1 模型输入
-
-使用mini-batch处理：
+# LLM 类
 
 ```python
-batch_size = 256
-
-keys = list(data)
-new_data = data.copy()
-
-num_batches = math.ceil(len(keys) / batch_size)
-
-for i in tqdm(range(num_batches)):
-    batch_keys = keys[i * batch_size:(i + 1) * batch_size]
-    model_inputs = []
-    
-    for k in batch_keys:
-        # 处理输入数据
-        # ...
-
-    if len(model_inputs) == 0:
-        continue
-    
-    model_outputs = model.generate(
-        model_inputs,
-        sampling_params,
-        use_tqdm=False,
-    )
+class vllm.LLM(model: str, tokenizer: str | None = None, tokenizer_mode: str = 'auto', 
+               skip_tokenizer_init: bool = False, trust_remote_code: bool = False, 
+               tensor_parallel_size: int = 1, dtype: str = 'auto', 
+               quantization: str | None = None, revision: str | None = None, 
+               tokenizer_revision: str | None = None, seed: int = 0, 
+               gpu_memory_utilization: float = 0.9, swap_space: float = 4, 
+               cpu_offload_gb: float = 0, enforce_eager: bool | None = None, 
+               max_seq_len_to_capture: int = 8192, disable_custom_all_reduce: bool = False, 
+               disable_async_output_proc: bool = False, 
+               mm_processor_kwargs: Dict[str, Any] | None = None, 
+               task: Literal['auto', 'generate', 'embedding'] = 'auto', 
+               pooling_type: str | None = None, pooling_norm: bool | None = None, 
+               pooling_softmax: bool | None = None, pooling_step_tag_id: int | None = None, 
+               pooling_returned_token_ids: List[int] | None = None, **kwargs)
 ```
 
-### 4.2 模型输出
+LLM类用于从给定提示和采样参数生成文本。
+
+该类包含一个分词器、一个语言模型(可能分布在多个GPU上)以及为中间状态(即KV缓存)分配的GPU内存空间。给定一批提示和采样参数,该类使用智能批处理机制和高效的内存管理从模型生成文本。
+
+## 参数
+
+| 参数名 | 类型 | 默认值 | 描述 |
+|--------|------|--------|------|
+| model | str | - | HuggingFace Transformers模型的名称或路径 |
+| tokenizer | str \| None | None | HuggingFace Transformers分词器的名称或路径 |
+| tokenizer_mode | str | 'auto' | 分词器模式。"auto"将在可用时使用快速分词器,"slow"将始终使用慢速分词器 |
+| skip_tokenizer_init | bool | False | 如果为True,跳过分词器和解码器的初始化。期望输入中的prompt_token_ids有效,prompt为None |
+| trust_remote_code | bool | False | 下载模型和分词器时是否信任远程代码(例如来自HuggingFace) |
+| tensor_parallel_size | int | 1 | 用于张量并行分布式执行的GPU数量 |
+| dtype | str | 'auto' | 模型权重和激活的数据类型。支持float32、float16和bfloat16 |
+| quantization | str \| None | None | 用于量化模型权重的方法。支持"awq"、"gptq"和"fp8"(实验性) |
+| revision | str \| None | None | 要使用的特定模型版本。可以是分支名、标签名或提交ID |
+| tokenizer_revision | str \| None | None | 要使用的特定分词器版本。可以是分支名、标签名或提交ID |
+| seed | int | 0 | 用于初始化采样随机数生成器的种子 |
+| gpu_memory_utilization | float | 0.9 | 为模型权重、激活和KV缓存保留的GPU内存比率(0到1之间) |
+| swap_space | float | 4 | 每个GPU用作交换空间的CPU内存大小(GiB) |
+| cpu_offload_gb | float | 0 | 用于卸载模型权重的CPU内存大小(GiB) |
+| enforce_eager | bool \| None | None | 是否强制执行急切执行 |
+| max_seq_len_to_capture | int | 8192 | CUDA图覆盖的最大序列长度 |
+| disable_custom_all_reduce | bool | False | 见ParallelConfig |
+| **kwargs | - | - | EngineArgs的参数(见Engine Arguments) |
+
+## 方法
+
+### beam_search
 
 ```python
-for idx, k in enumerate(batch_keys):
-    # 处理模型输出
-    # ...
-
-    if isinstance(data[k], dict):
-        # 更新字典数据
-        # ...
-    else:
-        # 创建新字典
-        # ...
-
-    new_data[k] = tmp
+beam_search(prompts: List[str | List[int]], params: BeamSearchParams) → List[BeamSearchOutput]
 ```
 
-## 5. 多卡并行
+使用束搜索生成序列。
 
-使用LLM包加载模型，支持数据并行和张量并行：
+参数:
+- prompts: 提示列表。每个提示可以是字符串或token ID列表。
+- params: 束搜索参数。
+
+### chat
 
 ```python
-import os
-
-os.environ["CUDA_VISIBLE_DEVICES"] = "1,2,3,4,5,6,7"
-
-model = LLM(
-    model=model_name,
-    max_num_batched_tokens=8192,
-    seed=1,
-    trust_remote_code=True,
-    tensor_parallel_size=4,  # 张量并行大小
-    pipeline_parallel_size=1  # 流水线并行大小
-)
+chat(messages: List[ChatCompletionMessageParam] | List[List[ChatCompletionMessageParam]], 
+     sampling_params: SamplingParams | List[SamplingParams] | None = None,
+     use_tqdm: bool = True, 
+     lora_request: LoRARequest | None = None,
+     chat_template: str | None = None,
+     add_generation_prompt: bool = True,
+     continue_final_message: bool = False,
+     tools: List[Dict[str, Any]] | None = None,
+     mm_processor_kwargs: Dict[str, Any] | None = None) → List[RequestOutput]
 ```
 
-## 6. 服务器资源监测
+为聊天对话生成响应。
 
-### 6.1 CPU使用情况
+参数:
+- messages: 对话列表或单个对话。
+- sampling_params: 文本生成的采样参数。
+- use_tqdm: 是否使用tqdm显示进度条。
+- lora_request: 用于生成的LoRA请求(如果有)。
+- chat_template: 用于构建聊天的模板。
+- add_generation_prompt: 是否为每条消息添加生成模板。
+- continue_final_message: 是否继续对话的最后一条消息。
+- mm_processor_kwargs: 多模态处理器的kwargs覆盖。
 
-使用`htop`命令：
+返回:
+包含生成的响应的RequestOutput对象列表。
 
-```bash
-htop
+### encode
+
+```python
+encode(prompts: PromptType | Sequence[PromptType], /, 
+       *, pooling_params: PoolingParams | Sequence[PoolingParams] | None = None,
+       use_tqdm: bool = True,
+       lora_request: List[LoRARequest] | LoRARequest | None = None) → List[EmbeddingRequestOutput]
 ```
 
-### 6.2 GPU使用情况
+生成输入提示的嵌入。
 
-使用`nvtop`命令：
+参数:
+- prompts: 提供给LLM的提示。
+- pooling_params: 池化参数。
+- use_tqdm: 是否使用tqdm显示进度条。
+- lora_request: 用于生成的LoRA请求(如果有)。
 
-```bash
-nvtop
+返回:
+包含生成的嵌入的EmbeddingRequestOutput对象列表。
+
+### generate
+
+```python
+generate(prompts: PromptType | Sequence[PromptType], /, 
+         *, sampling_params: SamplingParams | Sequence[SamplingParams] | None = None,
+         use_tqdm: bool = True,
+         lora_request: List[LoRARequest] | LoRARequest | None = None) → List[RequestOutput]
 ```
+
+生成输入提示的补全。
+
+参数:
+- prompts: 提供给LLM的提示。
+- sampling_params: 文本生成的采样参数。
+- use_tqdm: 是否使用tqdm显示进度条。
+- lora_request: 用于生成的LoRA请求(如果有)。
+
+返回:
+包含生成的补全的RequestOutput对象列表。
+
+## 注意事项
+
+- 此类旨在用于离线推理。对于在线服务,请使用AsyncLLMEngine类。
+- 使用prompts和prompt_token_ids作为关键字参数被视为遗留用法,可能在未来被弃用。您应该通过inputs参数传递它们。
