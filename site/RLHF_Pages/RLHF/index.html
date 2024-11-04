@@ -1094,14 +1094,14 @@
 <h2 id="rm">RM阶段<a class="headerlink" href="#rm" title="Permanent link">&para;</a></h2>
 <p>RM使用交叉熵损失是为了将奖励模型的输出转化为概率分布，从而能够比较不同答案的相对质量，并通过最大化最佳答案的概率来学习人类的偏好。</p>
 <p>对于给定的数据分布 <span class="arithmatex">\(D\)</span>，损失函数的期望为：</p>
-<p>$
-L = \mathbb{E}<em i="1">{(x, {y_i}</em>\right)\right]
-$}^{K}, b) \sim D}\left[-\log\left(\frac{e^{R(x, y_b)}}{\sum_{i=1}^{K} e^{R(x, y_i)}</p>
+<div class="arithmatex">\[
+L = \mathbb{E}_{(x, \{y_i\}_{i=1}^{K}, b) \sim D}\left[-\log\left(\frac{e^{R(x, y_b)}}{\sum_{i=1}^{K} e^{R(x, y_i)}}\right)\right]
+\]</div>
 <p>这里，<span class="arithmatex">\(\mathbb{E}\)</span> 表示期望，<span class="arithmatex">\(K\)</span> 是候选答案的数量，<span class="arithmatex">\(b\)</span> 是最佳答案的索引。</p>
 <p>在实践中，我们通常使用经验风险（empirical risk）来近似这个期望，即在有限的训练数据集上计算平均损失：</p>
-<p>$
-L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \log\left(\frac{e^{R(x_n, y_b<sup K_n="K_n">n)}}{\sum_{i=1}</sup>\right)
-$} e^{R(x_n, y_i^n)}</p>
+<div class="arithmatex">\[
+L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \log\left(\frac{e^{R(x_n, y_b^n)}}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n)}}\right)
+\]</div>
 <p>其中：
 - <span class="arithmatex">\(N\)</span> 是训练数据集的大小。
 - <span class="arithmatex">\(K_n\)</span> 是第 <span class="arithmatex">\(n\)</span> 个样本的候选答案数量，这允许每个样本有不同数量的候选答案。
