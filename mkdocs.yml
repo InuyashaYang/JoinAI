@@ -55,7 +55,10 @@ nav:
   - RL:
     - RL基础概念: RL_Pages/RL.md
     - 蒙特卡洛树搜索: RL_Pages/Monte_Carlos.md
-  - LLM_RLHF阶段: RLHF_Pages/RLHF.md
+  - LLM_RLHF阶段: 
+    - PPO: RLHF_Pages/PPO.md
+    - DPO: RLHF_Pages/DPO.md
+    - SimPO: RLHF_Pages/SimPO.md
   - StableDiffusion: stablediffusion.md
 
 
