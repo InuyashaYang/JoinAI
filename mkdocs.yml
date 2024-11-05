@@ -59,6 +59,8 @@ nav:
     - PPO: RLHF_Pages/PPO.md
     - DPO: RLHF_Pages/DPO.md
     - SimPO: RLHF_Pages/SimPO.md
+    - DPO_Exercice: RLHF_Pages/DPO_Exercise.md
+    - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
   - StableDiffusion: stablediffusion.md
 
 
