@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../Post-Train/">
+      
+      
+        <link rel="next" href="../../Engineering_Pages/LlamaFactory/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>Inference Precision - AIDIY Wiki</title>
+        <title>MoE数学架构 - AIDIY Wiki</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1fp16" class="md-skip">
+        <a href="#moemixture-of-experts" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inference Precision
+              MoE数学架构
             
           </span>
         </div>
@@ -214,11 +218,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../LLM_Pages/Math_Architecture/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LLM_Architecture/" class="md-tabs__link">
           
   
   LLM
@@ -587,6 +593,90 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -598,25 +688,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -627,7 +722,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             LLM
@@ -641,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Math_Architecture/" class="md-nav__link">
+      <a href="../LLM_Architecture/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -662,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Position_Embedding/" class="md-nav__link">
+      <a href="../Position_Embedding/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -683,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Pre-Train/" class="md-nav__link">
+      <a href="../Pre-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -704,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/SFT/" class="md-nav__link">
+      <a href="../SFT/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -725,7 +820,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../LLM_Pages/Post-Train/" class="md-nav__link">
+      <a href="../Post-Train/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -734,6 +829,147 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MoE数学架构
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MoE数学架构
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moemixture-of-experts" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE（Mixture of Experts）架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE（Mixture of Experts）架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的关键组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的数据流动
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层详细结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 数据流动示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层中的参数更新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE 层中的参数更新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      门控网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      专家网络
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -814,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Engineering_Pages/VLLM/" class="md-nav__link">
+      <a href="../../Engineering_Pages/VLLM.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,6 +1326,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/RM_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1142,61 +1399,74 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1fp16" class="md-nav__link">
+  <a href="#moemixture-of-experts" class="md-nav__link">
     <span class="md-ellipsis">
-      1.FP16表示方法
+      MOE（Mixture of Experts）架构
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1.FP16表示方法">
+    <nav class="md-nav" aria-label="MOE（Mixture of Experts）架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的关键组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的数据流动
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层详细结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 数据流动示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层中的参数更新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE 层中的参数更新">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      数值计算方法
+      门控网络
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      特殊值
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      分辨率
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="取值范围">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pytorch" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch中的表示
+      专家网络
     </span>
   </a>
   
@@ -1204,319 +1474,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2fp32" class="md-nav__link">
-    <span class="md-ellipsis">
-      2.FP32 (单精度浮点数)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2.FP32 (单精度浮点数)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      表示方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      数值计算方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      特殊值
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pytorch_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch中的表示
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3fp64" class="md-nav__link">
-    <span class="md-ellipsis">
-      3.FP64 (双精度浮点数)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.FP64 (双精度浮点数)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      表示方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      数值计算方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      特殊值
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pytorch_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch中的表示
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4bf16-brain-floating-point" class="md-nav__link">
-    <span class="md-ellipsis">
-      4.BF16 (Brain Floating Point)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="4.BF16 (Brain Floating Point)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      表示方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      数值计算方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pytorch_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch中的表示
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fp8-8" class="md-nav__link">
-    <span class="md-ellipsis">
-      FP8 (8位浮点数)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="FP8 (8位浮点数)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#e4m3" class="md-nav__link">
-    <span class="md-ellipsis">
-      E4M3 (主要用于激活值和梯度)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#e5m2" class="md-nav__link">
-    <span class="md-ellipsis">
-      E5M2 (主要用于权重)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      数值计算方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      特点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围（近似值）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      应用
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tf32-tensorfloat-32" class="md-nav__link">
-    <span class="md-ellipsis">
-      TF32 (TensorFloat-32)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="TF32 (TensorFloat-32)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      表示方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      数值计算方法
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      特点
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      取值范围
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      精度
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
-    <span class="md-ellipsis">
-      应用
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pytorch_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      PyTorch中的使用
-    </span>
-  </a>
   
 </li>
         
@@ -1540,357 +1497,232 @@
                   
 
 
-  <h1>Inference Precision</h1>
+  <h1>MoE数学架构</h1>
 
-<h2 id="1fp16">1.FP16表示方法<a class="headerlink" href="#1fp16" title="Permanent link">&para;</a></h2>
-<p>FP16使用16位二进制数表示浮点数，格式如下：</p>
+<h2 id="moemixture-of-experts">MOE（Mixture of Experts）架构<a class="headerlink" href="#moemixture-of-experts" title="Permanent link">&para;</a></h2>
+<p>Mixture of Experts（MOE）是一种通过组合多个专家网络（Experts）来提高模型表达能力和计算效率的架构。每个专家负责处理输入数据的不同部分，而门控网络（Gating Network）则决定如何组合这些专家的输出。MOE架构广泛应用于大规模模型，如语言模型和图像处理模型，以实现参数高效和计算可扩展性。</p>
+<h3 id="moe">MOE 的关键组件<a class="headerlink" href="#moe" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
+<th>组件</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">5 bits</td>
-<td style="text-align: center;">10 bits</td>
+<td><strong>专家网络（Experts）</strong></td>
+<td>多个独立的子网络，每个网络专门处理输入数据的不同方面。</td>
+</tr>
+<tr>
+<td><strong>门控网络（Gating Network）</strong></td>
+<td>决定每个输入应由哪些专家处理，以及各专家的权重。</td>
+</tr>
+<tr>
+<td><strong>稀疏激活（Sparse Activation）</strong></td>
+<td>仅选择少数几个专家参与每次前向传播，提高计算效率。</td>
+</tr>
+<tr>
+<td><strong>负载均衡机制（Load Balancing Mechanism）</strong></td>
+<td>确保各专家得到大致相同的负载，避免部分专家过载。</td>
 </tr>
 </tbody>
 </table>
-<p>数值计算公式：<span class="arithmatex">\((-1)^S \times 2^{E-15} \times (1+M)\)</span></p>
-<h3 id="_1">数值计算方法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>标准格式下的计算公式：</p>
-<p><span class="arithmatex">\((-1)^S \times 2^{E-15} \times (1+M/1024)\)</span></p>
-<p>其中：
-- S: 符号位（0表示正数，1表示负数）
-- E: 指数位（范围00001-11110，对应-14到+15）
-- M: 尾数位（隐含首位1，实际精度为11位）</p>
-<h2 id="_2">特殊值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="moe_1">MOE 的数据流动<a class="headerlink" href="#moe_1" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">指数 (E)</th>
-<th style="text-align: center;">尾数 (M)</th>
-<th style="text-align: center;">含义</th>
+<th>阶段</th>
+<th>输入</th>
+<th>操作</th>
+<th>输出</th>
+<th>输出去向</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">00000</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm 0\)</span></td>
+<td><strong>输入层</strong></td>
+<td>原始输入数据</td>
+<td>数据预处理与嵌入</td>
+<td><span class="arithmatex">\(X \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>MOE层</td>
 </tr>
 <tr>
-<td style="text-align: center;">00000</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">非规格化数</td>
+<td><strong>门控网络</strong></td>
+<td><span class="arithmatex">\(X\)</span></td>
+<td>1. 线性变换：<span class="arithmatex">\(G = XW_g + b_g\)</span> <br> 2. Softmax：<span class="arithmatex">\(G_{ij} = \frac{\exp(G_{ij})}{\sum_{k=1}^{E} \exp(G_{ik})}\)</span> <br> 3. 选择 top-k 专家</td>
+<td>选择的专家索引及权重</td>
+<td>专家层</td>
 </tr>
 <tr>
-<td style="text-align: center;">11111</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm \infty\)</span></td>
+<td><strong>专家层</strong></td>
+<td>输入数据 <span class="arithmatex">\(X\)</span> 和门控权重 <span class="arithmatex">\(G\)</span></td>
+<td>1. 将输入分配给选定的专家 <br> 2. 每个专家独立处理分配到的数据 <br> 3. 汇总专家输出</td>
+<td><span class="arithmatex">\(Y \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>聚合层</td>
 </tr>
 <tr>
-<td style="text-align: center;">11111</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">NaN</td>
+<td><strong>聚合层</strong></td>
+<td>专家输出 <span class="arithmatex">\(Y\)</span></td>
+<td>1. 根据门控权重加权组合专家输出 <br> 2. 叠加与后续层</td>
+<td><span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>后续模型层</td>
 </tr>
 </tbody>
 </table>
-<h2 id="_3">分辨率<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>FP16的分辨率随数值大小变化：</p>
+<h3 id="moe_2">MOE 层详细结构<a class="headerlink" href="#moe_2" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">数值范围</th>
-<th style="text-align: center;">最小精度</th>
+<th>层</th>
+<th>输入</th>
+<th>操作</th>
+<th>输出</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">[0.5, 1)</td>
-<td style="text-align: center;"><span class="arithmatex">\(2^{-11} \approx 4.88 \times 10^{-4}\)</span></td>
+<td><strong>门控网络</strong></td>
+<td>输入嵌入 <span class="arithmatex">\(X \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>1. 线性变换：<span class="arithmatex">\(G = XW_g + b_g\)</span>, <span class="arithmatex">\(W_g \in \mathbb{R}^{d_{model} \times E}\)</span> <br> 2. Softmax激活：<span class="arithmatex">\(G_{ij} = \frac{\exp(G_{ij})}{\sum_{k=1}^{E} \exp(G_{ik})}, \forall j \in \{1, ..., E\}\)</span> <br> 3. 选取 top-k 专家</td>
+<td>选择的专家索引与权重 <span class="arithmatex">\(G' \in \mathbb{R}^{N \times k}\)</span></td>
 </tr>
 <tr>
-<td style="text-align: center;">[1, 2)</td>
-<td style="text-align: center;"><span class="arithmatex">\(2^{-10} \approx 9.77 \times 10^{-4}\)</span></td>
+<td><strong>专家处理</strong></td>
+<td>输入数据 <span class="arithmatex">\(X\)</span>, 选择的专家 <span class="arithmatex">\(G'\)</span></td>
+<td>1. 将输入分配到选定的专家 <br> 2. 每个专家独立执行前向传播：<span class="arithmatex">\(Y_e = \text{Expert}_e(X_e)\)</span> <br> 其中 <span class="arithmatex">\(e \in \{1, ..., E\}\)</span></td>
+<td>各专家的输出 <span class="arithmatex">\(Y_e \in \mathbb{R}^{N_e \times d_{model}}\)</span></td>
 </tr>
 <tr>
-<td style="text-align: center;">[2, 4)</td>
-<td style="text-align: center;"><span class="arithmatex">\(2^{-9} \approx 1.95 \times 10^{-3}\)</span></td>
+<td><strong>输出聚合</strong></td>
+<td>各专家输出 <span class="arithmatex">\(Y_e\)</span>, 门控权重 <span class="arithmatex">\(G'\)</span></td>
+<td>1. 根据门控权重加权：<span class="arithmatex">\(Y = \sum_{e=1}^{k} G'_{e} \cdot Y_e\)</span> <br> 2. 汇总所有专家的输出</td>
+<td>聚合输出 <span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="_4">取值范围<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<ul>
-<li>最小规格化正数：<span class="arithmatex">\(2^{-14} \approx 6.10 \times 10^{-5}\)</span></li>
-<li>最小非规格化正数：<span class="arithmatex">\(2^{-24} \approx 5.96 \times 10^{-8}\)</span></li>
-<li>最大正数：<span class="arithmatex">\((2-2^{-10}) \times 2^{15} \approx 65504\)</span></li>
-</ul>
-<p>FP16的取值范围约为 <span class="arithmatex">\(\pm [5.96 \times 10^{-8}, 65504]\)</span></p>
-<h3 id="pytorch">PyTorch中的表示<a class="headerlink" href="#pytorch" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
-<span class="c1"># 结果</span>
-<span class="n">finfo</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mi">65504</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">65504</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.000976562</span><span class="p">,</span> 
-      <span class="n">smallest_normal</span><span class="o">=</span><span class="mf">6.10352e-05</span><span class="p">,</span> <span class="n">tiny</span><span class="o">=</span><span class="mf">6.10352e-05</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float16</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="2fp32">2.FP32 (单精度浮点数)<a class="headerlink" href="#2fp32" title="Permanent link">&para;</a></h2>
-<h3 id="_5">表示方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="moe_3">MOE 数据流动示例<a class="headerlink" href="#moe_3" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
+<th>层</th>
+<th>输入</th>
+<th>输出</th>
+<th>输出去向</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">8 bits</td>
-<td style="text-align: center;">23 bits</td>
+<td>输入嵌入</td>
+<td>原始输入数据</td>
+<td><span class="arithmatex">\(X_0 \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>MOE层</td>
+</tr>
+<tr>
+<td>MOE层</td>
+<td><span class="arithmatex">\(X_0\)</span></td>
+<td><span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>后续模型层</td>
+</tr>
+<tr>
+<td>后续层</td>
+<td><span class="arithmatex">\(Z\)</span></td>
+<td>...</td>
+<td>...</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_6">数值计算方法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((-1)^S \times 2^{E-127} \times (1+M/2^{23})\)</span></p>
-<h3 id="_7">特殊值<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">指数 (E)</th>
-<th style="text-align: center;">尾数 (M)</th>
-<th style="text-align: center;">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">00000000</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm 0\)</span></td>
-</tr>
-<tr>
-<td style="text-align: center;">00000000</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">非规格化数</td>
-</tr>
-<tr>
-<td style="text-align: center;">11111111</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm \infty\)</span></td>
-</tr>
-<tr>
-<td style="text-align: center;">11111111</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">NaN</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_8">取值范围<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<ul>
-<li>最小规格化正数：<span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span></li>
-<li>最大正数：<span class="arithmatex">\((2-2^{-23}) \times 2^{127} \approx 3.40 \times 10^{38}\)</span></li>
-</ul>
-<h3 id="pytorch_1">PyTorch中的表示<a class="headerlink" href="#pytorch_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="c1"># 结果</span>
-<span class="n">finfo</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mf">1e-06</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">3.4028234663852886e+38</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">3.4028234663852886e+38</span><span class="p">,</span> 
-      <span class="n">eps</span><span class="o">=</span><span class="mf">1.1920928955078125e-07</span><span class="p">,</span> <span class="n">smallest_normal</span><span class="o">=</span><span class="mf">1.1754943508222875e-38</span><span class="p">,</span> 
-      <span class="n">tiny</span><span class="o">=</span><span class="mf">1.1754943508222875e-38</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="3fp64">3.FP64 (双精度浮点数)<a class="headerlink" href="#3fp64" title="Permanent link">&para;</a></h2>
-<h3 id="_9">表示方法<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">11 bits</td>
-<td style="text-align: center;">52 bits</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_10">数值计算方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((-1)^S \times 2^{E-1023} \times (1+M/2^{52})\)</span></p>
-<h3 id="_11">特殊值<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">指数 (E)</th>
-<th style="text-align: center;">尾数 (M)</th>
-<th style="text-align: center;">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">00000000000</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm 0\)</span></td>
-</tr>
-<tr>
-<td style="text-align: center;">00000000000</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">非规格化数</td>
-</tr>
-<tr>
-<td style="text-align: center;">11111111111</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="arithmatex">\(\pm \infty\)</span></td>
-</tr>
-<tr>
-<td style="text-align: center;">11111111111</td>
-<td style="text-align: center;">非0</td>
-<td style="text-align: center;">NaN</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_12">取值范围<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<ul>
-<li>最小规格化正数：<span class="arithmatex">\(2^{-1022} \approx 2.22 \times 10^{-308}\)</span></li>
-<li>最大正数：<span class="arithmatex">\((2-2^{-52}) \times 2^{1023} \approx 1.80 \times 10^{308}\)</span></li>
-</ul>
-<h3 id="pytorch_2">PyTorch中的表示<a class="headerlink" href="#pytorch_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
-<span class="c1"># 结果</span>
-<span class="n">finfo</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">1.7976931348623157e+308</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.7976931348623157e+308</span><span class="p">,</span> 
-      <span class="n">eps</span><span class="o">=</span><span class="mf">2.220446049250313e-16</span><span class="p">,</span> <span class="n">smallest_normal</span><span class="o">=</span><span class="mf">2.2250738585072014e-308</span><span class="p">,</span> 
-      <span class="n">tiny</span><span class="o">=</span><span class="mf">2.2250738585072014e-308</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float64</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="4bf16-brain-floating-point">4.BF16 (Brain Floating Point)<a class="headerlink" href="#4bf16-brain-floating-point" title="Permanent link">&para;</a></h2>
-<h3 id="_13">表示方法<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">8 bits</td>
-<td style="text-align: center;">7 bits</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_14">数值计算方法<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((-1)^S \times 2^{E-127} \times (1+M/2^{7})\)</span></p>
-<h3 id="_15">取值范围<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<ul>
-<li>最小规格化正数：<span class="arithmatex">\(2^{-126} \approx 1.18 \times 10^{-38}\)</span></li>
-<li>最大正数：<span class="arithmatex">\((2-2^{-7}) \times 2^{127} \approx 3.39 \times 10^{38}\)</span></li>
-</ul>
-<h3 id="pytorch_3">PyTorch中的表示<a class="headerlink" href="#pytorch_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">bfloat16</span><span class="p">)</span>
-<span class="c1"># 结果</span>
-<span class="n">finfo</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">3.3895313892515355e+38</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">3.3895313892515355e+38</span><span class="p">,</span> 
-      <span class="n">eps</span><span class="o">=</span><span class="mf">0.0078125</span><span class="p">,</span> <span class="n">smallest_normal</span><span class="o">=</span><span class="mf">1.1754943508222875e-38</span><span class="p">,</span> 
-      <span class="n">tiny</span><span class="o">=</span><span class="mf">1.1754943508222875e-38</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">bfloat16</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="fp8-8">FP8 (8位浮点数)<a class="headerlink" href="#fp8-8" title="Permanent link">&para;</a></h2>
-<p>FP8是一种新兴的8位浮点数格式，主要用于深度学习中的推理和训练。它有两种主要变体：E4M3和E5M2。</p>
-<h3 id="e4m3">E4M3 (主要用于激活值和梯度)<a class="headerlink" href="#e4m3" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">4 bits</td>
-<td style="text-align: center;">3 bits</td>
-</tr>
-</tbody>
-</table>
-<h3 id="e5m2">E5M2 (主要用于权重)<a class="headerlink" href="#e5m2" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">5 bits</td>
-<td style="text-align: center;">2 bits</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_16">数值计算方法<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<p>对于E4M3：<span class="arithmatex">\((-1)^S \times 2^{E-7} \times (1+M/2^3)\)</span></p>
-<p>对于E5M2：<span class="arithmatex">\((-1)^S \times 2^{E-15} \times (1+M/2^2)\)</span></p>
-<h3 id="_17">特点<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><strong>注：</strong></p>
 <ol>
-<li>极小的内存占用，每个数只需8位。</li>
-<li>相比FP16，可以进一步提高计算速度和减少内存带宽需求。</li>
-<li>精度较低，需要特殊的训练技巧来维持模型性能。</li>
+<li><span class="arithmatex">\(N\)</span> 是批量大小。</li>
+<li><span class="arithmatex">\(d_{model}\)</span> 是模型的隐藏维度。</li>
+<li><span class="arithmatex">\(E\)</span> 是专家的数量。</li>
+<li><span class="arithmatex">\(k\)</span> 是每次前向传播中激活的专家数量（通常较小，如2或4）。</li>
 </ol>
-<h3 id="_18">取值范围（近似值）<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<ul>
-<li>E4M3: <span class="arithmatex">\(\pm[2^{-8}, 448]\)</span></li>
-<li>E5M2: <span class="arithmatex">\(\pm[2^{-16}, 57344]\)</span></li>
-</ul>
-<h3 id="_19">应用<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<p>主要用于深度学习模型的训练和推理，特别是在需要极致效率的场景，如边缘计算设备。</p>
-<h2 id="tf32-tensorfloat-32">TF32 (TensorFloat-32)<a class="headerlink" href="#tf32-tensorfloat-32" title="Permanent link">&para;</a></h2>
-<p>TF32是NVIDIA在Ampere架构GPU中引入的一种内部浮点格式。</p>
-<h3 id="_20">表示方法<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<h3 id="moe_4">MOE 层中的参数更新<a class="headerlink" href="#moe_4" title="Permanent link">&para;</a></h3>
+<h4 id="_1">门控网络<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;">符号位 (S)</th>
-<th style="text-align: center;">指数位 (E)</th>
-<th style="text-align: center;">尾数位 (M)</th>
+<th>参数</th>
+<th>维度</th>
+<th>描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center;">1 bit</td>
-<td style="text-align: center;">8 bits</td>
-<td style="text-align: center;">10 bits</td>
+<td><span class="arithmatex">\(W_g\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times E}\)</span></td>
+<td>门控网络的权重矩阵</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(b_g\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{E}\)</span></td>
+<td>门控网络的偏置向量</td>
 </tr>
 </tbody>
 </table>
-<h3 id="_21">数值计算方法<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<p><span class="arithmatex">\((-1)^S \times 2^{E-127} \times (1+M/2^{10})\)</span></p>
-<h3 id="_22">特点<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
-<ol>
-<li>在内存中以FP32格式存储，但在计算时内部使用19位表示。</li>
-<li>结合了FP32的范围和BF16的精度。</li>
-<li>专为深度学习设计，在Tensor Core上可以显著加速矩阵乘法运算。</li>
-</ol>
-<h3 id="_23">取值范围<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
-<p>与FP32相同：<span class="arithmatex">\(\pm[1.18 \times 10^{-38}, 3.40 \times 10^{38}]\)</span></p>
-<h3 id="_24">精度<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
-<p>精度介于FP16和FP32之间，比BF16略高。</p>
-<h3 id="_25">应用<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
-<ol>
-<li>主要用于加速深度学习训练，特别是在支持TF32的NVIDIA GPU上。</li>
-<li>可以在不修改现有FP32模型的情况下获得性能提升。</li>
-<li>对大多数深度学习应用来说，精度损失通常可以忽略不计。</li>
-</ol>
-<h3 id="pytorch_4">PyTorch中的使用<a class="headerlink" href="#pytorch_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 启用TF32（默认情况下在支持的设备上已启用）</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">matmul</span><span class="o">.</span><span class="n">allow_tf32</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">allow_tf32</span> <span class="o">=</span> <span class="kc">True</span>
-</code></pre></div>
+<h4 id="_2">专家网络<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>参数</th>
+<th>维度</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专家1</td>
+<td><span class="arithmatex">\(W^{(1)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家1的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(1)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家1的偏置</td>
+</tr>
+<tr>
+<td>专家2</td>
+<td><span class="arithmatex">\(W^{(2)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家2的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(2)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家2的偏置</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>专家E</td>
+<td><span class="arithmatex">\(W^{(E)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家E的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(E)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家E的偏置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ul>
+<li>每个专家都拥有独立的参数集。</li>
+<li>专家数量 <span class="arithmatex">\(E\)</span> 和每个专家的隐藏维度 <span class="arithmatex">\(d_{ff}\)</span> 可根据具体需求调整。</li>
+<li>通过稀疏激活（只激活少数专家），可以在保持高模型容量的同时，提高计算效率。</li>
+</ul>
 
 
 

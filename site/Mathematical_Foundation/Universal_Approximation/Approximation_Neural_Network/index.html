@@ -1,0 +1,1567 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>万能逼近定理 - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              万能逼近定理
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition/" class="md-tabs__link">
+          
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ML_Pages/CNN/" class="md-tabs__link">
+          
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../LLM_Pages/LLM_Architecture/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
+          
+  
+  工程实践
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../RL_Pages/RL/" class="md-tabs__link">
+          
+  
+  RL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../RLHF_Pages/PPO/" class="md-tabs__link">
+          
+  
+  LLM_RLHF阶段
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵满秩分解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linear_Algebra/Matrix_Calculation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵求导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Manifold/Manifold_hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    流形假设
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/Pytorch_CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/Pytorch_MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/Pytorch_RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ML_Pages/Pytorch_VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/LLM_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer数学架构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/Position_Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/Pre-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/Post-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LLM_Pages/MoE_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MoE数学架构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LlamaFactory入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Engineering_Pages/VLLM.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    vllm部署模型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Engineering_Pages/Full_SFT_LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    全量微调
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            RL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RL_Pages/RL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RL基础概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RL_Pages/Monte_Carlos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM_RLHF阶段
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            LLM_RLHF阶段
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/PPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/DPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/SimPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/DPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Exercice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/SimPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO_Exercice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RLHF_Pages/RM_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      定理陈述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      数学表述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      激活函数的要求
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      证明思路
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      详细证明
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="详细证明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 1：构造函数集
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mathcalf-stone-weierstrass" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 2：验证 \(\mathcal{F}\) 满足 Stone-Weierstrass 定理的条件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 2：验证 \(\mathcal{F}\) 满足 Stone-Weierstrass 定理的条件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 代数性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 非退化性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 稠密性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stone-weierstrass" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用 Stone-Weierstrass 定理
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">万能逼近定理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>神经网络的**万能逼近定理**（Universal Approximation Theorem）是神经网络理论中的一个基础性定理，它表明在一定条件下，具有足够隐藏层神经元的前馈神经网络能够近似任意连续函数：</p>
+<h2 id="_2">定理陈述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>**万能逼近定理**基本上有以下几种形式，其中最常见的是针对具有一个隐藏层的前馈神经网络：</p>
+<blockquote>
+<p>如果激活函数 <span class="arithmatex">\(\sigma\)</span> 是非常数、连续且有界的（例如 sigmoid 函数），则对于任意的连续函数 <span class="arithmatex">\(f\)</span>，定义在紧致集 <span class="arithmatex">\(K \subset \mathbb{R}^n\)</span> 上，以及任意的 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，存在一个具有一个隐藏层、有限个神经元的前馈神经网络 <span class="arithmatex">\(N\)</span>，使得对于所有的 <span class="arithmatex">\(x \in K\)</span>，都有
+$$
+|N(x) - f(x)| &lt; \epsilon
+$$</p>
+</blockquote>
+<p>换句话说，前馈神经网络至少有一个隐藏层，并且隐藏层中的神经元数量足够多时，该网络能够以任意高的精度逼近任何在紧致集上的连续函数。</p>
+<h2 id="_3">数学表述<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>设有一个前馈神经网络，其结构为：
+$$
+N(x) = \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i)
+$$
+其中：
+- <span class="arithmatex">\(x \in \mathbb{R}^n\)</span> 是输入向量。
+- <span class="arithmatex">\(m\)</span> 是隐藏层神经元的数量。
+- <span class="arithmatex">\(w_i \in \mathbb{R}^n\)</span> 和 <span class="arithmatex">\(b_i \in \mathbb{R}\)</span> 分别是第 <span class="arithmatex">\(i\)</span> 个神经元的权重向量和偏置。
+- <span class="arithmatex">\(\alpha_i \in \mathbb{R}\)</span> 是输出层的权重。
+- <span class="arithmatex">\(\sigma\)</span> 是激活函数，满足上述条件。</p>
+<p>则对于任意的连续函数 <span class="arithmatex">\(f: K \rightarrow \mathbb{R}\)</span> （<span class="arithmatex">\(K\)</span> 为 <span class="arithmatex">\(\mathbb{R}^n\)</span> 的紧致集）和任意的误差容限 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，存在足够大的 <span class="arithmatex">\(m\)</span> 以及适当选择的参数 <span class="arithmatex">\(\{w_i, b_i, \alpha_i\}_{i=1}^m\)</span>，使得
+$$
+\sup_{x \in K} |N(x) - f(x)| &lt; \epsilon
+$$</p>
+<h2 id="_4">激活函数的要求<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>万能逼近定理对激活函数 <span class="arithmatex">\(\sigma\)</span> 有一定的要求，具体包括：
+1. <strong>非线性</strong>：<span class="arithmatex">\(\sigma\)</span> 不能是多项式函数，否则网络将失去表达复杂函数的能力。
+2. <strong>有界性或渐近性</strong>：例如，sigmoid 函数是有界的，而 ReLU 函数在正半轴上是线性的。
+3. <strong>连续性</strong>：<span class="arithmatex">\(\sigma\)</span> 必须是连续函数，以确保网络输出的连续性。</p>
+<p>常见的满足条件的激活函数包括：
+- <strong>Sigmoid 函数</strong>：<span class="arithmatex">\(\sigma(x) = \frac{1}{1 + e^{-x}}\)</span>
+- <strong>双曲正切函数</strong>：<span class="arithmatex">\(\sigma(x) = \tanh(x)\)</span>
+- <strong>ReLU 函数</strong>：<span class="arithmatex">\(\sigma(x) = \max(0, x)\)</span>（尽管 ReLU 在数值上是有界的梯度，但它在正半轴上是非有界的）</p>
+<h2 id="_5">证明思路<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>为了证明该定理，我们将利用**Stone-Weierstrass 定理**，该定理指出，在某些条件下，多项式能够在给定的函数空间内以任意精度逼近连续函数。具体步骤如下：</p>
+<ol>
+<li><strong>构造函数集</strong>：证明由具有一个隐藏层的神经网络生成的函数集构成一个**代数子环**，并且在某些条件下满足 Stone-Weierstrass 定理的要求。</li>
+<li><strong>应用 Stone-Weierstrass 定理</strong>：验证该函数集在连续函数空间中稠密，因此可以逼近任意的连续函数。</li>
+</ol>
+<h2 id="_6">详细证明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="1">步骤 1：构造函数集<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>设神经网络 <span class="arithmatex">\(N\)</span> 的结构为：
+$$
+N(x) = \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i)
+$$
+其中：
+- <span class="arithmatex">\(x \in \mathbb{R}^n\)</span> 是输入向量。
+- <span class="arithmatex">\(m\)</span> 是隐藏层神经元的数量。
+- <span class="arithmatex">\(w_i \in \mathbb{R}^n\)</span> 和 <span class="arithmatex">\(b_i \in \mathbb{R}\)</span> 分别是第 <span class="arithmatex">\(i\)</span> 个神经元的权重向量和偏置。
+- <span class="arithmatex">\(\alpha_i \in \mathbb{R}\)</span> 是输出层的权重。</p>
+<p>令 <span class="arithmatex">\(\mathcal{F}\)</span> 表示所有这样的函数的集合，即：
+$$
+\mathcal{F} = \left{ x \mapsto \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i) \mid m \in \mathbb{N}, \alpha_i, w_i, b_i \in \mathbb{R} \right}
+$$</p>
+<h3 id="2-mathcalf-stone-weierstrass">步骤 2：验证 <span class="arithmatex">\(\mathcal{F}\)</span> 满足 Stone-Weierstrass 定理的条件<a class="headerlink" href="#2-mathcalf-stone-weierstrass" title="Permanent link">&para;</a></h3>
+<p>Stone-Weierstrass 定理要求函数集 <span class="arithmatex">\(\mathcal{F}\)</span> 满足以下条件：</p>
+<ol>
+<li><strong>代数性</strong>：<span class="arithmatex">\(\mathcal{F}\)</span> 是一个**代数子环**，即如果 <span class="arithmatex">\(f, g \in \mathcal{F}\)</span>，则 <span class="arithmatex">\(f + g\)</span> 和 <span class="arithmatex">\(f \cdot g\)</span> 也在 <span class="arithmatex">\(\mathcal{F}\)</span> 中。</li>
+<li><strong>非退化性</strong>：<span class="arithmatex">\(\mathcal{F}\)</span> 不仅包含常数函数，还能分离点。</li>
+<li><strong>稠密性</strong>：<span class="arithmatex">\(\mathcal{F}\)</span> 在连续函数空间 <span class="arithmatex">\(C(K)\)</span> 中是稠密的。</li>
+</ol>
+<p>我们逐一验证这些条件。</p>
+<h4 id="1_1">1. 代数性<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h4>
+<p>考虑 <span class="arithmatex">\(f, g \in \mathcal{F}\)</span>，即
+$$
+f(x) = \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i)
+$$
+$$
+g(x) = \sum_{j=1}^n \beta_j \sigma(v_j \cdot x + c_j)
+$$</p>
+<p>则
+$$
+f(x) + g(x) = \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i) + \sum_{j=1}^n \beta_j \sigma(v_j \cdot x + c_j) \in \mathcal{F}
+$$</p>
+<p>对于乘法，考虑任意两个元素的乘积：
+$$
+f(x) \cdot g(x) = \left( \sum_{i=1}^m \alpha_i \sigma(w_i \cdot x + b_i) \right) \left( \sum_{j=1}^n \beta_j \sigma(v_j \cdot x + c_j) \right)
+$$
+展开后，每一项都是形如 <span class="arithmatex">\(\sigma(w_i \cdot x + b_i) \cdot \sigma(v_j \cdot x + c_j)\)</span> 的函数。由于 Sigmoid 函数是非线性的，我们无法直接保证这样的乘积仍在 <span class="arithmatex">\(\mathcal{F}\)</span> 中。但是，通常我们通过增加额外的神经元来近似乘积，从而在理论上确保代数性。因此，<span class="arithmatex">\(\mathcal{F}\)</span> 可以近似满足代数子环的性质。</p>
+<h4 id="2">2. 非退化性<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>包含常数函数</strong>：当 <span class="arithmatex">\(w_i = 0\)</span>，则 <span class="arithmatex">\(\sigma(w_i \cdot x + b_i) = \sigma(b_i)\)</span>，这表明我们可以构造常数函数。</li>
+<li><strong>分离点</strong>：考虑任意两个不同的点 <span class="arithmatex">\(x, y \in K\)</span>，我们需要存在一个函数 <span class="arithmatex">\(f \in \mathcal{F}\)</span>，使得 <span class="arithmatex">\(f(x) \neq f(y)\)</span>。由于 Sigmoid 函数是非线性的且连续，当权重和偏置适当选择时，<span class="arithmatex">\(\sigma(w \cdot x + b)\)</span> 可以在 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 处取不同的值。因此，<span class="arithmatex">\(\mathcal{F}\)</span> 能够分离任意两点。</li>
+</ul>
+<h4 id="3">3. 稠密性<a class="headerlink" href="#3" title="Permanent link">&para;</a></h4>
+<p>即对于任意的连续函数 <span class="arithmatex">\(f \in C(K)\)</span> 和任意的 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，存在 <span class="arithmatex">\(g \in \mathcal{F}\)</span> 使得
+$$
+|f - g|_{\infty} &lt; \epsilon
+$$</p>
+<h3 id="stone-weierstrass">使用 Stone-Weierstrass 定理<a class="headerlink" href="#stone-weierstrass" title="Permanent link">&para;</a></h3>
+<p>通过 Stone-Weierstrass 定理，函数集 <span class="arithmatex">\(\mathcal{F}\)</span> 的闭包是 <span class="arithmatex">\(C(K)\)</span> 的子集。如果 <span class="arithmatex">\(\mathcal{F}\)</span> 是一个包含常数函数并且能够分离点的代数子环，那么 <span class="arithmatex">\(\mathcal{F}\)</span> 在 <span class="arithmatex">\(C(K)\)</span> 中是稠密的。</p>
+<p>由于我们已经验证了 <span class="arithmatex">\(\mathcal{F}\)</span> 满足这些条件，因此根据 Stone-Weierstrass 定理，<span class="arithmatex">\(\mathcal{F}\)</span> 在 <span class="arithmatex">\(C(K)\)</span> 中稠密。这意味着，对于任意连续函数 <span class="arithmatex">\(f \in C(K)\)</span> 和任意 <span class="arithmatex">\(\epsilon &gt; 0\)</span>，存在 <span class="arithmatex">\(g \in \mathcal{F}\)</span> 使得
+$$
+|f - g|_{\infty} &lt; \epsilon
+$$</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>
