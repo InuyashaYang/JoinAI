@@ -1,0 +1,1777 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Post-Train/">
+      
+      
+        <link rel="next" href="../../Engineering_Pages/LlamaFactory/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.40">
+    
+    
+      
+        <title>MoE数学架构 - AIDIY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#moemixture-of-experts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="AIDIY Wiki" class="md-header__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AIDIY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MoE数学架构
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Mathematical_Foundation/Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition/" class="md-tabs__link">
+          
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ML_Pages/CNN/" class="md-tabs__link">
+          
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../LLM_Architecture/" class="md-tabs__link">
+          
+  
+  LLM
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Engineering_Pages/LlamaFactory/" class="md-tabs__link">
+          
+  
+  工程实践
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../RL_Pages/RL/" class="md-tabs__link">
+          
+  
+  RL
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../RLHF_Pages/PPO/" class="md-tabs__link">
+          
+  
+  LLM_RLHF阶段
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stablediffusion/" class="md-tabs__link">
+        
+  
+    
+  
+  StableDiffusion
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AIDIY Wiki" class="md-nav__button md-logo" aria-label="AIDIY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AIDIY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mathematical_Foundation/Linear_Algebra/Matrix_Decomposition/Full_Rank_Decomposition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵满秩分解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mathematical_Foundation/Linear_Algebra/Matrix_Calculation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵求导
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Mathematical_Foundation/Manifold/Manifold_hypothesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    流形假设
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Machine Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Machine Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_CNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_CNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_MLP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_MLP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_RNN/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_RNN
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ML_Pages/Pytorch_VAE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exercise_VAE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    LLM
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            LLM
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_Architecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transformer数学架构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Position_Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位置编码
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Pre-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    预训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SFT/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SFT阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Post-Train/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    后训练阶段
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    MoE数学架构
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    MoE数学架构
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moemixture-of-experts" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE（Mixture of Experts）架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE（Mixture of Experts）架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的关键组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的数据流动
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层详细结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 数据流动示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层中的参数更新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE 层中的参数更新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      门控网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      专家网络
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工程实践
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            工程实践
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Engineering_Pages/LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LlamaFactory入门
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Engineering_Pages/Full_SFT_LlamaFactory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    全量微调
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    RL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            RL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RL_Pages/RL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RL基础概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RL_Pages/Monte_Carlos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    蒙特卡洛树搜索
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LLM_RLHF阶段
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            LLM_RLHF阶段
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/PPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/DPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/SimPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/DPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Exercice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/SimPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO_Exercice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../RLHF_Pages/RM_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Exercise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stablediffusion/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    StableDiffusion
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#moemixture-of-experts" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE（Mixture of Experts）架构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE（Mixture of Experts）架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#moe" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的关键组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 的数据流动
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层详细结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 数据流动示例
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moe_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      MOE 层中的参数更新
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MOE 层中的参数更新">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      门控网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      专家网络
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>MoE数学架构</h1>
+
+<h2 id="moemixture-of-experts">MOE（Mixture of Experts）架构<a class="headerlink" href="#moemixture-of-experts" title="Permanent link">&para;</a></h2>
+<p>Mixture of Experts（MOE）是一种通过组合多个专家网络（Experts）来提高模型表达能力和计算效率的架构。每个专家负责处理输入数据的不同部分，而门控网络（Gating Network）则决定如何组合这些专家的输出。MOE架构广泛应用于大规模模型，如语言模型和图像处理模型，以实现参数高效和计算可扩展性。</p>
+<h3 id="moe">MOE 的关键组件<a class="headerlink" href="#moe" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>专家网络（Experts）</strong></td>
+<td>多个独立的子网络，每个网络专门处理输入数据的不同方面。</td>
+</tr>
+<tr>
+<td><strong>门控网络（Gating Network）</strong></td>
+<td>决定每个输入应由哪些专家处理，以及各专家的权重。</td>
+</tr>
+<tr>
+<td><strong>稀疏激活（Sparse Activation）</strong></td>
+<td>仅选择少数几个专家参与每次前向传播，提高计算效率。</td>
+</tr>
+<tr>
+<td><strong>负载均衡机制（Load Balancing Mechanism）</strong></td>
+<td>确保各专家得到大致相同的负载，避免部分专家过载。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="moe_1">MOE 的数据流动<a class="headerlink" href="#moe_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>输入</th>
+<th>操作</th>
+<th>输出</th>
+<th>输出去向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>输入层</strong></td>
+<td>原始输入数据</td>
+<td>数据预处理与嵌入</td>
+<td><span class="arithmatex">\(X \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>MOE层</td>
+</tr>
+<tr>
+<td><strong>门控网络</strong></td>
+<td><span class="arithmatex">\(X\)</span></td>
+<td>1. 线性变换：<span class="arithmatex">\(G = XW_g + b_g\)</span> <br> 2. Softmax：<span class="arithmatex">\(G_{ij} = \frac{\exp(G_{ij})}{\sum_{k=1}^{E} \exp(G_{ik})}\)</span> <br> 3. 选择 top-k 专家</td>
+<td>选择的专家索引及权重</td>
+<td>专家层</td>
+</tr>
+<tr>
+<td><strong>专家层</strong></td>
+<td>输入数据 <span class="arithmatex">\(X\)</span> 和门控权重 <span class="arithmatex">\(G\)</span></td>
+<td>1. 将输入分配给选定的专家 <br> 2. 每个专家独立处理分配到的数据 <br> 3. 汇总专家输出</td>
+<td><span class="arithmatex">\(Y \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>聚合层</td>
+</tr>
+<tr>
+<td><strong>聚合层</strong></td>
+<td>专家输出 <span class="arithmatex">\(Y\)</span></td>
+<td>1. 根据门控权重加权组合专家输出 <br> 2. 叠加与后续层</td>
+<td><span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>后续模型层</td>
+</tr>
+</tbody>
+</table>
+<h3 id="moe_2">MOE 层详细结构<a class="headerlink" href="#moe_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>输入</th>
+<th>操作</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>门控网络</strong></td>
+<td>输入嵌入 <span class="arithmatex">\(X \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>1. 线性变换：<span class="arithmatex">\(G = XW_g + b_g\)</span>, <span class="arithmatex">\(W_g \in \mathbb{R}^{d_{model} \times E}\)</span> <br> 2. Softmax激活：<span class="arithmatex">\(G_{ij} = \frac{\exp(G_{ij})}{\sum_{k=1}^{E} \exp(G_{ik})}, \forall j \in \{1, ..., E\}\)</span> <br> 3. 选取 top-k 专家</td>
+<td>选择的专家索引与权重 <span class="arithmatex">\(G' \in \mathbb{R}^{N \times k}\)</span></td>
+</tr>
+<tr>
+<td><strong>专家处理</strong></td>
+<td>输入数据 <span class="arithmatex">\(X\)</span>, 选择的专家 <span class="arithmatex">\(G'\)</span></td>
+<td>1. 将输入分配到选定的专家 <br> 2. 每个专家独立执行前向传播：<span class="arithmatex">\(Y_e = \text{Expert}_e(X_e)\)</span> <br> 其中 <span class="arithmatex">\(e \in \{1, ..., E\}\)</span></td>
+<td>各专家的输出 <span class="arithmatex">\(Y_e \in \mathbb{R}^{N_e \times d_{model}}\)</span></td>
+</tr>
+<tr>
+<td><strong>输出聚合</strong></td>
+<td>各专家输出 <span class="arithmatex">\(Y_e\)</span>, 门控权重 <span class="arithmatex">\(G'\)</span></td>
+<td>1. 根据门控权重加权：<span class="arithmatex">\(Y = \sum_{e=1}^{k} G'_{e} \cdot Y_e\)</span> <br> 2. 汇总所有专家的输出</td>
+<td>聚合输出 <span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="moe_3">MOE 数据流动示例<a class="headerlink" href="#moe_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>层</th>
+<th>输入</th>
+<th>输出</th>
+<th>输出去向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>输入嵌入</td>
+<td>原始输入数据</td>
+<td><span class="arithmatex">\(X_0 \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>MOE层</td>
+</tr>
+<tr>
+<td>MOE层</td>
+<td><span class="arithmatex">\(X_0\)</span></td>
+<td><span class="arithmatex">\(Z \in \mathbb{R}^{N \times d_{model}}\)</span></td>
+<td>后续模型层</td>
+</tr>
+<tr>
+<td>后续层</td>
+<td><span class="arithmatex">\(Z\)</span></td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注：</strong></p>
+<ol>
+<li><span class="arithmatex">\(N\)</span> 是批量大小。</li>
+<li><span class="arithmatex">\(d_{model}\)</span> 是模型的隐藏维度。</li>
+<li><span class="arithmatex">\(E\)</span> 是专家的数量。</li>
+<li><span class="arithmatex">\(k\)</span> 是每次前向传播中激活的专家数量（通常较小，如2或4）。</li>
+</ol>
+<h3 id="moe_4">MOE 层中的参数更新<a class="headerlink" href="#moe_4" title="Permanent link">&para;</a></h3>
+<h4 id="_1">门控网络<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>维度</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(W_g\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times E}\)</span></td>
+<td>门控网络的权重矩阵</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(b_g\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{E}\)</span></td>
+<td>门控网络的偏置向量</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_2">专家网络<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>参数</th>
+<th>维度</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专家1</td>
+<td><span class="arithmatex">\(W^{(1)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家1的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(1)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家1的偏置</td>
+</tr>
+<tr>
+<td>专家2</td>
+<td><span class="arithmatex">\(W^{(2)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家2的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(2)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家2的偏置</td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>专家E</td>
+<td><span class="arithmatex">\(W^{(E)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{model} \times d_{ff}}\)</span></td>
+<td>专家E的权重</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="arithmatex">\(b^{(E)}\)</span></td>
+<td><span class="arithmatex">\(\mathbb{R}^{d_{ff}}\)</span></td>
+<td>专家E的偏置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong></p>
+<ul>
+<li>每个专家都拥有独立的参数集。</li>
+<li>专家数量 <span class="arithmatex">\(E\)</span> 和每个专家的隐藏维度 <span class="arithmatex">\(d_{ff}\)</span> 可根据具体需求调整。</li>
+<li>通过稀疏激活（只激活少数专家），可以在保持高模型容量的同时，提高计算效率。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Joining-AI/LLM_Interview_Prepare" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../javascripts/mathjax_config.js"></script>
+      
+    
+  </body>
+</html>
