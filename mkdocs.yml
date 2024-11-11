@@ -55,7 +55,6 @@ nav:
     - MoE数学架构: LLM_Pages/MoE_Architecture.md
   - 工程实践: 
     - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
-    - vllm部署模型: Engineering_Pages/vLLM.md
     - 全量微调: Engineering_Pages/Full_SFT_LlamaFactory.md
   - RL:
     - RL基础概念: RL_Pages/RL.md
