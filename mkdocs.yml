@@ -42,12 +42,17 @@ nav:
     - MLP: ML_Pages/MLP.md
     - RNN: ML_Pages/RNN.md
     - VAE: ML_Pages/VAE.md
+    - Exercise_CNN: ML_Pages/Pytorch_CNN.md
+    - Exercise_MLP: ML_Pages/Pytorch_MLP.md
+    - Exercise_RNN: ML_Pages/Pytorch_RNN.md
+    - Exercise_VAE: ML_Pages/Pytorch_VAE.md
   - LLM:
-    - Transformer数学架构: LLM_Pages/Math_Architecture.md
+    - Transformer数学架构: LLM_Pages/LLM_Architecture.md
     - 位置编码: LLM_Pages/Position_Embedding.md
     - 预训练阶段: LLM_Pages/Pre-Train.md
     - SFT阶段: LLM_Pages/SFT.md
     - 后训练阶段: LLM_Pages/Post-Train.md
+    - MoE数学架构: LLM_Pages/MoE_Architecture.md
   - 工程实践: 
     - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
     - vllm部署模型: Engineering_Pages/VLLM.md
@@ -61,6 +66,7 @@ nav:
     - SimPO: RLHF_Pages/SimPO.md
     - DPO_Exercice: RLHF_Pages/DPO_Exercise.md
     - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
+    - RM_Exercise: RLHF_Pages/RM_Exercise.md
   - StableDiffusion: stablediffusion.md
 
 
