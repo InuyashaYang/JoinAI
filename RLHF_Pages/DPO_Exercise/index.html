@@ -12,7 +12,7 @@
         <link rel="prev" href="../SimPO/">
       
       
-        <link rel="next" href="../SimPO_Exercise/">
+        <link rel="next" href="../DPO_Problem/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -1220,6 +1220,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../DPO_Problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Problem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../SimPO_Exercise/" class="md-nav__link">
         
   
@@ -1331,6 +1352,47 @@
                 
                   
 
+
+<style>
+  .label {
+      background-color: #80EB00;
+      color: black;
+      padding: 3px;
+      border-radius: 12px; /* 使方框为圆角 */
+  }
+  details summary {
+    list-style-type: disc;  /* 添加圆点序号 */
+    margin-left: 20px;      /* 增加与圆点的间距 */
+    font-weight: normal;    /* 确保文本不加粗 */
+    cursor: pointer;        /* 鼠标悬浮时显示为可点击状态 */
+  }
+
+  details summary strong {
+    font-weight: normal;    /* 确保 strong 标签中的文本不加粗 */
+  }
+
+  /* 鼠标悬浮时显示淡蓝色底色 */
+  details summary:hover {
+    background-color: rgb(192, 229, 241);
+  }
+
+  /* 用于加粗的类 */
+  .bold-summary {
+    font-weight: bold;
+  }
+
+  /* 展开后显示更淡的蓝色底色 */
+  details[open] summary {
+    background-color: rgb(240, 248, 255);
+  }
+
+  /* 展开的内容显示更淡的蓝色底色 */
+  details[open] {
+    background-color: rgb(240, 248, 255);
+    padding: 10px; /* 增加内边距以提高可读性 */
+    border-radius: 5px; /* 使边角稍微圆润 */
+  }
+</style>
 
 <h1 id="dpo-exercice">DPO Exercice<a class="headerlink" href="#dpo-exercice" title="Permanent link">&para;</a></h1>
 <h3 id="1">练习题 1: 概率计算<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -1514,18 +1576,17 @@ $$
 什么是**自回归生成**？在 DPO 的前向传播过程中，自回归生成如何用于计算序列的条件概率？
 
 <details>
-<summary>提示</summary>
+   <summary>提示</summary>
 
-**自回归生成**是一种生成模型的方法，其中每一步的输出都依赖于之前生成的输出。具体来说，模型在生成序列时，每生成一个新的令牌，都会将之前生成的令牌作为输入的一部分，以此来预测下一个令牌的概率分布。
+   **自回归生成**是一种生成模型的方法，其中每一步的输出都依赖于之前生成的输出。具体来说，模型在生成序列时，每生成一个新的令牌，都会将之前生成的令牌作为输入的一部分，以此来预测下一个令牌的概率分布。
 
-在 DPO 的前向传播过程中，自回归生成用于计算序列 $y$ 的条件概率：
+   在 DPO 的前向传播过程中，自回归生成用于计算序列 $y$ 的条件概率：
 
-$$
-\pi_\theta(y|x) = \prod_{t=1}^T \pi_\theta(y^t|x, y^{<t})
-$$
+   $$
+   \pi_\theta(y|x) = \prod_{t=1}^T \pi_\theta(y^t|x, y^{<t})
+   $$
 
-这种方式确保了序列中每个令牌的生成都是基于之前生成的内容，使得整体序列具有连贯性和一致性。
-
+   这种方式确保了序列中每个令牌的生成都是基于之前生成的内容，使得整体序列具有连贯性和一致性。
 </details>
 
 ---
