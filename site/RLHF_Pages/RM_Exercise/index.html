@@ -1344,15 +1344,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题：奖励模型的局限性与改进
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1503,15 +1494,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      思考题：奖励模型的局限性与改进
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1549,61 +1531,60 @@
 <ol>
 <li>
 <p><strong>似然函数：</strong>
-   $
+   $$
    \mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_n \mid x_n; \theta) = \prod_{n=1}^{N} \sigma(\theta^T x_n)^{y_n} \left(1 - \sigma(\theta^T x_n)\right)^{1 - y_n}
-   $</p>
+   $$</p>
 </li>
 <li>
 <p><strong>对数似然函数：</strong>
-   $
+   $$
    \log \mathcal{L}(\theta) = \sum_{n=1}^{N} \left[ y_n \log \sigma(\theta^T x_n) + (1 - y_n) \log \left(1 - \sigma(\theta^T x_n)\right) \right]
-   $</p>
+   $$</p>
 </li>
 <li>
 <p><strong>负对数似然损失函数与交叉熵损失的关系：</strong>
-   $
+   $$
    \text{Negative Log-Likelihood} = -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \left[ y_n \log \sigma(\theta^T x_n) + (1 - y_n) \log \left(1 - \sigma(\theta^T x_n)\right) \right]
-   $</p>
+   $$</p>
 </li>
 </ol>
 <p>交叉熵损失函数通常表示为：
-   $
+   $$
    \text{Cross-Entropy Loss} = -\frac{1}{N} \sum_{n=1}^{N} \left[ y_n \log p_n + (1 - y_n) \log (1 - p_n) \right]
-   $
+   $$
    其中 <span class="arithmatex">\(p_n = P(y=1 \mid x_n; \theta) = \sigma(\theta^T x_n)\)</span>。可以看出，负对数似然损失函数与交叉熵损失函数是等价的，只是交叉熵损失函数通常包含一个归一化因子 <span class="arithmatex">\(\frac{1}{N}\)</span>。</p>
 <p>b) <strong>伯努利分布</strong></p>
 <ol>
 <li>
 <p><strong>似然函数：</strong>
-   $
+   $$
    \mathcal{L}(\theta) = \theta^k (1 - \theta)^{N - k}
-   $</p>
+   $$</p>
 </li>
 <li>
 <p><strong>最大似然估计（MLE）：</strong></p>
 </li>
 </ol>
 <p>对数似然函数为：
-   $
+   $$
    \log \mathcal{L}(\theta) = k \log \theta + (N - k) \log (1 - \theta)
-   $</p>
+   $$</p>
 <p>对 <span class="arithmatex">\(\theta\)</span> 求导并令其等于零：
-   $
+   $$
    \frac{d}{d\theta} \log \mathcal{L}(\theta) = \frac{k}{\theta} - \frac{N - k}{1 - \theta} = 0
-   $</p>
+   $$</p>
 <p>解得：
-   $
+   $$
    \hat{\theta} = \frac{k}{N}
-   $</p>
+   $$</p>
 <p>即，最大似然估计 <span class="arithmatex">\(\hat{\theta}\)</span> 为成功次数的比例。</p>
 <hr />
-<p>好的，我来帮您将所有数学公式从 <code>$$...$$</code> 环境转换为 <code>$...$</code> 环境。以下是修改后的版本：</p>
 <h3 id="2">习题 2：等价转换理解<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
 <p>给定似然函数：
-$
+$$
 \mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_b^n \mid x_n; \theta)
-$</p>
+$$</p>
 <p>a) 证明取对数后，最大化似然函数等价于最大化对数似然函数。</p>
 <p>b) 进一步证明，最大化对数似然函数等价于最小化负对数似然函数。</p>
 <p><strong>解答：</strong></p>
@@ -1622,55 +1603,55 @@ $$</p>
 <h3 id="3">习题 3：交叉熵损失与负对数似然<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
 <p>a) 在分类任务中，假设我们使用交叉熵损失函数。给定真实标签 <span class="arithmatex">\(y\)</span> 和模型预测的概率分布 <span class="arithmatex">\(P(y \mid x; \theta)\)</span>，交叉熵损失定义为：
-[
+$$
 H(y, P) = -\sum_{n=1}^{N} y^n \log P(y^n \mid x^n; \theta)
-]
+$$
 说明交叉熵损失与负对数似然之间的关系。</p>
 <p>b) 对于二分类问题，交叉熵损失可以简化为什么形式？</p>
 <p><strong>解答：</strong></p>
 <p>a) <strong>交叉熵损失与负对数似然的关系：</strong></p>
 <p>交叉熵损失函数实际上是负对数似然函数。在最大化似然函数的过程中，我们等价地可以最小化负对数似然，即最小化交叉熵损失：
-[
+$$
 \arg\max_{\theta} \mathcal{L}(\theta) = \arg\min_{\theta} -\log \mathcal{L}(\theta) = \arg\min_{\theta} H(y, P)
-]</p>
+$$</p>
 <p>b) <strong>二分类问题中的交叉熵损失形式：</strong></p>
 <p>对于二分类问题，交叉熵损失可以简化为：
-[
+$$
 H(y, P) = -\left[ y \log P(y=1 \mid x; \theta) + (1 - y) \log P(y=0 \mid x; \theta) \right]
-]
+$$
 如果使用 Sigmoid 激活函数，损失函数通常表示为：
-[
+$$
 H(y, P) = -y \log \sigma(z) - (1 - y) \log \left(1 - \sigma(z)\right)
-]
+$$
 其中 <span class="arithmatex">\(z = \theta^T x\)</span>，<span class="arithmatex">\(\sigma(z)\)</span> 是模型的预测概率 <span class="arithmatex">\(P(y=1 \mid x; \theta)\)</span>。</p>
 <hr />
 <h3 id="4">习题 4：梯度计算与优化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
 <p>假设我们的模型参数 <span class="arithmatex">\(\theta\)</span> 需要通过最小化负对数似然来进行优化。给定对数似然函数：
-[
+$$
 \log \mathcal{L}(\theta) = \sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)
-]
+$$
 a) 写出负对数似然的表达式。</p>
 <p>b) 计算负对数似然对参数 <span class="arithmatex">\(\theta\)</span> 的梯度。</p>
 <p>c) 说明梯度下降如何应用于最小化负对数似然。</p>
 <p><strong>解答：</strong></p>
 <p>a) <strong>负对数似然的表达式：</strong>
-[
+$$
 -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)
-]</p>
+$$</p>
 <p>b) <strong>负对数似然对参数 <span class="arithmatex">\(\theta\)</span> 的梯度：</strong>
-[
+$$
 \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right) = -\sum_{n=1}^{N} \nabla_{\theta} \log P(y_b^n \mid x_n; \theta)
-]
+$$
 具体梯度形式取决于 <span class="arithmatex">\(P(y_b^n \mid x_n; \theta)\)</span> 的模型定义。例如，如果 <span class="arithmatex">\(P(y_b^n \mid x_n; \theta)\)</span> 是一个 Sigmoid 分类器，那么梯度可以具体计算为预测概率与实际标签之间的差异：
-[
+$$
 \frac{\partial}{\partial \theta} \left( -\log \mathcal{L}(\theta) \right) = \sum_{n=1}^{N} \left( \sigma(\theta^T x_n) - y_b^n \right) x_n
-]</p>
+$$</p>
 <p>c) <strong>梯度下降应用于最小化负对数似然：</strong></p>
 <p>梯度下降通过以下更新规则应用于最小化负对数似然：
-[
+$$
 \theta \leftarrow \theta - \eta \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right)
-]
+$$
 其中 <span class="arithmatex">\(\eta\)</span> 是学习率。通过不断迭代更新参数 <span class="arithmatex">\(\theta\)</span>，模型逐步逼近能够最大化数据似然的参数值。</p>
 <hr />
 <h3 id="5">习题 5：正则化的引入<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
@@ -1685,18 +1666,18 @@ a) 写出负对数似然的表达式。</p>
 <ol>
 <li>
 <p><strong>带有 L2 正则化的损失函数：</strong>
-   [
+   $$
    \mathcal{L}<em n="1">{\text{reg}}(\theta) = -\log \mathcal{L}(\theta) + \lambda |\theta|^2 = -\sum</em> \log P(y_b^n \mid x_n; \theta) + \lambda |\theta|^2
-   ]}^{N</p>
+   $$}^{N</p>
 </li>
 <li>
 <p><strong>L2 正则化对参数更新的影响：</strong></p>
 </li>
 </ol>
 <p>L2 正则化通过在损失函数中加入 <span class="arithmatex">\(\lambda \|\theta\|^2\)</span> 项，鼓励模型参数 <span class="arithmatex">\(\theta\)</span> 保持较小的值。这会导致梯度更新时，多一个与参数值成比例的衰减项，从而限制参数的增长，防止过拟合。例如，参数更新规则变为：
-   [
+   $$
    \theta \leftarrow \theta - \eta \left( \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right) + 2\lambda \theta \right)
-   ]</p>
+   $$</p>
 <ol>
 <li>
 <p><strong>正则化参数 <span class="arithmatex">\(\lambda\)</span> 的选择对模型训练的影响：</strong></p>
@@ -1760,12 +1741,12 @@ a) 写出负对数似然的表达式。</p>
 <li>引入动量项，加速梯度下降，减少震荡。</li>
 <li>累积过去的梯度信息，平滑更新方向。</li>
 <li><strong>公式：</strong>
-   [
+   $$
    v_t = \gamma v_{t-1} + \eta \nabla_{\theta} J(\theta)
-   ]
-   [
+   $$
+   $$
    \theta \leftarrow \theta - v_t
-   ]
+   $$
    其中，<span class="arithmatex">\(\gamma\)</span> 是动量系数。</li>
 </ul>
 </li>
@@ -1776,18 +1757,18 @@ a) 写出负对数似然的表达式。</p>
 <li>结合了动量法和 RMSProp 的优点，适应性调整每个参数的学习率。</li>
 <li>高效且易于调参，广泛应用于各种深度学习任务。</li>
 <li><strong>公式：</strong>
-   [
+   $$
    m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_{\theta} J(\theta)
-   ]
-   [
+   $$
+   $$
    v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_{\theta} J(\theta))^2
-   ]
-   [
+   $$
+   $$
    \hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
-   ]
-   [
+   $$
+   $$
    \theta \leftarrow \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
-   ]
+   $$
    其中，<span class="arithmatex">\(\beta_1\)</span> 和 <span class="arithmatex">\(\beta_2\)</span> 是超参数，<span class="arithmatex">\(\epsilon\)</span> 是防止除零的常数。</li>
 </ul>
 </li>
@@ -1875,7 +1856,7 @@ a) 写出负对数似然的表达式。</p>
 </li>
 </ol>
 <hr />
-<h3 id="2_1"><strong>思考题 2：负对数似然与交叉熵的关系</strong><a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
+<h3 id="2_1">思考题 2：负对数似然与交叉熵的关系<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <p><strong>问题：</strong>
 在训练奖励模型时，为什么我们更倾向于最小化交叉熵损失（负对数似然）而不是直接最大化似然函数？请从数值稳定性和优化效率两个方面进行讨论。</p>
 <p><strong>思考与回答：</strong></p>
@@ -1888,7 +1869,7 @@ a) 写出负对数似然的表达式。</p>
 </li>
 </ul>
 <hr />
-<h3 id="3_1"><strong>思考题 3：模型过拟合与似然函数</strong><a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
+<h3 id="3_1">思考题 3：模型过拟合与似然函数<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
 <p><strong>问题：</strong>
 在奖励模型的训练中，如果模型在训练数据上表现出极高的似然，但在验证集上表现不佳，这通常说明什么问题？如何通过调整似然函数相关的训练策略来缓解这一问题？</p>
 <p><strong>思考与回答：</strong></p>
@@ -1896,7 +1877,7 @@ a) 写出负对数似然的表达式。</p>
 <p>缓解过拟合的方法包括：</p>
 <ul>
 <li>
-<p><strong>正则化</strong>：在似然函数中加入正则项，如L2正则化，限制参数的复杂度。</p>
+<p><strong>正则化</strong>：在似然函数中加入正则项，如 L2 正则化，限制参数的复杂度。</p>
 </li>
 <li>
 <p><strong>交叉验证</strong>：通过交叉验证选择合适的模型复杂度和超参数，确保模型在验证集上表现良好。</p>
@@ -1909,44 +1890,31 @@ a) 写出负对数似然的表达式。</p>
 </li>
 </ul>
 <hr />
-<h3 id="5_1"><strong>习题 5：多类别分类中的最大似然估计</strong><a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
+<h3 id="5_1">习题 5：多类别分类中的最大似然估计<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong>
-假设数据集包含 <span class="arithmatex">\( K \)</span> 个类别，每个样本 <span class="arithmatex">\( x_n \)</span> 对应的真实标签为 <span class="arithmatex">\( y_n \in \{1, 2, \dots, K\} \)</span>。模型使用Softmax函数输出每个类别的概率。</p>
+假设数据集包含 <span class="arithmatex">\(K\)</span> 个类别，每个样本 <span class="arithmatex">\(x_n\)</span> 对应的真实标签为 <span class="arithmatex">\(y_n \in \{1, 2, \dots, K\}\)</span>。模型使用 Softmax 函数输出每个类别的概率。</p>
 <p>a) 写出单个样本的似然函数和对数似然。</p>
 <p>b) 写出整个数据集的负对数似然损失函数（即交叉熵损失）。</p>
-<p>c) 计算交叉熵损失对模型参数 <span class="arithmatex">\( \theta \)</span> 的梯度。</p>
+<p>c) 计算交叉熵损失对模型参数 <span class="arithmatex">\(\theta\)</span> 的梯度。</p>
 <p><strong>解答：</strong></p>
 <p>a) 对于单个样本，似然函数为：
-[
+$$
 \mathcal{L}<em y_n="y_n">n(\theta) = P(y_n \mid x_n; \theta) = \frac{\exp(z</em>
-]
-其中 })}{\sum_{k=1}^{K} \exp(z_k)<span class="arithmatex">\( z_k = \theta_k^T x_n \)</span> 是第 <span class="arithmatex">\( k \)</span> 类的得分。</p>
+$$
+其中 })}{\sum_{k=1}^{K} \exp(z_k)<span class="arithmatex">\(z_k = \theta_k^T x_n\)</span> 是第 <span class="arithmatex">\(k\)</span> 类的得分。</p>
 <p>对数似然为：
-[
+$$
 \log \mathcal{L}<em y_n="y_n">n(\theta) = z</em> \exp(z_k) \right)
-]} - \log \left( \sum_{k=1}^{K</p>
+$$} - \log \left( \sum_{k=1}^{K</p>
 <p>b) 整个数据集的负对数似然损失函数为：
-[
+$$
 -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \left( z_{y_n} - \log \left( \sum_{k=1}^{K} \exp(z_k) \right) \right) = \sum_{n=1}^{N} \left( \log \left( \sum_{k=1}^{K} \exp(z_k) \right) - z_{y_n} \right)
-]</p>
-<p>c) 交叉熵损失对参数 <span class="arithmatex">\( \theta_j \)</span>（第 <span class="arithmatex">\( j \)</span> 类参数）的梯度为：
-[
+$$</p>
+<p>c) 交叉熵损失对参数 <span class="arithmatex">\(\theta_j\)</span>（第 <span class="arithmatex">\(j\)</span> 类参数）的梯度为：
+$$
 \frac{\partial (-\log \mathcal{L}(\theta))}{\partial \theta_j} = \sum_{n=1}^{N} \left( P(j \mid x_n; \theta) - \mathbb{I}(y_n = j) \right) x_n
-]
-其中 <span class="arithmatex">\( \mathbb{I}(y_n = j) \)</span> 是指示函数，当 <span class="arithmatex">\( y_n = j \)</span> 时为1，否则为0。</p>
-<p>当然可以！以下是一些旨在加深您对奖励模型（Reward Model, RM）阶段理解的习题和思考题。这些习题涵盖了最大似然估计、交叉熵损失以及模型训练中的关键概念。每个习题都配有简要说明，以帮助您更好地理解相关知识点。</p>
-<hr />
-<hr />
-<h3 id="_1">思考题：奖励模型的局限性与改进<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p><strong>问题：</strong>
-奖励模型在实际应用中可能会遇到一些挑战。请思考并回答以下问题：</p>
-<ol>
-<li>奖励模型在面对噪声标签或不完整数据时会有哪些表现？</li>
-<li>提出至少两种方法来提升奖励模型在处理不完美数据时的鲁棒性。</li>
-<li>讨论奖励模型与其他模型（如生成模型、判别模型）的结合方式，以及这种结合可能带来的优势。</li>
-</ol>
-<p><strong>提示：</strong>
-- 可以考虑数据清洗、增强、使用鲁棒损失函数等方法。</p>
+$$
+其中 <span class="arithmatex">\(\mathbb{I}(y_n = j)\)</span> 是指示函数，当 <span class="arithmatex">\(y_n = j\)</span> 时为 <span class="arithmatex">\(1\)</span>，否则为 <span class="arithmatex">\(0\)</span>。</p>
 
 
 
