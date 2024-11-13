@@ -1198,7 +1198,43 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      练习题 1: 概率计算
+      练习题 1: 偏好分数计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 2: 损失函数理解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 3: 梯度计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 4: 参考模型的作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 5: 自回归生成
     </span>
   </a>
   
@@ -1332,7 +1368,43 @@
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
     <span class="md-ellipsis">
-      练习题 1: 概率计算
+      练习题 1: 偏好分数计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 2: 损失函数理解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 3: 梯度计算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 4: 参考模型的作用
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      练习题 5: 自回归生成
     </span>
   </a>
   
@@ -1354,58 +1426,16 @@
 
 
 <h1 id="dpo-exercice">DPO Exercice<a class="headerlink" href="#dpo-exercice" title="Permanent link">&para;</a></h1>
-<h3 id="1">练习题 1: 概率计算<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h3 id="1">练习题 1: 偏好分数计算<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
 <p><strong>问题：</strong></p>
-<p>假设有一个问题序列 <span class="arithmatex">\(x\)</span>，两个回答序列 <span class="arithmatex">\(y_w\)</span>（较好）和 <span class="arithmatex">\(y_l\)</span>（较差）。给定以下条件概率：</p>
+<p>给定以下概率值：</p>
 <ul>
-<li>对于回答 <span class="arithmatex">\(y_w\)</span>，政策模型 <span class="arithmatex">\(\pi_\theta\)</span> 在每个时间步 <span class="arithmatex">\(t\)</span> 的条件概率分别为：</li>
-<li><span class="arithmatex">\(\pi_\theta(y_w^1|x) = 0.6\)</span></li>
-<li><span class="arithmatex">\(\pi_\theta(y_w^2|x, y_w^1) = 0.7\)</span></li>
-<li>
-<p><span class="arithmatex">\(\pi_\theta(y_w^3|x, y_w^{&lt;3}) = 0.8\)</span></p>
-</li>
-<li>
-<p>参考模型 <span class="arithmatex">\(\pi_\text{ref}\)</span> 在相同位置的条件概率分别为：</p>
-</li>
-<li><span class="arithmatex">\(\pi_\text{ref}(y_w^1|x) = 0.5\)</span></li>
-<li><span class="arithmatex">\(\pi_\text{ref}(y_w^2|x, y_w^1) = 0.6\)</span></li>
-<li><span class="arithmatex">\(\pi_\text{ref}(y_w^3|x, y_w^{&lt;3}) = 0.7\)</span></li>
+<li><span class="arithmatex">\(\log \pi_\theta(y_w|x) = -2.0\)</span></li>
+<li><span class="arithmatex">\(\log \pi_\text{ref}(y_w|x) = -2.5\)</span></li>
+<li><span class="arithmatex">\(\log \pi_\theta(y_l|x) = -3.0\)</span></li>
+<li><span class="arithmatex">\(\log \pi_\text{ref}(y_l|x) = -3.5\)</span></li>
 </ul>
-<p>计算：
-1. <span class="arithmatex">\(\log \pi_\theta(y_w|x)\)</span>
-2. <span class="arithmatex">\(\log \pi_\text{ref}(y_w|x)\)</span></p>
-<details>
-<summary>提示</summary>
-
-使用对数概率的性质，将每个时间步的对数概率相加。
-
-$$
-\log \pi(y|x) = \sum_{t=1}^T \log \pi(y^t|x, y^{<t})
-$$
-
-例如，对于 $\pi_\theta(y_w|x)$：
-
-$$
-\log \pi_\theta(y_w|x) = \log 0.6 + \log 0.7 + \log 0.8
-$$
-
-</details>
-
----
-
-### 练习题 2: 偏好分数计算
-
-**问题：**
-
-给定以下概率值：
-
-- $\log \pi_\theta(y_w|x) = -2.0$
-- $\log \pi_\text{ref}(y_w|x) = -2.5$
-- $\log \pi_\theta(y_l|x) = -3.0$
-- $\log \pi_\text{ref}(y_l|x) = -3.5$
-
-计算偏好分数 $r(x,y_w,y_l)$。
-
+<p>计算偏好分数 <span class="arithmatex">\(r(x,y_w,y_l)\)</span>。</p>
 <details>
 <summary>提示</summary>
 
@@ -1423,14 +1453,10 @@ $$
 
 </details>
 
----
-
-### 练习题 3: 损失函数理解
-
-**问题：**
-
-假设计算得到的偏好分数为 $r = 1.2$。计算损失函数 $\mathcal{L}_\text{DPO}$ 的值。
-
+<hr />
+<h3 id="2">练习题 2: 损失函数理解<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p><strong>问题：</strong></p>
+<p>假设计算得到的偏好分数为 <span class="arithmatex">\(r = 1.2\)</span>。计算损失函数 <span class="arithmatex">\(\mathcal{L}_\text{DPO}\)</span> 的值。</p>
 <details>
 <summary>提示</summary>
 
@@ -1456,14 +1482,10 @@ $$
 
 </details>
 
----
-
-### 练习题 4: 梯度计算
-
-**问题：**
-
-假设偏好分数 $r = 0.8$，计算 $\mathcal{L}_\text{DPO}$ 关于 $r$ 的导数 $\frac{d\mathcal{L}_\text{DPO}}{dr}$。
-
+<hr />
+<h3 id="3">练习题 3: 梯度计算<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<p><strong>问题：</strong></p>
+<p>假设偏好分数 <span class="arithmatex">\(r = 0.8\)</span>，计算 <span class="arithmatex">\(\mathcal{L}_\text{DPO}\)</span> 关于 <span class="arithmatex">\(r\)</span> 的导数 <span class="arithmatex">\(\frac{d\mathcal{L}_\text{DPO}}{dr}\)</span>。</p>
 <details>
 <summary>提示</summary>
 
@@ -1505,14 +1527,10 @@ $$
 
 </details>
 
----
-
-### 练习题 5: 参考模型的作用
-
-**问题：**
-
-解释在 DPO 训练过程中，参考模型 $\pi_\text{ref}$ 的作用是什么？为什么在训练时保持其参数固定？
-
+<hr />
+<h3 id="4">练习题 4: 参考模型的作用<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<p><strong>问题：</strong></p>
+<p>解释在 DPO 训练过程中，参考模型 <span class="arithmatex">\(\pi_\text{ref}\)</span> 的作用是什么？为什么在训练时保持其参数固定？</p>
 <details>
 <summary>提示</summary>
 
@@ -1526,14 +1544,10 @@ $$
 
 </details>
 
----
-
-### 练习题 6: 自回归生成
-
-**问题：**
-
-什么是**自回归生成**？在 DPO 的前向传播过程中，自回归生成如何用于计算序列的条件概率？
-
+<hr />
+<h3 id="5">练习题 5: 自回归生成<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><strong>问题：</strong></p>
+<p>什么是**自回归生成**？在 DPO 的前向传播过程中，自回归生成如何用于计算序列的条件概率？</p>
 <details>
 <summary>提示</summary>
 
@@ -1551,7 +1565,7 @@ $$
 
 ---
 
-### 练习题 7: 实际概率计算
+### 练习题 6: 实际概率计算
 
 **问题：**
 
@@ -1611,7 +1625,7 @@ $$
 
 ---
 
-### 练习题 8: 理解损失函数优化目标
+### 练习题 7: 理解损失函数优化目标
 
 **问题：**
 
@@ -1643,7 +1657,7 @@ $$
 
 ---
 
-### 练习题 9: 参数更新机制
+### 练习题 8: 参数更新机制
 
 **问题：**
 
@@ -1668,7 +1682,7 @@ $$
 
 ---
 
-### 练习题 10: 扩展思考
+### 练习题 9: 扩展思考
 
 **问题：**
 
