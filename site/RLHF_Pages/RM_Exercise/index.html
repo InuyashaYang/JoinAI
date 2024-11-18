@@ -1526,58 +1526,60 @@
 <li>写出该数据集的似然函数 <span class="arithmatex">\(\mathcal{L}(\theta)\)</span>。</li>
 <li>通过最大化似然函数，求出参数 <span class="arithmatex">\(\theta\)</span> 的最大似然估计（MLE）。</li>
 </ol>
-<p><strong>解答：</strong></p>
-<p>a) <strong>二分类问题</strong></p>
-<ol>
-<li>
-<p><strong>似然函数：</strong>
+<details>
+  <summary>解答</summary>
+
+#### a) **二分类问题**
+
+1. **似然函数：**
    $$
    \mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_n \mid x_n; \theta) = \prod_{n=1}^{N} \sigma(\theta^T x_n)^{y_n} \left(1 - \sigma(\theta^T x_n)\right)^{1 - y_n}
-   $$</p>
-</li>
-<li>
-<p><strong>对数似然函数：</strong>
+   $$
+
+2. **对数似然函数：**
    $$
    \log \mathcal{L}(\theta) = \sum_{n=1}^{N} \left[ y_n \log \sigma(\theta^T x_n) + (1 - y_n) \log \left(1 - \sigma(\theta^T x_n)\right) \right]
-   $$</p>
-</li>
-<li>
-<p><strong>负对数似然损失函数与交叉熵损失的关系：</strong>
+   $$
+
+3. **负对数似然损失函数与交叉熵损失的关系：**
    $$
    \text{Negative Log-Likelihood} = -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \left[ y_n \log \sigma(\theta^T x_n) + (1 - y_n) \log \left(1 - \sigma(\theta^T x_n)\right) \right]
-   $$</p>
-</li>
-</ol>
-<p>交叉熵损失函数通常表示为：
+   $$
+
+   交叉熵损失函数通常表示为：
    $$
    \text{Cross-Entropy Loss} = -\frac{1}{N} \sum_{n=1}^{N} \left[ y_n \log p_n + (1 - y_n) \log (1 - p_n) \right]
    $$
-   其中 <span class="arithmatex">\(p_n = P(y=1 \mid x_n; \theta) = \sigma(\theta^T x_n)\)</span>。可以看出，负对数似然损失函数与交叉熵损失函数是等价的，只是交叉熵损失函数通常包含一个归一化因子 <span class="arithmatex">\(\frac{1}{N}\)</span>。</p>
-<p>b) <strong>伯努利分布</strong></p>
-<ol>
-<li>
-<p><strong>似然函数：</strong>
+   其中 $p_n = P(y=1 \mid x_n; \theta) = \sigma(\theta^T x_n)$。可以看出，负对数似然损失函数与交叉熵损失函数是等价的，只是交叉熵损失函数通常包含一个归一化因子 $\frac{1}{N}$。
+
+#### b) **伯努利分布**
+
+1. **似然函数：**
    $$
    \mathcal{L}(\theta) = \theta^k (1 - \theta)^{N - k}
-   $$</p>
-</li>
-<li>
-<p><strong>最大似然估计（MLE）：</strong></p>
-</li>
-</ol>
-<p>对数似然函数为：
+   $$
+
+2. **最大似然估计（MLE）：**
+
+   对数似然函数为：
    $$
    \log \mathcal{L}(\theta) = k \log \theta + (N - k) \log (1 - \theta)
-   $$</p>
-<p>对 <span class="arithmatex">\(\theta\)</span> 求导并令其等于零：
+   $$
+
+   对 $\theta$ 求导并令其等于零：
    $$
    \frac{d}{d\theta} \log \mathcal{L}(\theta) = \frac{k}{\theta} - \frac{N - k}{1 - \theta} = 0
-   $$</p>
-<p>解得：
+   $$
+
+   解得：
    $$
    \hat{\theta} = \frac{k}{N}
-   $$</p>
-<p>即，最大似然估计 <span class="arithmatex">\(\hat{\theta}\)</span> 为成功次数的比例。</p>
+   $$
+
+   即，最大似然估计 $\hat{\theta}$ 为成功次数的比例。
+
+</details>
+
 <hr />
 <h3 id="2">习题 2：等价转换理解<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1587,18 +1589,27 @@ $$
 $$</p>
 <p>a) 证明取对数后，最大化似然函数等价于最大化对数似然函数。</p>
 <p>b) 进一步证明，最大化对数似然函数等价于最小化负对数似然函数。</p>
-<p><strong>解答：</strong></p>
-<p>a) <strong>等价性证明：</strong></p>
-<p>因为对数函数是单调递增的，对于任何 <span class="arithmatex">\(\theta_1, \theta_2\)</span>，如果 <span class="arithmatex">\(\mathcal{L}(\theta_1) &gt; \mathcal{L}(\theta_2)\)</span>，则 <span class="arithmatex">\(\log \mathcal{L}(\theta_1) &gt; \log \mathcal{L}(\theta_2)\)</span>。因此：
+<details>
+  <summary>解答</summary>
+
+#### a) **等价性证明：**
+
+因为对数函数是单调递增的，对于任何 $\theta_1, \theta_2$，如果 $\mathcal{L}(\theta_1) > \mathcal{L}(\theta_2)$，则 $\log \mathcal{L}(\theta_1) > \log \mathcal{L}(\theta_2)$。因此：
 $$
 \arg\max_{\theta} \mathcal{L}(\theta) = \arg\max_{\theta} \log \mathcal{L}(\theta)
-$$</p>
-<p>b) <strong>最大化与最小化的转换：</strong></p>
-<p>通过引入负号，可以将最大化问题转化为最小化问题：
+$$
+
+#### b) **最大化与最小化的转换：**
+
+通过引入负号，可以将最大化问题转化为最小化问题：
 $$
 \arg\max_{\theta} \log \mathcal{L}(\theta) = \arg\min_{\theta} -\log \mathcal{L}(\theta)
-$$</p>
-<p>这使得优化问题更符合大多数优化算法（如梯度下降）的最小化框架。</p>
+$$
+
+这使得优化问题更符合大多数优化算法（如梯度下降）的最小化框架。
+
+</details>
+
 <hr />
 <h3 id="3">习题 3：交叉熵损失与负对数似然<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1608,14 +1619,19 @@ H(y, P) = -\sum_{n=1}^{N} y^n \log P(y^n \mid x^n; \theta)
 $$
 说明交叉熵损失与负对数似然之间的关系。</p>
 <p>b) 对于二分类问题，交叉熵损失可以简化为什么形式？</p>
-<p><strong>解答：</strong></p>
-<p>a) <strong>交叉熵损失与负对数似然的关系：</strong></p>
-<p>交叉熵损失函数实际上是负对数似然函数。在最大化似然函数的过程中，我们等价地可以最小化负对数似然，即最小化交叉熵损失：
+<details>
+  <summary>解答</summary>
+
+#### a) **交叉熵损失与负对数似然的关系：**
+
+交叉熵损失函数实际上是负对数似然函数。在最大化似然函数的过程中，我们等价地可以最小化负对数似然，即最小化交叉熵损失：
 $$
 \arg\max_{\theta} \mathcal{L}(\theta) = \arg\min_{\theta} -\log \mathcal{L}(\theta) = \arg\min_{\theta} H(y, P)
-$$</p>
-<p>b) <strong>二分类问题中的交叉熵损失形式：</strong></p>
-<p>对于二分类问题，交叉熵损失可以简化为：
+$$
+
+#### b) **二分类问题中的交叉熵损失形式：**
+
+对于二分类问题，交叉熵损失可以简化为：
 $$
 H(y, P) = -\left[ y \log P(y=1 \mid x; \theta) + (1 - y) \log P(y=0 \mid x; \theta) \right]
 $$
@@ -1623,7 +1639,10 @@ $$
 $$
 H(y, P) = -y \log \sigma(z) - (1 - y) \log \left(1 - \sigma(z)\right)
 $$
-其中 <span class="arithmatex">\(z = \theta^T x\)</span>，<span class="arithmatex">\(\sigma(z)\)</span> 是模型的预测概率 <span class="arithmatex">\(P(y=1 \mid x; \theta)\)</span>。</p>
+其中 $z = \theta^T x$，$\sigma(z)$ 是模型的预测概率 $P(y=1 \mid x; \theta)$。
+
+</details>
+
 <hr />
 <h3 id="4">习题 4：梯度计算与优化<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1634,25 +1653,33 @@ $$
 a) 写出负对数似然的表达式。</p>
 <p>b) 计算负对数似然对参数 <span class="arithmatex">\(\theta\)</span> 的梯度。</p>
 <p>c) 说明梯度下降如何应用于最小化负对数似然。</p>
-<p><strong>解答：</strong></p>
-<p>a) <strong>负对数似然的表达式：</strong>
+<details>
+  <summary>解答</summary>
+
+#### a) **负对数似然的表达式：**
 $$
 -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)
-$$</p>
-<p>b) <strong>负对数似然对参数 <span class="arithmatex">\(\theta\)</span> 的梯度：</strong>
+$$
+
+#### b) **负对数似然对参数 $\theta$ 的梯度：**
 $$
 \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right) = -\sum_{n=1}^{N} \nabla_{\theta} \log P(y_b^n \mid x_n; \theta)
 $$
-具体梯度形式取决于 <span class="arithmatex">\(P(y_b^n \mid x_n; \theta)\)</span> 的模型定义。例如，如果 <span class="arithmatex">\(P(y_b^n \mid x_n; \theta)\)</span> 是一个 Sigmoid 分类器，那么梯度可以具体计算为预测概率与实际标签之间的差异：
+具体梯度形式取决于 $P(y_b^n \mid x_n; \theta)$ 的模型定义。例如，如果 $P(y_b^n \mid x_n; \theta)$ 是一个 Sigmoid 分类器，那么梯度可以具体计算为预测概率与实际标签之间的差异：
 $$
 \frac{\partial}{\partial \theta} \left( -\log \mathcal{L}(\theta) \right) = \sum_{n=1}^{N} \left( \sigma(\theta^T x_n) - y_b^n \right) x_n
-$$</p>
-<p>c) <strong>梯度下降应用于最小化负对数似然：</strong></p>
-<p>梯度下降通过以下更新规则应用于最小化负对数似然：
+$$
+
+#### c) **梯度下降应用于最小化负对数似然：**
+
+梯度下降通过以下更新规则应用于最小化负对数似然：
 $$
 \theta \leftarrow \theta - \eta \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right)
 $$
-其中 <span class="arithmatex">\(\eta\)</span> 是学习率。通过不断迭代更新参数 <span class="arithmatex">\(\theta\)</span>，模型逐步逼近能够最大化数据似然的参数值。</p>
+其中 $\eta$ 是学习率。通过不断迭代更新参数 $\theta$，模型逐步逼近能够最大化数据似然的参数值。
+
+</details>
+
 <hr />
 <h3 id="5">习题 5：正则化的引入<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1662,34 +1689,31 @@ $$
 <li>解释 L2 正则化如何影响参数的更新过程。</li>
 <li>讨论正则化参数 <span class="arithmatex">\(\lambda\)</span> 的选择对模型训练的潜在影响。</li>
 </ol>
-<p><strong>解答：</strong></p>
-<ol>
-<li>
-<p><strong>带有 L2 正则化的损失函数：</strong>
-   $$
-   \mathcal{L}<em n="1">{\text{reg}}(\theta) = -\log \mathcal{L}(\theta) + \lambda |\theta|^2 = -\sum</em> \log P(y_b^n \mid x_n; \theta) + \lambda |\theta|^2
-   $$}^{N</p>
-</li>
-<li>
-<p><strong>L2 正则化对参数更新的影响：</strong></p>
-</li>
-</ol>
-<p>L2 正则化通过在损失函数中加入 <span class="arithmatex">\(\lambda \|\theta\|^2\)</span> 项，鼓励模型参数 <span class="arithmatex">\(\theta\)</span> 保持较小的值。这会导致梯度更新时，多一个与参数值成比例的衰减项，从而限制参数的增长，防止过拟合。例如，参数更新规则变为：
-   $$
-   \theta \leftarrow \theta - \eta \left( \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right) + 2\lambda \theta \right)
-   $$</p>
-<ol>
-<li>
-<p><strong>正则化参数 <span class="arithmatex">\(\lambda\)</span> 的选择对模型训练的影响：</strong></p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\lambda\)</span> 过大：</strong> 会导致模型参数过于受限，可能欠拟合，无法充分捕捉数据中的模式。</p>
-</li>
-<li>
-<p><strong><span class="arithmatex">\(\lambda\)</span> 过小：</strong> 正则化效果不明显，可能无法有效防止过拟合。</p>
-</li>
-</ol>
-<p>因此，<span class="arithmatex">\(\lambda\)</span> 的选择需要在模型复杂度和泛化能力之间取得平衡，通常通过交叉验证等方法来进行调优。</p>
+<details>
+  <summary>解答</summary>
+
+#### 1. **带有 L2 正则化的损失函数：**
+$$
+\mathcal{L}_{\text{reg}}(\theta) = -\log \mathcal{L}(\theta) + \lambda \|\theta\|^2 = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta) + \lambda \|\theta\|^2
+$$
+
+#### 2. **L2 正则化对参数更新的影响：**
+
+L2 正则化通过在损失函数中加入 $\lambda \|\theta\|^2$ 项，鼓励模型参数 $\theta$ 保持较小的值。这会导致梯度更新时，多一个与参数值成比例的衰减项，从而限制参数的增长，防止过拟合。例如，参数更新规则变为：
+$$
+\theta \leftarrow \theta - \eta \left( \nabla_{\theta} \left( -\log \mathcal{L}(\theta) \right) + 2\lambda \theta \right)
+$$
+
+#### 3. **正则化参数 $\lambda$ 的选择对模型训练的影响：**
+
+- **$\lambda$ 过大：** 会导致模型参数过于受限，可能欠拟合，无法充分捕捉数据中的模式。
+
+- **$\lambda$ 过小：** 正则化效果不明显，可能无法有效防止过拟合。
+
+因此，$\lambda$ 的选择需要在模型复杂度和泛化能力之间取得平衡，通常通过交叉验证等方法来进行调优。
+
+</details>
+
 <hr />
 <h3 id="6">习题 6：批量梯度下降与随机梯度下降<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1699,80 +1723,66 @@ $$
 <li>说明为什么在大型数据集上更倾向于使用 SGD 而非批量梯度下降。</li>
 <li>介绍两种常用的 SGD 变体，并简要描述它们的特点。</li>
 </ol>
-<p><strong>解答：</strong></p>
-<ol>
-<li>
-<p><strong>批量梯度下降 vs. 随机梯度下降（SGD）：</strong></p>
-</li>
-<li>
-<p><strong>批量梯度下降（Batch GD）：</strong></p>
-<ul>
-<li><strong>优点：</strong></li>
-<li>每次更新使用整个数据集，方向更稳定，易于收敛到全局最优（对于凸优化问题）。</li>
-<li><strong>缺点：</strong></li>
-<li>计算成本高，尤其是对于大型数据集。</li>
-<li>可能在达到最优点附近时收敛缓慢。</li>
-</ul>
-</li>
-<li>
-<p><strong>随机梯度下降（SGD）：</strong></p>
-<ul>
-<li><strong>优点：</strong></li>
-<li>每次更新只使用一个样本，计算效率高，适用于大规模数据集。</li>
-<li>可以跳出局部极小值，具有更好的泛化能力。</li>
-<li><strong>缺点：</strong></li>
-<li>更新方向噪声较大，可能导致收敛轨迹不稳定。</li>
-<li>需要更细致的学习率调节。</li>
-</ul>
-</li>
-<li>
-<p><strong>为何在大型数据集上更倾向于使用 SGD：</strong></p>
-</li>
-</ol>
-<p>对于大型数据集，计算整个数据集的梯度在每次迭代中成本极高，导致训练过程非常缓慢。SGD 每次仅使用一个样本进行更新，显著减少了每次迭代的计算量，提升了训练速度。此外，SGD 更适合在线学习和流数据处理。</p>
-<ol>
-<li>
-<p><strong>两种常用的 SGD 变体：</strong></p>
-</li>
-<li>
-<p><strong>动量法（Momentum）：</strong></p>
-<ul>
-<li><strong>特点：</strong></li>
-<li>引入动量项，加速梯度下降，减少震荡。</li>
-<li>累积过去的梯度信息，平滑更新方向。</li>
-<li><strong>公式：</strong>
-   $$
-   v_t = \gamma v_{t-1} + \eta \nabla_{\theta} J(\theta)
-   $$
-   $$
-   \theta \leftarrow \theta - v_t
-   $$
-   其中，<span class="arithmatex">\(\gamma\)</span> 是动量系数。</li>
-</ul>
-</li>
-<li>
-<p><strong>Adam（Adaptive Moment Estimation）：</strong></p>
-<ul>
-<li><strong>特点：</strong></li>
-<li>结合了动量法和 RMSProp 的优点，适应性调整每个参数的学习率。</li>
-<li>高效且易于调参，广泛应用于各种深度学习任务。</li>
-<li><strong>公式：</strong>
-   $$
-   m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_{\theta} J(\theta)
-   $$
-   $$
-   v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_{\theta} J(\theta))^2
-   $$
-   $$
-   \hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
-   $$
-   $$
-   \theta \leftarrow \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
-   $$
-   其中，<span class="arithmatex">\(\beta_1\)</span> 和 <span class="arithmatex">\(\beta_2\)</span> 是超参数，<span class="arithmatex">\(\epsilon\)</span> 是防止除零的常数。</li>
-</ul>
-</li>
-</ol>
+<details>
+  <summary>解答</summary>
+
+#### 1. **批量梯度下降 vs. 随机梯度下降（SGD）：**
+
+- **批量梯度下降（Batch GD）：**
+  - **优点：**
+    - 每次更新使用整个数据集，方向更稳定，易于收敛到全局最优（对于凸优化问题）。
+  - **缺点：**
+    - 计算成本高，尤其是对于大型数据集。
+    - 可能在达到最优点附近时收敛缓慢。
+
+- **随机梯度下降（SGD）：**
+  - **优点：**
+    - 每次更新只使用一个样本，计算效率高，适用于大规模数据集。
+    - 可以跳出局部极小值，具有更好的泛化能力。
+  - **缺点：**
+    - 更新方向噪声较大，可能导致收敛轨迹不稳定。
+    - 需要更细致的学习率调节。
+
+#### 2. **为何在大型数据集上更倾向于使用 SGD：**
+
+对于大型数据集，计算整个数据集的梯度在每次迭代中成本极高，导致训练过程非常缓慢。SGD 每次仅使用一个样本进行更新，显著减少了每次迭代的计算量，提升了训练速度。此外，SGD 更适合在线学习和流数据处理。
+
+#### 3. **两种常用的 SGD 变体：**
+
+- **动量法（Momentum）：**
+  - **特点：**
+    - 引入动量项，加速梯度下降，减少震荡。
+    - 累积过去的梯度信息，平滑更新方向。
+  - **公式：**
+    $$
+    v_t = \gamma v_{t-1} + \eta \nabla_{\theta} J(\theta)
+    $$
+    $$
+    \theta \leftarrow \theta - v_t
+    $$
+    其中，$\gamma$ 是动量系数。
+
+- **Adam（Adaptive Moment Estimation）：**
+  - **特点：**
+    - 结合了动量法和 RMSProp 的优点，适应性调整每个参数的学习率。
+    - 高效且易于调参，广泛应用于各种深度学习任务。
+  - **公式：**
+    $$
+    m_t = \beta_1 m_{t-1} + (1 - \beta_1) \nabla_{\theta} J(\theta)
+    $$
+    $$
+    v_t = \beta_2 v_{t-1} + (1 - \beta_2) (\nabla_{\theta} J(\theta))^2
+    $$
+    $$
+    \hat{m}_t = \frac{m_t}{1 - \beta_1^t}, \quad \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+    $$
+    $$
+    \theta \leftarrow \theta - \eta \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}
+    $$
+    其中，$\beta_1$ 和 $\beta_2$ 是超参数，$\epsilon$ 是防止除零的常数。
+
+</details>
+
 <hr />
 <h3 id="1_1">思考题1：奖励模型的局限性与改进<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong></p>
@@ -1782,113 +1792,85 @@ $$
 <li>提出至少两种方法来提升奖励模型在处理不完美数据时的鲁棒性。</li>
 <li>讨论奖励模型与其他模型（如生成模型、判别模型）的结合方式，以及这种结合可能带来的优势。</li>
 </ol>
-<p><strong>思考与回答：</strong></p>
-<ol>
-<li>
-<p><strong>奖励模型在面对噪声标签或不完整数据时的表现：</strong></p>
-</li>
-<li>
-<p><strong>噪声标签：</strong></p>
-<ul>
-<li>模型可能会学习到错误的奖励信号，导致对错误答案的高评分或对正确答案的低评分，进而影响整体性能和泛化能力。</li>
-<li>训练过程中的梯度更新可能引入错误信号，导致模型收敛到次优解。</li>
-</ul>
-</li>
-<li>
-<p><strong>不完整数据：</strong></p>
-<ul>
-<li>缺失的特征或标签信息可能导致模型无法充分理解输入，影响奖励判定的准确性。</li>
-<li>数据不完整可能降低模型的信噪比，使得模型难以区分有价值的信息与噪声。</li>
-</ul>
-</li>
-<li>
-<p><strong>提升奖励模型在处理不完美数据时的鲁棒性的方法：</strong></p>
-</li>
-<li>
-<p><strong>数据清洗与增强：</strong></p>
-<ul>
-<li><strong>数据清洗：</strong> 识别并移除或修正有噪声的标签和异常数据，提升训练数据的质量。</li>
-<li><strong>数据增强：</strong> 通过生成更多样化的数据样本，增加数据的多样性和覆盖范围，减少模型对特定噪声的敏感性。</li>
-</ul>
-</li>
-<li>
-<p><strong>使用鲁棒的损失函数：</strong></p>
-<ul>
-<li>采用对噪声标签不敏感的损失函数，如 Huber 损失或加权损失函数，减轻噪声对训练过程的影响。</li>
-</ul>
-</li>
-<li>
-<p><strong>正则化与提前停止：</strong></p>
-<ul>
-<li>通过正则化技术（如 L2 正则化、Dropout）限制模型复杂度，防止过拟合噪声。</li>
-<li>使用提前停止策略，在验证性能开始下降前停止训练，避免模型过度拟合噪声数据。</li>
-</ul>
-</li>
-<li>
-<p><strong>半监督与自监督学习：</strong></p>
-<ul>
-<li>利用部分标注数据结合无标签数据，通过半监督或自监督学习方法，提升模型在不完美数据上的表现。</li>
-</ul>
-</li>
-<li>
-<p><strong>奖励模型与其他模型的结合方式及优势：</strong></p>
-</li>
-<li>
-<p><strong>生成模型与奖励模型结合：</strong></p>
-<ul>
-<li><strong>方式：</strong> 使用生成模型（如生成对抗网络，GAN）生成多样化的样本，然后通过奖励模型进行评分和筛选，优化生成过程。</li>
-<li><strong>优势：</strong> 生成模型能够提供丰富的数据样本，奖励模型提供质量评估，二者结合可以提升生成内容的多样性与质量。</li>
-</ul>
-</li>
-<li>
-<p><strong>判别模型与奖励模型结合：</strong></p>
-<ul>
-<li><strong>方式：</strong> 判别模型负责识别或分类输入数据，奖励模型则对判别结果进行评分，指导判别模型的优化方向。</li>
-<li><strong>优势：</strong> 判别模型提供快速准确的分类能力，奖励模型增强其决策的合理性和准确性，提升整体模型的性能和解释性。</li>
-</ul>
-</li>
-<li>
-<p><strong>强化学习中的奖励模型：</strong></p>
-<ul>
-<li><strong>方式：</strong> 将奖励模型作为强化学习中的奖励函数，指导智能体的学习过程。</li>
-<li><strong>优势：</strong> 奖励模型提供更精细和人性化的奖励信号，帮助智能体更有效地学习复杂任务和策略。</li>
-</ul>
-</li>
-</ol>
+<details>
+  <summary>思考与回答</summary>
+
+#### 1. **奖励模型在面对噪声标签或不完整数据时的表现：**
+
+- **噪声标签：**
+  - 模型可能会学习到错误的奖励信号，导致对错误答案的高评分或对正确答案的低评分，进而影响整体性能和泛化能力。
+  - 训练过程中的梯度更新可能引入错误信号，导致模型收敛到次优解。
+
+- **不完整数据：**
+  - 缺失的特征或标签信息可能导致模型无法充分理解输入，影响奖励判定的准确性。
+  - 数据不完整可能降低模型的信噪比，使得模型难以区分有价值的信息与噪声。
+
+#### 2. **提升奖励模型在处理不完美数据时的鲁棒性的方法：**
+
+- **数据清洗与增强：**
+  - **数据清洗：** 识别并移除或修正有噪声的标签和异常数据，提升训练数据的质量。
+  - **数据增强：** 通过生成更多样化的数据样本，增加数据的多样性和覆盖范围，减少模型对特定噪声的敏感性。
+
+- **使用鲁棒的损失函数：**
+  - 采用对噪声标签不敏感的损失函数，如 Huber 损失或加权损失函数，减轻噪声对训练过程的影响。
+
+- **正则化与提前停止：**
+  - 通过正则化技术（如 L2 正则化、Dropout）限制模型复杂度，防止过拟合噪声。
+  - 使用提前停止策略，在验证性能开始下降前停止训练，避免模型过度拟合噪声数据。
+
+- **半监督与自监督学习：**
+  - 利用部分标注数据结合无标签数据，通过半监督或自监督学习方法，提升模型在不完美数据上的表现。
+
+#### 3. **奖励模型与其他模型的结合方式及优势：**
+
+- **生成模型与奖励模型结合：**
+  - **方式：** 使用生成模型（如生成对抗网络，GAN）生成多样化的样本，然后通过奖励模型进行评分和筛选，优化生成过程。
+  - **优势：** 生成模型能够提供丰富的数据样本，奖励模型提供质量评估，二者结合可以提升生成内容的多样性与质量。
+
+- **判别模型与奖励模型结合：**
+  - **方式：** 判别模型负责识别或分类输入数据，奖励模型则对判别结果进行评分，指导判别模型的优化方向。
+  - **优势：** 判别模型提供快速准确的分类能力，奖励模型增强其决策的合理性和准确性，提升整体模型的性能和解释性。
+
+- **强化学习中的奖励模型：**
+  - **方式：** 将奖励模型作为强化学习中的奖励函数，指导智能体的学习过程。
+  - **优势：** 奖励模型提供更精细和人性化的奖励信号，帮助智能体更有效地学习复杂任务和策略。
+
+</details>
+
 <hr />
 <h3 id="2_1">思考题 2：负对数似然与交叉熵的关系<a class="headerlink" href="#2_1" title="Permanent link">&para;</a></h3>
 <p><strong>问题：</strong>
 在训练奖励模型时，为什么我们更倾向于最小化交叉熵损失（负对数似然）而不是直接最大化似然函数？请从数值稳定性和优化效率两个方面进行讨论。</p>
-<p><strong>思考与回答：</strong></p>
-<ul>
-<li>
-<p><strong>数值稳定性</strong>：似然函数是多个概率的乘积，尤其在数据量较大时，可能会导致数值下溢。取对数后，将乘积转化为求和，可以避免这种问题，提高计算的稳定性。</p>
-</li>
-<li>
-<p><strong>优化效率</strong>：大多数优化算法（如梯度下降）是设计来处理最小化问题的。通过引入负号，将最大化问题转化为最小化问题，使得这些优化算法能够直接应用。此外，交叉熵损失具有良好的梯度性质，有助于加速收敛。</p>
-</li>
-</ul>
+<details>
+  <summary>思考与回答</summary>
+
+- **数值稳定性**：似然函数是多个概率的乘积，尤其在数据量较大时，可能会导致数值下溢。取对数后，将乘积转化为求和，可以避免这种问题，提高计算的稳定性。
+
+- **优化效率**：大多数优化算法（如梯度下降）是设计来处理最小化问题的。通过引入负号，将最大化问题转化为最小化问题，使得这些优化算法能够直接应用。此外，交叉熵损失具有良好的梯度性质，有助于加速收敛。
+
+</details>
+
 <hr />
 <h3 id="3_1">思考题 3：模型过拟合与似然函数<a class="headerlink" href="#3_1" title="Permanent link">&para;</a></h3>
 <p><strong>问题：</strong>
 在奖励模型的训练中，如果模型在训练数据上表现出极高的似然，但在验证集上表现不佳，这通常说明什么问题？如何通过调整似然函数相关的训练策略来缓解这一问题？</p>
-<p><strong>思考与回答：</strong></p>
-<p>这通常说明模型出现了**过拟合**，即模型在训练数据上学习到了特定的噪声和细节，但未能很好地泛化到未见过的数据。</p>
-<p>缓解过拟合的方法包括：</p>
-<ul>
-<li>
-<p><strong>正则化</strong>：在似然函数中加入正则项，如 L2 正则化，限制参数的复杂度。</p>
-</li>
-<li>
-<p><strong>交叉验证</strong>：通过交叉验证选择合适的模型复杂度和超参数，确保模型在验证集上表现良好。</p>
-</li>
-<li>
-<p><strong>数据增强</strong>：增加训练数据的多样性，帮助模型学习更泛化的特征。</p>
-</li>
-<li>
-<p><strong>提前停止</strong>：在验证集性能不再提升时停止训练，防止模型在训练集上过度拟合。</p>
-</li>
-</ul>
+<details>
+  <summary>思考与回答</summary>
+
+这通常说明模型出现了**过拟合**，即模型在训练数据上学习到了特定的噪声和细节，但未能很好地泛化到未见过的数据。
+
+#### 缓解过拟合的方法包括：
+
+- **正则化**：在似然函数中加入正则项，如 L2 正则化，限制参数的复杂度。
+
+- **交叉验证**：通过交叉验证选择合适的模型复杂度和超参数，确保模型在验证集上表现良好。
+
+- **数据增强**：增加训练数据的多样性，帮助模型学习更泛化的特征。
+
+- **提前停止**：在验证集性能不再提升时停止训练，防止模型在训练集上过度拟合。
+
+</details>
+
 <hr />
 <h3 id="5_1">习题 5：多类别分类中的最大似然估计<a class="headerlink" href="#5_1" title="Permanent link">&para;</a></h3>
 <p><strong>题目：</strong>
@@ -1896,25 +1878,34 @@ $$
 <p>a) 写出单个样本的似然函数和对数似然。</p>
 <p>b) 写出整个数据集的负对数似然损失函数（即交叉熵损失）。</p>
 <p>c) 计算交叉熵损失对模型参数 <span class="arithmatex">\(\theta\)</span> 的梯度。</p>
-<p><strong>解答：</strong></p>
-<p>a) 对于单个样本，似然函数为：
+<details>
+  <summary>解答</summary>
+
+#### a) **单个样本的似然函数和对数似然：**
+
+对于单个样本，似然函数为：
 $$
-\mathcal{L}<em y_n="y_n">n(\theta) = P(y_n \mid x_n; \theta) = \frac{\exp(z</em>
+\mathcal{L}_n(\theta) = P(y_n \mid x_n; \theta) = \frac{\exp(z_{y_n})}{\sum_{k=1}^{K} \exp(z_k)}
 $$
-其中 })}{\sum_{k=1}^{K} \exp(z_k)<span class="arithmatex">\(z_k = \theta_k^T x_n\)</span> 是第 <span class="arithmatex">\(k\)</span> 类的得分。</p>
-<p>对数似然为：
+其中 $z_k = \theta_k^T x_n$ 是第 $k$ 类的得分。
+
+对数似然为：
 $$
-\log \mathcal{L}<em y_n="y_n">n(\theta) = z</em> \exp(z_k) \right)
-$$} - \log \left( \sum_{k=1}^{K</p>
-<p>b) 整个数据集的负对数似然损失函数为：
+\log \mathcal{L}_n(\theta) = z_{y_n} - \log \left( \sum_{k=1}^{K} \exp(z_k) \right)
+$$
+
+#### b) **整个数据集的负对数似然损失函数（即交叉熵损失）：**
 $$
 -\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \left( z_{y_n} - \log \left( \sum_{k=1}^{K} \exp(z_k) \right) \right) = \sum_{n=1}^{N} \left( \log \left( \sum_{k=1}^{K} \exp(z_k) \right) - z_{y_n} \right)
-$$</p>
-<p>c) 交叉熵损失对参数 <span class="arithmatex">\(\theta_j\)</span>（第 <span class="arithmatex">\(j\)</span> 类参数）的梯度为：
+$$
+
+#### c) **交叉熵损失对模型参数 $\theta$ 的梯度：**
 $$
 \frac{\partial (-\log \mathcal{L}(\theta))}{\partial \theta_j} = \sum_{n=1}^{N} \left( P(j \mid x_n; \theta) - \mathbb{I}(y_n = j) \right) x_n
 $$
-其中 <span class="arithmatex">\(\mathbb{I}(y_n = j)\)</span> 是指示函数，当 <span class="arithmatex">\(y_n = j\)</span> 时为 <span class="arithmatex">\(1\)</span>，否则为 <span class="arithmatex">\(0\)</span>。</p>
+其中 $\mathbb{I}(y_n = j)$ 是指示函数，当 $y_n = j$ 时为 $1$，否则为 $0$。
+
+</details>
 
 
 
