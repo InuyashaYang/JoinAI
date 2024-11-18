@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../RL_Pages/Monte_Carlos/">
-      
-      
-        <link rel="next" href="../DPO/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>PPO - AIDIY Wiki</title>
+        <title>RM Training - AIDIY Wiki</title>
       
     
     
@@ -63,11 +59,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#rlhf-reinforcement-learning-from-human-feedback" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PPO
+              RM Training
             
           </span>
         </div>
@@ -272,13 +263,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../PPO/" class="md-tabs__link">
           
   
   LLM_RLHF阶段
@@ -1039,30 +1028,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1073,7 +1057,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             LLM_RLHF阶段
@@ -1084,30 +1068,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    PPO
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../PPO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,134 +1080,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rm" class="md-nav__link">
-    <span class="md-ellipsis">
-      RM阶段
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RM阶段">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      奖励模型的目标
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率分布的构建
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉熵损失函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="交叉熵损失函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      各符号解释：
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      损失函数的直观理解
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      经验风险近似
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="经验风险近似">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      各符号解释：
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      损失函数的优化
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      梯度计算
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1419,124 +1255,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#rm" class="md-nav__link">
-    <span class="md-ellipsis">
-      RM阶段
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="RM阶段">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      奖励模型的目标
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      概率分布的构建
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      交叉熵损失函数
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="交叉熵损失函数">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      各符号解释：
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      损失函数的直观理解
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      经验风险近似
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="经验风险近似">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      各符号解释：
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      损失函数的优化
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      梯度计算
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1551,133 +1269,69 @@
                   
 
 
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
-<h1 id="rlhf-reinforcement-learning-from-human-feedback">RLHF (Reinforcement Learning from Human Feedback)<a class="headerlink" href="#rlhf-reinforcement-learning-from-human-feedback" title="Permanent link">&para;</a></h1>
-<p>在RLHF的训练过程中,模型通过人类反馈来优化其行为。整个过程通常包括多个阶段,其中**奖励模型（Reward Model, RM）阶段**是关键的一步,用于学习人类偏好,从而为后续的强化学习阶段提供指导。</p>
-<h2 id="rm">RM阶段<a class="headerlink" href="#rm" title="Permanent link">&para;</a></h2>
-<h3 id="_1">奖励模型的目标<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p>奖励模型的主要目标是根据人类反馈评估不同候选答案的质量。为了实现这一目标,我们需要将奖励模型的输出转化为一个概率分布,使其能够比较不同答案的相对优劣。这一过程通常通过 <strong>交叉熵损失函数（Cross-Entropy Loss）</strong> 来实现。</p>
-<h3 id="_2">概率分布的构建<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>首先,假设我们有一个数据分布 <span class="arithmatex">\(D\)</span>,其中每个样本由一个输入 <span class="arithmatex">\(x\)</span>、一组候选答案 <span class="arithmatex">\(\{y_i\}_{i=1}^K\)</span> 以及一个标记最佳答案的索引 <span class="arithmatex">\(b\)</span> 组成。奖励模型 <span class="arithmatex">\(R(x, y)\)</span> 为每个候选答案 <span class="arithmatex">\(y\)</span> 赋予一个实数评分。
-为了将这些评分转化为概率分布,我们使用**Softmax函数**,其定义为:
-$$
-P(y_i \mid x) = \frac{e^{R(x, y_i)}}{\sum_{j=1}^{K} e^{R(x, y_j)}}
-$$
-这里,<span class="arithmatex">\(P(y_i \mid x)\)</span> 表示在给定输入 <span class="arithmatex">\(x\)</span> 的情况下,答案 <span class="arithmatex">\(y_i\)</span> 被选择的概率。Softmax函数确保所有概率值非负且总和为1,从而形成一个有效的概率分布。</p>
-<h3 id="_3">交叉熵损失函数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>为了训练奖励模型,使其能够准确反映人类偏好,我们采用交叉熵损失函数。交叉熵损失衡量的是两个概率分布之间的差异,这里我们希望模型预测的概率分布尽可能接近人类标注的分布。
-对于给定的数据分布 <span class="arithmatex">\(D\)</span>,损失函数的期望定义为:
-$$
-L = \mathbb{E}<em i="1">{(x, {y_i}</em>\right)\right]
-$$}^{K}, b) \sim D}\left[-\log\left(\frac{e^{R(x, y_b)}}{\sum_{i=1}^{K} e^{R(x, y_i)}</p>
-<h4 id="_4">各符号解释：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
-<ul>
-<li><span class="arithmatex">\(\mathbb{E}\)</span> 表示对数据分布 <span class="arithmatex">\(D\)</span> 上的期望。</li>
-<li><span class="arithmatex">\(K\)</span> 是每个样本中候选答案的数量。</li>
-<li><span class="arithmatex">\(b\)</span> 是标记为最佳答案的索引。</li>
-<li><span class="arithmatex">\(R(x, y_b)\)</span> 是输入 <span class="arithmatex">\(x\)</span> 和最佳答案 <span class="arithmatex">\(y_b\)</span> 的奖励评分。</li>
-<li><span class="arithmatex">\(\sum_{i=1}^{K} e^{R(x, y_i)}\)</span> 是所有候选答案奖励评分的指数和,用于归一化。</li>
-</ul>
-<h3 id="_5">损失函数的直观理解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>损失函数 <span class="arithmatex">\(L\)</span> 的目标是最大化最佳答案 <span class="arithmatex">\(y_b\)</span> 的概率,即最小化 <span class="arithmatex">\(-\log P(y_b \mid x)\)</span>。通过最小化这个损失,奖励模型会调整其参数,使得最佳答案在给定输入下的概率尽可能高,从而更好地反映人类的偏好。</p>
-<h3 id="_6">经验风险近似<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>在实际应用中,我们无法直接计算期望值 <span class="arithmatex">\(\mathbb{E}\)</span>,因为它涉及到整个数据分布 <span class="arithmatex">\(D\)</span>。因此,我们通常使用**经验风险Empirical Risk**来近似这个期望,即在有限的训练数据集上计算平均损失。
-假设我们有一个包含 <span class="arithmatex">\(N\)</span> 个样本的训练数据集,每个样本的候选答案数量可以不同（记为 <span class="arithmatex">\(K_n\)</span>,其中 <span class="arithmatex">\(n = 1, 2, \dots, N\)</span>）。经验风险定义为:
-$$
-L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \log\left(\frac{e^{R(x_n, y_b<sup K_n="K_n">n)}}{\sum_{i=1}</sup>\right)
-$$} e^{R(x_n, y_i^n)}</p>
-<h4 id="_7">各符号解释：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<ul>
-<li><span class="arithmatex">\(N\)</span> 是训练数据集的大小。</li>
-<li><span class="arithmatex">\(K_n\)</span> 是第 <span class="arithmatex">\(n\)</span> 个样本的候选答案数量。</li>
-<li><span class="arithmatex">\(x_n\)</span> 是第 <span class="arithmatex">\(n\)</span> 个样本的输入。</li>
-<li><span class="arithmatex">\(y_i^n\)</span> 是第 <span class="arithmatex">\(n\)</span> 个样本的第 <span class="arithmatex">\(i\)</span> 个候选答案。</li>
-<li><span class="arithmatex">\(y_b^n\)</span> 是第 <span class="arithmatex">\(n\)</span> 个样本的最佳答案。</li>
-</ul>
-<h3 id="_8">损失函数的优化<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>通过最小化经验风险 <span class="arithmatex">\(L_{empirical}\)</span>,我们实质上在进行**最大似然估计（Maximum Likelihood Estimation, MLE）**,即选择一组模型参数,使得最佳答案在训练数据上的似然最大化。这一过程通常通过梯度下降等优化算法来实现。</p>
-<h3 id="_9">梯度计算<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>为了优化损失函数,我们需要计算其关于奖励模型参数 <span class="arithmatex">\(\theta\)</span> 的梯度。假设奖励模型 <span class="arithmatex">\(R(x, y; \theta)\)</span> 依赖于参数 <span class="arithmatex">\(\theta\)</span>,则损失函数的梯度为:
-$$
-\nabla_{\theta} L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \nabla_{\theta} \log P(y_b^n \mid x_n)
-$$
-其中,
-$$
-\log P(y_b^n \mid x_n) = R(x_n, y_b^n; \theta) - \log\left(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}\right)
-$$
-进一步展开梯度:
-$$
-\nabla_{\theta} \log P(y_b^n \mid x_n) = \nabla_{\theta} R(x_n, y_b^n; \theta) - \sum_{i=1}^{K_n} P(y_i^n \mid x_n) \nabla_{\theta} R(x_n, y_i^n; \theta)
-$$
-这表明,优化过程中不仅要增强最佳答案的评分,还需要抑制其他候选答案的评分,使得最佳答案在概率分布中占据主导地位。</p>
-<h1 id="_10">进一步的数学铺垫<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
-<p>为了全面理解RM阶段的工作原理,以下是一些关键的数学概念和推导:</p>
-<h2 id="softmax">Softmax 函数<a class="headerlink" href="#softmax" title="Permanent link">&para;</a></h2>
-<p>Softmax 函数是一种常见的激活函数,用于将一组实数转化为正数且和为1的概率分布。对于给定的向量 <span class="arithmatex">\(\mathbf{z} = (z_1, z_2, \dots, z_K)\)</span>,Softmax 函数定义为:
-$$
-\text{Softmax}(z_i) = \frac{e<sup K="K">{z_i}}{\sum_{j=1}</sup>
-$$
-在奖励模型中,} e^{z_j}<span class="arithmatex">\(\mathbf{z}\)</span> 通常由奖励模型输出的评分 <span class="arithmatex">\(\{R(x, y_i)\}_{i=1}^K\)</span> 组成。</p>
-<h2 id="_11">交叉熵损失函数<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<p>交叉熵用于衡量两个概率分布之间的差异。给定真实分布 <span class="arithmatex">\(P\)</span> 和预测分布 <span class="arithmatex">\(Q\)</span>,交叉熵定义为:
-$$
-H(P, Q) = -\sum_{i=1}^{K} P(i) \log Q(i)
-$$
-在RM阶段,我们将真实分布 <span class="arithmatex">\(P\)</span> 设定为在最佳答案位置上为1,其余位置为0（即**one-hot 分布**）,这样交叉熵损失简化为:
-$$
-H(P, Q) = -\log Q(b)
-$$
-其中,<span class="arithmatex">\(b\)</span> 是最佳答案的索引,<span class="arithmatex">\(Q(b) = P(y_b \mid x)\)</span>。</p>
-<h2 id="maximum-likelihood-estimation-mle">最大化似然估计（Maximum Likelihood Estimation, MLE）<a class="headerlink" href="#maximum-likelihood-estimation-mle" title="Permanent link">&para;</a></h2>
-<p>MLE 的目标是找到一组参数,使得在给定数据的情况下,观测到的最佳答案的概率最大。这等价于最大化似然函数:
-$$
-\mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_b^n \mid x_n; \theta)
-$$
-取对数并取负后,转化为最小化交叉熵损失:
-$$
--\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)
-$$
-因此,最小化负对数似然（即经验风险）与最大化对数似然是等价的优化目标。</p>
-<h2 id="ppo">PPO阶段<a class="headerlink" href="#ppo" title="Permanent link">&para;</a></h2>
-<p>在获得奖励模型(RM)后,我们使用PPO (Proximal Policy Optimization)算法来训练语言模型。PPO的目标函数通常包含三个主要部分：</p>
-<ol>
-<li>
-<p>奖励相关项：
-<span class="arithmatex">\(L_{RL} = \mathbb{E}_{\tau \sim \pi_\theta}\left[ \min\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}R(s,a), \text{clip}\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}, 1-\epsilon, 1+\epsilon\right)R(s,a)\right) \right]\)</span></p>
-</li>
-<li>
-<p>KL散度惩罚项：
-<span class="arithmatex">\(L_{KL} = \beta \cdot \text{KL}(\pi_{\theta_{old}} || \pi_\theta)\)</span></p>
-</li>
-<li>
-<p>值函数损失：
-<span class="arithmatex">\(L_V = \mathbb{E}_{\tau \sim \pi_\theta}\left[(V_\theta(s) - R_t)^2\right]\)</span></p>
-</li>
-</ol>
-<p>总的目标函数为：
-<span class="arithmatex">\(L = L_{RL} - L_{KL} - c_1L_V\)</span></p>
-<p>其中：</p>
-<ul>
-<li><span class="arithmatex">\(\pi_\theta\)</span> 是当前策略</li>
-<li><span class="arithmatex">\(\pi_{\theta_{old}}\)</span> 是旧策略</li>
-<li><span class="arithmatex">\(R(s,a)\)</span> 是奖励函数</li>
-<li><span class="arithmatex">\(\epsilon\)</span> 是裁剪参数</li>
-<li><span class="arithmatex">\(\beta\)</span> 是KL散度的权重</li>
-<li><span class="arithmatex">\(c_1\)</span> 是值函数损失的权重</li>
-</ul>
-<p>主要训练步骤：</p>
-<ol>
-<li>使用当前策略收集数据</li>
-<li>计算优势估计</li>
-<li>多次更新策略参数</li>
-<li>重复以上步骤直到收敛</li>
-</ol>
-<p>关键考虑点：
-- 合理设计奖励函数
-- 控制KL散度以保持稳定性
-- 平衡探索与利用
-- 注意采样效率</p>
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+  <h1>RM Training</h1>
+
+<table>
+<thead>
+<tr>
+<th><strong>比较维度</strong></th>
+<th><strong>LoRA RM</strong></th>
+<th><strong>全量微调 RM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>参数效率</strong></td>
+<td>高。只需调整少量新增的低秩矩阵参数，保留大部分预训练模型参数冻结。</td>
+<td>低。需要调整和存储整个模型的所有参数，尤其是对于大型模型时。</td>
+</tr>
+<tr>
+<td><strong>计算资源需求</strong></td>
+<td>较低。由于调整的参数较少，所需的计算资源和存储空间较小。</td>
+<td>较高。需要更多的计算资源和存储空间来微调整个模型。</td>
+</tr>
+<tr>
+<td><strong>训练时间</strong></td>
+<td>较短。参数量小导致训练过程更快，适合快速迭代和实验。</td>
+<td>较长。微调整个模型需要更多的训练时间，尤其是在大规模数据集上。</td>
+</tr>
+<tr>
+<td><strong>灵活性与适应性</strong></td>
+<td>高。可以在多个任务或不同领域间高效切换，适合需要频繁调整的场景。</td>
+<td>中等。每次调整都需要全量微调，适合专一任务但不适合频繁变更。</td>
+</tr>
+<tr>
+<td><strong>性能表现</strong></td>
+<td>在许多任务上接近全量微调的性能，尤其适用于参数敏感和规模受限的应用场景。</td>
+<td>通常能达到最高的性能，但需要更多的资源和时间。</td>
+</tr>
+<tr>
+<td><strong>数据需求</strong></td>
+<td>适合中小规模数据集，尤其在数据有限或需要快速适应新数据时表现优异。</td>
+<td>更适合大规模数据集，能够充分利用丰富的数据资源提升模型性能。</td>
+</tr>
+<tr>
+<td><strong>维护与更新</strong></td>
+<td>简便。可以通过添加或替换低秩适配模块来轻松更新模型，而无需重新微调整个模型。</td>
+<td>复杂。每次更新都需要重新微调整个模型，增加维护工作量。</td>
+</tr>
+<tr>
+<td><strong>可扩展性</strong></td>
+<td>高。能够有效处理多个任务和不同领域的扩展需求，适合需要多任务或多领域适配的应用。</td>
+<td>受限。随着任务或领域的增加，模型的扩展性较差，维护和存储成本增加。</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>- 资源受限的环境（如边缘设备、移动设备）<br>- 需要快速实验和迭代的开发流程<br>- 多任务学习和迁移学习</td>
+<td>- 资源充足的环境（如云计算平台）<br>- 追求最高性能的关键任务<br>- 单一任务的深度优化</td>
+</tr>
+<tr>
+<td><strong>示例应用</strong></td>
+<td>- 快速适配不同编程语言的代码奖励模型<br>- 在变化频繁的开发环境中动态调整RM<br>- 多语言或多框架的代码生成</td>
+<td>- 需要极高准确性的代码质量评估<br>- 大型企业级代码生成系统的RM训练<br>- 需要全面优化的单一任务</td>
+</tr>
+</tbody>
+</table>
 
 
 
