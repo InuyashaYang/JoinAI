@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../PPO_Loss/">
+      
+      
+        <link rel="next" href="../RM_Training/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>RM Full FT or Lora - AIDIY Wiki</title>
+        <title>RM_Full_FT_or_Lora - AIDIY Wiki</title>
       
     
     
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RM Full FT or Lora
+              RM_Full_FT_or_Lora
             
           </span>
         </div>
@@ -268,10 +272,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../PPO/" class="md-tabs__link">
           
   
@@ -1033,25 +1039,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1062,7 +1073,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             LLM_RLHF阶段
@@ -1097,11 +1108,269 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPO/" class="md-nav__link">
+      <a href="../PPO_Loss/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DPO
+    PPO_Loss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    RM_Full_FT_or_Lora
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    RM_Full_FT_or_Lora
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. LoRA 与全量微调在数据量上的优劣分界线是什么？这条界线会不会因为数据品类而有所影响？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. LoRA 与全量微调在数据量上的优劣分界线是什么？这条界线会不会因为数据品类而有所影响？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. 数据量分界线
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. 数据品类的影响
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 在小批量数据下，LoRA 为什么更加优秀？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 在小批量数据下，LoRA 为什么更加优秀？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. 参数效率与减少过拟合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. 正则化效果
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. 训练效率
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. 充分利用预训练知识
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体到奖励建模（RM）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 在大批量数据下，全量微调为什么更加优秀？如果考虑到计算开销，在数据量多大的时候全量微调真正有大的优势？
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 在大批量数据下，全量微调为什么更加优秀？如果考虑到计算开销，在数据量多大的时候全量微调真正有大的优势？">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. 完整模型调整
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. 泛化能力提升
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. 灵活性与适应性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. 计算开销与数据量的权衡
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      具体到奖励建模（RM）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RM_Training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Training
   </span>
   
 
@@ -1118,11 +1387,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../SimPO/" class="md-nav__link">
+      <a href="../DPO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SimPO
+    DPO
   </span>
   
 
@@ -1165,6 +1434,27 @@
   
   <span class="md-ellipsis">
     DPO_Problem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO
   </span>
   
 
@@ -1462,7 +1752,7 @@
                   
 
 
-  <h1>RM Full FT or Lora</h1>
+  <h1>RM_Full_FT_or_Lora</h1>
 
 <h3 id="1-lora"><strong>1. LoRA 与全量微调在数据量上的优劣分界线是什么？这条界线会不会因为数据品类而有所影响？</strong><a class="headerlink" href="#1-lora" title="Permanent link">&para;</a></h3>
 <h4 id="a"><strong>a. 数据量分界线</strong><a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>

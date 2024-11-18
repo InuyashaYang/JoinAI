@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../PPO/">
+      
+      
+        <link rel="next" href="../RM_Full_FT_or_Lora/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>PPO Loss - AIDIY Wiki</title>
+        <title>PPO_Loss - AIDIY Wiki</title>
       
     
     
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              PPO Loss
+              PPO_Loss
             
           </span>
         </div>
@@ -268,10 +272,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../PPO/" class="md-tabs__link">
           
   
@@ -1033,25 +1039,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
-          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1062,7 +1073,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             LLM_RLHF阶段
@@ -1094,14 +1105,167 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../DPO/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PPO_Loss
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    DPO
+    PPO_Loss
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ppo" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ppo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO的核心机制
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="PPO的核心机制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      策略更新的基本思想
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      引入剪切机制
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      剪切机制的工作流程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    <span class="md-ellipsis">
+      为什么使用 \(\min\) 操作？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#epsilon" class="md-nav__link">
+    <span class="md-ellipsis">
+      选择剪切参数 \(\epsilon\)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ppo_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      PPO剪切机制的优点
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例说明
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RM_Full_FT_or_Lora/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Full_FT_or_Lora
   </span>
   
 
@@ -1118,11 +1282,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../SimPO/" class="md-nav__link">
+      <a href="../RM_Training/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SimPO
+    RM_Training
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO
   </span>
   
 
@@ -1165,6 +1350,27 @@
   
   <span class="md-ellipsis">
     DPO_Problem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO
   </span>
   
 
@@ -1378,7 +1584,7 @@
                   
 
 
-  <h1>PPO Loss</h1>
+  <h1>PPO_Loss</h1>
 
 <h2 id="ppo">PPO简介<a class="headerlink" href="#ppo" title="Permanent link">&para;</a></h2>
 <p><strong>Proximal Policy Optimization (PPO)</strong> 是一种广泛应用于强化学习中的策略优化算法。它旨在通过有效且稳定的策略更新，优化agent的行为策略，从而最大化累积回报。PPO结合了策略梯度方法的优点，同时避免了传统方法中可能出现的不稳定性和高方差问题。</p>

@@ -67,6 +67,7 @@ nav:
     - DPO: RLHF_Pages/DPO.md
     - DPO_Exercice: RLHF_Pages/DPO_Exercise.md
     - DPO_Problem: RLHF_Pages/DPO_Problem.md
+    - DPO_Math: RLHF_Pages/DPO_Math.md
     - SimPO: RLHF_Pages/SimPO.md
     - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
     - RM_Exercise: RLHF_Pages/RM_Exercise.md
