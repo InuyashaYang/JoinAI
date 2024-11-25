@@ -1798,55 +1798,41 @@
 <li>每个步骤的状态 <span class="arithmatex">\(s_t\)</span> 定义为当前推理链的前缀。</li>
 <li>
 <p>执行动作 <span class="arithmatex">\(a\)</span> 后，状态转移至 <span class="arithmatex">\(s_{t+1}\)</span>，即：</p>
-<p>$$
- s_{t+1} = s_t + a
- $$</p>
+<p><span class="arithmatex">\(s_{t+1} = s_t + a\)</span></p>
 </li>
 <li>
 <p><strong>MCTS 过程</strong>：</p>
 </li>
 <li>
 <p><strong>选择（Select）</strong>：利用PUCT策略选择下一个要扩展的节点，平衡探索与利用：</p>
-<p>$$
- {s_{t+1}^<em>} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^</em>)} \right]
- $$</p>
+<p><span class="arithmatex">\({s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]\)</span></p>
 <p>其中，<span class="arithmatex">\(p(a \mid s_t) = \frac{\pi_{\theta}(a \mid x, s_t)}{|a|^{\lambda}}\)</span>。</p>
 </li>
 <li>
 <p><strong>扩展（Expand）</strong>：在叶节点处生成新的动作，计算其奖励：</p>
-<p>$$
- R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
- $$</p>
+<p><span class="arithmatex">\(R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)\)</span></p>
 <p>其中，<span class="arithmatex">\(\mathcal{O}(s_t)\)</span> 表示结果正确性，<span class="arithmatex">\(\mathcal{C}(s_t)\)</span> 表示自我评估。</p>
 </li>
 <li>
 <p><strong>备份（Backup）</strong>：将评估结果向上传播，更新 <span class="arithmatex">\(Q\)</span> 值和访问次数：</p>
-<p>$$
- Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
- $$</p>
-<p>$$
- V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
- $$</p>
-<p>$$
- N(s_t) \leftarrow N(s_t) + 1
- $$</p>
+<p><span class="arithmatex">\(Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})\)</span></p>
+<p><span class="arithmatex">\(V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}\)</span></p>
+<p><span class="arithmatex">\(N(s_t) \leftarrow N(s_t) + 1\)</span></p>
 </li>
 <li>
 <p><strong>偏好数据提取</strong>：</p>
 </li>
-<li>对于搜索树的每个深度 <span class="arithmatex">\(t\)</span>，选择具有最高 <span class="arithmatex">\(Q\)</span> 值的步骤 <span class="arithmatex">\(y_w^{(j,t)}\)</span> 作为**正样本**，以及具有最低 <span class="arithmatex">\(Q\)</span> 值的步骤 <span class="arithmatex">\(y_l^{(j,t)}\)</span> 作为**负样本**，形成偏好对：
-     $$
-     \mathcal{D}<em _mathcal_P="\mathcal{P">i = \left{(x^j, y_w^{(j,t)}, y_l^{(j,t)}) \mid x^j \sim \mathcal{D}</em>, t = 1, \ldots, T \right}
-     $$}}^{(i)</li>
+<li>
+<p>对于搜索树的每个深度 <span class="arithmatex">\(t\)</span>，选择具有最高 <span class="arithmatex">\(Q\)</span> 值的步骤 <span class="arithmatex">\(y_w^{(j,t)}\)</span> 作为**正样本**，以及具有最低 <span class="arithmatex">\(Q\)</span> 值的步骤 <span class="arithmatex">\(y_l^{(j,t)}\)</span> 作为**负样本**，形成偏好对：</p>
+<p><span class="arithmatex">\(\mathcal{D}_i = \left\{(x^j, y_w^{(j,t)}, y_l^{(j,t)}) \mid x^j \sim \mathcal{D}_{\mathcal{P}}^{(i)}, t = 1, \ldots, T \right\}\)</span></p>
+</li>
 </ol>
 <h3 id="23-dpo"><strong>2.3 策略更新（DPO 优化）</strong><a class="headerlink" href="#23-dpo" title="Permanent link">&para;</a></h3>
 <p>利用提取的偏好数据 <span class="arithmatex">\(\mathcal{D}_i\)</span>，通过直接偏好优化（DPO）方法更新策略参数 <span class="arithmatex">\(\theta\)</span>：</p>
 <ol>
 <li><strong>损失函数定义</strong>：</li>
 </ol>
-<p>$$
-   \ell_{i}(\theta) = -\mathbb{E}<em x_="x," y_l="y_l" y_w_="y_w,">{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha</em>) \right]
-   $$}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l</p>
+<p><span class="arithmatex">\(\ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]\)</span></p>
 <p>其中，</p>
 <p>$$
    h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
