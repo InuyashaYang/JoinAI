@@ -1305,11 +1305,11 @@
         <li class="md-nav__item">
   <a href="#1-rm" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 奖励模型（RM）阶段
+      1. 奖励模型 RM 阶段
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 奖励模型（RM）阶段">
+    <nav class="md-nav" aria-label="1. 奖励模型 RM 阶段">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1709,11 +1709,11 @@
         <li class="md-nav__item">
   <a href="#1-rm" class="md-nav__link">
     <span class="md-ellipsis">
-      1. 奖励模型（RM）阶段
+      1. 奖励模型 RM 阶段
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 奖励模型（RM）阶段">
+    <nav class="md-nav" aria-label="1. 奖励模型 RM 阶段">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1875,56 +1875,40 @@
 
 
 <h1 id="rlhf-reinforcement-learning-from-human-feedback"><strong>RLHF (Reinforcement Learning from Human Feedback)</strong><a class="headerlink" href="#rlhf-reinforcement-learning-from-human-feedback" title="Permanent link">&para;</a></h1>
-<p>在RLHF的训练过程中，模型通过人类反馈优化其行为。主要包括**奖励模型（Reward Model, RM）阶段**和**PPO阶段**。</p>
-<h2 id="1-rm"><strong>1. 奖励模型（RM）阶段</strong><a class="headerlink" href="#1-rm" title="Permanent link">&para;</a></h2>
+<p>在RLHF的训练过程中，模型通过人类反馈优化其行为。主要包括 <strong>奖励模型 Reward Model, RM 阶段</strong> 和 <strong>PPO阶段</strong> 。</p>
+<h2 id="1-rm"><strong>1. 奖励模型 RM 阶段</strong><a class="headerlink" href="#1-rm" title="Permanent link">&para;</a></h2>
 <h3 id="_1"><strong>目标</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>奖励模型根据人类反馈评估候选答案的质量，输出一个概率分布，反映不同答案的相对优劣。</p>
 <h3 id="_2"><strong>概率分布构建</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>给定输入 <span class="arithmatex">\(x\)</span> 和候选答案集合 <span class="arithmatex">\(\{y_i\}_{i=1}^K\)</span>，奖励模型 <span class="arithmatex">\(R(x, y)\)</span> 生成评分。使用Softmax函数将评分转化为概率：
-$$
-P(y_i \mid x) = \frac{e^{R(x, y_i)}}{\sum_{j=1}^{K} e^{R(x, y_j)}}
-$$</p>
+<span class="arithmatex">\(P(y_i \mid x) = \frac{e^{R(x, y_i)}}{\sum_{j=1}^{K} e^{R(x, y_j)}}\)</span></p>
 <h3 id="_3"><strong>交叉熵损失函数</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>训练奖励模型，使其预测的概率分布尽可能接近人类标注的分布。损失函数定义为：
-$$
-L = \mathbb{E}<em i="1">{(x, {y_i}, b) \sim D}\left[-\log\left(\frac{e^{R(x, y_b)}}{\sum</em>\right)\right]
-$$}^{K} e^{R(x, y_i)}</p>
+<span class="arithmatex">\(L = \mathbb{E}_{(x, \{y_i\}, b) \sim D}\left[-\log\left(\frac{e^{R(x, y_b)}}{\sum_{i=1}^{K} e^{R(x, y_i)}}\right)\right]\)</span></p>
 <h3 id="_4"><strong>经验风险近似</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>在实际中使用有限训练数据集进行近似：
-$$
-L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \log\left(\frac{e^{R(x_n, y_b<sup K_n="K_n">n)}}{\sum_{i=1}</sup>\right)
-$$} e^{R(x_n, y_i^n)}</p>
+<span class="arithmatex">\(L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \log\left(\frac{e^{R(x_n, y_b^n)}}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n)}}\right)\)</span></p>
 <h3 id="_5"><strong>梯度计算</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>损失函数对参数 <span class="arithmatex">\(\theta\)</span> 的梯度为：
-$$
-\nabla_{\theta} L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \left[\nabla_{\theta} R(x_n, y_b^n; \theta) - \sum_{i=1}^{K_n} P(y_i^n \mid x_n) \nabla_{\theta} R(x_n, y_i^n; \theta)\right]
-$$</p>
+<span class="arithmatex">\(\nabla_{\theta} L_{empirical} = -\frac{1}{N} \sum_{n=1}^{N} \left[\nabla_{\theta} R(x_n, y_b^n; \theta) - \sum_{i=1}^{K_n} P(y_i^n \mid x_n) \nabla_{\theta} R(x_n, y_i^n; \theta)\right]\)</span></p>
 <h2 id="2-ppo"><strong>2. PPO阶段</strong><a class="headerlink" href="#2-ppo" title="Permanent link">&para;</a></h2>
 <p>在获得奖励模型后，使用PPO算法训练语言模型，以优化策略 <span class="arithmatex">\(\pi_\theta\)</span>。</p>
 <h3 id="_6"><strong>目标函数</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>PPO的目标函数包含三部分：
 1. <strong>奖励相关项</strong>：
-   $$
-   L_{RL} = \mathbb{E}<em>{\tau \sim \pi</em>\theta}\left[\min\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}R(s,a),  \text{clip}\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}, 1-\epsilon, 1+\epsilon\right)R(s,a)\right)\right]
-   $$</p>
+   <span class="arithmatex">\(L_{RL} = \mathbb{E}_{\tau \sim \pi_\theta}\left[\min\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}R(s,a), \ \text{clip}\left(\frac{\pi_\theta(a|s)}{\pi_{\theta_{old}}(a|s)}, 1-\epsilon, 1+\epsilon\right)R(s,a)\right)\right]\)</span></p>
 <ol>
 <li>
 <p><strong>KL散度惩罚项</strong>：
-   $$
-   L_{KL} = \beta \cdot \text{KL}(\pi_{\theta_{old}} \parallel \pi_\theta)
-   $$</p>
+   <span class="arithmatex">\(L_{KL} = \beta \cdot \text{KL}(\pi_{\theta_{old}} \parallel \pi_\theta)\)</span></p>
 </li>
 <li>
 <p><strong>值函数损失</strong>：
-   $$
-   L_V = \mathbb{E}<em>{\tau \sim \pi</em>\theta}\left[(V_\theta(s) - R_t)^2\right]
-   $$</p>
+   <span class="arithmatex">\(L_V = \mathbb{E}_{\tau \sim \pi_\theta}\left[(V_\theta(s) - R_t)^2\right]\)</span></p>
 </li>
 </ol>
 <p>综合目标函数为：
-$$
-L = L_{RL} - L_{KL} - c_1 L_V
-$$</p>
+<span class="arithmatex">\(L = L_{RL} - L_{KL} - c_1 L_V\)</span></p>
 <h3 id="_7"><strong>训练步骤</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>数据收集</strong>：使用当前策略 <span class="arithmatex">\(\pi_\theta\)</span> 生成样本轨迹 <span class="arithmatex">\(\tau\)</span>。</li>
@@ -1948,27 +1932,17 @@ $$</p>
 <h2 id="3"><strong>3. 关键数学概念</strong><a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
 <h3 id="softmax"><strong>Softmax函数</strong><a class="headerlink" href="#softmax" title="Permanent link">&para;</a></h3>
 <p>将评分转化为概率分布：
-$$
-\text{Softmax}(z_i) = \frac{e<sup K="K">{z_i}}{\sum_{j=1}</sup>
-$$} e^{z_j}</p>
+<span class="arithmatex">\(\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}\)</span></p>
 <h3 id="_10"><strong>交叉熵损失</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>衡量预测分布与真实分布的差异：
-$$
-H(P, Q) = -\sum_{i=1}^{K} P(i) \log Q(i)
-$$
+<span class="arithmatex">\(H(P, Q) = -\sum_{i=1}^{K} P(i) \log Q(i)\)</span>
 在RM中，真实分布为one-hot形式，损失简化为：
-$$
-H(P, Q) = -\log Q(b)
-$$</p>
+<span class="arithmatex">\(H(P, Q) = -\log Q(b)\)</span></p>
 <h3 id="mle"><strong>最大化似然估计（MLE）</strong><a class="headerlink" href="#mle" title="Permanent link">&para;</a></h3>
 <p>优化目标为最大化最佳答案的似然：
-$$
-\mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_b^n \mid x_n; \theta)
-$$
+<span class="arithmatex">\(\mathcal{L}(\theta) = \prod_{n=1}^{N} P(y_b^n \mid x_n; \theta)\)</span>
 等价于最小化负对数似然：
-$$
--\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)
-$$</p>
+<span class="arithmatex">\(-\log \mathcal{L}(\theta) = -\sum_{n=1}^{N} \log P(y_b^n \mid x_n; \theta)\)</span></p>
 <script src="https://giscus.app/client.js"
         data-repo="InuyashaYang/AIDIY"
         data-repo-id="R_kgDOM1VVTQ"
