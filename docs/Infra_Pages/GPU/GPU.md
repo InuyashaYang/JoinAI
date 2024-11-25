@@ -82,3 +82,20 @@ GPU
 2. 某些新型 GPU 可能包含额外的专用计算单元，如用于 AI 推理的单元。
 3. ALU 的具体实现和性能特性可能因 GPU 型号和代际而异。
 4. 部分 ALU 功能可能与缓存和控制单元紧密集成，边界并非总是明确。
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

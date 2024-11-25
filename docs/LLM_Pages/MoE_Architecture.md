@@ -74,3 +74,20 @@ Mixture of Experts（MOE）是一种通过组合多个专家网络（Experts）�
 - 专家数量 $E$ 和每个专家的隐藏维度 $d_{ff}$ 可根据具体需求调整。
 - 通过稀疏激活（只激活少数专家），可以在保持高模型容量的同时，提高计算效率。
 
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

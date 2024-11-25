@@ -75,3 +75,20 @@
 - $\otimes$ 表示Kronecker积
 - $\odot$ 表示Hadamard（元素wise）乘积
 - 在激活函数中，$\sigma'(\mathbf{X})$ 表示激活函数的导数
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

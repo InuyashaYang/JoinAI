@@ -157,3 +157,20 @@ $$
 ## 5. 总结
 
 LoRA通过引入低秩矩阵实现参数高效微调，显著降低了训练参数量。然而，标准LoRA在参数更新方向和尺度稳定性方面可能存在不足。LoRA-GA通过引入梯度对齐机制，优化了低秩矩阵的初始化，使其更新方向更接近全参数微调方向，并通过合理选择缩放因子保证了尺度稳定性。这些改进共同提升了微调过程的收敛速度和最终模型性能，使LoRA-GA成为一种更为高效和稳健的模型微调方法。
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -211,3 +211,20 @@ DPO仍然与KL散度有密切关系，这体现在：
 这就是为什么说β参数实际上在调节KL散度的约束强度。
 
 5) DPO可以被视为在最大化奖励的同时，通过$\beta$参数软约束KL散度。这种设计使得模型既能学习偏好，又不会过分偏离参考模型的行为分布。
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

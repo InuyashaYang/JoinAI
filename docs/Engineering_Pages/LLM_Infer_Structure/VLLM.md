@@ -133,3 +133,19 @@ generate(prompts: PromptType | Sequence[PromptType], /,
 
 - 此类旨在用于离线推理。对于在线服务,请使用AsyncLLMEngine类。
 - 使用prompts和prompt_token_ids作为关键字参数被视为遗留用法,可能在未来被弃用。您应该通过inputs参数传递它们。
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

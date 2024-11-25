@@ -161,3 +161,19 @@ Model
    - 选择合适的损失函数，根据具体任务（如回归或分类）进行选择。
 
 通过以上类的设计与实现，我们将能够搭建一个基本但功能完整的深度学习框架，支持构建计算图、执行前向和反向传播，以及进行参数优化。这将为深入理解深度学习框架的底层原理打下坚实的基础。
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

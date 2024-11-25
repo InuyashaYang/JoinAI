@@ -29,3 +29,20 @@
 |--------|----------|------|
 | 卷积层 | $C_{in} \times K_h \times K_w \times C_{out} + C_{out}$ | $C_{in}$: 输入通道数<br>$K_h, K_w$: 卷积核高度和宽度<br>$C_{out}$: 输出通道数 |
 | 全连接层 | $N_{in} \times N_{out} + N_{out}$ | $N_{in}$: 输入神经元数<br>$N_{out}$: 输出神经元数 |
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

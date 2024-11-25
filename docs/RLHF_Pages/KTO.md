@@ -150,3 +150,20 @@ $$
 | **优化目标**        | 提升偏好输出的概率                    | 直接优化生成内容的效用，更符合人类决策心理      |
 | **参考点处理**      | 通过对数概率比定义                     | 显式引入效用参考点 $z_0$，基于批次内不匹配对 |
 
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

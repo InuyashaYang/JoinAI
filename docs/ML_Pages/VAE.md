@@ -306,3 +306,20 @@ $$
 | 连续性和平滑性 | KL散度损失确保了潜在空间中相邻点的分布是平滑变化的,这有助于保持流形的连续性。 |
 | 生成过程 | 当我们从潜在空间采样并通过解码器生成数据时,实际上是在这个学习到的低维流形上进行插值或外推。 |
 
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

@@ -169,3 +169,20 @@ ALiBi 修改了传统的注意力计算方式。对比传统方法和 ALiBi：
 | Alpaca | RoPE (Rotary Position Embedding) | 基于 LLaMA，使用旋转位置编码 |
 | BART | 学习的绝对位置嵌入 | 类似于 BERT，用于序列到序列任务 |
 
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

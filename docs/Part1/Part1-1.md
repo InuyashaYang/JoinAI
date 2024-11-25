@@ -15,3 +15,20 @@
 考虑以上定义，一般的参数量较大的模型也可一般归类为“大模型”，一般标准为10B。以这样的衡量标准，包括Stable Diffusion在内的模型（例如，Sd v3 的最大模型参数量已经达到8B规模）已经摸到了所谓“大模型”的门槛，因而也可以被归为此类。
 
 [返回](../index.md)
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>

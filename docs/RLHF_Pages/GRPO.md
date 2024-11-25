@@ -247,3 +247,20 @@ GRPO 通过构建一个最小-最大优化的损失函数，结合加权梯度�
 2. **自适应加权**：通过动态调整群组权重，使得优化过程能自适应地聚焦于当前最需要改进的群组。
 3. **梯度优化**：通过精心设计的损失函数和梯度更新机制，确保策略参数向着最优方向快速收敛。
 4. **理论保障**：在一定的假设条件下（如损失函数的凸性和 Lipschitz 连续性），GRPO 的优化过程能够保证以 $\mathcal{O}(T^{-1/2})$ 的速率收敛到最优解。
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="InuyashaYang/AIDIY"
+        data-repo-id="R_kgDOM1VVTQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOM1VVTc4Ckls_"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+</script>
