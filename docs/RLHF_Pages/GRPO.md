@@ -1,4 +1,5 @@
 
+
 [![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
 
 ## GRPO的损失函数
@@ -7,25 +8,22 @@
 
 GRPO 旨在优化策略在不同群组上的表现，使其在最不利的群组上也能保持良好的性能。为此，GRPO 将优化问题建模为一个 **最小-最大优化问题**，其损失函数定义为：
 
-$
-\min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)
-$
+$\min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)$
 
 其中：
+
 - $\theta \in \Theta \subset \mathbb{R}^d$ 是策略 $\pi_{\theta}$ 的参数，$\Theta$ 是参数的可行空间。
+
 - $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_K) \in \Delta_K$ 是群组权重向量，$\Delta_K$ 为 $K$ 维单纯形：
   
-  $
-  \Delta_K = \left\{ \alpha \in \mathbb{R}^K \ \bigg| \ \alpha_g \geq 0 \ \forall g \in \{1, \dots, K\}, \ \sum_{g=1}^{K} \alpha_g = 1 \right\}
-  $
+  $\Delta_K = \left\{ \alpha \in \mathbb{R}^K \ \bigg| \ \alpha_g \geq 0 \ \forall g \in \{1, \dots, K\}, \ \sum_{g=1}^{K} \alpha_g = 1 \right\}$
   
 - $\mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)$ 是策略 $\pi_{\theta}$ 在群组 $g$ 上的 **DPO 损失**，具体定义为：
   
-  $
-  \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta h_{\pi_{\theta}}(x_g, y_w, y_l) \right) \right)
-  $
+  $\mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta h_{\pi_{\theta}}(x_g, y_w, y_l) \right) \right)$
   
   其中：
+
   - $\sigma$ 是 Sigmoid 函数。
   - $\beta$ 是一个超参数，用于控制函数的陡峭程度。
   - $h_{\pi_{\theta}}(x_g, y_w, y_l)$ 是策略对样本 $(x_g, y_w, y_l)$ 的评分函数。
@@ -44,17 +42,13 @@ GRPO 的损失函数源于以下几点考虑：
 
    我们希望找到一个策略参数 $\theta$，使得在所有群组上的最大损失最小。数学表达为：
 
-   $
-   \min_{\theta \in \Theta} \max_{g \in \{1, \dots, K\}} \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)
-   $
+   $\min_{\theta \in \Theta} \max_{g \in \{1, \dots, K\}} \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)$
    
 2. **引入群组权重 $\alpha$**：
 
    为了将多个群组的损失统一考虑，引入权重向量 $\alpha$，其中每个 $\alpha_g$ 表示群组 $g$ 的重要性。优化目标转化为加权损失的最大化：
 
-   $
-   \min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)
-   $
+   $\min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)$
    
 3. **解释加权损失**：
 
@@ -66,9 +60,7 @@ GRPO 的损失函数源于以下几点考虑：
 
    DPO（Distributionally Robust Policy Optimization）损失函数设计为：
 
-   $
-   \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \right)
-   $
+   $\mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \right)$
    
    其中：
    - $r_{\theta}(x, y)$ 表示策略 $\pi_{\theta}$ 在输入 $x$ 下对响应 $y$ 的评分。
@@ -95,23 +87,28 @@ GRPO 的损失函数源于以下几点考虑：
 ### 1. 初始化
 
 - **步长参数**：
+
   - 群组权重更新步长 $\eta_{\alpha}$。
   - 策略参数更新步长 $\eta_{\theta}$。
   
 - **初始权重**：
+
   - 策略的初始参数 $\theta^{(0)}$。
   - 每个群组的初始权重 $\alpha^{(0)}$（通常初始化为均匀分布，即 $\alpha_g^{(0)} = \frac{1}{K}$）。
   
 - **投影算子**：
+
   - $\mathrm{P}_{\Theta}$，用于确保更新后的 $\theta$ 仍在参数空间 $\Theta$ 内。
 
 ### 2. 输入参数
 
 - **数据集**：
+
   - $\mathcal{T}$，总样本数量为 $N = |\mathcal{T}|$。
   - 数据集被划分为 $K$ 个群组，每个群组的大小为 $N_g$，其中 $g \in \{1, 2, \dots, K\}$。
 
 - **损失函数**：
+
   - $l(\pi_{\theta}; \cdot)$，用于评估策略的表现，这里指的是 DPO 损失。
 
 ### 3. 迭代更新（重复 $T$ 次）
@@ -120,9 +117,7 @@ GRPO 的损失函数源于以下几点考虑：
 
 #### a. 复制当前群组权重
 
-$
-\alpha' \leftarrow \alpha^{(t-1)}
-$
+$\alpha' \leftarrow \alpha^{(t-1)}$
 
 - 创建一个临时的群组权重向量 $\alpha'$，用于在当前迭代中更新。
 
@@ -135,15 +130,14 @@ $
 - **采样数据点**：
   
   从群组 $g$ 的数据集中采样一个数据点 $(x_g, y_w, y_l) \sim \mathcal{T}_g$，其中：
+  
   - $x_g$ 是输入特征。
   - $y_w$ 是“赢”（正确）的响应标签。
   - $y_l$ 是“输”（错误）的响应标签。
 
 #### c. 更新群组权重
 
-$
-\alpha'_g \leftarrow \alpha'_g \exp\left( \eta_{\alpha} \cdot \frac{N \cdot l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
-$
+$\alpha'_g \leftarrow \alpha'_g \exp\left( \eta_{\alpha} \cdot \frac{N \cdot l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)$
 
 - **指数加权**：
   
@@ -155,18 +149,14 @@ $
 
 #### d. 归一化群组权重
 
-$
-\alpha^{(t)} \leftarrow \frac{\alpha'}{\sum_{g'} \alpha'_{g'}}
-$
+$\alpha^{(t)} \leftarrow \frac{\alpha'}{\sum_{g'} \alpha'_{g'}}$
 
 - 将更新后的群组权重 $\alpha'$ 进行归一化，使得 $\alpha^{(t)}$ 成为一个位于单纯形 $\Delta_K$ 上的向量（即 $\sum_{g} \alpha_g^{(t)} = 1$）。
 - 归一化确保群组权重在每一轮迭代后保持有效的概率分布。
 
 #### e. 更新策略参数
 
-$
-\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
-$
+$\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)$
 
 - **加权梯度下降**：
   
@@ -186,9 +176,7 @@ $
 
 ### 4. 返回最终策略
 
-$
-\textbf{Return:} \quad \pi(\theta^{(T)})
-$
+$\textbf{Return:} \quad \pi(\theta^{(T)})$
 
 - 在完成 $T$ 轮迭代后，输出最终优化得到的策略 $\pi(\theta^{(T)})$。
 
@@ -200,35 +188,25 @@ $
 
 策略参数更新的关键在于对加权后的梯度进行下降优化：
 
-$
-\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
-$
+$\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)$
 
 其中，加权梯度为：
 
-$
-\alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))
-$
+$\alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))$
 
 ### 损失函数的具体梯度
 
 根据 DPO 损失函数的定义：
 
-$
-\mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \right)
-$
+$\mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \right)$
 
 对 $\theta$ 求梯度：
 
-$
-\nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]
-$
+$\nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]$
 
 结合权重 $\alpha_g^{(t)}$，加权梯度为：
 
-$
-\alpha_g^{(t)} \nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \alpha_g^{(t)} \cdot \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]
-$
+$\alpha_g^{(t)} \nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \alpha_g^{(t)} \cdot \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]$
 
 ### 梯度的直观解释
 
