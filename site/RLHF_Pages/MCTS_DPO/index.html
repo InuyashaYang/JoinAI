@@ -1901,9 +1901,7 @@
 <ul>
 <li><strong>PUCT 选择策略</strong>：</li>
 </ul>
-<p>$$
-  {s_{t+1}^<em>} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^</em>)} \right]
-  $$</p>
+<p><span class="arithmatex">\({s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]\)</span></p>
 <p>用于在选择阶段平衡探索与利用。</p>
 <ul>
 <li><strong>奖励计算</strong>：</li>
@@ -1933,9 +1931,7 @@
 <ul>
 <li><strong>DPO 损失函数</strong>：</li>
 </ul>
-<p>$$
-  \ell_{i}(\theta) = -\mathbb{E}<em x_="x," y_l="y_l" y_w_="y_w,">{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha</em>) \right]
-  $$}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l</p>
+<p><span class="arithmatex">\(\ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]\)</span></p>
 <p>其中，</p>
 <p>$$
   h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
