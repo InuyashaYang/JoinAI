@@ -50,9 +50,11 @@ nav:
     - Transformer数学架构: LLM_Pages/LLM_Architecture.md
     - 位置编码: LLM_Pages/Position_Embedding.md
     - 预训练阶段: LLM_Pages/Pre-Train.md
-    - SFT阶段: LLM_Pages/SFT.md
     - 后训练阶段: LLM_Pages/Post-Train.md
     - MoE数学架构: LLM_Pages/MoE_Architecture.md
+  - 微调: 
+      - SFT: SFT_Pages/SFT.md
+      - Lora: SFT_Pages/Lora.md
   - 工程实践: 
     - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
     - 全量微调: Engineering_Pages/Full_SFT_LlamaFactory.md
@@ -69,6 +71,7 @@ nav:
     - RM_Full_FT_or_Lora: RLHF_Pages/RM_Full_FT_or_Lora.md
     - RM_Training: RLHF_Pages/RM_Training.md
     - GRPO: RLHF_Pages/GRPO.md
+    - MCTS_DPO: RLHF_Pages/MCTS_DPO.md
     - KTO: RLHF_Pages/KTO.md
     - SimPO: RLHF_Pages/SimPO.md
     - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
