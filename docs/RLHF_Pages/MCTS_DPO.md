@@ -39,46 +39,35 @@ $$
    - 每个步骤的状态 $s_t$ 定义为当前推理链的前缀。
    - 执行动作 $a$ 后，状态转移至 $s_{t+1}$，即：
 
-     $$
-     s_{t+1} = s_t + a
-     $$
+     $s_{t+1} = s_t + a$
 
 2. **MCTS 过程**：
    - **选择（Select）**：利用PUCT策略选择下一个要扩展的节点，平衡探索与利用：
 
-     $$
-     {s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]
-     $$
+     
+     ${s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]$
+    
 
      其中，$p(a \mid s_t) = \frac{\pi_{\theta}(a \mid x, s_t)}{|a|^{\lambda}}$。
 
    - **扩展（Expand）**：在叶节点处生成新的动作，计算其奖励：
 
-     $$
-     R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
-     $$
+     $R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)$
 
      其中，$\mathcal{O}(s_t)$ 表示结果正确性，$\mathcal{C}(s_t)$ 表示自我评估。
 
    - **备份（Backup）**：将评估结果向上传播，更新 $Q$ 值和访问次数：
 
-     $$
-     Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
-     $$
+    $Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})$
 
-     $$
-     V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
-     $$
+    $V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}$
 
-     $$
-     N(s_t) \leftarrow N(s_t) + 1
-     $$
+    $N(s_t) \leftarrow N(s_t) + 1$
 
 3. **偏好数据提取**：
    - 对于搜索树的每个深度 $t$，选择具有最高 $Q$ 值的步骤 $y_w^{(j,t)}$ 作为**正样本**，以及具有最低 $Q$ 值的步骤 $y_l^{(j,t)}$ 作为**负样本**，形成偏好对：
-     $$
-     \mathcal{D}_i = \left\{(x^j, y_w^{(j,t)}, y_l^{(j,t)}) \mid x^j \sim \mathcal{D}_{\mathcal{P}}^{(i)}, t = 1, \ldots, T \right\}
-     $$
+     
+     $\mathcal{D}_i = \left\{(x^j, y_w^{(j,t)}, y_l^{(j,t)}) \mid x^j \sim \mathcal{D}_{\mathcal{P}}^{(i)}, t = 1, \ldots, T \right\}$
 
 ### **2.3 策略更新（DPO 优化）**
 
@@ -86,9 +75,8 @@ $$
 
 1. **损失函数定义**：
 
-   $$
-   \ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]
-   $$
+   
+   $\ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]$
 
    其中，
 

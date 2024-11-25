@@ -1787,49 +1787,49 @@
 <h2 id="2"><strong>2. 迭代流程</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
 <p>整个流程包括多个迭代，每次迭代均包括数据采样、MCTS搜索、偏好数据提取以及策略更新。具体步骤如下：</p>
 <h3 id="21"><strong>2.1 数据采样</strong><a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
-<p>在第 <span class="arithmatex">\(i\)</span> 次迭代中，从提示数据集 <span class="arithmatex">\(\mathcal{D}_{\mathcal{P}}\)</span> 中随机采样 <span class="arithmatex">\(B\)</span> 个提示，形成当前迭代的子集：
-$$
-\mathcal{D}<em _mathcal_P="\mathcal{P">{\mathcal{P}}^{(i)} \subseteq \mathcal{D}</em>
-$$}</p>
+<p>在第 <span class="arithmatex">\(i\)</span> 次迭代中，从提示数据集 <span class="arithmatex">\(\mathcal{D}_{\mathcal{P}}\)</span> 中随机采样 <span class="arithmatex">\(B\)</span> 个提示，形成当前迭代的子集：</p>
+<div class="arithmatex">\[
+\mathcal{D}_{\mathcal{P}}^{(i)} \subseteq \mathcal{D}_{\mathcal{P}}
+\]</div>
 <h3 id="22-mcts"><strong>2.2 MCTS 搜索与偏好数据提取</strong><a class="headerlink" href="#22-mcts" title="Permanent link">&para;</a></h3>
 <p>对于每个提示 <span class="arithmatex">\(x \in \mathcal{D}_{\mathcal{P}}^{(i)}\)</span>，使用当前策略 <span class="arithmatex">\(\pi_{\theta^{(i-1)}}\)</span> 通过蒙特卡洛树搜索（MCTS）构建一个深度为 <span class="arithmatex">\(T\)</span> 的搜索树：</p>
 <ol>
 <li><strong>状态定义</strong>：</li>
 <li>每个步骤的状态 <span class="arithmatex">\(s_t\)</span> 定义为当前推理链的前缀。</li>
 <li>
-<p>执行动作 <span class="arithmatex">\(a\)</span> 后，状态转移至 <span class="arithmatex">\(s_{t+1}\)</span>，即：
-     $$
-     s_{t+1} = s_t + a
-     $$</p>
+<p>执行动作 <span class="arithmatex">\(a\)</span> 后，状态转移至 <span class="arithmatex">\(s_{t+1}\)</span>，即：</p>
+<p>$$
+ s_{t+1} = s_t + a
+ $$</p>
 </li>
 <li>
 <p><strong>MCTS 过程</strong>：</p>
 </li>
 <li>
-<p><strong>选择（Select）</strong>：利用PUCT策略选择下一个要扩展的节点，平衡探索与利用：
-     $$
-     {s_{t+1}^<em>} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^</em>)} \right]
-     $$
-     其中，<span class="arithmatex">\(p(a \mid s_t) = \frac{\pi_{\theta}(a \mid x, s_t)}{|a|^{\lambda}}\)</span>。</p>
+<p><strong>选择（Select）</strong>：利用PUCT策略选择下一个要扩展的节点，平衡探索与利用：</p>
+<p>$$
+ {s_{t+1}^<em>} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^</em>)} \right]
+ $$</p>
+<p>其中，<span class="arithmatex">\(p(a \mid s_t) = \frac{\pi_{\theta}(a \mid x, s_t)}{|a|^{\lambda}}\)</span>。</p>
 </li>
 <li>
-<p><strong>扩展（Expand）</strong>：在叶节点处生成新的动作，计算其奖励：
-     $$
-     R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
-     $$
-     其中，<span class="arithmatex">\(\mathcal{O}(s_t)\)</span> 表示结果正确性，<span class="arithmatex">\(\mathcal{C}(s_t)\)</span> 表示自我评估。</p>
+<p><strong>扩展（Expand）</strong>：在叶节点处生成新的动作，计算其奖励：</p>
+<p>$$
+ R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
+ $$</p>
+<p>其中，<span class="arithmatex">\(\mathcal{O}(s_t)\)</span> 表示结果正确性，<span class="arithmatex">\(\mathcal{C}(s_t)\)</span> 表示自我评估。</p>
 </li>
 <li>
-<p><strong>备份（Backup）</strong>：将评估结果向上传播，更新 <span class="arithmatex">\(Q\)</span> 值和访问次数：
-     $$
-     Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
-     $$
-     $$
-     V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
-     $$
-     $$
-     N(s_t) \leftarrow N(s_t) + 1
-     $$</p>
+<p><strong>备份（Backup）</strong>：将评估结果向上传播，更新 <span class="arithmatex">\(Q\)</span> 值和访问次数：</p>
+<p>$$
+ Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
+ $$</p>
+<p>$$
+ V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
+ $$</p>
+<p>$$
+ N(s_t) \leftarrow N(s_t) + 1
+ $$</p>
 </li>
 <li>
 <p><strong>偏好数据提取</strong>：</p>
@@ -1842,27 +1842,25 @@ $$}</p>
 <h3 id="23-dpo"><strong>2.3 策略更新（DPO 优化）</strong><a class="headerlink" href="#23-dpo" title="Permanent link">&para;</a></h3>
 <p>利用提取的偏好数据 <span class="arithmatex">\(\mathcal{D}_i\)</span>，通过直接偏好优化（DPO）方法更新策略参数 <span class="arithmatex">\(\theta\)</span>：</p>
 <ol>
-<li>
-<p><strong>损失函数定义</strong>：
-   $$
+<li><strong>损失函数定义</strong>：</li>
+</ol>
+<p>$$
    \ell_{i}(\theta) = -\mathbb{E}<em x_="x," y_l="y_l" y_w_="y_w,">{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha</em>) \right]
-   $$
-   其中，
-   $$
-   h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
-   $$
-   $$
-   \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
    $$}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l</p>
-</li>
-<li>
-<p><strong>参数优化</strong>：
-   通过最小化损失函数 <span class="arithmatex">\(\ell_i(\theta)\)</span> 更新模型参数 <span class="arithmatex">\(\theta\)</span>，得到新的策略 <span class="arithmatex">\(\pi_{\theta^{(i)}}\)</span>：
-   $$
+<p>其中，</p>
+<p>$$
+   h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
+   $$</p>
+<p>$$
+   \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
+   $$</p>
+<ol>
+<li><strong>参数优化</strong>：
+   通过最小化损失函数 <span class="arithmatex">\(\ell_i(\theta)\)</span> 更新模型参数 <span class="arithmatex">\(\theta\)</span>，得到新的策略 <span class="arithmatex">\(\pi_{\theta^{(i)}}\)</span>：</li>
+</ol>
+<p>$$
    \theta \leftarrow \theta - \eta \nabla_\theta \ell_i(\theta)
    $$</p>
-</li>
-</ol>
 <h3 id="24"><strong>2.4 迭代循环</strong><a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
 <p>重复上述数据采样、MCTS 搜索、偏好数据提取及策略更新的过程，共进行 <span class="arithmatex">\(M\)</span> 次迭代。每次迭代后，更新后的策略用于下一轮的MCTS数据采集，确保模型在每轮迭代中不断优化和自我提升。</p>
 <hr />
@@ -1898,10 +1896,12 @@ $$}</p>
 <li>
 <p><strong>DPO 优化</strong>：</p>
 <ul>
-<li>使用 <span class="arithmatex">\(\mathcal{D}_i\)</span> 优化参数 <span class="arithmatex">\(\theta\)</span>，最小化损失函数：
-   $$
+<li>使用 <span class="arithmatex">\(\mathcal{D}_i\)</span> 优化参数 <span class="arithmatex">\(\theta\)</span>，最小化损失函数：</li>
+</ul>
+<p>$$
    J(\theta) = \mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_i} \ell_i(x, y_w, y_l; \theta)
-   $$</li>
+   $$</p>
+<ul>
 <li>更新策略 <span class="arithmatex">\(\pi_{\theta^{(i)}}\)</span>。</li>
 </ul>
 </li>
@@ -1913,52 +1913,50 @@ $$}</p>
 <hr />
 <h2 id="4"><strong>4. 关键数学公式解释</strong><a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p><strong>PUCT 选择策略</strong>：
-  $$
+<li><strong>PUCT 选择策略</strong>：</li>
+</ul>
+<p>$$
   {s_{t+1}^<em>} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^</em>)} \right]
-  $$
-  用于在选择阶段平衡探索与利用。</p>
-</li>
-<li>
-<p><strong>奖励计算</strong>：
-  $$
+  $$</p>
+<p>用于在选择阶段平衡探索与利用。</p>
+<ul>
+<li><strong>奖励计算</strong>：</li>
+</ul>
+<p>$$
   R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
-  $$
-  其中，<span class="arithmatex">\(\mathcal{O}(s_t)\)</span> 是结果正确性，<span class="arithmatex">\(\mathcal{C}(s_t)\)</span> 是自我评估的信心分数。</p>
-</li>
-<li>
-<p><strong>动作价值更新</strong>：
-  $$
+  $$</p>
+<p>其中，<span class="arithmatex">\(\mathcal{O}(s_t)\)</span> 是结果正确性，<span class="arithmatex">\(\mathcal{C}(s_t)\)</span> 是自我评估的信心分数。</p>
+<ul>
+<li><strong>动作价值更新</strong>：</li>
+</ul>
+<p>$$
   Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
   $$</p>
-</li>
-<li>
-<p><strong>状态值更新</strong>：
-  $$
+<ul>
+<li><strong>状态值更新</strong>：</li>
+</ul>
+<p>$$
   V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
   $$</p>
-</li>
-<li>
-<p><strong>访问次数更新</strong>：
-  $$
+<ul>
+<li><strong>访问次数更新</strong>：</li>
+</ul>
+<p>$$
   N(s_t) \leftarrow N(s_t) + 1
   $$</p>
-</li>
-<li>
-<p><strong>DPO 损失函数</strong>：
-  $$
-  \ell_{i}(\theta) = -\mathbb{E}<em x_="x," y_l="y_l" y_w_="y_w,">{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha</em>) \right]
-  $$
-  其中，
-  $$
-  h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
-  $$
-  $$
-  \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
-  $$}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l</p>
-</li>
+<ul>
+<li><strong>DPO 损失函数</strong>：</li>
 </ul>
+<p>$$
+  \ell_{i}(\theta) = -\mathbb{E}<em x_="x," y_l="y_l" y_w_="y_w,">{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha</em>) \right]
+  $$}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l</p>
+<p>其中，</p>
+<p>$$
+  h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
+  $$</p>
+<p>$$
+  \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
+  $$</p>
 
 
 
