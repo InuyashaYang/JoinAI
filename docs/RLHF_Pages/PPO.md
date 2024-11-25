@@ -54,6 +54,24 @@ $$
 \log P(y_b^n \mid x_n) = R(x_n, y_b^n; \theta) - \log\left(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}\right)
 $$
 进一步展开梯度:
+
+$$
+\nabla_{\theta} \log P(y_b^n \mid x_n) = 
+\nabla_{\theta} R(x_n, y_b^n; \theta) - \frac{1}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}} \cdot 
+\nabla_{\theta}(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)})
+$$
+对求和项求导:
+$$
+\nabla_{\theta}(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}) = \sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)} \cdot 
+\nabla_{\theta} R(x_n, y_i^n; \theta)
+$$
+代回原式:
+$$
+\nabla_{\theta} \log P(y_b^n \mid x_n) = 
+\nabla_{\theta} R(x_n, y_b^n; \theta) - \frac{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)} \cdot 
+\nabla_{\theta} R(x_n, y_i^n; \theta)}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}}
+$$
+得到:
 $$
 \nabla_{\theta} \log P(y_b^n \mid x_n) = \nabla_{\theta} R(x_n, y_b^n; \theta) - \sum_{i=1}^{K_n} P(y_i^n \mid x_n) \nabla_{\theta} R(x_n, y_i^n; \theta)
 $$
@@ -126,4 +144,4 @@ $L = L_{RL} - L_{KL} - c_1L_V$
 - 注意采样效率
 
 
-[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
+[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/AIDIY?style=social)](https://github.com/InuyashaYang/AIDIY)

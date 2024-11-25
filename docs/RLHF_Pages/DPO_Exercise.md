@@ -1,3 +1,5 @@
+[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)
+
 # DPO Exercice
 
 
@@ -290,3 +292,4 @@ $$
 这些方法可以帮助在缺乏明确标注的较差回答时，依然有效地训练政策模型，提高其生成高质量回答的能力。
 
 </details>
+[![GitHub stars](https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social)](https://github.com/InuyashaYang/JoinAI)

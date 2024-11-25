@@ -25,7 +25,9 @@ D_{KL}(P||Q) = \sum_{x} P(x) \log \frac{P(x)}{Q(x)}
 ```
 
 其中：
+
 - P(x)和Q(x)分别表示两个概率分布在事件x上的概率
+
 - 对数通常采用自然对数（以e为底）
 
 ## 数学性质
@@ -94,7 +96,9 @@ $\mathcal{L}_\text{DPO}(\theta) = -\mathbb{E}_{(x,y_w,y_l)}\left[\log\left(\frac
 让我们逐步计算梯度：
 
 1) 为简化表示，令：
+
    - $r_w = r_\theta(x,y_w)/\beta$
+
    - $r_l = r_\theta(x,y_l)/\beta$
 
 2) Loss可以重写为：
@@ -129,10 +133,10 @@ DPO仍然与KL散度有密切关系，这体现在：
 ### 优化过程分析
 
 1) DPO的目标函数为：
-   $L(\theta) = \mathbb{E}_{x,y_w,y_l}[\log\sigma(\beta(r_\theta(y_w|x) - r_\theta(y_l|x)))]$
+   $L(\theta) = \mathbb{E}_{x,y_w,y_l}[\log\sigma(\frac{1}{\beta}(r_\theta(y_w|x) - r_\theta(y_l|x)))]$
 
 2) 将$r_\theta$展开：
-   $L(\theta) = \mathbb{E}_{x,y_w,y_l}[\log\sigma(\beta(\log\frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \log\frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}))]$
+   $L(\theta) = \mathbb{E}_{x,y_w,y_l}[\log\sigma(\frac{1}{\beta}(\log\frac{\pi_\theta(y_w|x)}{\pi_\text{ref}(y_w|x)} - \log\frac{\pi_\theta(y_l|x)}{\pi_\text{ref}(y_l|x)}))]$
 
 3) 优化这个目标函数时，需要隐式地控制KL散度：
 
@@ -141,8 +145,11 @@ DPO仍然与KL散度有密切关系，这体现在：
    $D_{KL}(P||Q) = \sum_x P(x)\log\frac{P(x)}{Q(x)}$
     
     在DPO的上下文中：
+
    - $P$ 对应于策略 $\pi_\theta$
+
    - $Q$ 对应于参考策略 $\pi_\text{ref}$
+
    - 我们考虑的是条件概率分布（给定输入x时的输出y的分布）
     
     因此，将条件概率代入KL散度公式：
@@ -156,7 +163,9 @@ DPO仍然与KL散度有密切关系，这体现在：
     这个公式实际上就是KL散度的标准定义在条件概率分布上的应用。
 
 4) 温度参数$\beta$实际上在调节这个KL散度的约束强度：
+
    - 较小的$\beta$允许更大的KL散度
+
    - 较大的$\beta$限制策略偏离参考模型过远
 
 
@@ -164,25 +173,39 @@ DPO仍然与KL散度有密切关系，这体现在：
    $L(\theta) = \mathbb{E}_{x,y_w,y_l}[\log\sigma(\beta(r_\theta(y_w|x) - r_\theta(y_l|x)))]$
 
     β的作用机制：
+
    - β乘以奖励差值：$\beta(r_\theta(y_w|x) - r_\theta(y_l|x))$
+
    - 当β较大时：
+
      - 即使奖励差值很小，乘以大的β后也会产生很大的梯度
+
      - 这使得优化过程更"谨慎"，因为小的策略偏差就会带来大的惩罚
+
      - 所以模型倾向于保持接近参考模型
 
    - 当β较小时：
+
      - 需要较大的奖励差值才能产生显著梯度
+
      - 优化过程更"宽松"，允许策略做出更大的调整
+
      - 模型可以更自由地偏离参考模型
 
 3) 数学上的解释：
+
    - $r_\theta = \log\frac{\pi_\theta}{\pi_\text{ref}}$ 正是KL散度的项
+
    - β越大，这个比值的变化越受限
+
    - β越小，这个比值可以有更大的变化空间
 
 4) 直观理解：
+
    - β可以理解为"保守程度"的调节器
+
    - 大β = 保守优化 = 小KL散度
+
    - 小β = 激进优化 = 允许大KL散度
 
 这就是为什么说β参数实际上在调节KL散度的约束强度。

@@ -1,4 +1,5 @@
- # DPO (Direct Preference Optimization) 训练流程
+
+# DPO (Direct Preference Optimization) 训练流程
 
 ## 1. 输入数据格式
 
@@ -44,3 +45,4 @@ $\mathcal{L}_\text{DPO} = -\log(\sigma(r(x,y_w,y_l)))$
 - 自回归方式计算序列概率
 - 使用reference model作为正则化基准
 - 直接利用人类偏好数据,无需显式奖励函数
+

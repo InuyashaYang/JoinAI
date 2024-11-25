@@ -60,14 +60,16 @@ nav:
     - RL基础概念: RL_Pages/RL.md
     - 蒙特卡洛树搜索: RL_Pages/Monte_Carlos.md
   - LLM_RLHF阶段: 
-    - PPO: RLHF_Pages/PPO.md
-    - PPO_Loss: RLHF_Pages/PPO_Loss.md
-    - RM_Full_FT_or_Lora: RLHF_Pages/RM_Full_FT_or_Lora.md
-    - RM_Training: RLHF_Pages/RM_Training.md
     - DPO: RLHF_Pages/DPO.md
     - DPO_Exercice: RLHF_Pages/DPO_Exercise.md
     - DPO_Problem: RLHF_Pages/DPO_Problem.md
     - DPO_Math: RLHF_Pages/DPO_Math.md
+    - PPO: RLHF_Pages/PPO.md
+    - PPO_Loss: RLHF_Pages/PPO_Loss.md
+    - RM_Full_FT_or_Lora: RLHF_Pages/RM_Full_FT_or_Lora.md
+    - RM_Training: RLHF_Pages/RM_Training.md
+    - GRPO: RLHF_Pages/GRPO.md
+    - KTO: RLHF_Pages/KTO.md
     - SimPO: RLHF_Pages/SimPO.md
     - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
     - RM_Exercise: RLHF_Pages/RM_Exercise.md
