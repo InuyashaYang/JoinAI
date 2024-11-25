@@ -26,6 +26,7 @@
 ### **2.1 数据采样**
 
 在第 $i$ 次迭代中，从提示数据集 $\mathcal{D}_{\mathcal{P}}$ 中随机采样 $B$ 个提示，形成当前迭代的子集：
+
 $$
 \mathcal{D}_{\mathcal{P}}^{(i)} \subseteq \mathcal{D}_{\mathcal{P}}
 $$
@@ -37,30 +38,38 @@ $$
 1. **状态定义**：
    - 每个步骤的状态 $s_t$ 定义为当前推理链的前缀。
    - 执行动作 $a$ 后，状态转移至 $s_{t+1}$，即：
+
      $$
      s_{t+1} = s_t + a
      $$
 
 2. **MCTS 过程**：
    - **选择（Select）**：利用PUCT策略选择下一个要扩展的节点，平衡探索与利用：
+
      $$
      {s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]
      $$
+
      其中，$p(a \mid s_t) = \frac{\pi_{\theta}(a \mid x, s_t)}{|a|^{\lambda}}$。
 
    - **扩展（Expand）**：在叶节点处生成新的动作，计算其奖励：
+
      $$
      R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
      $$
+
      其中，$\mathcal{O}(s_t)$ 表示结果正确性，$\mathcal{C}(s_t)$ 表示自我评估。
 
    - **备份（Backup）**：将评估结果向上传播，更新 $Q$ 值和访问次数：
+
      $$
      Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
      $$
+
      $$
      V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
      $$
+
      $$
      N(s_t) \leftarrow N(s_t) + 1
      $$
@@ -76,19 +85,24 @@ $$
 利用提取的偏好数据 $\mathcal{D}_i$，通过直接偏好优化（DPO）方法更新策略参数 $\theta$：
 
 1. **损失函数定义**：
+
    $$
    \ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]
    $$
+
    其中，
+
    $$
    h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
    $$
+
    $$
    \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
    $$
 
 2. **参数优化**：
    通过最小化损失函数 $\ell_i(\theta)$ 更新模型参数 $\theta$，得到新的策略 $\pi_{\theta^{(i)}}$：
+
    $$
    \theta \leftarrow \theta - \eta \nabla_\theta \ell_i(\theta)
    $$
@@ -124,9 +138,11 @@ $$
      - 提取偏好数据 $\mathcal{D}_i$，包含每个深度 $t$ 的最优和最差步骤对 $(y_w^{(j,t)}, y_l^{(j,t)})$。
    - **DPO 优化**：
      - 使用 $\mathcal{D}_i$ 优化参数 $\theta$，最小化损失函数：
+
        $$
        J(\theta) = \mathbb{E}_{(x, y_w, y_l) \sim \mathcal{D}_i} \ell_i(x, y_w, y_l; \theta)
        $$
+
      - 更新策略 $\pi_{\theta^{(i)}}$。
 
 4. **输出**：
@@ -137,40 +153,51 @@ $$
 ## **4. 关键数学公式解释**
 
 - **PUCT 选择策略**：
+
   $$
   {s_{t+1}^*} = \arg\max_{a} \left[ Q(s_t, a) + c_{\mathrm{puct}} \cdot p(a \mid s_t) \frac{\sqrt{N(s_t)}}{1 + N(s_{t+1}^*)} \right]
   $$
+
   用于在选择阶段平衡探索与利用。
 
 - **奖励计算**：
+
   $$
   R(s_t) = \mathcal{O}(s_t) + \mathcal{C}(s_t)
   $$
+
   其中，$\mathcal{O}(s_t)$ 是结果正确性，$\mathcal{C}(s_t)$ 是自我评估的信心分数。
 
 - **动作价值更新**：
+
   $$
   Q(s_t, a) \leftarrow R(s_t, a) + \gamma V(s_{t+1})
   $$
 
 - **状态值更新**：
+
   $$
   V(s_t) \leftarrow \frac{\sum_{a} N(s_{t+1}) Q(s_t, a)}{\sum_{a} N(s_{t+1})}
   $$
 
 - **访问次数更新**：
+
   $$
   N(s_t) \leftarrow N(s_t) + 1
   $$
 
 - **DPO 损失函数**：
+
   $$
   \ell_{i}(\theta) = -\mathbb{E}_{(x,y_w,y_l)\sim\mathcal{D}_i} \left[(1 - \alpha_{x, y_w, y_l}) \log \sigma (\beta h_{\pi_{\theta}}^{y_w, y_l}) + \alpha_{x, y_w, y_l} \log \sigma (-\beta h_{\pi_{\theta}}^{y_w, y_l}) \right]
   $$
+
   其中，
+
   $$
   h_{\pi_{\theta}}^{y_w, y_l} = \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\mathrm{r}}(y_w \mid x)} - \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\mathrm{r}}(y_l \mid x)}
   $$
+
   $$
   \alpha_{x, y_w, y_l} = \frac{1}{\frac{N(x, y_w)}{N(x, y_l)} + 1}
   $$
