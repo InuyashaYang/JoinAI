@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../SimPO_Exercise/">
+        <link rel="prev" href="../RM_Training/">
       
       
-        <link rel="next" href="../RM_Exercise/">
+        <link rel="next" href="../KTO/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#grpoloss-function" class="md-skip">
+        <a href="#grpo" class="md-skip">
           Skip to content
         </a>
       
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../PPO/" class="md-tabs__link">
+        <a href="../DPO/" class="md-tabs__link">
           
   
   LLM_RLHF阶段
@@ -1087,90 +1087,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../PPO/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PPO
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../PPO_Loss/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    PPO_Loss
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RM_Full_FT_or_Lora/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RM_Full_FT_or_Lora
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../RM_Training/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    RM_Training
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../DPO/" class="md-nav__link">
         
   
@@ -1255,11 +1171,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../SimPO/" class="md-nav__link">
+      <a href="../PPO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SimPO
+    PPO
   </span>
   
 
@@ -1276,11 +1192,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../SimPO_Exercise/" class="md-nav__link">
+      <a href="../PPO_Loss/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    SimPO_Exercice
+    PPO_Loss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RM_Full_FT_or_Lora/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Full_FT_or_Lora
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RM_Training/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RM_Training
   </span>
   
 
@@ -1339,18 +1297,195 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#grpoloss-function" class="md-nav__link">
+  <a href="#grpo" class="md-nav__link">
     <span class="md-ellipsis">
-      GRPO的损失函数（Loss Function）
+      GRPO的损失函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GRPO的损失函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的定义
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的推导过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的优化机制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#grpo" class="md-nav__link">
+  <a href="#grpo_1" class="md-nav__link">
     <span class="md-ellipsis">
-      GRPO的算法流程
+      GRPO的流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GRPO的流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 输入参数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 迭代更新（重复 \(T\) 次）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 迭代更新（重复 \(T\) 次）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. 复制当前群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. 采样群组和数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. 更新群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. 归一化群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      e. 更新策略参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 返回最终策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的梯度推导
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="损失函数的梯度推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      加权梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的具体梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      梯度的直观解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
     </span>
   </a>
   
@@ -1360,6 +1495,69 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../KTO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KTO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SimPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SimPO_Exercice
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1438,18 +1636,195 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#grpoloss-function" class="md-nav__link">
+  <a href="#grpo" class="md-nav__link">
     <span class="md-ellipsis">
-      GRPO的损失函数（Loss Function）
+      GRPO的损失函数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GRPO的损失函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的定义
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的推导过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的优化机制
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#grpo" class="md-nav__link">
+  <a href="#grpo_1" class="md-nav__link">
     <span class="md-ellipsis">
-      GRPO的算法流程
+      GRPO的流程
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GRPO的流程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 初始化
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 输入参数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 迭代更新（重复 \(T\) 次）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 迭代更新（重复 \(T\) 次）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    <span class="md-ellipsis">
+      a. 复制当前群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b" class="md-nav__link">
+    <span class="md-ellipsis">
+      b. 采样群组和数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      c. 更新群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    <span class="md-ellipsis">
+      d. 归一化群组权重
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e" class="md-nav__link">
+    <span class="md-ellipsis">
+      e. 更新策略参数
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 返回最终策略
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的梯度推导
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="损失函数的梯度推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      加权梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      损失函数的具体梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      梯度的直观解释
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      总结
     </span>
   </a>
   
@@ -1472,69 +1847,224 @@
 
   <h1>GRPO</h1>
 
-<h2 id="grpoloss-function">GRPO的损失函数（Loss Function）<a class="headerlink" href="#grpoloss-function" title="Permanent link">&para;</a></h2>
-<p>GRPO的损失函数旨在优化策略模型，同时避免PPO中额外价值函数带来的计算负担。其核心要点包括：</p>
-<ol>
-<li><strong>策略比例与剪切</strong>：</li>
-<li>计算当前策略与旧策略在每个输出token上的概率比值。</li>
-<li>
-<p>使用剪切函数限制这个比值在[1-ε, 1+ε]范围内，以确保策略更新的稳定性。</p>
-</li>
-<li>
-<p><strong>优势估计</strong>：</p>
-</li>
-<li>不使用单独的价值函数，而是利用同一问题下多个采样输出的平均奖励作为基线。</li>
-<li>
-<p>优势（Advantage）由相对奖励计算得出，即每个输出的奖励减去群组的平均奖励并标准化。</p>
-</li>
-<li>
-<p><strong>KL散度正则化</strong>：</p>
-</li>
-<li>直接在损失函数中加入当前策略与参考策略（通常是初始策略）的KL散度，防止策略过度偏离参考模型。</li>
-<li>这一步骤简化了PPO中在奖励中加入KL惩罚项的复杂性。</li>
-</ol>
-<p>综上，GRPO的损失函数可以表示为：</p>
+<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<h2 id="grpo">GRPO的损失函数<a class="headerlink" href="#grpo" title="Permanent link">&para;</a></h2>
+<h3 id="_1">损失函数的定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>GRPO 旨在优化策略在不同群组上的表现，使其在最不利的群组上也能保持良好的性能。为此，GRPO 将优化问题建模为一个 <strong>最小-最大优化问题</strong>，其损失函数定义为：</p>
 <div class="arithmatex">\[
-J_{\text{GRPO}}(\theta) = \mathbb{E}\left[\frac{1}{G} \sum_{i=1}^{G} \frac{\pi_\theta(o_i, t | q, o_i,&lt;t)}{\pi_{\text{old}}(o_i, t | q, o_i,&lt;t)} \hat{A}_{i,t} \cdot \text{clip}\left(\frac{\pi_\theta(o_i, t | q, o_i,&lt;t)}{\pi_{\text{old}}(o_i, t | q, o_i,&lt;t)}, 1-\epsilon, 1+\epsilon\right) \hat{A}_{i,t} - \beta D_{\text{KL}}(\pi_\theta || \pi_{\text{ref}}) \right]
+\min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)
 \]</div>
-<h2 id="grpo">GRPO的算法流程<a class="headerlink" href="#grpo" title="Permanent link">&para;</a></h2>
-<p>GRPO的算法流程主要包括以下步骤：</p>
+<p>其中：
+- <span class="arithmatex">\(\theta \in \Theta \subset \mathbb{R}^d\)</span> 是策略 <span class="arithmatex">\(\pi_{\theta}\)</span> 的参数，<span class="arithmatex">\(\Theta\)</span> 是参数的可行空间。
+- <span class="arithmatex">\(\alpha = (\alpha_1, \alpha_2, \dots, \alpha_K) \in \Delta_K\)</span> 是群组权重向量，<span class="arithmatex">\(\Delta_K\)</span> 为 <span class="arithmatex">\(K\)</span> 维单纯形：
+  $$
+  \Delta_K = \left{ \alpha \in \mathbb{R}^K  \bigg|  \alpha_g \geq 0  \forall g \in {1, \dots, K},  \sum_{g=1}^{K} \alpha_g = 1 \right}
+  $$
+- <span class="arithmatex">\(\mathcal{L}_{\text{DPO}}(\pi_{\theta}, \mathcal{T}_g)\)</span> 是策略 <span class="arithmatex">\(\pi_{\theta}\)</span> 在群组 <span class="arithmatex">\(g\)</span> 上的 <strong>DPO 损失</strong>，具体定义为：
+  $$
+  \mathcal{L}<em _theta="\theta">{\text{DPO}}(\pi</em>(x_g, y_w, y_l) \right) \right)
+  $$
+  其中：
+  - }; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta h_{\pi_{\theta}<span class="arithmatex">\(\sigma\)</span> 是 Sigmoid 函数。
+  - <span class="arithmatex">\(\beta\)</span> 是一个超参数，用于控制函数的陡峭程度。
+  - <span class="arithmatex">\(h_{\pi_{\theta}}(x_g, y_w, y_l)\)</span> 是策略对样本 <span class="arithmatex">\((x_g, y_w, y_l)\)</span> 的评分函数。</p>
+<h3 id="_2">损失函数的推导过程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>GRPO 的损失函数源于以下几点考虑：</p>
 <ol>
-<li><strong>初始化</strong>：</li>
-<li>设置初始策略模型 <span class="arithmatex">\(\pi_\theta^{\text{init}}\)</span>。</li>
-<li>
-<p>初始化奖励模型 <span class="arithmatex">\(r_\phi\)</span> 及其他超参数（如 ε, β）。</p>
-</li>
-<li>
-<p><strong>迭代训练</strong>：</p>
-</li>
-<li>
-<p>对于每次迭代：</p>
-<ol>
-<li><strong>设置参考模型</strong>：将当前的策略模型 <span class="arithmatex">\(\pi_\theta\)</span> 设为参考模型 <span class="arithmatex">\(\pi_{\text{ref}}\)</span>。</li>
-<li><strong>训练步骤</strong>：<ul>
-<li>从训练数据集 <span class="arithmatex">\(D\)</span> 中采样一个批次问题 <span class="arithmatex">\(D_b\)</span>。</li>
-<li>更新旧策略模型 <span class="arithmatex">\(\pi_{\text{old}} \leftarrow \pi_\theta\)</span>。</li>
-<li>对于每个问题 <span class="arithmatex">\(q \in D_b\)</span>，从旧策略 <span class="arithmatex">\(\pi_{\text{old}}\)</span> 中采样 <span class="arithmatex">\(G\)</span> 个输出 <span class="arithmatex">\(\{o_i\}_{i=1}^{G}\)</span>。</li>
-<li>使用奖励模型 <span class="arithmatex">\(r_\phi\)</span> 对每个输出 <span class="arithmatex">\(o_i\)</span> 计算奖励 <span class="arithmatex">\(\{r_i\}_{i=1}^{G}\)</span>。</li>
-<li>归一化奖励：<span class="arithmatex">\(\hat{A}_{i,t} = \frac{r_i - \text{mean}(r)}{\text{std}(r)}\)</span>。</li>
-<li>最大化GRPO目标函数，更新策略模型 <span class="arithmatex">\(\pi_\theta\)</span>。</li>
-<li>持续训练奖励模型 <span class="arithmatex">\(r_\phi\)</span>，通常通过回放机制。</li>
-</ul>
-</li>
+<li><strong>群组鲁棒性</strong>：希望策略在所有群组上表现均衡，尤其是在表现较差的群组上提升其性能。</li>
+<li><strong>最坏情况优化</strong>：通过最小化在最不利群组上的损失，确保策略在任何群组上都不会有较大损失。</li>
+<li><strong>加权优化</strong>：引入群组权重 <span class="arithmatex">\(\alpha\)</span>，动态调整各群组的权重，使得表现较差的群组获得更高的权重，从而在优化过程中得到更多关注。</li>
 </ol>
+<p>具体推导步骤如下：</p>
+<ol>
+<li><strong>定义优化目标</strong>：</li>
+</ol>
+<p>我们希望找到一个策略参数 <span class="arithmatex">\(\theta\)</span>，使得在所有群组上的最大损失最小。数学表达为：</p>
+<p>$$
+   \min_{\theta \in \Theta} \max_{g \in {1, \dots, K}} \mathcal{L}<em _theta="\theta">{\text{DPO}}(\pi</em>_g)
+   $$}, \mathcal{T</p>
+<ol>
+<li><strong>引入群组权重 <span class="arithmatex">\(\alpha\)</span></strong>：</li>
+</ol>
+<p>为了将多个群组的损失统一考虑，引入权重向量 <span class="arithmatex">\(\alpha\)</span>，其中每个 <span class="arithmatex">\(\alpha_g\)</span> 表示群组 <span class="arithmatex">\(g\)</span> 的重要性。优化目标转化为加权损失的最大化：</p>
+<p>$$
+   \min_{\theta \in \Theta} \max_{\alpha \in \Delta_K} \sum_{g=1}^{K} \alpha_g \cdot \mathcal{L}<em _theta="\theta">{\text{DPO}}(\pi</em>_g)
+   $$}, \mathcal{T</p>
+<ol>
+<li><strong>解释加权损失</strong>：</li>
+</ol>
+<p>通过调整权重 <span class="arithmatex">\(\alpha\)</span>，优化过程能够自适应地关注那些在当前策略下表现较差的群组。具体来说：
+   - 若某群组 <span class="arithmatex">\(g\)</span> 的损失较高，优化过程中 <span class="arithmatex">\(\alpha_g\)</span> 会增加，促使策略参数 <span class="arithmatex">\(\theta\)</span> 更关注该群组的损失优化。
+   - 由于 <span class="arithmatex">\(\alpha\)</span> 受到单纯形约束（权重和为1），因此总损失在各群组间平衡。</p>
+<ol>
+<li><strong>DPO损失的设计</strong>：</li>
+</ol>
+<p>DPO（Distributionally Robust Policy Optimization）损失函数设计为：</p>
+<p>$$
+   \mathcal{L}<em _theta="\theta">{\text{DPO}}(\pi</em>(x_g, y_l) \right] \right) \right)
+   $$}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta</p>
+<p>其中：
+   - <span class="arithmatex">\(r_{\theta}(x, y)\)</span> 表示策略 <span class="arithmatex">\(\pi_{\theta}\)</span> 在输入 <span class="arithmatex">\(x\)</span> 下对响应 <span class="arithmatex">\(y\)</span> 的评分。
+   - <span class="arithmatex">\(\beta\)</span> 控制函数的敏感度，使得评分差异更为明显时，损失变化更剧烈。</p>
+<p>该设计的目的是鼓励策略在正确响应 <span class="arithmatex">\(y_w\)</span> 上的评分高于错误响应 <span class="arithmatex">\(y_l\)</span>，通过 Sigmoid 函数平滑地衡量这种差异。</p>
+<h3 id="_3">损失函数的优化机制<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在损失函数的优化过程中，GRPO 采用 <strong>交替优化</strong> 的方式，即在每一轮迭代中，交替更新策略参数 <span class="arithmatex">\(\theta\)</span> 和群组权重 <span class="arithmatex">\(\alpha\)</span>：</p>
+<ol>
+<li><strong>固定策略参数 <span class="arithmatex">\(\theta\)</span>，优化群组权重 <span class="arithmatex">\(\alpha\)</span></strong>：</li>
+<li>
+<p>通过最大化加权损失，确定当前策略下最需要关注的群组。</p>
 </li>
 <li>
-<p><strong>策略更新</strong>：</p>
+<p><strong>固定群组权重 <span class="arithmatex">\(\alpha\)</span>，优化策略参数 <span class="arithmatex">\(\theta\)</span></strong>：</p>
 </li>
-<li>使用群组相对优势估计（Group Relative Advantage Estimation）计算优势 <span class="arithmatex">\(\hat{A}_{i,t}\)</span>。</li>
+<li>通过最小化加权损失，优化策略在重点关注的群组上的表现。</li>
+</ol>
+<p>这种交替优化的机制确保了策略在每一轮迭代中既能关注当前表现较差的群组，又能整体上提升所有群组的性能。</p>
+<h2 id="grpo_1">GRPO的流程<a class="headerlink" href="#grpo_1" title="Permanent link">&para;</a></h2>
+<p>在理解了 GRPO 的损失函数及其优化机制后，接下来介绍 GRPO 的具体流程步骤。</p>
+<h3 id="1">1. 初始化<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>步长参数</strong>：</li>
+<li>群组权重更新步长 <span class="arithmatex">\(\eta_{\alpha}\)</span>。</li>
 <li>
-<p>通过最大化损失函数 <span class="arithmatex">\(J_{\text{GRPO}}(\theta)\)</span> 进行策略更新。</p>
+<p>策略参数更新步长 <span class="arithmatex">\(\eta_{\theta}\)</span>。</p>
 </li>
 <li>
-<p><strong>重复迭代</strong>：</p>
+<p><strong>初始权重</strong>：</p>
 </li>
-<li>不断重复上述步骤，直到策略模型收敛或达到预设的训练轮次。</li>
+<li>策略的初始参数 <span class="arithmatex">\(\theta^{(0)}\)</span>。</li>
+<li>
+<p>每个群组的初始权重 <span class="arithmatex">\(\alpha^{(0)}\)</span>（通常初始化为均匀分布，即 <span class="arithmatex">\(\alpha_g^{(0)} = \frac{1}{K}\)</span>）。</p>
+</li>
+<li>
+<p><strong>投影算子</strong>：</p>
+</li>
+<li><span class="arithmatex">\(\mathrm{P}_{\Theta}\)</span>，用于确保更新后的 <span class="arithmatex">\(\theta\)</span> 仍在参数空间 <span class="arithmatex">\(\Theta\)</span> 内。</li>
+</ul>
+<h3 id="2">2. 输入参数<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>数据集</strong>：</li>
+<li><span class="arithmatex">\(\mathcal{T}\)</span>，总样本数量为 <span class="arithmatex">\(N = |\mathcal{T}|\)</span>。</li>
+<li>
+<p>数据集被划分为 <span class="arithmatex">\(K\)</span> 个群组，每个群组的大小为 <span class="arithmatex">\(N_g\)</span>，其中 <span class="arithmatex">\(g \in \{1, 2, \dots, K\}\)</span>。</p>
+</li>
+<li>
+<p><strong>损失函数</strong>：</p>
+</li>
+<li><span class="arithmatex">\(l(\pi_{\theta}; \cdot)\)</span>，用于评估策略的表现，这里指的是 DPO 损失。</li>
+</ul>
+<h3 id="3-t">3. 迭代更新（重复 <span class="arithmatex">\(T\)</span> 次）<a class="headerlink" href="#3-t" title="Permanent link">&para;</a></h3>
+<p>对每一轮迭代 <span class="arithmatex">\(t = 1, \dots, T\)</span>，执行以下步骤：</p>
+<h4 id="a">a. 复制当前群组权重<a class="headerlink" href="#a" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\alpha' \leftarrow \alpha^{(t-1)}
+\]</div>
+<ul>
+<li>创建一个临时的群组权重向量 <span class="arithmatex">\(\alpha'\)</span>，用于在当前迭代中更新。</li>
+</ul>
+<h4 id="b">b. 采样群组和数据<a class="headerlink" href="#b" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>采样群组</strong>：</li>
+</ul>
+<p>从群组分布 <span class="arithmatex">\(\mathrm{Categorical}\left(\frac{N_1}{N}, \frac{N_2}{N}, \dots, \frac{N_K}{N}\right)\)</span> 中采样一个群组 <span class="arithmatex">\(g\)</span>。这里，群组的采样概率与其在数据集中所占的比例成正比。</p>
+<ul>
+<li><strong>采样数据点</strong>：</li>
+</ul>
+<p>从群组 <span class="arithmatex">\(g\)</span> 的数据集中采样一个数据点 <span class="arithmatex">\((x_g, y_w, y_l) \sim \mathcal{T}_g\)</span>，其中：
+  - <span class="arithmatex">\(x_g\)</span> 是输入特征。
+  - <span class="arithmatex">\(y_w\)</span> 是“赢”（正确）的响应标签。
+  - <span class="arithmatex">\(y_l\)</span> 是“输”（错误）的响应标签。</p>
+<h4 id="c">c. 更新群组权重<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\alpha'_g \leftarrow \alpha'_g \exp\left( \eta_{\alpha} \cdot \frac{N \cdot l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
+\]</div>
+<ul>
+<li><strong>指数加权</strong>：</li>
+</ul>
+<p>根据当前策略 <span class="arithmatex">\(\pi_{\theta^{(t-1)}}\)</span> 在群组 <span class="arithmatex">\(g\)</span> 上的损失 <span class="arithmatex">\(l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))\)</span>，对群组权重 <span class="arithmatex">\(\alpha'_g\)</span> 进行指数加权更新。</p>
+<ul>
+<li><strong>归一化因子</strong>：</li>
+</ul>
+<p>因子 <span class="arithmatex">\(\frac{N}{N_g}\)</span> 用于归一化，确保群组大小对权重更新有适当影响，避免群组大小差异过大对优化过程产生不均衡影响。</p>
+<h4 id="d">d. 归一化群组权重<a class="headerlink" href="#d" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\alpha^{(t)} \leftarrow \frac{\alpha'}{\sum_{g'} \alpha'_{g'}}
+\]</div>
+<ul>
+<li>将更新后的群组权重 <span class="arithmatex">\(\alpha'\)</span> 进行归一化，使得 <span class="arithmatex">\(\alpha^{(t)}\)</span> 成为一个位于单纯形 <span class="arithmatex">\(\Delta_K\)</span> 上的向量（即 <span class="arithmatex">\(\sum_{g} \alpha_g^{(t)} = 1\)</span>）。</li>
+<li>归一化确保群组权重在每一轮迭代后保持有效的概率分布。</li>
+</ul>
+<h4 id="e">e. 更新策略参数<a class="headerlink" href="#e" title="Permanent link">&para;</a></h4>
+<div class="arithmatex">\[
+\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
+\]</div>
+<ul>
+<li><strong>加权梯度下降</strong>：</li>
+</ul>
+<p>使用加权后的梯度 <span class="arithmatex">\(\alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))\)</span> 对策略参数 <span class="arithmatex">\(\theta\)</span> 进行更新。</p>
+<ul>
+<li><strong>权重的作用</strong>：</li>
+</ul>
+<p>权重 <span class="arithmatex">\(\alpha_g^{(t)}\)</span> 保证了在当前策略下表现较差的群组在策略更新时被给予更多关注。</p>
+<ul>
+<li><strong>归一化因子</strong>：</li>
+</ul>
+<p>因子 <span class="arithmatex">\(\frac{N}{N_g}\)</span> 再次确保群组大小对更新的影响适度，避免小群组因样本量少而被忽视。</p>
+<ul>
+<li><strong>投影算子</strong>：</li>
+</ul>
+<p>通过 <span class="arithmatex">\(\mathrm{P}_{\Theta}\)</span>，确保更新后的策略参数 <span class="arithmatex">\(\theta^{(t)}\)</span> 仍然位于参数空间 <span class="arithmatex">\(\Theta\)</span> 内。</p>
+<h3 id="4">4. 返回最终策略<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\textbf{Return:} \quad \pi(\theta^{(T)})
+\]</div>
+<ul>
+<li>在完成 <span class="arithmatex">\(T\)</span> 轮迭代后，输出最终优化得到的策略 <span class="arithmatex">\(\pi(\theta^{(T)})\)</span>。</li>
+</ul>
+<h2 id="_4">损失函数的梯度推导<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>为了更清晰地理解策略参数更新的机制，以下对损失函数的梯度进行详细推导。</p>
+<h3 id="_5">加权梯度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>策略参数更新的关键在于对加权后的梯度进行下降优化：</p>
+<div class="arithmatex">\[
+\theta^{(t)} \leftarrow \mathrm{P}_{\Theta} \left( \theta^{(t-1)} - \eta_{\theta} \cdot \frac{N \alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))}{N_g} \right)
+\]</div>
+<p>其中，加权梯度为：</p>
+<div class="arithmatex">\[
+\alpha_g^{(t)} \nabla_{\theta} l(\pi_{\theta^{(t-1)}}; (x_g, y_w, y_l))
+\]</div>
+<h3 id="_6">损失函数的具体梯度<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>根据 DPO 损失函数的定义：</p>
+<div class="arithmatex">\[
+\mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \log\left( \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \right)
+\]</div>
+<p>对 <span class="arithmatex">\(\theta\)</span> 求梯度：</p>
+<div class="arithmatex">\[
+\nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]
+\]</div>
+<p>结合权重 <span class="arithmatex">\(\alpha_g^{(t)}\)</span>，加权梯度为：</p>
+<div class="arithmatex">\[
+\alpha_g^{(t)} \nabla_{\theta} \mathcal{L}_{\text{DPO}}(\pi_{\theta}; (x_g, y_w, y_l)) = \alpha_g^{(t)} \cdot \sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right) \cdot \beta \cdot \left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]
+\]</div>
+<h3 id="_7">梯度的直观解释<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Sigmoid函数 <span class="arithmatex">\(\sigma\)</span> 的作用</strong>：</li>
+</ul>
+<p><span class="arithmatex">\(\sigma\left( \beta \left[ r_{\theta}(x_g, y_w) - r_{\theta}(x_g, y_l) \right] \right)\)</span> 衡量了当前策略在群组 <span class="arithmatex">\(g\)</span> 上对正确响应 <span class="arithmatex">\(y_w\)</span> 和错误响应 <span class="arithmatex">\(y_l\)</span> 的评分差异。越大的差异意味着策略在该样本上的表现越好，损失越低。</p>
+<ul>
+<li><strong>权重 <span class="arithmatex">\(\alpha_g^{(t)}\)</span> 的调节</strong>：</li>
+</ul>
+<p>当某群组的损失较高时，<span class="arithmatex">\(\alpha_g^{(t)}\)</span> 增大，促使梯度更新时更多地关注该群组的样本，从而优化策略在该群组上的表现。</p>
+<ul>
+<li><strong>梯度方向</strong>：</li>
+</ul>
+<p>梯度 <span class="arithmatex">\(\left[ \nabla_{\theta} r_{\theta}(x_g, y_w) - \nabla_{\theta} r_{\theta}(x_g, y_l) \right]\)</span> 表示增加对正确响应 <span class="arithmatex">\(y_w\)</span> 的评分，同时减少对错误响应 <span class="arithmatex">\(y_l\)</span> 的评分。这有助于策略更准确地做出正确决策。</p>
+<h2 id="_8">总结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>GRPO 通过构建一个最小-最大优化的损失函数，结合加权梯度下降和群组权重动态调整机制，实现了策略在不同群组上的鲁棒性优化。其核心优势体现在：</p>
+<ol>
+<li><strong>群组鲁棒性</strong>：确保策略在所有群组上都有良好的表现，尤其是在表现较差的群组上有针对性的提升。</li>
+<li><strong>自适应加权</strong>：通过动态调整群组权重，使得优化过程能自适应地聚焦于当前最需要改进的群组。</li>
+<li><strong>梯度优化</strong>：通过精心设计的损失函数和梯度更新机制，确保策略参数向着最优方向快速收敛。</li>
+<li><strong>理论保障</strong>：在一定的假设条件下（如损失函数的凸性和 Lipschitz 连续性），GRPO 的优化过程能够保证以 <span class="arithmatex">\(\mathcal{O}(T^{-1/2})\)</span> 的速率收敛到最优解。</li>
 </ol>
 
 

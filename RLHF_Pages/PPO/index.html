@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../RL_Pages/Monte_Carlos/">
+        <link rel="prev" href="../DPO_Math/">
       
       
         <link rel="next" href="../PPO_Loss/">
@@ -278,7 +278,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../DPO/" class="md-tabs__link">
           
   
   LLM_RLHF阶段
@@ -1084,6 +1084,90 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../DPO/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DPO_Exercise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Exercice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DPO_Problem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Problem
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DPO_Math/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DPO_Math
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1319,11 +1403,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPO/" class="md-nav__link">
+      <a href="../GRPO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DPO
+    GRPO
   </span>
   
 
@@ -1340,53 +1424,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../DPO_Exercise/" class="md-nav__link">
+      <a href="../KTO/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    DPO_Exercice
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DPO_Problem/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    DPO_Problem
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../DPO_Math/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    DPO_Math
+    KTO
   </span>
   
 
@@ -1429,27 +1471,6 @@
   
   <span class="md-ellipsis">
     SimPO_Exercice
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../GRPO/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    GRPO
   </span>
   
 
@@ -1710,7 +1731,24 @@ $$
 $$
 \log P(y_b^n \mid x_n) = R(x_n, y_b^n; \theta) - \log\left(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}\right)
 $$
-进一步展开梯度:
+进一步展开梯度:</p>
+<p>$$
+\nabla_{\theta} \log P(y_b^n \mid x_n) = 
+\nabla_{\theta} R(x_n, y_b^n; \theta) - \frac{1}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}} \cdot 
+\nabla_{\theta}(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)})
+$$
+对求和项求导:
+$$
+\nabla_{\theta}(\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}) = \sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)} \cdot 
+\nabla_{\theta} R(x_n, y_i^n; \theta)
+$$
+代回原式:
+$$
+\nabla_{\theta} \log P(y_b^n \mid x_n) = 
+\nabla_{\theta} R(x_n, y_b^n; \theta) - \frac{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)} \cdot 
+\nabla_{\theta} R(x_n, y_i^n; \theta)}{\sum_{i=1}^{K_n} e^{R(x_n, y_i^n; \theta)}}
+$$
+得到:
 $$
 \nabla_{\theta} \log P(y_b^n \mid x_n) = \nabla_{\theta} R(x_n, y_b^n; \theta) - \sum_{i=1}^{K_n} P(y_i^n \mid x_n) \nabla_{\theta} R(x_n, y_i^n; \theta)
 $$
@@ -1782,7 +1820,7 @@ $$
 - 控制KL散度以保持稳定性
 - 平衡探索与利用
 - 注意采样效率</p>
-<p><a href="https://github.com/InuyashaYang/JoinAI"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/JoinAI?style=social" /></a></p>
+<p><a href="https://github.com/InuyashaYang/AIDIY"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/AIDIY?style=social" /></a></p>
 
 
 
