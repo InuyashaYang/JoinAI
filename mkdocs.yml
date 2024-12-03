@@ -76,6 +76,7 @@ nav:
     - SimPO: RLHF_Pages/SimPO.md
     - SimPO_Exercice: RLHF_Pages/SimPO_Exercise.md
     - RM_Exercise: RLHF_Pages/RM_Exercise.md
+    - NPO: RLHF_Pages/NPO.md
   - StableDiffusion: stablediffusion.md
 
 
