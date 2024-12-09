@@ -9,6 +9,10 @@
       
       
       
+        <link rel="prev" href="../Basic_1_Tensor/">
+      
+      
+        <link rel="next" href="../How_to_Load_Data/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -16,7 +20,7 @@
     
     
       
-        <title>深度学习框架:从微分图到反向传播 - AIDIY Wiki</title>
+        <title>Pytorch Autograd - AIDIY Wiki</title>
       
     
     
@@ -60,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#autograd" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              深度学习框架:从微分图到反向传播
+              Pytorch Autograd
             
           </span>
         </div>
@@ -250,10 +254,12 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../../LlamaFactory/" class="md-tabs__link">
           
   
@@ -941,25 +947,30 @@
       
   
   
+    
   
   
+  
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -970,7 +981,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             工程实践
@@ -1010,6 +1021,294 @@
   
   <span class="md-ellipsis">
     全量微调
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Basic_1_Tensor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch Tensor
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Pytorch Autograd
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch Autograd
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#autograd" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、自动求导（Autograd）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="二、自动求导（Autograd）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-autograd" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 什么是 Autograd？
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 计算图与自动微分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键概念与属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 基本用法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基本用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 简单的梯度计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 多步计算
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 高级用法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 高级用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 不需要梯度的操作
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 创建不可求导的张量
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 处理梯度
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 处理梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 清零梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 访问梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 梯度累积
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 注意事项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_Load_Data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch load Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../How_to_Train_Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pytorch train Model
   </span>
   
 
@@ -1514,8 +1813,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1524,37 +1821,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#autograd" class="md-nav__link">
     <span class="md-ellipsis">
-      为什么要学习框架原理?
+      二、自动求导（Autograd）
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      微分图的本质
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="微分图的本质">
+    <nav class="md-nav" aria-label="二、自动求导（Autograd）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#1-autograd" class="md-nav__link">
     <span class="md-ellipsis">
-      基本组成
+      1. 什么是 Autograd？
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#2" class="md-nav__link">
     <span class="md-ellipsis">
-      工作机制
+      2. 计算图与自动微分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 关键概念与属性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 基本用法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 基本用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 简单的梯度计算
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 多步计算
     </span>
   </a>
   
@@ -1564,31 +1889,102 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
     <span class="md-ellipsis">
-      主要类列表
+      5. 高级用法
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 高级用法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 不需要梯度的操作
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
     <span class="md-ellipsis">
-      类之间的关系图示（简化）
+      5.2 创建不可求导的张量
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
     <span class="md-ellipsis">
-      进一步的实现步骤
+      6. 处理梯度
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="6. 处理梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 清零梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 访问梯度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 梯度累积
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 应用场景
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 注意事项
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1607,244 +2003,120 @@
                   
 
 
-<h1 id="_1">深度学习框架:从微分图到反向传播<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">为什么要学习框架原理?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>深度学习框架虽然使用便捷,但理解其底层机制对于深入掌握深度学习至关重要。通过学习框架原理,我们能:
-- 理解模型训练的本质过程
-- 掌握自动微分的核心原理<br />
-- 提升模型调试和优化能力</p>
-<h2 id="_3">微分图的本质<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>微分图(Computational Graph)是深度学习框架的核心,它通过有向图结构来描述计算过程:</p>
-<h3 id="_4">基本组成<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<ol>
-<li>节点(Nodes):</li>
-<li>代表具体的计算操作(如加法、乘法等)</li>
-<li>存储计算结果和梯度信息</li>
-<li>记录与其他节点的连接关系</li>
-<li>边(Edges): </li>
-<li>表示数据在节点间的流动</li>
-<li>定义了计算的依赖顺序</li>
-<li>指导梯度的反向传播</li>
-</ol>
-<h3 id="_5">工作机制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>微分图在训练过程中扮演双重角色:
-1. 前向传播:按照边的方向执行计算
-2. 反向传播:沿着边的反方向计算梯度</p>
-<p>接下来我们将使用 Python 和 NumPy 进行工程化实践。为了系统地实现一个基本的深度学习框架，从而支持微分图和反向传播算法，我们需要设计并实现多个类。以下是我们要实现的主要类列表及其简要描述：</p>
-<h2 id="_6">主要类列表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong><code>Tensor</code> 类</strong></li>
-<li><strong>职责</strong>：<ul>
-<li>存储数据（使用 NumPy 的 <code>ndarray</code>）和相应的梯度。</li>
-<li>记录创建该张量的操作，便于构建计算图。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要属性</strong>：</p>
+  <h1>Pytorch Autograd</h1>
+
+<p><a href="https://github.com/InuyashaYang/AIDIY"><img alt="GitHub stars" src="https://img.shields.io/github/stars/InuyashaYang/AIDIY?style=social" /></a></p>
+<h2 id="autograd">二、自动求导（Autograd）<a class="headerlink" href="#autograd" title="Permanent link">&para;</a></h2>
+<h3 id="1-autograd">1. 什么是 Autograd？<a class="headerlink" href="#1-autograd" title="Permanent link">&para;</a></h3>
+<p>Autograd 是 PyTorch 的自动微分系统，能够根据计算图自动计算张量的梯度。这在训练神经网络时尤为重要，因为需要反向传播算法来更新模型参数。</p>
+<h3 id="2">2. 计算图与自动微分<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>每当你对张量执行一个操作时，PyTorch 都会创建一个计算图，该图记录了这些操作的顺序和关系。Autograd 利用这个图来自动计算梯度。</p>
+<h3 id="3">3. 关键概念与属性<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>data</code>: 存储实际的数值数据。</li>
-<li><code>grad</code>: 存储相对于损失函数的梯度。</li>
-<li><code>creator</code>: 记录执行当前张量计算的操作节点。</li>
+<li><strong>requires_grad</strong></li>
 </ul>
-</li>
-<li>
-<p><strong><code>Operation</code> 类（基类）</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>定义所有操作节点的基础接口，包括前向计算和反向传播的方法。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要方法</strong>：</p>
-<ul>
-<li><code>forward(inputs)</code>: 执行前向计算，生成输出张量。</li>
-<li><code>backward(gradient)</code>: 执行反向传播，计算输入张量的梯度。</li>
-</ul>
-</li>
-<li>
-<p><strong>具体操作类（继承自 <code>Operation</code>）</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>实现具体的数学操作及其对应的梯度计算。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要子类</strong>：</p>
-<ul>
-<li><strong><code>Add</code></strong>：</li>
-<li><strong>功能</strong>：实现加法运算。</li>
-<li><strong>前向</strong>：<code>output = input_a + input_b</code></li>
-<li><strong>反向</strong>：<code>grad_a = grad_output * 1</code>, <code>grad_b = grad_output * 1</code></li>
-<li><strong><code>Multiply</code></strong>：</li>
-<li><strong>功能</strong>：实现逐元素乘法运算。</li>
-<li><strong>前向</strong>：<code>output = input_a * input_b</code></li>
-<li><strong>反向</strong>：<code>grad_a = grad_output * input_b</code>, <code>grad_b = grad_output * input_a</code></li>
-<li><strong><code>MatMul</code></strong>：</li>
-<li><strong>功能</strong>：实现矩阵乘法运算。</li>
-<li><strong>前向</strong>：<code>output = input_a @ input_b</code></li>
-<li><strong>反向</strong>：<code>grad_a = grad_output @ input_b.T</code>, <code>grad_b = input_a.T @ grad_output</code></li>
-<li><strong><code>ReLU</code></strong>：</li>
-<li><strong>功能</strong>：实现 ReLU 激活函数。</li>
-<li><strong>前向</strong>：<code>output = max(0, input)</code></li>
-<li><strong>反向</strong>：<code>grad_input = grad_output * (input &gt; 0)</code></li>
-<li><strong>其他操作</strong>：</li>
-<li>根据需要，可以实现更多操作，如 <code>Sigmoid</code>、<code>Softmax</code>、<code>Transpose</code> 等。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Graph</code> 类</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>管理和维护整个计算图的结构。</li>
-<li>组织节点和边，确保前向和反向传播的顺序。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要方法</strong>：</p>
-<ul>
-<li><code>add_operation(operation)</code>: 添加操作节点到计算图中。</li>
-<li><code>forward(inputs)</code>: 执行前向传播，计算输出。</li>
-<li><code>backward(loss_grad)</code>: 执行反向传播，计算梯度。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Optimizer</code> 类（基类）</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>定义优化算法的基础接口，用于更新模型参数。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要方法</strong>：</p>
-<ul>
-<li><code>step()</code>: 更新参数。</li>
-<li><code>zero_grad()</code>: 清零所有参数的梯度。</li>
-</ul>
-</li>
-<li>
-<p><strong>具体优化器类（继承自 <code>Optimizer</code>）</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>实现具体的优化算法。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要子类</strong>：</p>
-<ul>
-<li><strong><code>SGD</code></strong>（随机梯度下降）：</li>
-<li><strong>功能</strong>：按学习率更新参数。</li>
-<li><strong>实现</strong>：<code>param -= learning_rate * param.grad</code></li>
-<li><strong><code>Adam</code></strong>（可选）：</li>
-<li><strong>功能</strong>：实现 Adam 优化算法。</li>
-<li><strong>实现</strong>：包括动量和自适应学习率的计算。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Layer</code> 类</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>抽象神经网络中的层，管理参数和前向计算。</li>
-</ul>
-</li>
-<li><strong>主要方法</strong>：<ul>
-<li><code>forward(inputs)</code>: 定义层的前向传播。</li>
-<li><code>parameters()</code>: 返回层的可训练参数。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要子类</strong>：</p>
-<ul>
-<li><strong><code>Linear</code></strong>：</li>
-<li><strong>功能</strong>：实现全连接层。</li>
-<li><strong>参数</strong>：权重矩阵和偏置向量。</li>
-<li><strong>前向</strong>：<code>output = input @ weights + bias</code></li>
-<li><strong>其他层</strong>：</li>
-<li>根据需要，可以实现更多层，如 <code>Conv2D</code>、<code>Dropout</code> 等。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Model</code> 类</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>组合多个 <code>Layer</code>，构建整个神经网络模型。</li>
-<li>管理整体的前向和反向传播过程。</li>
-</ul>
-</li>
-<li>
-<p><strong>主要方法</strong>：</p>
-<ul>
-<li><code>forward(inputs)</code>: 顺序调用各层的前向传播。</li>
-<li><code>parameters()</code>: 汇总所有层的可训练参数。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>Loss</code> 类</strong></p>
-</li>
-<li><strong>职责</strong>：<ul>
-<li>定义损失函数及其梯度计算。</li>
-</ul>
-</li>
-<li><strong>主要方法</strong>：<ul>
-<li><code>forward(predictions, targets)</code>: 计算损失值。</li>
-<li><code>backward()</code>: 计算损失相对于预测值的梯度。</li>
-</ul>
-</li>
-<li><strong>主要子类</strong>：<ul>
-<li><strong><code>MeanSquaredError</code></strong>：</li>
-<li><strong>功能</strong>：实现均方误差损失。</li>
-<li><strong><code>CrossEntropyLoss</code></strong>：</li>
-<li><strong>功能</strong>：实现交叉熵损失。</li>
-</ul>
-</li>
-</ol>
-<h2 id="_7">类之间的关系图示（简化）<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>Model
-├── Layer
-│   ├── Linear
-│   └── ...
-├── Loss
-│   ├── MeanSquaredError
-│   └── CrossEntropyLoss
-└── Optimizer
-    ├── SGD
-    └── Adam
+<p>设置张量的 <code>requires_grad</code> 属性为 <code>True</code>，表示需要对该张量进行梯度计算。</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="_8">进一步的实现步骤<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<ol>
-<li><strong>定义 <code>Tensor</code> 类</strong>：</li>
-<li>
-<p>实现数据存储、梯度存储以及与操作的连接。</p>
-</li>
-<li>
-<p><strong>实现 <code>Operation</code> 基类及其子类</strong>：</p>
-</li>
-<li>
-<p>每个子类需要实现具体的前向和反向计算逻辑。</p>
-</li>
-<li>
-<p><strong>构建 <code>Graph</code> 类</strong>：</p>
-</li>
-<li>
-<p>管理操作的执行顺序，支持前向和反向传播。</p>
-</li>
-<li>
-<p><strong>设计 <code>Layer</code> 和 <code>Model</code> 类</strong>：</p>
-</li>
-<li>
-<p>方便模块化地构建复杂的神经网络结构。</p>
-</li>
-<li>
-<p><strong>实现优化器</strong>：</p>
-</li>
-<li>
-<p>选择合适的优化算法，确保模型参数能够有效更新。</p>
-</li>
-<li>
-<p><strong>定义损失函数</strong>：</p>
-</li>
-<li>选择合适的损失函数，根据具体任务（如回归或分类）进行选择。</li>
-</ol>
-<p>通过以上类的设计与实现，我们将能够搭建一个基本但功能完整的深度学习框架，支持构建计算图、执行前向和反向传播，以及进行参数优化。这将为深入理解深度学习框架的底层原理打下坚实的基础。</p>
+<ul>
+<li><strong>grad</strong></li>
+</ul>
+<p>在进行反向传播后，<code>x.grad</code> 会包含相对于 <code>x</code> 的梯度。</p>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">y</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># 输出: tensor([2., 2., 2.])</span>
+</code></pre></div>
+<h3 id="4">4. 基本用法<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<h4 id="41">4.1 简单的梯度计算<a class="headerlink" href="#41" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="c1"># 创建一个需要梯度的张量</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 定义一个简单的函数</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># 反向传播</span>
+<span class="n">z</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+<span class="c1"># 查看梯度</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># 输出: tensor([2., 2., 2.])</span>
+</code></pre></div>
+<h4 id="42">4.2 多步计算<a class="headerlink" href="#42" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">out</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="5">5. 高级用法<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<h4 id="51">5.1 不需要梯度的操作<a class="headerlink" href="#51" title="Permanent link">&para;</a></h4>
+<p>在某些情况下，你可能不希望计算梯度，可以使用 <code>torch.no_grad()</code> 或 <code>detach()</code>。</p>
+<ul>
+<li><strong>torch.no_grad()</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>
+<ul>
+<li><strong>detach()</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="52">5.2 创建不可求导的张量<a class="headerlink" href="#52" title="Permanent link">&para;</a></h4>
+<p>有时需要临时禁用梯度计算，可以使用 <code>requires_grad_()</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">x</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="6">6. 处理梯度<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<h4 id="61">6.1 清零梯度<a class="headerlink" href="#61" title="Permanent link">&para;</a></h4>
+<p>在每次反向传播前，通常需要清零梯度，以避免梯度累积。</p>
+<div class="highlight"><pre><span></span><code><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="62">6.2 访问梯度<a class="headerlink" href="#62" title="Permanent link">&para;</a></h4>
+<p>梯度存储在 <code>grad</code> 属性中。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>
+</code></pre></div>
+<h4 id="63">6.3 梯度累积<a class="headerlink" href="#63" title="Permanent link">&para;</a></h4>
+<p>默认情况下，PyTorch 会累积梯度。这在某些优化策略中可能有用，但通常需要手动清零。</p>
+<h3 id="7">7. 应用场景<a class="headerlink" href="#7" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>训练神经网络</strong></li>
+</ul>
+<p>在训练过程中，使用 Autograd 计算损失函数关于模型参数的梯度，以便使用优化器更新参数。</p>
+<ul>
+<li><strong>自定义损失函数</strong></li>
+</ul>
+<p>可以定义任意复杂的损失函数，Autograd 会自动处理梯度计算。</p>
+<h3 id="8">8. 注意事项<a class="headerlink" href="#8" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>叶子节点</strong></li>
+</ul>
+<p>只有叶子节点（在计算图的起点）的张量才会保存梯度。如果对叶子节点进行操作，生成的新张量默认 <code>requires_grad=True</code>，但 <code>grad</code> 不会被保存，除非设置 <code>retain_grad()</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">y</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">z</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># 正常获取梯度</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># None unless y.retain_grad() is called before backward</span>
+</code></pre></div>
+<ul>
+<li><strong>就地操作</strong></li>
+</ul>
+<p>某些就地操作（如 <code>x += 1</code>）可能会破坏计算图，导致 Autograd 无法正确计算梯度。建议尽量避免在需要梯度的张量上进行就地操作。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 推荐</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># 不推荐</span>
+<span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># 可能导致梯度计算错误</span>
+</code></pre></div>
 <script src="https://giscus.app/client.js"
         data-repo="InuyashaYang/AIDIY"
         data-repo-id="R_kgDOM1VVTQ"
