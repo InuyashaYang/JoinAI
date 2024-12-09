@@ -58,6 +58,10 @@ nav:
   - 工程实践: 
     - LlamaFactory入门: Engineering_Pages/LlamaFactory.md
     - 全量微调: Engineering_Pages/Full_SFT_LlamaFactory.md
+    - Pytorch Tensor: Engineering_Pages/Pytorch/Basic_1_Tensor.md
+    - Pytorch Autograd: Engineering_Pages/Pytorch/Basic_2_Autograd.md
+    - Pytorch load Data: Engineering_Pages/Pytorch/How_to_Load_Data.md
+    - Pytorch train Model: Engineering_Pages/Pytorch/How_to_Train_Model.md
   - RL:
     - RL基础概念: RL_Pages/RL.md
     - 蒙特卡洛树搜索: RL_Pages/Monte_Carlos.md
